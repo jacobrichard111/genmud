@@ -1,0 +1,73 @@
+THING 108500
+Name organizations.are`
+HpMv 0 10 5 500
+HWT 0 0
+Timer 13
+Short The organizations area`
+type Lonath`
+ThFl 135307259
+Flag Area 0 0 28
+END_THING
+
+THING 108501
+HWT 0 0
+Color 7
+Desc The list of organization prefixes is here.
+`
+Short Organizations room.`
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+THING 108510
+Name organization_prefixes`
+HWT 0 0
+Desc Assembly
+Assemblage
+Peerage
+Gathering
+Guild
+Hall
+Congress
+Sect
+Clan
+Conclave
+Brotherhood
+Fraternity
+Order
+Circle
+Legion
+Corps
+Covenant
+Fist
+Council
+Association
+Congregation
+Company
+Faction
+Meet
+Convergence
+Cabal
+Coterie
+Fellowship
+Society
+Band
+Body
+League
+Outfit
+Party
+Caucus
+Host
+Union
+Army
+Covey
+Organization
+Contingent
+Group
+Ensemble
+`
+END_THING
+
+END_OF_AREA
+

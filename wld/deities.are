@@ -1,0 +1,25 @@
+THING 120000
+Name deities.are`
+HpMv 0 10 5 5000
+HWT 0 0
+Timer 11
+Short Deities Area`
+type Lonath`
+ThFl 1089531
+Flag Area 0 0 28
+END_THING
+
+THING 120001
+HWT 0 0
+Color 7
+Desc This area is where the deities are put. They are level 500 or so
+and pop a full set of super equipment. :)
+`
+Short Deities Area`
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+END_OF_AREA
+

@@ -1,0 +1,58 @@
+After you've set up the game and given yourself an admin character,
+if you want to check out the societies here are a few commands
+you should try.
+
+society list
+
+	This command will list all of the societies in the
+	world. It gives some brief info about each
+	society such as its population and location in the world.
+
+society show <num>
+
+	This shows you more detailed info about society num.
+
+society edit <num>
+
+	This will let you edit the society numbered num.
+
+rumor
+
+	This gives you a list of all of the rumors in the world.
+	There may not be any of these when you just start out.
+
+news
+
+	If you go worker that mob will generally be a society
+	member. If you type news they may tell you some news.
+	If you get a message saying that no one wants to share
+	news then you're of the wrong alignment.
+
+	Type tstat worker and see its alignment. (probably 0, 1, or 2)
+
+	Then type tset <yourname> al <num> where num is the alignment
+	of the mob and it will change your alignment to that of the
+	mob. If there aren't any rumors, then you won't get much
+	out of this unless someone's been kidnapped. It may take a
+	few tries to get news out of it.
+
+speedup foozball
+
+	If you type this, then the server will run as fast as possible. I
+	would recommend doing this only on your own machine as it will
+	eat up 100pct of the cpu that it can get. If you let the
+	simulation run fast for several hours, you will probably go
+	through several days worth of the game. That should be
+	enough time for the societies to start doing interesting things
+	and for the rumors to start piling up.
+
+Also, as you walk around a lot of the rooms will have Val Builds in them.
+These are rooms that are owned by a society and which will be build up
+and can be razed or burned down. Most rooms in the game are crap 
+of each other since I expect them to be overwritten by cities.
+
+(Update: I have given up on building areas and have decided to make
+everything randomly generated. :) Societies can also be generated.
+If you look at the Society Generators area, you will see many
+societies that are created when the world is created. You can make
+new ones if you want, too.)

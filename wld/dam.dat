@@ -1,0 +1,40 @@
+DAM_MSG 0 1
+$x@1n$x barely hit@s @3f$x with @1s @t.`
+DAM_MSG 2 4 
+$x@1n$x hit@s @3f$x with @1s @t.`
+DAM_MSG 5 7
+$x@1p$x @t hits @3f$x hard.`
+DAM_MSG 8 12
+$x@1n$x @t@s @3f$x very hard.`
+DAM_MSG 13 15
+$x@1n$x @t@s @3f$x extremely hard.`
+DAM_MSG 16 19
+$x@1p$x @t causes @3p$x face to contort in agony.`
+DAM_MSG 20 23
+$x@1p$x @t hits @3f$x accurately and with great force.`
+DAM_MSG 24 27
+$x@1p$x @t hits @3f$x with incredible accuracy!`
+DAM_MSG 28 32
+$x@1p$x @t causes @3f$x to spasm with pain!`
+DAM_MSG 33 36
+$x@1n$x MUTILATE@s @3f$x with @1s @t.`
+DAM_MSG 37 41
+$x@1n$x DECIMATE@s @3f$x with @1s @t.`
+DAM_MSG 42 54
+$x@1n$x MANGLE@s @3f$x with @1s @t.`
+DAM_MSG 55 64
+$x@1n$x < PULVERIZE@s > @3f$x with @1s @t.`
+DAM_MSG 65 79
+$x@1n$x << DEMOLISH@s >> @3f$x with @1s @t.`
+DAM_MSG 80 94
+$x@1n$x <-< OBLITERATE@s >-> @3f$x with @1s @t.`
+DAM_MSG 95 110
+$x@1n$x >>> EVISCERATE@s <<< @3f$x with @1s @t.`
+DAM_MSG 111 125
+$x@1n$x <<< ANNIHILATE@s >>> @3f$x with @1s @t.`
+DAM_MSG 126 141
+$x@1n$x [[[ ERADICATE@s ]]] @3f$x with @1s @t.`
+DAM_MSG 142 999999999
+$x@1n$x .. .  .   .VAPORIZE@s.   .  . .. @3f$x with @1s @t.`
+
+END_DAMAGES

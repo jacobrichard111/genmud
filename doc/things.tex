@@ -1,0 +1,376 @@
+\chapter{Things}
+
+\section{HOWTO}
+
+If you want to add a piece of data to a thing, I strongly urge
+you to stop for a moment. There are interchangable chunks of
+data called values that are discussed in the next chapter that
+will let you add data to the things. If you want to add data
+to a player only, then add things to the player struct discussed
+later on. If you are doing fundamental changes to the game,
+then by all means change the thing struct, but it's not a good
+idea to load it up with lots of special information.
+
+If you insist upon doing this, you must recompile the entire game,
+and you must make sure you take care of the creation and
+destruction and copying of the thing if the piece of data you
+add is a pointer (such as a string). The files are text, not
+binary, so you will also have to take care of reading and writing
+the new information to files.
+
+\section{Introduction}
+
+Things are the most important elements of the server. They are the
+core of the database. When you do something within the game, you are
+using the thing that represents you, to affect other things within the
+game. If you are familiar with Diku type MUDs, then things in this
+code take the place of areas, rooms, mobiles, and objects. You can use
+aspects of more than one of those types (such as a mobile you can pick
+up and use as a weapon, or enter and use as a boat (room)), but in
+some cases the generalization breaks down. However, it does give a
+great deal of flexibility, and I have found that I don't need to do a
+lot of special purpose coding to get things to work.
+
+\section{Nodes and Hierarchy}
+
+One aspect of things is that they are {\it{nodes}} in a giant
+tree. That means they have parents (th$->$in), they have children
+(th$->$cont), and they can be a child within a thing
+(th$->$next\_cont). The way in which things are kept organized is by
+using a hierarchal structure.
+
+The top level of this structure is the\_world. the\_world is a thing
+which is not in anything, but is sort of the root of the rest of the
+structure. the\_world has a linked list of contents (children), which
+are the areas. In general, you cannot affect this relationship (and if
+you can tell me so I can fix it so you can't), and it is important not
+to mess with this relationship since it is required for a lot of the
+game interactions that areas are the contents of the\_world.
+
+The areas each have a bunch of children, as well. These children are
+the prototypes for rooms, objects and mobiles. IT IS CRITICALLY
+IMPORTANT THAT YOU MAKE SURE THAT THE ONLY THINGS INSIDE OF AREAS ARE
+PROTOTYPES (OR ROOMS) AND THAT ALL PROTOTYPES END UP INSIDE OF AN
+AREA...THE CODE DOES THIS NOW BUT THIS FACT IS USED IN MANY PLACES TO
+DETERMINE WHETHER OR NOT A CERTAIN OBJECT IS A ``MASTER'' COPY
+(PROTOTYPE) OR A ``CLONE'' WHICH IS OUT IN THE REAL WORLD SINCE MASTER
+COPIES ARE IN AREAS AND THE CLONES WILL NOT BE IN AREAS!!!!
+
+There are special commands to set up objects and mobiles, and rooms
+are set up automatically based on their vnums relative to the area
+vnum. Essentially, each area has a vnum (index number). Each area when
+it is created also gets a number of ``things'' that can be in the
+area. When the area is created, 3/4 of those available vnums are
+considered to be ``rooms'', and 1/4 can be used for other things like
+objs and mobs. The ``level'' of an area is how many total things it
+has in it (in other words it blocks those vnums from being used within
+another area), and its ``armor'' is the number of rooms available in
+the area. These two numbers: level and armor can be changed if needed,
+but be careful, especially if you decrease the numbers and you end up
+with things inside the area itself which end up being outside the
+appropriate vnums for the area.
+
+ So, as an example, suppose an area has vnum = 40000, its level is 250
+ and its armor is 150. That means this area uses vnums 40000-40249 and
+ vnums 40001-40150 are rooms and the rest can be mobiles or
+ objects. If you edit create $<$vnum$>$ and that vnum is between 40001
+ and 40150, it will automatically be created as a room, and this
+ cannot be changed later on. I know it sucks, but I was running into
+ problems since rooms need to be special in many ways, so be sure you
+ plan out your areas beforehand and give yourself extra space so you
+ can have the areas grow later on if needed. Note that you cannot use
+ the same number for more than one thing...so no more making mob 40003
+ to sit in room 40003 popping object 40003. Sorry about that,
+ too. Also, there can only be one copy of any rooms since I don't have
+ exits set up to reference a vnum and a specific copy of that vnum. If
+ you want things like multiroom ships and stuff like that, you should
+ probably redo the code so that every thing gets a vnum and a copy
+ number.
+
+
+Finally, all of the action in the game takes place inside of the
+rooms. You walk from room to room, fight stuff in there, drop things
+in there, etc... You can also enter some objects (if they are set up
+correctly), to make boats and things like that, but you cannot save
+characters within those things because, again they are not as stable
+as rooms, and it is possible to have 10 copies of boat umber 24323, so
+how do you know which one you are in...since I didn't put in copy
+numbers along with vnums. Again, if this bothers you, you should redo
+the code adding copy numbers so you can really really have a totally
+persistent world.
+
+The hierarchy is also used for the core game functions. Since
+everything is in something, can contain things, and can be in the same
+thing as other things, we have these three layers of what a thing can
+``see''. Generally you can interact with the thing you are in, the
+things you contain, and things inside the same thing as you. When I
+was thinking about the paradigm (yuckword - sorry) I was going to use
+for the game, I decided the most important thing was this hierarchy,
+and the important interactions were how things could move other things
+within the hierarchy. Think of the most basic commands in the game:
+enter, leave, e, s, w, n, u, d, drop, get, give, take, wear,
+etc... These things all end up moving a thing from somewhere in the
+hierarchy to some other place in the hierarchy. The main differences
+between things are how they can move things, and can be moved within
+the hierarchy. More on this below with Thing Flags.
+
+\section{thing\_hash[]}
+
+Another way in which the data is stored in a really big hash
+table. If you are used to Diku code, the hash table
+
+extern thing\_hash[HASH\_SIZE];
+
+essentially takes the place of area\_list, obj\_list, mob\_list,
+mob\_index\_hash[], obj\_index\_hash[], and room\_index\_hash[];. Since
+everything has a vnum, it gets placed into the appropriate list. As of
+this writing HASH\_SIZE is 57129. So, you wont probably have too many
+prototypes within each hash table. This table is mainly used by THING
+*find\_thing\_num(int num) which goes down the hash table looking for a
+prototype with a vnum equal to num. When the thing editor is used to
+create prototypes, and when copies are created and sent into the world,
+they are added to the thing\_hash table in such a way that the prototypes
+go first, and then the copies of things go after that. This is designed
+to make find\_thing\_num work a little faster.  
+
+As a quick note, PCs have a vnum equal to 0. That means they all lie
+in thing\_hash[0], but I still use thing\_hash[PC\_VNUM \% HASH\_SIZE] in
+most places where I rememberd to do so, just in case someone changes
+it someday.
+
+The hash table is doubly linked so that if you destroy a whole bunch
+of things, you don't run into $O(N^2)$ problems deleting all of those
+elements.
+
+The hash table is used to update a lot of things in the world, and to find
+say 57.squirrel if you have some reason to find it within the world. 
+The find\_thing\_world function first tries to find the thing where the
+initiator is, but then looks through the hash table if it can't find it.
+
+
+
+\section{Thing Flags and Move Thing}
+
+Ok, now what makes things different from each other? I figured out
+that the idea that differentiates things from each other is how they
+can move within the hierarchy, and how they can be moved within the
+hierarchy. There are also a few other things like whether the thing
+ can talk or fight, but those are more special cases. 
+
+Since the database has a hierarchy, if we want to move something,
+there are four things (actors) involved.
+
+\begin{itemize}
+
+\item The {\it{initiator}} which is the thing that originally gives the command to try to move something.
+
+\item The {\it{mover}} which is the thing actually moving.
+
+\item The {\it{start\_in}} which is where the mover was before something tried to move it.
+
+\item the {\it{end\_in}} which is where the mover wants to end up when all of this is done.
+
+
+\end{itemize}
+
+So, for example in order for a thing to move, the initiator has to be able to move something (either itself or another thing depending on the situation), the mover has to allow itself to be moved by the initiator (which might be itself), and the start in has to allow the mover to leave itself, and the end\_in has to be willing to accept the mover.
+
+There are many thing\_flags which cancel out some or all of these situattions, so if any of those conditions fail, you have a problem and you can't move the thing in that way. The thing\_flags in general BLOCK certain kinds of activities from taking place, so a thing with no thing flags will be able to do just about anything. I don't recommend this, however since that may lead to problems. 
+
+Here is a list of the thing flags and what they essentially allow you do block certain commands:
+
+\begin{itemize}
+
+\item TH\_NO\_TAKE\_BY\_OTHER 0x00000001    -- initiator cannot move mover unless the initiator is the mover. 
+
+\item TH\_NO\_MOVE\_SELF     0x00000002   -- No move self in or out, or ``walking'' around.
+
+\item TH\_NO\_CONTAIN       0x00000004   -- NOTHING EVER IN THIS. You cannot put stuff in this or give something to it. Remove this bit from an object to make a container.
+
+\item TH\_NO\_DRAG          0x00000008   -- Drag is special for things like corpses that cannot be picked up.
+
+\item TH\_NO\_GIVEN         0x00000010   -- No take stuff from others - It will not let someone give something to it. 
+
+\item TH\_NO\_DROP          0x00000020   -- Other no remove this from self -- It will not let you drop or give it to someone.
+
+\item TH\_NO\_CAN\_GET       0x00000040   -- Cannot get anything itself -- This thing is not capable of picking something up and putting it within its inventory. 
+
+\item TH\_NO\_MOVE\_BY\_OTHER 0x00000080   -- Others cannot move this but it can move itself (like mobs can walk, but you can't push them around (generally). 
+
+\item TH\_NO\_PRY           0x00000100   -- Cannot be pried off or removed This is essentially noremove flag.
+
+\item TH\_NO\_MOVE\_OTHER    0x00000200   -- This cannot move others -- Maybe it can move itself, but it cannot move anything else.
+
+\item TH\_NO\_TAKE\_FROM     0x00000400   -- Keeps all inven...cannot be looted -- it just won't let you remove anything from it.
+
+\item TH\_NO\_MOVE\_INTO     0x00000800   -- Other cant move self into this -- useful for normal objects. Disable this if you want a ``boat''.
+
+\item TH\_NO\_LEAVE         0x00001000   -- Other cant move self out of this -- this is useful for rooms so there is no way to ``leave'' them. You can also use this for a type of ``cage'' or trap or something where someone goes into it and then can't leave.
+
+\item TH\_NO\_REMOVE        0x00002000   -- This cannot be removed -- this is weaker than TH\_NO\_PRY, since there may be a ``pry'' command someday that lets people remove noremove eq.
+
+\item TH\_UNSEEN           0x00004000   -- Cannot be seen unless you are an admin. This is super duper invis for things you really don't want players seeing.
+
+\item TH\_NO\_FIGHT         0x00008000   -- This thing does not fight -- useful for objects.
+
+\item TH\_NO\_TALK          0x00010000    -- This cannot communicate, it also in means that the thing is not intelligent.
+
+\item TH\_MARKED           0x00020000   -- Mark this thing temporarily, used internally.
+
+\item TH\_CHANGED          0x00040000   -- This thing has been changed.. useful
+  for editing. It tells the areas when to save.
+
+\item TH\_IS\_ROOM          0x00080000   -- This is marked as room. Cannot
+  change this inside the game for reasons of safety and consistency.
+
+\item TH\_IS\_AREA          0x00100000   -- This thing is an area. Cannot change  this inside the game for reasons of safety and consistency.
+
+\item TH\_NUKE             0x00200000   -- This thing does not get saved into the area file.
+
+\item TH\_NO\_PEEK          0x00400000   -- Things can't look into this to see its inventory. Useful since you can look into a chest in your inventory and see its contents, but you don't want people to be able to see into a player's inventory, or a mob's inventory.
+
+\item TH\_SCRIPT           0x01000000   -- This thing has a script  attached to it. I do this just so that it's a little faster going down the event list for repeated events if you KNOW something isn't gonna have a script associated with it.
+
+\item TH\_DROP\_DESTROY     0x02000000   -- This is destroyed if dropped or
+  given. 
+
+\item TH\_NO\_GIVE          0x04000000   -- You cannot give this thing, but I guess you can drop it.
+
+\end{itemize}
+
+
+
+\section{Starting to Edit}
+
+To edit a thing, you use the editor. There is only one editor. That
+means no medit, no oedit, no redit, and no aedit. There is only
+``edit''. There are several ways to invoke the editor.
+
+If you are inside a room, just type edit, and you will start to edit
+that room. Also, if you are editing the thing you're inside, when you
+move newsud, the thing you're editing follows you, so you're always
+editing the thing you're inside. This doesn't work if you're not
+editing the thing you're in.
+
+You can also type edit $number$. In this case you edit the thing with
+that number. If you want to create a thing, you can type edit create
+$number$. If that thing already exists, then you just start editing
+it. You can also type edit create by itself. If you do this, and you
+are editing something already, then the next available number (inside
+the area you are editing) will be created and you can start to edit
+that. Note that when you create things, the game checks if your new
+number is inside of an area already or not.
+
+Finally, you can type edit create area $startnum$ $numthings$. Note
+that the game does checks to make sure that every thing from startnum
+to startnum + numthings is not already contained within an area (or it
+should).
+
+``edit'' also accesses the line editor for editing script code, but I
+will come back to that later on.
+
+Once you are in the editor, your commands will be interpreted as trying
+to alter the thing you're editing. Every time you enter a command, you
+will be shown a screen which lists all of the information for the thing.
+The next section lists all of the various commands you can use while
+in the editor.
+
+\section{Editing}
+
+This section lists all of the commands you can use in the editor.
+Some pieces will be pushed back for explination in later chapters
+since they are more complex. Also, the editing of exits will be dealt
+with in the next chapter with the rest of the values.
+
+The rest of this section will consist of a keyword you enter, and then the type of data that follows, and what it modifies.
+
+\begin{itemize}
+
+\item armor -- This lets you edit the armor of the thing. If you leave this at 0, then the armor is autocalculated when the thing is made. For areas, the armor is the total number of things in the area. Be careful changing this for areas, since there aren't any sanity checks for whether or not you're dropping things from the area.
+
+\item cost -- sets the cost of the item. This is randomized on creation.
+
+\item copyfrom -- This copies a description from the number specified.
+
+\item copyto -- This copies the description of what you're editing to a new thing.
+
+\item color -- this is a number from 0-15 which follows the current color scheme. Color doesn't really do anything now since I'm not showing mobjects in the overhead map.
+
+\item desc or descr -- This puts you into the line editor and lets you edit the thing's description.
+
+\item done -- this quits you out of the line editor.
+
+\item flag or flags -- These will be dealt with in the chapter on flags.
+
+\item hpmult or hp\_mult -- This sets the hp multiplier for a mobject. 10 is ``normal'', and the range can go from 2 to 100. Btw, the hps of the prototype are used to store this to save memory.
+
+\item height -- this sets the height of the thing (in inches).
+
+\item level -- this sets the level of the thing. This is useful for mobs since it determines their relative power. For objects and rooms this is good since it determines how well they cast spells (like potions and whatnot), and it also determines how resilient an item is to damage. The level of an area is the number of ``rooms'' in it. So, the remaining items are the armor - level. Be careful when setting this on an area...since you might end up screwing things up by either making rooms into nonrooms, or making nonrooms into rooms.
+
+\item light -- This is the amount of light this thing gives off. You might set it on a room, or on a mob for kicks (and the room will be lit, and the mob will light up a room when it walks in...), but it is generally used on lanterns and stuff like that. 
+
+\item long -- This sets the long description of the item. Unused in rooms, this is what you see when you type look and something is in the same thing as you. For areas, this is the repop message.
+
+\item max or miw or max\_in\_world -- This lets you set the max in world for a thing. Areas and rooms have max in worlds equal to 1. Anything else can have a nonnegative max in world. If the max in world is 0, then the thing is unlimited. mv and max\_mv are used to store this to save memory. If you ever want to customize moves on things...altho I couldn't think of a reason why, so that's why I did this...then you will have to change some of the references in boot.c, edit, society.c, thing,c and thingio.c, as well as serv.h to fix it up.
+
+\item name -- this sets the names string of the thing. This is the filename for an area. It cannot duplicate a current filename, and it must end in .are. It sets a special string you can use in rooms so you can goto it. Otherwise, it's a list of names. Be careful setting this on PC's since their filename is based on this word. 
+
+\item reset -- resets will be dealt with later
+
+\item size -- this sets the interior size of a thing. It determines the maximum amount of weight a thing can contain.
+
+\item sex -- this is male, female or neuter. It sets the sex of the thing.
+
+\item setup -- You either setup mob or setup obj. This sets the thing flags to the proper values for each of these base types. You can, of course come in later and change some of these. For example, a container is an object where it can contain things. A boat is a thing that lets people enter and leave it.
+
+\item short -- This has several uses. In areas, this is the name of the area. In rooms, this is the name of the room you see. For mobs, this is the ``name'' you see when it does something..like ``a stocky dwarf''. For objects, this is the string you see when something is in your inventory, or worn by you or someone else. It is also the name you see when you pick something up: ``You pick up a long sword.'' Be careful when setting this on PC's since this is linked to the PC's filename.
+
+\item type or typename -- This doesn't do much now, except in areas where this is the list of builders, and in other things when you look at them, it says that they are some type of ``orc'' or ``weapon'' instead of some type of ``thing''.
+
+\item thing or things -- This lets you set a ``thing\_flag'' on the thing. This is segregated from all other flags because it is so important. Some thing flags like room or area flags cannot be set or unset. If you type thing nuke, this thing will not be saved to disk.
+
+
+\item time or timer -- this sets the timer on a thing when it is created. For rooms, this does nothing. For areas, this is how long until the area resets. For other things, this is the number of hours it will exist after it's created and before it goes poof.
+
+
+\item val or value or v -- this is for editing values which will come in the next chapter.
+
+\item wear -- This sets the wear location of the thing. Every thing can only have one wear location to save space, but I guess you could change this to allow things to be worn all over if you feel like it.
+
+
+\end{itemize}
+
+
+The rest of the things you can edit will come up in the next chapters.
+
+
+\section{Other Data in Things}
+
+Things also have the following data:
+
+\begin{itemize}
+
+\item last\_in: The room this thing was last in.
+
+\item fgt, next\_fight, prev\_fight: These are used to create a list of things
+  that can fight and hunt. The fgt struct keeps all of the data for tracking
+  and hunting and mounts in it.
+
+\item needs: These are used for society needs and have lists of things that
+  society members need to get or give.
+
+\item events: A list of events this thing has happening to it for the event
+  queue system. See the events chapter for more info on this.
+
+
+\item exits, goodroo\_exits: These are used to make pathfinding faster by
+  shortcircuiting searches either by requiring certain exits, or certain exits
+  that lead to rooms that aren't dangerous or hard to pass through.
+
+\item symbol: Used when this thing is shown on the overhead map. color: color
+  of this thing on the overhead map. kde\_pixmap: used when players use the kde
+  client. ascii\_symbol: used when players have upper ascii character
+  available to them (PC2\_ASCII config option set).
+
+\end{itemize}

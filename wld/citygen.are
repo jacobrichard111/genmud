@@ -1,0 +1,1068 @@
+THING 101000
+Name citygen.are`
+HpMv 0 10 500 1000
+HWT 0 0
+Timer 14
+Short The City Generator Area`
+type Lonath`
+ThFl 1089531
+Flag Area 0 0 28
+EDESC districts`
+roads roads roads roads roads
+market
+housing religious
+park
+barracks
+mayors
+arena
+tavern
+tavern
+tavern
+tavern
+tavern
+tavern
+tavern
+`
+END_THING
+
+THING 101001
+HWT 0 0
+Color 7
+Desc This works like the detailgen area. Except the base templates for the cities will be
+generated differently.
+`
+Short City Generator Area`
+MIW 1
+Symbol -`
+ThFl 524779
+Reset 101017 100 2 1
+Reset 101017 50 4 1
+Reset 101003 100 1 1
+Reset 101004 100 1 1
+Reset 101005 100 1 1
+Reset 101006 100 1 1
+Reset 101007 100 1 1
+Reset 101008 100 1 1
+Reset 101023 100 2 1
+Reset 101004 50 4 1
+Reset 101003 50 1 1
+Reset 101006 50 1 1
+Reset 101005 50 1 1
+Reset 101023 50 4 1
+Reset 105000 50 100 1
+END_THING
+
+THING 101002
+Name city`
+HWT 0 0
+Color 7
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+THING 101003
+Name market`
+HWT 0 0
+Color 7
+MIW 1
+Symbol -`
+ThFl 524779
+Val dimension 3 5 3 5 1 1 0 0 `
+EDESC kname`
+marketplace
+market
+bazaar
+'market square'
+`
+EDESC format`
+'the kshort kname'
+`
+EDESC kshort`
+grand
+busy
+bustling
+loud
+noisy
+crowded
+wondrous
+smelly
+acrid
+giant
+small
+twisty
+`
+END_THING
+
+THING 101004
+Name housing`
+HWT 0 0
+Color 7
+MIW 1
+Symbol -`
+ThFl 524779
+Val dimension 5 15 5 15 1 1 0 0 `
+Reset 101009 100 5 1
+Reset 101009 50 20 1
+Reset 101013 50 2 1
+EDESC kname`
+neighborhood
+borough
+development
+quarter
+`
+EDESC kshort`
+residential
+crowded
+smelly
+rich
+poor
+wealthy
+middling
+`
+END_THING
+
+THING 101005
+Name religious`
+HWT 0 0
+Color 10
+MIW 1
+Symbol ,`
+ThFl 524779
+Val dimension 3 6 3 6 1 1 0 0 `
+Flag Room 0 0 262144
+Reset 101012 100 1 1
+Reset 101028 100 1 1
+Reset 101015 30 10 1
+EDESC kname`
+grounds retreat sanctuary
+`
+EDESC kshort`
+holy religious temple
+`
+EDESC format`
+'the kshort kname'
+`
+END_THING
+
+THING 101006
+Name park`
+HWT 0 0
+Color 10
+MIW 1
+Symbol ,`
+ThFl 524779
+Val dimension 3 7 3 7 0 0 0 0 `
+Flag Room 0 0 262144
+Reset 101015 50 8 1
+Reset 101016 50 3 1
+EDESC kname`
+park 
+`
+EDESC kshort`
+small
+urban
+hidden
+secluded
+peaceful
+`
+END_THING
+
+THING 101007
+Name barracks`
+HWT 0 0
+Color 8
+MIW 1
+Symbol -`
+ThFl 524779
+Val dimension 3 6 3 6 0 0 0 0 `
+Flag Room 0 0 1
+EDESC kshort`
+cityguard
+guard
+city
+`
+EDESC kname`
+barracks
+'training center'
+'guard houses'
+'command center'
+`
+END_THING
+
+THING 101008
+Name mayors`
+HWT 0 0
+Color 7
+MIW 1
+Symbol -`
+ThFl 524779
+Val dimension 3 6 3 6 1 1 0 0 `
+EDESC kname`
+palace
+estate
+home
+manor
+`
+EDESC kshort`
+mayoral
+mayor's
+city
+`
+EDESC format`
+'the klong kshort kname'
+`
+EDESC klong`
+new
+large
+small
+well-defended
+guarded
+`
+END_THING
+
+THING 101009
+Name house`
+HWT 0 0
+Color 8
+MIW 1
+Symbol -`
+ThFl 524779
+Val dimension 1 2 1 2 1 2 0 0 `
+Flag Room 0 0 1
+Reset 101019 100 1 1
+Reset 101020 100 1 1
+Reset 101027 50 1 1
+Reset 105000 50 1 1
+EDESC kname`
+house home
+`
+EDESC kshort`
+small tidy
+clean
+dirty
+run-down
+well-kept
+little
+tiny
+`
+END_THING
+
+THING 101010
+Name estate`
+HWT 0 0
+Color 10
+MIW 1
+Symbol ,`
+ThFl 524779
+Val dimension 3 4 3 4 3 5 0 0 `
+Flag Room 0 0 262144
+Reset 101011 100 1 1
+EDESC kname`
+manor
+estate
+`
+EDESC kshort`
+large clean tidy new
+strong
+`
+END_THING
+
+THING 101011
+Name large_house`
+HWT 0 0
+Color 8
+MIW 1
+Symbol -`
+ThFl 524779
+Val dimension 2 3 2 3 2 2 0 0 `
+Flag Room 0 0 1
+Reset 105000 50 2 1
+EDESC kname`
+house home manor
+`
+EDESC kshort`
+large palatial elegant new fortified
+`
+END_THING
+
+THING 101012
+Name church`
+HWT 0 0
+Color 8
+MIW 1
+Symbol -`
+ThFl 524779
+Val dimension 1 4 1 4 1 2 0 0 `
+Flag Room 0 0 1
+EDESC kname`
+cathedral church temple 
+`
+EDESC kshort`
+holy grand large
+small
+`
+END_THING
+
+THING 101013
+Name apartment_building`
+HWT 0 0
+Color 8
+MIW 1
+Symbol -`
+ThFl 524779
+Val dimension 2 3 2 2 2 5 0 0 `
+Flag Room 0 0 1
+Reset 101014 100 2 1
+Reset 101014 50 10 1
+EDESC kname`
+'apartment building' tenemant slum
+`
+EDESC kshort`
+large run-down ugly dirty smelly
+`
+END_THING
+
+THING 101014
+Name apartment`
+HWT 0 0
+Color 8
+MIW 1
+Symbol -`
+ThFl 524779
+Val dimension 1 3 1 3 1 1 0 0 `
+Flag Room 0 0 1
+Reset 101020 100 1 1
+Reset 101019 100 1 1
+Reset 105000 50 1 1
+EDESC kname`
+apartment flat loft 
+`
+EDESC kshort`
+cramped small smelly tiny ugly dirty 
+`
+END_THING
+
+THING 101015
+Name tree`
+HWT 0 0
+Color 2
+MIW 1
+Symbol *`
+ThFl 524779
+Flag Room 0 0 16908288
+Reset 101501 100 1 1
+EDESC kname`
+tree
+`
+EDESC kshort`
+shady large small
+`
+END_THING
+
+THING 101016
+Name trail`
+HWT 0 0
+Color 6
+MIW 1
+Symbol -`
+ThFl 524779
+Val dimension 0 0 0 0 0 0 0 0 stringy`
+Flag Room 0 0 32768
+EDESC kshort`
+gravel
+dirt
+brick
+clean
+dirty
+small
+`
+EDESC kname`
+trail 
+path
+walkway
+pathway
+`
+END_THING
+
+THING 101017
+Name roads`
+HWT 0 0
+Color 5
+MIW 1
+Symbol -`
+ThFl 524779
+Val dimension 0 0 0 0 0 0 0 0 stringy`
+Flag Room 0 0 16842752
+Reset 101502 50 1 1
+Reset 101508 50 6 1
+Reset 104408 50 1 1
+EDESC kshort`
+grand
+broad
+narrow
+winding
+twisty
+clean
+`
+EDESC format`
+'kshort kname'
+`
+EDESC kname`
+road
+promenade
+boulevard
+roadway
+street
+avenue
+lane
+`
+END_THING
+
+THING 101018
+Name arena`
+HWT 0 0
+Color 7
+MIW 1
+Symbol -`
+ThFl 524779
+Val dimension 3 5 3 5 1 1 0 0 `
+Reset 101503 75 10 1
+EDESC kname`
+coliseum arena 'gladiator pits'
+`
+EDESC kshort`
+dirty smelly 
+old run-down
+filthy
+`
+EDESC format`
+'the kshort kname'
+`
+END_THING
+
+THING 101019
+Name bedroom`
+HWT 0 0
+Color 8
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Room 0 0 1
+Reset 101510 50 1 1
+Reset 101504 50 1 1
+Reset 101505 20 1 1
+Reset 101507 20 1 1
+EDESC kname`
+bedroom 
+bedroom
+bedchamber
+`
+EDESC kshort`
+small large
+clean dirty cluttered
+messy
+`
+END_THING
+
+THING 101020
+Name kitchen`
+HWT 0 0
+Color 8
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Room 0 0 1
+Reset 101505 30 3 1
+Reset 101506 80 1 1
+EDESC kname`
+kitchen
+`
+EDESC kshort`
+small tidy neat clean dirty filled empty
+barren
+`
+END_THING
+
+THING 101021
+Name parlor`
+HWT 0 0
+Color 8
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Room 0 0 1
+EDESC kname`
+parlor 'sitting room'
+'living room'
+`
+EDESC kshort`
+elegant 
+tidy clean
+large
+small
+well-decorated
+opulent
+`
+END_THING
+
+THING 101022
+Name hallway`
+HWT 0 0
+Color 8
+MIW 1
+Symbol -`
+ThFl 524779
+Val dimension 0 0 0 0 0 0 0 0 stringy`
+Flag Room 0 0 1
+EDESC kshort`
+cramped crowded wide
+dark
+dirty
+dingy
+`
+EDESC kname`
+hallway 
+hall
+`
+END_THING
+
+THING 101023
+Name tavern`
+HWT 0 0
+Color 8
+MIW 1
+Symbol -`
+ThFl 524779
+Val dimension 3 5 3 5 2 2 0 0 `
+Flag Room 0 0 1
+Reset 101024 100 1 1
+Reset 101025 100 1 1
+Reset 105000 50 20 1
+EDESC format`
+'the randpop_mob_strong_two inn_name'
+'the inn_name of the randpop_mob_strong_two'
+'a_an building_size building_adjective inn_name'
+'the randpop_mob_strong inn_name'
+'the inn_name of the randpop_mob_strong'
+`
+EDESC inn_name`
+inn
+tavern
+wayhouse
+pub
+bar
+`
+END_THING
+
+THING 101024
+Name bar`
+HWT 0 0
+Color 8
+MIW 1
+Symbol -`
+ThFl 524779
+Val dimension 3 3 3 3 1 1 0 0 bottom full`
+Flag Room 0 0 1
+EDESC kshort`
+smoky smelly stinky crowded dingy dark dank
+`
+EDESC kname`
+bar
+'common room'
+hall
+`
+END_THING
+
+THING 101025
+Name inn_rooms`
+HWT 0 0
+Color 8
+MIW 1
+Symbol -`
+ThFl 524779
+Val dimension 3 3 3 3 1 1 0 0 top full`
+Flag Room 0 0 1
+Reset 101022 100 1 1
+Reset 101026 100 3 1
+Reset 101026 50 10 1
+EDESC format`
+'the kshort kname'
+`
+EDESC kshort`
+guest
+sleeping
+`
+EDESC kname`
+chambers
+quarters
+rooms
+`
+END_THING
+
+THING 101026
+Name guest_room`
+HWT 0 0
+Color 8
+MIW 1
+Symbol -`
+ThFl 524779
+Val dimension 1 1 1 1 1 1 0 0 `
+Flag Room 0 0 1
+Reset 101504 50 1 1
+Reset 101505 20 1 1
+Reset 101510 50 1 1
+Reset 101506 20 1 1
+Reset 101507 20 1 1
+Reset 105000 50 1 1
+EDESC klong`
+small
+cramped
+spacious
+luxurious
+cheap
+tiny
+dirty
+clean
+''
+''
+`
+EDESC kshort`
+guest
+sleeping
+resting
+''
+`
+EDESC kname`
+room
+`
+END_THING
+
+THING 101027
+Name basement`
+HWT 0 0
+Color 8
+MIW 1
+Symbol -`
+ThFl 524779
+Val dimension 1 2 1 2 0 0 0 0 below`
+Flag Room 0 0 16781312
+Reset 101508 50 2 1
+EDESC format`
+'a_an room_size kshort kname'
+`
+EDESC kshort`
+musty
+dank
+dark
+cool
+cold
+warm
+nutty
+musky
+moldy
+wet
+dry
+shadowy
+dirty
+clean
+root
+dim
+'dimly lit'
+`
+EDESC kname`
+cellar
+basement
+room
+`
+END_THING
+
+THING 101028
+Name graveyard`
+HWT 0 0
+Color 10
+MIW 1
+Symbol ,`
+ThFl 524779
+Val dimension 2 4 2 4 1 1 0 0 edge`
+Flag Room 0 0 262144
+Reset 101030 50 6 1
+Reset 101031 50 2 1
+EDESC kshort`
+spooky
+old
+run-down
+neat
+well-maintained
+`
+EDESC kname`
+graveyard
+cemetary
+'burial ground'
+`
+END_THING
+
+THING 101029
+Name catacombs`
+HWT 0 0
+Color 8
+MIW 1
+Symbol -`
+ThFl 524779
+Val dimension 2 5 2 5 1 1 0 0 below`
+Flag Room 0 0 16781312
+Reset 101030 50 6 1
+EDESC format`
+'some klong kshort kname'
+`
+EDESC klong`
+twisty
+dark
+cold
+damp
+hot
+dry
+smelly
+stinking
+`
+EDESC kshort`
+burial
+''
+`
+EDESC kname`
+catacombs
+tunnels
+`
+END_THING
+
+THING 101030
+Name gravesite`
+HWT 0 0
+Color 2
+MIW 1
+Symbol *`
+ThFl 524779
+Val dimension 1 0 0 0 0 0 0 0 `
+Flag Room 0 0 16908288
+Reset 104408 100 1 1
+EDESC kshort`
+forgotten
+overgrown
+neat
+vandalized
+tended
+`
+EDESC kname`
+gravesite
+grave
+'burial plot'
+`
+END_THING
+
+THING 101031
+Name mausoleum`
+HWT 0 0
+Color 8
+MIW 1
+Symbol -`
+ThFl 524779
+Val dimension 1 1 1 1 1 1 0 0 `
+Flag Room 0 0 1
+Reset 101029 50 1 1
+EDESC kshort`
+stone
+granite
+marble
+brick
+`
+EDESC klong`
+large
+small
+medium
+ornate
+plain
+simple
+`
+EDESC kname`
+mauosoleum
+`
+END_THING
+
+THING 101501
+Name tree`
+HWT 0 0
+type tree`
+ThFl 101062
+EDESC kname`
+tree sapling 
+`
+EDESC kshort`
+oak cherry mahogany pine cedar maple 
+dogwood
+spruce
+ash
+poplar
+willow
+birch
+elm
+`
+EDESC klong`
+large small wilted strong hearty
+slender light
+`
+END_THING
+
+THING 101502
+Name peddler`
+Level 30
+HWT 0 0
+type person`
+ThFl 2209
+Reset 271 100 5 1
+EDESC kshort`
+short smelly loud pushy
+`
+EDESC kname`
+peddler salesman
+`
+END_THING
+
+THING 101503
+Name gladiator`
+Level 30
+HWT 0 0
+type person`
+ThFl 2209
+Reset 108000 100 4 1
+EDESC kname`
+gladiator
+warrior
+slave
+fighter
+`
+EDESC kshort`
+veteran
+old
+scarred
+injured
+strong
+giant
+powerful
+`
+END_THING
+
+THING 101504
+Name bad_bed`
+HWT 0 0
+type furniture`
+ThFl 101062
+EDESC kname`
+bed
+bed
+bed
+bed
+bed
+pallet
+`
+EDESC kshort`
+soft 
+clean
+stiff
+dingy
+bad_furniture_adjective
+bad_furniture_adjective
+`
+END_THING
+
+THING 101505
+Name bad_chair`
+HWT 0 0
+type furniture`
+ThFl 101062
+EDESC kname`
+chair
+seat
+stool
+chair
+chair
+`
+EDESC kshort`
+bad_furniture_material
+`
+EDESC klong`
+bad_furniture_adjective
+`
+END_THING
+
+THING 101506
+Name bad_big_table`
+HWT 0 0
+type furniture`
+ThFl 101062
+EDESC kname`
+table
+`
+EDESC kshort`
+bad_furniture_material
+`
+EDESC klong`
+bad_furniture_adjective
+`
+END_THING
+
+THING 101507
+Name bad_small_table`
+HWT 0 0
+type furniture`
+ThFl 101062
+EDESC kname`
+table
+nightstand
+stand
+shelf
+desk
+table
+table
+`
+EDESC kshort`
+bad_furniture_material
+`
+EDESC klong`
+bad_furniture_adjective
+`
+END_THING
+
+THING 101508
+Name barrel_crate`
+Level 40
+HWT 0 0
+type container`
+ThFl 100934
+Reset 108000 10 1 1
+EDESC klong`
+bad_furniture_adjective
+`
+EDESC kshort`
+bad_furniture_material
+`
+EDESC kname`
+barrel crate
+box
+barrel
+bin
+cask
+butt
+keg
+tub
+trough
+vat
+hogshead
+barrel
+crate
+box
+container
+box
+`
+END_THING
+
+THING 101509
+Name jar_pot`
+HWT 0 0
+ThFl 100934
+EDESC klong`
+cracked
+thick
+thin
+dirty
+small
+large
+old
+lopsided
+used
+worn
+`
+EDESC kshort`
+pottery_material
+`
+EDESC kname`
+jar
+urn
+bottle
+decanter
+carafe
+flask
+jug
+phial
+container
+pot
+bowl
+pail
+kettle
+tray
+plate
+dipper
+teapot
+dish
+pan
+platter
+basin
+cup
+gourd
+bucket
+jar
+jar
+bottle
+bottle
+bowl
+bowl
+bowl
+flask
+flask
+pot
+pot
+pot
+amphora
+vessel
+hydria
+kylix
+lebes
+vase
+pitcher
+lekonis
+`
+END_THING
+
+THING 101510
+Name bad_cabinet`
+Level 80
+HWT 0 0
+ThFl 100934
+Reset 108000 20 1 1
+Reset 101509 10 2 1
+EDESC kname`
+cabinet
+dresser
+locker
+chest
+coffer
+bureau
+sideboard
+strongbox
+trunk
+`
+EDESC kshort`
+bad_furniture_material
+`
+EDESC klong`
+bad_furniture_adjective
+`
+END_THING
+
+THING 101511
+Name foo`
+HWT 0 0
+ThFl 101062
+END_THING
+
+END_OF_AREA
+

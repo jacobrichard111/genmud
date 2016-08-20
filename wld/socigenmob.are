@@ -1,0 +1,27 @@
+THING 112000
+Name socigenmob.are`
+HpMv 0 10 5 7000
+HWT 0 0
+Cost 100
+Timer 9
+Short Society Genned Mobs`
+type Lonath`
+ThFl 1089531
+Flag Area 0 0 28
+END_THING
+
+THING 112001
+HWT 0 0
+Color 7
+Desc You shouldn't mess with this area until you've built all of the 
+genned mobs you want. Then, you can fix them up or add details as you
+see fit. You must empty this area to generate societies. 
+`
+Short Society generated mobs area`
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+END_OF_AREA
+

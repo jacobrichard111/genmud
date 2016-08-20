@@ -1,0 +1,26 @@
+\chapter{Scripts}
+
+
+\section{Introduction}
+
+The MUD has a simple script engine that works by people editing blocks
+of code, that then get attached to triggers that go off when certain
+kinds of events happen. These events range from things moving around
+to things saying things to things being created or destroyed to commands.
+
+When a thing moves or issues a command or is created or destroyed, the
+other things around it are checked for triggers (first by seeing if
+they have a TH\_SCRIPT flag) on them, then if they have such a flag,
+the list of triggers for that thing is checked. If a trigger with the
+correct trigger type is found, then some code gets executed.
+
+The script engine is very simple and has a lot of locks on it to keep
+it from getting out of control. You can only have function calls 5
+levels deep. You only get a few variables to store data, and you can
+only execute 100 lines or so at a time before the script exits. The
+idea is to make the script engine play within its own little safe
+environment where hopefully it cannot bring the server down no matter
+what the script writers do. Not like I can guarantee that, but that's
+the hope.
+
+

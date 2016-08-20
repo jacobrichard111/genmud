@@ -1,0 +1,81 @@
+\chapter{History Generation}
+
+\section{Introduction}
+
+There are several parts to generating the history of the world. This stuff has
+to happen after the rest of the world is generated because it requires a lot
+of data from those sections.
+
+\section{Deities}
+
+Each alignment gets a certain number of deities created. Basically, I made a
+list of all kinds of "spheres of influence" that I thought deities might have
+and split them into two lists: good and bad. The lists are in the historygen
+area (currently 109500) and they're called godly\_spheres\_good and
+godly\_spheres\_bad. Most deities are good, but some are bad. The game just
+picks 2-4 different spheres for each deity. It actually looks pretty good. If
+you want to try this out several times, you can type historygen setup and it
+will make the gods and the races.
+
+{\bf{Deities can be summoned by using the "divine" command and when they
+    appear, they're level 500 and kill all enemies in sight. This divine skill
+    requires a highlevel healer/mystic and it requires 5000 warpoints, so it
+    should be used rarely. However, deities load with a FULL set of level 500
+    equipment, so eventually players will kill the deities and get this eq and
+    be really cheater. But I guess everyone needs a hobby. :)}}
+
+\section{Organizations}
+
+Each alignment has several societies of middling power that can help
+them. They are named in the form "The foo of bars" where foo is something like
+organization or company, and bar is some profession name like fighter or wizard.
+These things are fairly powerful and can be powerful allies, but they can be
+destroyed and turned to other sides.
+
+\section{Ancient Races}
+
+These are VERY powerful societies and each alignment has one. For now, they're
+in the game to start, but they may end up being taken out and requiring
+players to quest to get them on their sides.
+
+\section{History Generation}
+
+Ok, so most stories in online games suck. Let's face it, the one story that
+gets used over and over again in online and offline RPG's is the "Heroes'
+Quest" which succinctly can be described as:
+
+\begin{enumerate}
+
+\item Things were good.
+
+\item Then they got bad.
+
+\item But YOU can make them good again.
+
+\end{enumerate}
+
+Not to rock the boat, I too use this story. It generates three big paragraphs.
+
+The first paragraph tells how great it was a long time ago when everyone lived
+in harmony.
+
+The second one tells how the world was broken or destroyed or there was some
+kind of cataclysmic event that ruined the civilization and let the demons come
+into the world, where they had to be destroyed, thereby ruining the world
+completely.
+
+Then the third one talks about how the demons are stirring and how they need
+to be destroyed by bringing the races together blah blah blah blah...
+
+You get the idea. It's the same crap that everybody else uses, but it has to
+be there to set up the world so the players can have some framework to work
+with. But it isn't the biggest deal in the world.
+
+The most important thing is that the story is generated after the deities and
+ancient races and organizations and societies and the areas in the world, so
+it can use that data to personalize the story for this particular
+instantiation of the game.
+
+Rememeber, the point isn't to make a particular instantiation of the Heroes'
+Journey story, it's to make something that tries to generate all of those
+stories (or as many as possible).

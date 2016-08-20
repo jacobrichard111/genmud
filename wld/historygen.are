@@ -1,0 +1,732 @@
+THING 109500
+Name historygen.are`
+HpMv 0 10 5 500
+HWT 0 0
+Timer 1
+Short The Historygen Area`
+type Lonath`
+ThFl 135307259
+Flag Area 0 0 28
+END_THING
+
+THING 109501
+HWT 0 0
+Color 7
+Short The Historygen Area`
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+THING 109506
+Name godly_spheres_good`
+HWT 0 0
+Desc Time
+Space
+Weather
+Peace
+Wisdom
+Knowledge
+Strength
+Protection
+Healing
+Medicine
+'the Weak'
+Power
+Luck
+Fortune
+Fertility
+Winter
+Summer
+Fall
+Spring
+Magic
+Enchantment
+Nature
+'the Woods'
+'the Forest'
+Wealth
+Weal
+Life
+Light
+'the Sun'
+'the Stars'
+'the Moons'
+Animals
+Fortitude
+Solace
+Serenity
+Righteousness
+Sneakiness
+Kindness
+'The Trees'
+'The Mountains'
+'The Ocean'
+'The Streams'
+Water
+Air
+Earth
+Wind
+Blacksmiths
+Farmers
+Shopkeepers
+Merchants
+'the Tides'
+Justice
+Spellcraft
+Endurance
+Martyrdom
+Perserverence
+Loyalty
+Duty
+Obedience
+Navigation
+Seekers
+Dawn
+Birth
+Renewal
+Youth
+Childhood
+Vitality
+Creativity
+Artisans
+Artists
+Craftsmen
+Fatherhood
+Motherhood
+Agriculture
+Skill
+Victory
+Adventurers
+Love
+Passion
+Beauty
+Invention
+Guardians
+Protectors
+Warriors
+Magi
+Hunters
+Dreams
+Redemption
+Poetry
+Wine
+Health
+Song
+Dance
+Nature
+'the Hunt'
+Prosperity
+Silence
+'the Sea'
+'the Mind'
+Thought
+Music
+Creation
+Day
+Stability
+Order
+Fate
+Rain
+Plenty
+Fishermen
+Chivalry
+Purity
+'the Sky'
+History
+'the Ages'
+Innocence
+'the Harvest'
+Destiny
+Commerce
+Success
+Judgment
+Law
+`
+END_THING
+
+THING 109507
+Name age`
+HWT 0 0
+Desc Age
+Epoch
+Era
+Time
+`
+END_THING
+
+THING 109508
+Name disaster_names`
+HWT 0 0
+Desc Cataclysm
+Breaking
+Sundering
+Cracking
+Fall
+Catastrophe
+Disaster
+`
+END_THING
+
+THING 109509
+Name godly_spheres_bad`
+HWT 0 0
+Desc War
+Battle
+Shadows
+Thieves
+Power
+Misfortune
+Death
+Darkness
+Trickery
+Subterfuge
+Sneakiness
+Sickness
+Disease
+Decay
+Slaughter
+Blood
+Pain
+Intrigue
+Mischief
+Agony
+Torment
+Suffering
+Lies
+Deception
+Strife
+Illusion
+Vengeance
+Revenge
+Hatred
+Insanity
+Carnage
+Destruction
+Plague
+Pestilence
+Night
+Chaos
+Drought
+Retaliation
+Starvation
+Misdirection
+Loss
+Chance
+Twilight
+Storms
+Thunder
+Lightning
+Fire
+Ice
+Tornadoes
+Earthquakes
+`
+END_THING
+
+THING 109510
+Name looking_back`
+HWT 0 0
+Desc "Looking back"
+"As I recall"
+"As I remember"
+"As I look back"
+"I remember"
+"As I recollect"
+`
+END_THING
+
+THING 109511
+Name olden`
+HWT 0 0
+Desc golden
+legendary
+ancient
+forgotten
+old
+past
+`
+END_THING
+
+THING 109512
+Name z_the_past`
+HWT 0 0
+Desc "of the past"
+"so long ago"
+"so many years ago"
+"so far back"
+"so many centuries ago"
+"back through the mists of time"
+"back through the ages"
+"back through time"
+"far in the past"
+"so far in the past"
+"so deep into history"
+"receding into time"
+"receding into the mists of time"
+"fading into history"
+"receding into history"
+"fading into the past"
+"fading through the ages"
+`
+END_THING
+
+THING 109513
+Name feeling_feeling`
+HWT 0 0
+Desc feeling
+becoming
+"feeling a sense of"
+"having a sense of"
+"a great sense of"
+"a sense of"
+`
+END_THING
+
+THING 109514
+Name feeling_loss`
+HWT 0 0
+Desc loss
+regret
+anger
+sorrow
+sadness
+wistfulness
+pain
+`
+END_THING
+
+THING 109515
+Name what_was_lost`
+HWT 0 0
+Desc "what was lost"
+"what has been forgotten"
+"what once was"
+"how things were"
+"how things used to be"
+"how the world was"
+"the way things were"
+"the way things used to be"
+"the past"
+"the ages"
+"the loss"
+"how the past is lost"
+"how things have been forgotten"
+"how times were different"
+"what we are missing"
+"what we have lost"
+"what we have lost from the ancient world"
+"how much we could learn from them"
+"how much we could gain"
+"how much we still don't know"
+"how much we have forgotten"
+`
+END_THING
+
+THING 109516
+Name prep_for`
+HWT 0 0
+Desc for
+about
+over
+regarding
+"because of"
+"with regard to"
+`
+END_THING
+
+THING 109517
+Name united`
+HWT 0 0
+Desc united
+unified
+harmonious
+peaceful
+benificent
+`
+END_THING
+
+THING 109518
+Name cannot_help`
+HWT 0 0
+Desc "cannot help"
+"cannot stop myself"
+"find myself"
+"catch myself"
+"discover myself"
+"can't help"
+"cannot help myself from"
+"cannot stop myself from"
+"cannot keep myself from"
+begin
+start
+`
+END_THING
+
+THING 109519
+Name gods`
+HWT 0 0
+Desc gods
+deities
+`
+END_THING
+
+THING 109520
+Name god_leader`
+HWT 0 0
+Desc controller
+leader
+head
+"most powerful"
+wisest
+"most ancient"
+oldest
+`
+END_THING
+
+THING 109521
+Name followers`
+HWT 0 0
+Desc followers
+disciples
+servants
+chosen
+"chosen ones"
+`
+END_THING
+
+THING 109522
+Name enforced`
+HWT 0 0
+Desc enforced
+oversaw
+ensured
+kept
+protected
+preserved
+`
+END_THING
+
+THING 109523
+Name justice`
+HWT 0 0
+Desc justice
+"the peace"
+harmony
+`
+END_THING
+
+THING 109524
+Name ages`
+HWT 0 0
+Desc Ages
+Eras
+Epochs
+Days
+Years
+`
+END_THING
+
+THING 109525
+Name extreme`
+HWT 0 0
+Desc extreme
+great 
+tremendous
+unending
+`
+END_THING
+
+THING 109526
+Name but_then`
+HWT 0 0
+Desc 'But then'
+However
+But
+Yet
+'In time'
+`
+END_THING
+
+THING 109527
+Name came_disaster`
+HWT 0 0
+Desc 'the Sundering came'
+'the world was Sundered'
+'came the Sundering'
+'the Cataclysm came'
+'came the Cataclysm'
+'the Cataclysm destroyed the world'
+'the Breaking came'
+'came the Breaking'
+'the world was Broken'
+'the Destruction came'
+'came the Destroyer'
+ 
+`
+END_THING
+
+THING 109528
+Name nations`
+HWT 0 0
+Desc Nations
+Civilizations
+Societies
+Races
+Kingdoms
+Governments
+People
+`
+END_THING
+
+THING 109529
+Name destroyed`
+HWT 0 0
+Desc Destroyed
+Decimated
+Sundered
+'Ground to Dust'
+'laid low'
+'smashed
+crushed
+broken
+lost
+`
+END_THING
+
+THING 109530
+Name such_as`
+HWT 0 0
+Desc 'such as'
+like
+`
+END_THING
+
+THING 109531
+Name cast_out`
+HWT 0 0
+Desc 'cast out'
+cast
+thrown
+removed
+evicted
+forced
+pushed
+`
+END_THING
+
+THING 109532
+Name home_names`
+HWT 0 0
+Desc cities
+villages
+houses
+homes
+towns
+`
+END_THING
+
+THING 109533
+Name battle_names`
+HWT 0 0
+Desc wars
+battles
+campaigns
+sieges
+conquests
+`
+END_THING
+
+THING 109534
+Name driven_from_the_world`
+HWT 0 0
+Desc 'driven from the world'
+'removed from the world'
+'driven out of the world'
+'crushed and forced to retreat'
+'unable to retain their power'
+'unable to keep their places of power'
+'forced out by the younger races'
+'forced to leave'
+'forced to move'
+'forced to go'
+'unable to keep their power'
+'unable to survive the turmoil'
+'brought low by the turmoil'
+'unable to control the turmoil'
+'unable to stop the wars'
+'unable to keep the peace'
+'unable to enforce their rule'
+'powerless to stop the wars'
+'powerless to preserve harmony'
+`
+END_THING
+
+THING 109535
+Name lessen_word`
+HWT 0 0
+Desc lessen
+wane
+fade
+dim
+retreat
+'fade into memory'
+'retreat into the mists of time'
+disappear
+'fade to nothingness'
+'grow weaker'
+weaken
+'become weaker'
+`
+END_THING
+
+THING 109536
+Name this_was_what`
+HWT 0 0
+Desc 'This was what'
+'This is what'
+'This is the thing that'
+'This was the thing that'
+`
+END_THING
+
+THING 109537
+Name were_waiting_for`
+HWT 0 0
+Desc 'were waiting for'
+wanted
+needed
+'hoped for'
+'had waited for'
+'had waited so long for'
+'had waited ages for'
+'had waited eons for'
+'had waited centuries for'
+'had hoped for'
+'waited for'
+`
+END_THING
+
+THING 109538
+Name surged`
+HWT 0 0
+Desc surged
+flooded
+spilled
+poured
+`
+END_THING
+
+THING 109539
+Name at_a_terrible_cost`
+HWT 0 0
+Desc 'at a terrible cost'
+'at the cost of civilization'
+'almost costing civilization itself'
+'at great cost'
+'ruining the world'
+'ruining the civilizations'
+'destroying civilization'
+'wiping out many races'
+'wiping out many nations'
+'destroying the world'
+`
+END_THING
+
+THING 109540
+Name the_world`
+HWT 0 0
+Desc 'the world'
+'the state of the world'
+'the nations'
+things
+`
+END_THING
+
+THING 109541
+Name descended`
+HWT 0 0
+Desc descended
+slipped
+fell
+slid
+staggered
+`
+END_THING
+
+THING 109542
+Name dark_days`
+HWT 0 0
+Desc darkness
+ruin
+despair
+'dark days'
+'dark ages'
+`
+END_THING
+
+THING 109543
+Name stayed`
+HWT 0 0
+Desc stayed
+remained
+'has stayed'
+'has remained'
+'has been'
+'has continued'
+`
+END_THING
+
+THING 109544
+Name the_same`
+HWT 0 0
+Desc 'the same'
+fixed
+constant
+unmoved
+stagnant
+unchanging
+rooted
+unmoving
+'treading water'
+withering
+`
+END_THING
+
+THING 109545
+Name demon_stirring`
+HWT 0 0
+Desc stirring
+moving
+'on the move'
+growing
+festering
+expanding
+'starting to return'
+'growing in power'
+'threatening the world'
+'beginning to stir'
+'gathering their power'
+'gathering power'
+'gaining power'
+'gaining strength'
+'gathering strength'
+'no longer sleeping'
+`
+END_THING
+
+THING 109546
+Name myriad`
+HWT 0 0
+Desc many
+myriad
+'corps of'
+'body of'
+'brotherhood of'
+'legion of'
+'council of'
+`
+END_THING
+
+END_OF_AREA
+

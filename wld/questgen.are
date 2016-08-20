@@ -1,0 +1,171 @@
+THING 109000
+Name questgen.are`
+HpMv 0 10 5 500
+HWT 0 0
+Timer 9
+Short Quest Text Area`
+type Lonath`
+ThFl 1089531
+Flag Area 0 0 28
+END_THING
+
+THING 109001
+HWT 0 0
+Color 7
+Desc These are various words and phrases put into the questgen
+dialogue. Yay. You can tell where they get used in
+questgen.c.
+`
+Short The Questgen Words area`
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+THING 109008
+Name compliment`
+HWT 0 0
+Desc Great
+Amazing
+Stupdendous
+Powerful
+Grand
+Glorious
+Valiant
+Brave
+`
+END_THING
+
+THING 109009
+Name adventurer`
+HWT 0 0
+Desc Heroes
+Lords
+Adventurers
+Travelers
+Wanderers
+Questors
+Ones
+Legends
+Masters
+Persons
+Beings
+`
+END_THING
+
+THING 109010
+Name ask_for`
+HWT 0 0
+Desc 'could you'
+'would you'
+'would it be possible for you to'
+"if you don't mind, would you",
+"if you don't mind, could you"
+"if it's not too much trouble, could you"
+"if it's not too much trouble, would you"
+"is there any way that you could"
+`
+END_THING
+
+THING 109011
+Name help_me`
+HWT 0 0
+Desc 'help me'
+'assist me'
+'listen to me'
+'hear me out'
+'listen to my story'
+'take pity on me'
+`
+END_THING
+
+THING 109012
+Name short_time`
+HWT 0 0
+Desc 'for a minute'
+'for a moment'
+'for a second'
+'for a little while'
+'just for a minute'
+'just for a second'
+'just for a moment'
+'just for a little while'
+'only for a minute'
+'only for a second'
+'only for a moment'
+'only for a little while'
+`
+END_THING
+
+THING 109013
+Name bring_it`
+HWT 0 0
+Desc 'bring it to'
+'find it for'
+'get it for'
+'bring it for'
+'get it to'
+'retrieve it for'
+'acquire it for'
+'obtain it for'
+`
+END_THING
+
+THING 109014
+Name bad_things`
+HWT 0 0
+Desc 'terrorizing villagers'
+'terrorizing the peasants'
+'terrorizing peasants'
+'terrorizing the villagers'
+'eating people'
+'killing people'
+'killing children'
+'stealing children'
+'stealing people'
+'eating children'
+`
+END_THING
+
+THING 109015
+Name small_size`
+HWT 0 0
+Desc nominal
+small
+tiny
+'barely mentionable'
+piddling
+little
+`
+END_THING
+
+THING 109016
+Name bribe_name`
+HWT 0 0
+Desc fee
+'procurement fee'
+donation
+'purely voluntary donation'
+'voluntary donation'
+'donation to help my sick children'
+'donation to help my dying children'
+'alms for the poor'
+alms
+'seed money'
+`
+END_THING
+
+THING 109017
+Name asking_thank_you`
+HWT 0 0
+Desc 'Thank you.'
+'I would be grateful.'
+'I would be in your debt.'
+'It would greatly help me.'
+'It would make all the difference.'
+'It would make all the difference to me.'
+`
+END_THING
+
+END_OF_AREA
+

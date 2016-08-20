@@ -1,0 +1,926 @@
+THING 110000
+Name sociperm.are`
+HpMv 0 10 5 2000
+HWT 0 0
+Cost 100
+Timer 15
+Short Permanent Society Mobs`
+Long You shouldn't be in this area. :)`
+type Lonath`
+ThFl 1089531
+Flag Area 0 0 28
+END_THING
+
+THING 0
+HWT 0 0
+END_THING
+
+THING 110001
+HWT 0 0
+Color 7
+Desc Put mobs for permanent societies in this area. The ones that get generated
+can go elsewhere. 
+`
+Short Permanent Society Area`
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+THING 110010
+Name newly risen corpse`
+Level 20
+HWT 70 2000
+Short a newly risen corpse`
+Long A newly risen corpse shambles along the ground.`
+ThFl 67745
+Flag Det 0 0 4
+Flag Act 0 0 1
+Flag Mob 0 0 4
+END_THING
+
+THING 110011
+Name skeleton`
+Level 45
+HWT 70 2000
+Short a skeleton`
+Long A skeleton is here.`
+ThFl 67745
+Flag Det 0 0 4
+Flag Act 0 0 1
+Flag Mob 0 0 4
+END_THING
+
+THING 110012
+Name skeleton warrior`
+Level 55
+HWT 70 2000
+Short a skeleton warrior`
+Long A skeleton warrior is here.`
+ThFl 67745
+Flag Det 0 0 4
+Flag Act 0 0 1
+Flag Mob 0 0 4
+END_THING
+
+THING 110013
+Name skeleton lord`
+Level 70
+HWT 70 2000
+Short a skeleton lord`
+Long A skeleton lord is here.`
+ThFl 67745
+Flag Det 0 0 4
+Flag Act 0 0 1
+Flag Mob 0 0 4
+END_THING
+
+THING 110016
+Name zombie`
+Level 40
+HWT 70 2000
+Short a zombie`
+Long A zombie is here.`
+ThFl 67745
+Flag Det 0 0 4
+Flag Act 0 0 1
+Flag Mob 0 0 4
+END_THING
+
+THING 110017
+Name zombie warrior`
+Level 55
+HWT 70 2000
+Short a zombie warrior`
+Long A zombie warrior is here.`
+ThFl 67745
+Flag Det 0 0 4
+Flag Act 0 0 1
+Flag Mob 0 0 4
+END_THING
+
+THING 110018
+Name zombie king`
+Level 75
+HWT 70 2000
+Short a zombie king`
+Long A zombie king is here.`
+ThFl 67745
+Flag Det 0 0 4
+Flag Act 0 0 1
+Flag Mob 0 0 4
+END_THING
+
+THING 110020
+Name wight`
+Level 50
+HWT 70 2000
+Short a wight`
+Long A wight is here.`
+ThFl 67745
+Flag Det 0 0 4
+Flag Aff 0 0 524288
+Flag Act 0 0 1
+Flag Mob 0 0 4
+END_THING
+
+THING 110021
+Name wraith`
+Level 70
+HWT 70 2000
+Short a wraith`
+Long A wraith is here.`
+ThFl 67745
+Flag Aff 0 0 524288
+Flag Det 0 0 4
+Flag Act 0 0 1
+Flag Mob 0 0 4
+END_THING
+
+THING 110022
+Name wraith master`
+Level 90
+HWT 70 2000
+Short a master wraith`
+Long A master wraith is here.`
+ThFl 67745
+Flag Aff 0 0 524288
+Flag Det 0 0 4
+Flag Act 0 0 1
+Flag Mob 0 0 4
+END_THING
+
+THING 110025
+Name ghoul`
+Level 60
+HWT 70 2000
+Short a ghoul`
+Long A ghoul is here.`
+ThFl 67745
+Flag Det 0 0 4
+Flag Act 0 0 1
+Flag Mob 0 0 4
+END_THING
+
+THING 110026
+Name gray ghoul`
+Level 80
+HWT 70 2000
+Short a gray ghoul`
+Long A gray ghoul is here.`
+ThFl 67745
+Flag Det 0 0 4
+Flag Act 0 0 1
+Flag Mob 0 0 4
+END_THING
+
+THING 110027
+Name black ghoul`
+Level 100
+HWT 70 2000
+Short a black ghoul`
+Long A black ghoul is here.`
+ThFl 67745
+Flag Det 0 0 4
+Flag Act 0 0 1
+Flag Mob 0 0 4
+END_THING
+
+THING 110030
+Name small vampire`
+Level 70
+HWT 70 2000
+Short a small vampire`
+Long A small vampire is here.`
+ThFl 67745
+Flag Aff 0 0 524288
+Flag Det 0 0 5
+Flag Act 0 0 1
+Flag Mob 0 0 4
+END_THING
+
+THING 110031
+Name vampire`
+Level 90
+HWT 70 2000
+Short a vampire`
+Long A vampire is here.`
+ThFl 67745
+Flag Aff 0 0 524288
+Flag Det 0 0 5
+Flag Act 0 0 1
+Flag Mob 0 0 4
+END_THING
+
+THING 110032
+Name large vampire`
+Level 110
+HWT 70 2000
+Short a large vampire`
+Long A large vampire is here.`
+ThFl 67745
+Flag Aff 0 0 524288
+Flag Det 0 0 5
+Flag Act 0 0 1
+Flag Mob 0 0 4
+END_THING
+
+THING 110035
+Name apparition`
+Level 80
+HWT 70 2000
+Short an apparition`
+Long An apparition is floating here.`
+ThFl 67745
+Flag Det 0 0 4
+Flag Act 0 0 1
+Flag Mob 0 0 1
+END_THING
+
+THING 110036
+Name ghost`
+Level 100
+HWT 70 2000
+Short a ghost`
+Long A ghost is here.`
+ThFl 67745
+Flag Mob 0 0 1
+Flag Det 0 0 5
+Flag Act 0 0 1
+END_THING
+
+THING 110040
+Name fallen knight`
+Level 90
+HWT 70 2000
+Short a fallen knight`
+Long A fallen knight is here.`
+ThFl 2209
+Flag Det 0 0 4
+Flag Act 0 0 1
+Flag Mob 0 0 4
+END_THING
+
+THING 110041
+Name black knight`
+Level 110
+HWT 70 2000
+Short a black knight`
+Long A black knight is here.`
+ThFl 2209
+Flag Det 0 0 5
+Flag Act 0 0 1
+Flag Mob 0 0 4
+END_THING
+
+THING 110042
+Name death knight`
+Level 130
+HWT 70 2000
+Short a death knight`
+Long A death knight is here.`
+ThFl 2209
+Flag Det 0 0 4
+Flag Act 0 0 1
+Flag Mob 0 0 4
+END_THING
+
+THING 110045
+Name lich`
+Level 100
+HWT 70 2000
+Short a lich`
+Long A lich is here.`
+ThFl 2209
+Flag Det 0 0 7
+Flag Act 0 0 1
+Flag Mob 0 0 4
+Reset 277 1 1 1
+END_THING
+
+THING 110046
+Name lich lord`
+Level 120
+HWT 70 2000
+Short a lich lord`
+Long A lich lord is here.`
+ThFl 2209
+Flag Det 0 0 7
+Flag Act 0 0 1
+Flag Mob 0 0 4
+Reset 277 1 1 1
+END_THING
+
+THING 110047
+Name ancient lich`
+Level 140
+HWT 70 2000
+Short an ancient lich`
+Long An ancient lich is here.`
+ThFl 2209
+Flag Det 0 0 7
+Flag Act 0 0 1
+Flag Mob 0 0 4
+Reset 277 1 1 1
+END_THING
+
+THING 111300
+Name hatchling dragon`
+Level 50
+HWT 60 2000
+Short a dragon hatchling`
+Long A dragon hatchling is here.`
+Sex 2
+ThFl 67745
+Flag Det 0 0 7
+Flag Aff 0 0 524288
+Flag Mob 0 0 8
+END_THING
+
+THING 111301
+Name baby dragon`
+Level 30
+HWT 80 3000
+Short a baby dragon`
+Long A baby dragon is here.`
+Sex 2
+ThFl 67745
+Flag Det 0 0 7
+Flag Aff 0 0 524288
+Flag Mob 0 0 8
+END_THING
+
+THING 111302
+Name young dragon`
+Level 60
+HWT 100 4000
+Short a young dragon`
+Long A young dragon is here.`
+Sex 2
+ThFl 67745
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111310
+Name mature red dragon`
+Level 80
+HWT 300 100000
+Short a mature red dragon`
+Long A mature red dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111311
+Name adult red dragon`
+Level 100
+HWT 300 10000
+Short an adult red dragon`
+Long An adult red dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111312
+Name old red dragon`
+Level 125
+HWT 300 100000
+Short an old red dragon`
+Long An old red dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111313
+Name very old red dragon`
+Level 150
+HWT 300 100000
+Short a very old red dragon`
+Long A very old red dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111314
+Name ancient red dragon`
+Level 175
+HWT 300 100000
+Short an ancient red dragon`
+Long An ancient red dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111320
+Name mature blue dragon`
+Level 80
+HWT 300 100000
+Short a mature blue dragon`
+Long A mature blue dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111321
+Name adult blue dragon`
+Level 100
+HWT 300 100000
+Short an adult blue dragon`
+Long An adult blue dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111322
+Name old blue dragon`
+Level 125
+HWT 300 100000
+Short an old blue dragon`
+Long An old blue dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111323
+Name very old blue dragon`
+Level 150
+HWT 300 100000
+Short a very old blue dragon`
+Long A very old blue dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111324
+Name ancient blue dragon`
+Level 175
+HWT 300 100000
+Short an ancient blue dragon`
+Long An ancient blue dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111330
+Name mature green dragon`
+Level 80
+HWT 300 100000
+Short a mature green dragon`
+Long A mature green dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111331
+Name adult green dragon`
+Level 100
+HWT 300 100000
+Short an adult green dragon`
+Long An adult green dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111332
+Name old green dragon`
+Level 125
+HWT 300 100000
+Short an old green dragon`
+Long An old green dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111333
+Name very old green dragon`
+Level 150
+HWT 300 100000
+Short a very old green dragon`
+Long A very old green dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111334
+Name ancient green dragon`
+Level 175
+HWT 300 100000
+Short an ancient green dragon`
+Long An ancient green dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111340
+Name mature white dragon`
+Level 80
+HWT 300 100000
+Short a mature white dragon`
+Long A mature white dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111341
+Name adult white dragon`
+Level 100
+HWT 300 100000
+Short an adult white dragon`
+Long An adult white dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111342
+Name old white dragon`
+Level 125
+HWT 300 100000
+Short an old white dragon`
+Long An old white dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111343
+Name very old white dragon`
+Level 150
+HWT 300 100000
+Short a very old white dragon`
+Long A very old white dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111344
+Name ancient white dragon`
+Level 175
+HWT 300 100000
+Short an ancient white dragon`
+Long An ancient white dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111350
+Name mature black dragon`
+Level 80
+HWT 300 100000
+Short a mature black dragon`
+Long A mature black dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111351
+Name adult black dragon`
+Level 100
+HWT 300 100000
+Short an adult black dragon`
+Long An adult black dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111352
+Name old black dragon`
+Level 125
+HWT 300 100000
+Short an old black dragon`
+Long An old black dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111353
+Name very old black dragon`
+Level 150
+HWT 300 100000
+Short a very old black dragon`
+Long A very old black dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111354
+Name ancient black dragon`
+Level 175
+HWT 300 100000
+Short an ancient black dragon`
+Long An ancient black dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111360
+Name mature purple dragon`
+Level 80
+HWT 300 100000
+Short a mature purple dragon`
+Long A mature purple dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111361
+Name adult purple dragon`
+Level 100
+HWT 300 100000
+Short an adult purple dragon`
+Long An adult purple dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111362
+Name old purple dragon`
+Level 125
+HWT 300 100000
+Short an old purple dragon`
+Long An old purple dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111363
+Name very old purple dragon`
+Level 150
+HWT 300 100000
+Short a very old purple dragon`
+Long A very old purple dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111364
+Name ancient purple dragon`
+Level 175
+HWT 300 100000
+Short an ancient purple dragon`
+Long An ancient purple dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111370
+Name mature yellow dragon`
+Level 80
+HWT 0 0
+Short a mature yellow dragon`
+Long A mature yellow dragon is here.`
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111371
+Name adult yellow dragon`
+Level 100
+HWT 300 100000
+Short an adult yellow dragon`
+Long An adult yellow dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111372
+Name old yellow dragon`
+Level 125
+HWT 300 100000
+Short an old yellow dragon`
+Long An old yellow dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111373
+Name very old yellow dragon`
+Level 150
+HWT 300 100000
+Short a very old yellow dragon`
+Long A very old yellow dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111374
+Name ancient yellow dragon`
+Level 175
+HWT 300 100000
+Short an ancient yellow dragon`
+Long An ancient yellow dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111380
+Name mature sky-blue dragon`
+Level 80
+HWT 300 100000
+Short a mature sky-blue dragon`
+Long A mature sky-blue dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111381
+Name adult sky-blue dragon`
+Level 100
+HWT 300 100000
+Short an adult sky-blue dragon`
+Long An adult sky-blue dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111382
+Name old sky-blue dragon`
+Level 125
+HWT 300 100000
+Short an old sky-blue dragon`
+Long An old sky-blue dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111383
+Name very old sky-blue dragon`
+Level 150
+HWT 300 100000
+Short a very old sky-blue dragon`
+Long A very old sky-blue dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+THING 111384
+Name ancient sky-blue dragon`
+Level 175
+HWT 300 100000
+Short an ancient sky-blue dragon`
+Long An ancient sky-blue dragon is here.`
+Sex 2
+ThFl 67745
+Val weapon 10 20 0 0 0 0 0 0 claw claw bite bite buffet`
+Flag Det 0 0 7
+Flag Aff 0 0 4718592
+Flag Mob 0 0 8
+END_THING
+
+END_OF_AREA
+

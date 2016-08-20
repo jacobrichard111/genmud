@@ -1,0 +1,7 @@
+TRIGGER
+Name foo`
+Gen 33 0 0 0
+Pct 100
+END_TRIGGER
+
+END_OF_TRIGGERS

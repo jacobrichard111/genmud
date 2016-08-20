@@ -1,0 +1,60 @@
+\chapter{Map Generation}
+
+\section{Introduction}
+
+The map generation code generates what I consider to be interesting
+maps by taking the basic Bresenham rasterization algorithm and spicing
+it up. You can create straight lines or paths that go off at an angle
+and even big rectangular blocks of rooms with the code, but it really
+shines when you make complicated blocks of rooms.
+
+\section{Use}
+
+The way to use the mapgen function is to type
+\vv
+mapgen dx dy length width fuzziness holeyness curviness extra\_lines
+\vv
+The dx and the dy give the initial vector that the algorithm uses
+for determining where it will go. At least one of these must be
+nonzero. 
+
+The length is how many rooms the generation goes in the direction of the
+larger of dx and dy.
+
+The width is how wide the path is (approximately) and it starts at the width,
+unless there is fuzziness, in which case this number is randomized.
+
+The fuzziness is a measure of how much the width of the line varies from block
+to block. So, if the fuzziness is 0, the width of the block of rooms will be
+uniform.
+
+The holeyness is a measure of how many rooms are deleted from the block of
+rooms being created. This feature is how it's possible to make complicated 
+labyrinthes. A holeyness around 8 or 9 or sometimes 10 tends to generate
+interesting maps. Less than that and the map is too full, and more
+than that and the map is too empty.
+
+The curviness is a measure of how much the central line deviates from its
+assigned course. The line deviates if nr(1,thisnumber)<50. It is interesting
+if it is around 15 or so.
+
+The extra lines are little lines that are placed in various places
+throughout the map before it's finished. I wouldn't recommend too many
+of these.
+
+
+Having said all of that, try out mapgen 1 0 20 10 3 8 15 1 and alias it to a
+single letter like v or z and repeatedly make maps and you will see a lot of
+interesting and extremely varied maps.
+
+
+\section{Mapgen Combine}
+
+The mapgen combine function takes 2 maps wth certain offsets and attempts
+to OR them together into a single map. If it doesn't work, it bails out and
+doesn't free the two mapgens entered into it. If it succeeds, only the
+new map is kept and the two maps that were originally used are freed
+for future use.
+
+
+

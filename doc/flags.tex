@@ -1,0 +1,494 @@
+\chapter{Flags}
+
+\section{HOWTO}
+
+To add a new flag to an existing flag type, first find the list of flags
+of that type in serv.h For example, suppose you wanted to add an object 
+flag. Search for OBJ\_MAGICAL in serv.h Notice the numbers next to the
+flags that look like 0x00040000 and things like that. Those are 
+hexadecimal numbers representing powers of 2 (binary numbers with
+exactly one nonzero bit). You can use numbers from 0x00000001 up to
+0x80000000 to represent bits. Follow the pattern and look for an
+unused bit (usually it will have to be at the bottom of the list,
+and put the new flag you want in there, and put the new bit in there.
+Your hexadecimal number should be all 0's except for one digit which
+is a 1, 2, 4 or 8. If there isn't any room left, you may need
+to make a new type of flag. 
+
+The next step is to go to const.c and find the data structure that
+gives the information about the flag. Add the information about
+your new flag into the data structure using the same format already
+there. Make sure you put it before the last element or else it won't
+get checked. 
+
+For completeness, you really should add some information about the flag
+to the helpfile and to this chapter.
+
+
+If you want to create a whole new type of flag say FLAG\_FOO, you need
+to do a bit more. Open up serv.h and find FLAG\_ROOM1. It will first
+appear at the end of a list of different flag types. Add your new
+flagtype to the end of this list, using the next available number for
+its value. Make sure you only use numbers less than NUM\_FLAGTYPES.
+If you don't you may have to increase NUM\_FLAGTYPES and if you have
+to do that, you will have to change how your other kinds of affects
+like damroll and hitroll work. If it comes to that. write a piece of
+code that will increase AFF\_START and everything after it by 10 or
+some number in such a way that you read in the datafiles using the old
+numbers, and write them out using the new numbers. This is probably
+something you want to figure out before you get too far into coding or
+building for your game.
+
+After you have the FLAG\_FOO set up, search for FLAG\_ROOM1 at the
+bottom of serv.h You can make a new macro 
+
+\#define IS\_FOO\_SET(a,b)  (IS\_SET(flagbits(a)->flags,FLAG\_FOO),(b))
+
+just like the other macros down there.
+
+The next step is to find room1\_flags in serv.h. It should be in a line
+that looks like
+
+extern const struct flag\_data room1\_flags[];
+
+Add a new line that looks like
+
+extern const struct flag\_data foo1\_flags[] (The 1 is there for two
+reasons. First, you might wnt to have lots more foo flags, so you will
+need to have foo2\_flags. Also, I figured out that I was using
+things like ``room\_flags'' as local variables with the same name
+as some of these structs. It worked, but it's not good to do that.
+
+Find the line in const.c that looks like
+
+{"room", "Room flags", (FLAG\_DATA *) \&room1\_flags},
+
+See that struct? Remove one of the ``blank'' lines at the end and
+add a line that looks like
+
+{``foo'', ``Foo Flags'', FLAG\_FOO, (FLAG\_DATA *) \&foo1\_flags},
+
+That will add the foo flags into the list of things to search
+when things deal with flags internally. 
+
+You will then need to make the foo1\_flags struct, and that consists of
+making a row or two of information like in the other flag lists followed
+by the terminating line of no data at the end.
+
+
+
+\section{What are they?}
+
+Flags are used to store two kinds of information. This information can be
+categorized as ``affects''. The first kind is a bitvector, like a list
+of what spell affects are on you. The second kind is a modifier like
++hps or -damroll or something. The flags are setup so that all 
+flags have types. If the type is below NUM\_FLAGTYPES, the flag is
+a bitvector flag. If it's above that number, it's treated as a modifier.
+Look in const.c to find the list of all bitvectors in the game currently.
+There are some special flags (thing flags) that have no affect on
+the game if they are added as a flag. Thing flags are their own
+thing and you shouldn't mess with them after something is created 
+(unless you have a reason and want to deal with the code necessary to do that.)
+
+The other kinds of flags are categorized, and some of them are
+related to each other as we will see...mainly to make computations and
+code a little faster and cleaner.
+
+Flags have several pieces:
+
+\bul type -- this is what kind of flag it is, obj flag, damroll, etc...
+
+\bul from -- if the flag was from a spell, then the flag gets a from.
+
+\bul timer -- this is how many hours until the flag wears off.
+
+\bul val -- this is the actual value of the flag, either the bits set or the value of the modifier.
+
+A few notes about the things you can do with flags. Spells can set and
+remove permanent affects. You can also put any flag on any thing,
+although it won't always do anything. That means you can do stuff like
+cast temporary glow hum flags on weapons (lowlevel alchemist spell),
+and then have a different highlevel alchemist spell that puts a permanent
+glow or hum on a weapon (maybe needing components). You have to
+understand that this system will let you do a lot of bad things, so
+please be careful and don't go crazy with it, or you might find your
+game is out of control.
+
+\section{The List of Flags}
+        
+Here are the flags categorized by type, and in no particular order.
+
+\begin{itemize}
+
+\item Exit/door flags -- these are flags used to tell what state a door is in.
+
+\begin{itemize}
+
+\item EX\_DOOR -- This exit has a door.
+
+\item EX\_CLOSED -- This exit is closed (must have a door there).
+
+\item EX\_HIDDEN -- This exit cannot be seen on the exit command. Must search for it.
+
+\item EX\_PICKPROOF -- This door cannot be picked.
+
+
+\item EX\_DRAINING -- This drains you when you open it.
+
+\item EX\_LOCKED -- This must be picked, broken, or unlocked before it can be opened.
+
+\item EX\_WALL -- This is a wall..you can't pass through unless you have holywalk on. It also doesn't register as an exit unless you have holylight on.
+
+\item EX\_NOBREAK -- You can't break this door in this direction.
+
+\end{itemize}
+
+
+\item Guard flags -- These are flags that tell what a thing is guarding.
+
+\begin{itemize}
+
+\item GUARD\_DOOR -- This guards vs anything moving in a certain direction (if it can see it if it's a mob).
+
+\item GUARD\_DOOR\_ALIGN -- This guards this direction vs anyone of a different alignment.
+
+\item GUARD\_DOOR\_PC -- This only guards vs players.
+
+\item GUARD\_DOOR\_NPC -- This guards vs nonplayers.
+
+\item GUARD\_DOOR\_SOC -- This guards vs anyone not in the same society.
+
+\item GUARD\_VS\_ABOVE -- Guards can block vs certain player stats. See the guard value for a detailed explination. Basically this lets you create things that block if you're too high of a level instead of too low of a level.
+
+\end{itemize}
+
+
+\item Channel flags -- These are used if you make your own custom channels.
+
+\begin{itemize}
+
+\item CHAN\_TO\_TARGET -- This is essentially the tell command.
+
+\item CHAN\_TO\_ROOM -- This is used for emote and say
+
+\item CHAN\_TO\_NEAR -- This is essentially the yell command...the nice thing
+is that you could make it so you don't have global channels, but instead have same align yells over a short distance.
+
+\item CHAN\_TO\_ALL -- These are global channels like chat, ctalk etc...
+
+\item CHAN\_OPP\_ALIGN -- You set this on a global channel if both alignments should hear it.
+
+\item CHAN\_TO\_CLAN -- clan talk -- can set a different one for each type of clan.
+
+\item CHAN\_TO\_GROUP -- gtell command
+
+\item CHAN\_NO\_QUOTE -- just says no quotes go around the message...like for emotes.
+
+\item CHAN\_USE\_COLOR -- Will you let players use colors in the channel?
+
+
+\end{itemize}
+
+
+\item Area flags -- used to detail an area.
+
+\begin{itemize}
+
+\item AREA\_CLOSED -- This area is closed to players.
+
+\item AREA\_NOQUIT -- You cannot quit out here, and if you lose link here and get saved, you get sent back to your recall room.
+
+\item AREA\_RAIDABLE -- If you kill all mobs in here which guard vs opp align between resets, you take over the city. All the guards increase in level, so it's harder to take back a city you lost.
+
+\end{itemize}
+
+
+\item Room flags -- these specify what a room does. Some also do other things. If a room flag for one of the ``sectors'' is placed on a mob, for example, and the mob is reset across the area, it will only reset in rooms with at least one of those room flags the same. That way, fish don't appear in mountains, and dwarves don't appear underwater.
+
+
+\begin{itemize}
+
+\item ROOM\_INSIDE -- This is inside a building.
+
+\item ROOM\_WATERY -- This is a water sector You need to swim, have water breath, or have a boat to make it here.
+
+\item ROOM\_AIRY -- Up in the air. You need fly here.
+
+\item ROOM\_FIERY -- This burns you if you aren't protected.
+
+\item ROOM\_EARTHY -- You are in the middle of the earth. You need protection or it will crush you (fog).
+
+\item ROOM\_NOISY -- Weakens yells.
+
+\item ROOM\_PEACEFUL -- stops fights
+
+\item ROOM\_DARK -- This room is always dark, even during the day (unless lit by lights).
+
+\item ROOM\_EXTRAMANA -- This room gives you extra mana just for being in it.
+
+\item ROOM\_EXTRAHEAL -- This room gives you extra hps just for being in it.
+
+\item ROOM\_MANADRAIN -- This room drains mana. :P Imagine that.
+
+\item ROOM\_NOMAGIC -- You can't cast spells in this. It also means you can't use magic on this if its a mob.
+
+\item ROOM\_UNDERGROUND -- Underground room, never lit.
+
+\item ROOM\_NOTRACKS -- Tracks don't get set here.
+
+\item ROOM\_NOBLOOD -- Blood pools can't form here.
+
+\item ROOM\_EASYMOVE -- Roads and trails, use less moves per room.
+
+\item ROOM\_ROUGH -- Harder to move through, like mountains or rocky areas.
+
+\item ROOM\_FOREST -- This is a forest with lots of trees and stuff.
+
+\item ROOM\_FIELD -- This is an open area with grasses and bushes but few trees.
+
+\item ROOM\_DESERT -- This is a hot,dry area.
+
+\item ROOM\_SWAMP -- This is a watery, slimy area.
+
+\item ROOM\_NORECALL -- You cannot transport out of this room.
+
+\item ROOM\_NOSUMMON -- You cannot transport someone to this room.
+
+\item ROOM\_UNDERWATER -- You need to be able to breathe water here, or you will drown.
+
+\item ROOM\_MINERALS -- Used internally. On reboot, certain kinds of rooms..underground and rough get the minerals bit set. Then, when people mine inside the room, there is a chance the bit will be removed, making the room unminable until the next reboot.
+
+\item ROOM\_LIGHT -- This room is lit, so you don't need lights in there.
+
+\item ROOM\_SNOW -- Snowy and cold room.
+        
+
+\end{itemize}
+
+The ``badroom bits'' are: ROOM\_WATERY | ROOM\_FIERY | ROOM\_EARTHY | ROOM\_UNDERWATER | ROOM\_AIRY. The reason these are ``badrooms'' is that you either need some special skill or magical power to enter the room, or to survive in the room.
+
+\item Hurt and Protect bits. These two things work together. The idea
+is that when a spell gets cast on something, and the spell has hurt
+bits, the protect bits are checked on the victim. If all of the hurt
+bits are cancelled by the victim's protect bits, then the spell
+doesn't leave any affects. If the victim is protected from some of the
+hurt bits, then the remaining hurt bits do get put onto the
+victim. So, the following bits can be used as hurt bits (for offensive
+spells), or protect bits (For defensive spells). When you get to the
+section on making spells, making a cure blind spell, for instance
+would entail making a spell with hurt bits blind, and then a spell bit
+removes\_bit.
+
+\begin{itemize}
+
+\item AFF\_BLIND -- This makes it so you can't see. When you try to use the look command you will get a message saying that you're blind.
+
+\item AFF\_CURSE -- You cannot cast transport spells. If your victim is cursed and the spell is not offensive, then the transport spell won't work on the victim.
+
+\item AFF\_OUTLINE -- The victim takes more damage based on the attacker's level.
+
+\item AFF\_SLEEP -- The victim falls asleep.
+
+\item AFF\_FEAR -- The victim is too afraid to attack.
+
+\item AFF\_DISEASE -- This slows down healing and can spread.
+
+\item AFF\_WOUND -- This makes you bleed and lose hps over time.
+
+\item AFF\_RAW -- This makes you take more damage per combat hit.
+
+\item AFF\_SLOW -- This makes you hit less often and slows down your delayed commands.
+
+\item AFF\_NUMB -- This does nothing right now but I might make it force you to drop items once in a while.
+
+\item AFF\_CONFUSE -- This keeps you from casting spells correctly sometimes and from giving the right command sometimes.
+
+\item AFF\_FORGET -- This makes you forget to finish delayed actions.
+
+\item AFF\_BEFUDDLE -- This makes you almost always fail to cast spells.
+
+\item AFF\_WEAK -- This makes you do half as much damage as normal.
+
+\item AFF\_PARALYZE -- This makes you unable to do anything.
+
+\item AFF\_AIR -- This makes you vulnerable to air spells.
+
+\item AFF\_EARTH -- This makes you vulnerable to earth spells.
+
+\item AFF\_FIRE -- This makes you vulnerable to fire spells.
+
+\item AFF\_WATER -- This makes you vulnerable to water spells.
+
+\end{itemize}
+
+
+\item Affect/Detect flags. If you get the affect bit set on you, you are affected by the indicated flag. If you have the detect bit set and the flag is no more than AFF\_FOG, then the detect gives you some special ability to see what otherwise would be hidden.
+
+\begin{itemize}
+
+\item AFF\_INVIS -- You can't be seen.
+
+\item AFF\_HIDDEN -- You are hidden.
+
+\item AFF\_DARK -- You are dark and hard to see. Det dark is infrared/infravision.
+
+\item AFF\_CHAMELEON -- A powerful obscurement command.
+
+\item AFF\_SNEAK -- People can't hear you coming into the room.
+
+\item AFF\_FOGGY -- The affect is passdoor, the detection lets you see through fog outside.
+
+\item AFF\_SANCT -- This reduces some combat damage vs. you.
+
+\item AFF\_REFLECT -- This lets you reflect one spell back on its caster.
+
+\item AFF\_PROTECT -- Massive combat damage reduction.
+
+\item AFF\_FLYING -- You can fly.
+
+\item AFF\_WATER\_BREATH -- You can breathe water.
+
+\item AFF\_REGENERATE -- You heal quickly.
+
+\item AFF\_HASTE -- You attack more quickly.
+
+\item AFF\_PROT\_ALIGN -- Defense against opp align combat attacks.
+
+\item AFF\_AIR -- An electric shield.
+
+\item AFF\_EARTH -- A shield of rocks.
+
+\item AFF\_FIRE  -- A shield of fire.
+
+\item AFF\_WATER -- A shield of ice.
+        
+\end{itemize}
+
+
+\item The act flags give creatures a variety of activities and actions
+they can carry out. It's so that everything doesn't have to be
+scripted for things with commonly used behaviors.
+
+\begin{itemize}
+
+\item ACT\_AGGRESSIVE -- These creatures attack other things nearby.
+
+\item ACT\_FASTHUNT  -- These creatures hunt things down very quickly.
+
+\item ACT\_BANKER -- This thing is a banker.
+
+\item ACT\_KILL\_OPP -- These things kill enemies of their alignment.
+
+\item ACT\_ASSISTALL -- These things start fighting whenever combat
+with players breaks out near them.
+
+\item ACT\_SENTINEL -- These things don't wander randomly. They will,
+however move if they are fasthunt. This is a bug that existed in the
+old Emlen code, but I like it, so I put it in here.
+
+\item ACT\_ANGRY -- Like aggressive, but much smaller chance of
+attacking.
+
+\item ACT\_MOUNTABLE -- This thing will let other things ride it.
+
+\item ACT\_WIMPY -- This thing will flee when its hps get too low in combat.
+
+
+\end{itemize}
+
+
+\item Mob Flags: These flags give creatures extra resistances to
+things. In many places, the resistance is counteracted with a special
+object flag that lets things hit the creature. Note that you can make
+spells to give objects temporary or permanent affects to counteract
+these resistances. Note that the resistance bits and object resistance
+breaker bits match up so only one mob\_resist \& obj\_extra\_power check
+is needed.
+
+
+\begin{itemize}
+
+\item MOB\_GHOST -- hit by OBJ\_GLOW weapons.
+
+\item MOB\_DEMON -- hit by OBJ\_BLESSED weapons.
+
+\item MOB\_UNDEAD -- hit by OBJ\_HUM weapons.
+
+\item MOB\_DRAGON -- hit by OBJ\_POWER weapons.
+
+\item MOB\_ANGEL -- hit by OBJ\_CURSED weapons.
+
+\item MOB\_FIRE -- hit by OBJ\_WATER weapons.
+
+\item MOB\_EARTH -- hit by OBJ\_AIR weapons.
+
+\item MOB\_WATER -- hit by OBJ\_FIRE weapons.
+
+\item MOB\_AIR -- hit by OBJ\_EARTH weapons.
+
+\item MOB\_NOMAGIC -- You cannot cast magic spells on this creature.
+
+\item MOB\_NOHIT -- You can't hit this thing at all.
+
+\end{itemize}
+
+
+\item Object flags give objects special powers generally, but may put
+restrictions on the use of the item also.
+
+
+
+\begin{itemize}
+
+\item OBJ\_GLOW -- Can hit MOB\_GHOST things.
+
+\item OBJ\_BLESSSED -- Can hit MOB\_DEMON things.
+
+
+\item OBJ\_HUM -- Can hit MOB\_UNDEAD things.
+
+\item OBJ\_POWER -- Can hit MOB\_DRAGON things.
+
+\item OBJ\_CURSED -- Can hit MOB\_ANGEL things.
+
+\item OBJ\_WATER -- Can hit MOB\_FIRE things.
+
+\item OBJ\_FIRE -- Can hit MOB\_WATER things.
+
+\item OBJ\_AIR -- Can hit MOB\_EARTH things.
+
+\item OBJ\_EARTH -- Can hit MOB\_AIR things.
+
+\item OBJ\_NOAUCTION -- This thing cannot be auctioned. Useful for
+keeping people from auctioning items when they're too powerful.
+
+\item OBJ\_TWO\_HANDED -- This item requires two hands free to wield. If
+you have more than 2 hands, you need 2 hands per item.
+
+\item OBJ\_DRIVEABLE -- These are vehicles. Refer back up to badroom
+bits for this. If the object has no badbits room bits set, it can be
+driven over all normal rooms. If any badbits are set, then the object
+moves, either the start or end room must have at least one of those
+bits set. For example, a boat will have a watery room bit set, so it
+can sail across all seas, and it can land in a room adjacent to the
+ocean, but it can go no farther. A spaceship able to travel through
+the air and space can land, but it cannot move along the ground. 
+
+\item OBJ\_NOSTORE -- This item cannot be stored. Good for items that
+are powerful. Also, when the world snapshot is saved, only nostore
+items get saved on the ground, because it is assumed that any storable
+items are not worth keeping over reboots.
+
+\item OBJ\_MAGICAL -- This is an item that has been enchanted. If you
+attempt to enchant it again, it will explode.
+
+\item OBJ\_NOSACRIFICE -- You cannot sacrifice this object.
+
+\end{itemize}
+
+
+
+\end{itemize}
+
+        

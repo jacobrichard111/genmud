@@ -1,0 +1,174 @@
+CODE ask_intro`
+do say $compliment$ $adventurer$ $ask_for$ $help_me$ $short_time$?
+#delay
+`
+
+CODE state_item_quest`
+do say $mob$ near $room$ in $area$ has $obj$ that I need.
+#delay
+do say $ask_for$ $bring_it$ me?
+#delay
+do say $asking_thank_you$
+`
+
+CODE give_item_quest`
+#state_item_quest
+#set_qf_bit
+`
+
+CODE state_kill_quest`
+do say There is $mob$ near $room$ in $area$ that's been $bad_thing$.
+#delay
+do say $ask_for$ $kill_it$ me?
+#delay
+do say $asking_thank_you$
+`      
+
+CODE give_kill_quest`
+#state_kill_quest
+#set_qf_bit
+`
+
+CODE state_bribe_quest`
+do say For a $small_size$ $bribe_name$ of $bribe_size$ coins, I might be able to help you.
+#delay
+do say If you're interested...
+#delay
+	
+`
+
+CODE give_bribe_quest`
+#state_bribe_quest
+#set_qf_bit
+`	
+
+
+
+CODE state_password_quest`
+do say I need to get a secret word from $mob$.
+#delay
+do say $ask_for$ $bring_it$ me?
+#delay
+`
+
+CODE give_password_quest`
+#state_password_quest
+#set_qf_bit
+`
+
+
+
+
+
+CODE small_delay`
+wait @r(2,4)
+`
+
+CODE delay`
+wait @r(5,10)
+`
+
+CODE kill_quest_completion`
+#set_finished_bit
+`
+
+CODE cant_do_now`
+if (@v9 == 1)
+done
+`
+
+CODE check_finished`
+if (@sqf:$finished_name$:$finished_num$:$finished_bit$ != 0) 3
+do say You've already completed this quest, @snm!
+nuke @o
+@v9 = 1
+`
+
+CODE check_canstart`
+if (@sqf:$canstart_name$:$canstart_num$:$canstart_bit$ != 0) 3
+do say I don't understand, @snm.
+nuke @o
+@v9 = 1
+`
+
+CODE check_didstart`
+if (@sqf:$didstart_name$:$didstart_num$:$didstart_bit$ != 0) 3
+do say I don't understand, @snm.
+nuke @o
+@v9 = 1
+`
+
+
+
+
+
+
+
+CODE check_quest_ok`
+#check_can_do_quest
+#check_done_quest
+#cant_do_now
+`	
+
+CODE got_item_wanted`
+do say Thank you for $task_name$!
+@v0 = @ocs
+@v0 * 5
+nuke @o
+`
+
+CODE got_password_wanted`
+do say Ahh, so you know the secret code. 
+#delay
+do say Excellent, now we can continue.
+#delay
+`
+
+CODE set_qf_finished_bit`
+@sqf:$finished_name$:$finished_num$:$finished_bit$ = 1
+`
+
+CODE set_qf_canstart_bit`
+@sqf:$canstart_name$:$canstart_num$:$canstart_bit$ = 1
+`
+
+CODE set_qf_didstart_bit`
+@sqf:$didstart_name$:$didstart_num$:$didstart_bit$ = 1
+`
+
+CODE check_canstart`
+if (
+
+
+	
+CODE give_money_reward`
+@rv:money:0 + @v0
+do say Here's your reward!
+do give @v0 copper @snm
+`
+
+CODE give_item_reward`
+make $reward_item_num$ > @t0
+do say Here's the @t0nm I promised you!
+do give @t0nm @snm
+`
+
+CODE give_password_reward`
+do tell @snm Tell $next_mob$ the password is $qf_password$`
+`
+
+
+CODE receive_item_code`
+#check_quest_ok
+#got_item_wanted
+#give_reward
+#set_qf_bit
+`
+
+CODE killed_mob_code`
+#check_quest_ok
+#check_mob_killed
+#give_reward
+#set_qf_bit
+`
+

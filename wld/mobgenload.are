@@ -1,0 +1,25 @@
+THING 127000
+Name mobgenload.are`
+HpMv 0 10 5 5000
+HWT 0 0
+Timer 17
+Short Mobgen Load Area`
+type Lonath`
+ThFl 1089531
+Flag Area 0 0 28
+END_THING
+
+THING 127001
+HWT 0 0
+Color 7
+Desc This is the area where randomly generated "animal" mobs load.
+`
+Short Mobgen Load Area`
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Area 0 0 28
+END_THING
+
+END_OF_AREA
+

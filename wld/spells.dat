@@ -1,0 +1,2441 @@
+SPELL
+Name Whipping Weapons`
+Gen 1 0 10 0 582 2 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1037 1087 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Magic Missile`
+Gen 0 0 6 4 50 2 8 5 0
+Ndam bolt`
+Damg r(2,6)`
+Wear_Off The spell has worn off @1n.`
+Message @1n send@s a bolt of pure energy streaking toward @3n!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1039 1089 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Slashing Weapons`
+Gen 1 0 10 0 579 4 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Whipping Weapons`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1037 1087 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Minor Guarding`
+Gen 0 1 12 8 40 4 13 6 0
+Damg l/10+3`
+Duration l/5 + 5`
+Wear_Off The spell has worn off @1n.`
+Message @1n surround@s @3f with a small glowing light.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1038 1088 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag armor 0 0 0
+END_SPELL
+
+SPELL
+Name Scorch`
+Gen 0 0 8 4 65 4 12 5 0
+Ndam scorch`
+Damg r(2,7)`
+Wear_Off The spell has worn off @1n.`
+Message @1n scorch@s @3f with a small fire!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Magic Missile`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1039 1089 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name identify`
+Gen 0 4 3 16 3 5 2 6 0
+Wear_Off The spell has worn off @1n.`
+Message You gain knowledge about @3n...`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1037 1087 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Spell 0 0 40960
+END_SPELL
+
+SPELL
+Name Piercing Weapons`
+Gen 1 0 10 0 580 6 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Slashing Weapons`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1036 1086 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Icicle`
+Gen 0 0 11 8 51 6 10 5 0
+Ndam freeze`
+Damg r(3,8)`
+Wear_Off The spell has worn off @1n.`
+Message @1n send@s an icicle hurtling toward @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Magic Missile`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1039 1089 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Parry`
+Gen 1 0 10 0 576 8 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Slashing Weapons`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1037 1087 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Concussion Weapons`
+Gen 1 0 10 0 581 8 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Slashing Weapons`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1037 1087 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Heal Light`
+Gen 0 1 8 2 20 8 8 5 0
+Damg r(8,13)`
+Wear_Off The spell has worn off @1n.`
+Message @1n surround@s @3f with a small glow.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1038 1088 0 0 0 0 0 0 0 0 
+Stats 0 0 13 0 0 0 0 
+Flag Spell 0 0 2
+END_SPELL
+
+SPELL
+Name Shielding`
+Gen 0 1 15 1 41 9 17 6 0
+Damg l/8+2`
+Duration l/4 + 8`
+Wear_Off The spell has worn off @1n.`
+Message A shield pops up around @3n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Minor Guarding`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1038 1088 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag armor 0 0 0
+END_SPELL
+
+SPELL
+Name Pebble`
+Gen 0 0 11 2 58 9 13 5 0
+Ndam hit`
+Damg r(5,11)`
+Wear_Off The spell has worn off @1n.`
+Message @1n send@s a pebble streaking toward @3f.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Magic Missile`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1039 1089 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Butcher`
+Gen 2 0 10 0 302 10 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Guilds 0 0 0 0 2 0 0 0 0 0 
+Teachers 1037 1087 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Puff`
+Gen 0 0 11 1 72 10 11 5 0
+Ndam puff`
+Damg r(6,12)`
+Wear_Off The spell has worn off @1n.`
+Message @1n sting@s @3f with a puff of air.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Magic Missile`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1039 1089 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Bash`
+Gen 1 0 10 0 550 10 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Concussion Weapons`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1037 1087 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Dodge`
+Gen 1 0 10 0 577 11 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Piercing Weapons`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1036 1086 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Armor Penetration`
+Gen 1 0 10 0 574 12 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Piercing Weapons`
+Pre_Name Slashing Weapons`
+Guilds 1 0 0 1 0 0 0 0 0 0 
+Teachers 1036 1086 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Balance`
+Gen 1 0 10 0 587 12 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Dodge`
+Guilds 1 0 0 1 0 0 0 1 0 0 
+Teachers 1036 1086 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Refresh`
+Gen 0 1 10 8 27 12 11 5 0
+Damg r(12,35)`
+Wear_Off The spell has worn off @1n.`
+Message @1n makes @3f look a little more refreshed.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Heal Light`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1038 1088 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Spell 0 0 4
+END_SPELL
+
+SPELL
+Name Sneaking`
+Gen 2 0 10 0 310 12 10 6 0
+Duration l/3`
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Guilds 0 0 0 1 0 0 0 0 0 0 
+Teachers 1036 1086 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Kick`
+Gen 1 0 10 0 551 13 25 4 0
+Ndam kick`
+Damg d*2/3m42+k`
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Bash`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1037 1087 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Second Attack`
+Gen 1 0 10 0 571 14 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Kick`
+Pre_Name Slashing Weapons`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1037 1087 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Tackle`
+Gen 1 0 10 0 552 14 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Bash`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1037 1087 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Backstab`
+Gen 1 0 10 0 553 15 6 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Armor Penetration`
+Pre_Name Dodge`
+Guilds 0 0 0 1 0 0 0 0 0 0 
+Teachers 1036 1086 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Search`
+Gen 2 0 10 0 300 15 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Guilds 0 0 0 1 1 0 0 0 0 0 
+Teachers 1036 1086 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Rescue`
+Gen 1 0 10 0 561 15 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Balance`
+Guilds 0 0 0 0 0 0 0 1 0 0 
+Teachers 1037 1087 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Major Guarding`
+Gen 0 1 25 2 42 15 22 6 0
+Damg l/6+3`
+Duration l/3 + 6`
+Wear_Off The spell has worn off @1n.`
+Message @1n protect@s @3n from harm.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Shielding`
+Guilds 0 1 0 0 0 0 0 1 0 0 
+Teachers 1038 1088 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag armor 0 0 0
+END_SPELL
+
+SPELL
+Name Infravision`
+Gen 0 1 25 4 7 15 18 6 0
+Duration l/2`
+Wear_Off You can't see in the dark anymore.`
+Message @1p eyes are surrounded by a $9red$7 glow.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Guilds 0 1 0 0 0 0 0 0 1 0 
+Teachers 1039 1089 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Det 0 0 4
+END_SPELL
+
+SPELL
+Name Heal Serious`
+Gen 0 1 15 2 21 16 14 5 0
+Damg r(15,24)`
+Wear_Off The spell has worn off @1n.`
+Message @3n look@s a little bit better.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Heal Light`
+Guilds 0 0 1 0 0 0 0 0 0 0 
+Teachers 1038 1088 0 0 0 0 0 0 0 0 
+Stats 0 0 17 0 0 0 0 
+Flag Spell 0 0 2
+END_SPELL
+
+SPELL
+Name Enhanced Damage`
+Gen 1 0 10 0 573 17 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Second Attack`
+Pre_Name Concussion Weapons`
+Guilds 2 0 0 0 0 0 0 0 0 0 
+Teachers 1037 1087 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Swim`
+Gen 2 0 10 0 303 18 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1037 1087 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Burning Hands`
+Gen 0 0 16 4 66 18 16 5 0
+Ndam burn`
+Damg r(10,19)`
+Wear_Off The spell has worn off @1n.`
+Message @1n make@s @3f scream in agony with @1s $9burning$7 hands!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Scorch`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1039 1089 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Blink`
+Gen 0 2 1 0 591 18 10 6 0
+Wear_Off The spell has worn off @1n.`
+Message THIS IS NOT A SPELL TO CAST!!!!!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Shielding`
+Guilds 0 2 2 0 0 0 0 0 2 0 
+Teachers 1039 1089 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Recall`
+Gen 0 2 80 16 10 18 60 6 0
+Wear_Off The spell has worn off @1n.`
+Message @1n is granted sanctuary by the gods!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Guilds 0 0 1 0 0 0 0 0 1 0 
+Teachers 1038 1088 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Det 0 0 128
+END_SPELL
+
+SPELL
+Name Rock`
+Gen 0 0 16 2 59 19 14 5 0
+Ndam smack`
+Damg r(10,20)`
+Wear_Off The spell has worn off @1n.`
+Message A rock appears above @1p head, then hurtles toward @3f.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Pebble`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1039 1089 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Lava Stream`
+Gen 0 0 15 6 89 19 14 5 0
+Ndam lava`
+Damg r(10,20)`
+Wear_Off The spell has worn off @1n.`
+Message @1n hit@s @3f with a stream of $9lava$7.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Burning Hands`
+Pre_Name Rock`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 1039 1089 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Flurry`
+Gen 1 0 10 0 554 20 25 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Second Attack`
+Pre_Name Enhanced Damage`
+Guilds 2 0 0 0 0 0 0 1 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Gust of Wind`
+Gen 0 0 18 1 73 20 15 5 0
+Ndam gust`
+Damg r(11,21)`
+Wear_Off The spell has worn off @1n.`
+Message @1n send@s out a gust of wind to strike @3f.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Puff`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Transport 1
+END_SPELL
+
+SPELL
+Name Hide`
+Gen 2 0 10 0 311 20 10 6 0
+Duration l/5`
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Sneaking`
+Guilds 0 0 0 2 1 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Grapple`
+Gen 1 0 10 0 564 20 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Tackle`
+Guilds 3 0 0 0 0 0 0 1 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Inspire`
+Gen 2 0 10 0 328 20 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Guilds 0 0 0 0 0 0 0 0 0 2 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Icy Grip`
+Gen 0 0 16 10 52 21 12 5 0
+Ndam freeze`
+Damg r(12,21)`
+Wear_Off The spell has worn off @1n.`
+Message @1n get@s @3f in $Ean icy grip$7!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Icicle`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Zap`
+Gen 0 0 12 5 94 21 12 5 0
+Ndam zap`
+Damg r(12,22)`
+Wear_Off The spell has worn off @1n.`
+Message @1n zap@s @3f with a small shock.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Gust of Wind`
+Pre_Name Burning Hands`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Fly`
+Gen 0 2 10 1 9 21 10 6 0
+Duration 3 + l/3`
+Wear_Off The spell has worn off @1n.`
+Message @1p feet lift off the ground!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Guilds 0 2 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Aff 0 0 524288
+END_SPELL
+
+SPELL
+Name Noxious Cloud`
+Gen 0 0 12 9 84 22 13 5 0
+Ndam poison`
+Damg r(12,24)`
+Wear_Off You feel better.`
+Message @1n send@s a $2noxious$7 cloud blowing toward @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Icy Grip`
+Pre_Name Gust of Wind`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Shield Block`
+Gen 1 0 10 0 578 23 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Bash`
+Guilds 1 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Acid Arrow`
+Gen 0 0 13 10 79 23 14 5 0
+Ndam acid`
+Damg r(13,24)`
+Wear_Off The spell has worn off @1n.`
+Message @1n create@s $2an acid arrow$7 and send@s it streaking toward @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Icy Grip`
+Pre_Name Rock`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Detect Invisible`
+Gen 0 1 25 1 5 23 25 6 0
+Duration l/2`
+Wear_Off You r vision returns to normal.`
+Message @1p eyes are surrounded by a $Cblue$7 glow.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Infravision`
+Guilds 0 3 0 0 0 0 0 0 3 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 18 18 0 0 0 0 
+Flag Det 0 0 1
+END_SPELL
+
+SPELL
+Name Shell of Might`
+Gen 0 1 30 8 43 24 35 6 0
+Damg 10+l/4`
+Duration l/2+3`
+Wear_Off The spell has worn off @1n.`
+Message @1n get@s surrounded by a $CShell of Might$7!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Major Guarding`
+Guilds 0 2 0 0 0 0 0 2 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag armor 0 0 0
+END_SPELL
+
+SPELL
+Name Investigate`
+Gen 2 0 10 0 301 25 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Search`
+Guilds 0 0 0 2 1 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Heal Critical`
+Gen 0 1 25 2 22 25 17 5 0
+Damg r(18,33)`
+Wear_Off The spell has worn off @1n.`
+Message @3n look@s a lot better.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Heal Serious`
+Guilds 0 0 2 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 20 0 0 0 0 
+Flag Spell 0 0 2
+END_SPELL
+
+SPELL
+Name Invisible`
+Gen 0 2 35 1 4 26 22 6 0
+Duration l/3`
+Wear_Off The spell has worn off @1n.`
+Message $6@1n becomes invisible....$7`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Detect Invisible`
+Guilds 0 4 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Aff 0 0 1
+END_SPELL
+
+SPELL
+Name Third Attack`
+Gen 1 0 10 0 572 27 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Second Attack`
+Pre_Name Enhanced Damage`
+Guilds 2 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Fiery Fist`
+Gen 0 0 20 4 67 27 24 5 0
+Ndam fire`
+Damg r(15,30)`
+Wear_Off The spell has worn off @1n.`
+Message @1n slam@s @3f with a $9fiery fist$7!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Zap`
+Pre_Name Lava Stream`
+Guilds 0 1 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Evade`
+Gen 1 0 10 0 583 28 15 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Dodge`
+Guilds 0 0 0 3 0 0 0 1 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Accuracy`
+Gen 1 0 10 0 575 29 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Guilds 3 0 0 0 2 0 0 1 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Steadiness`
+Gen 1 0 10 0 589 29 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Balance`
+Guilds 2 0 0 2 0 0 0 2 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Chop`
+Gen 2 0 10 0 306 30 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Brew`
+Gen 2 0 10 0 314 30 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Butcher`
+Guilds 0 1 0 0 0 0 2 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Minor Powershield`
+Gen 0 2 60 16 200 30 100 6 220
+Wear_Off The spell has worn off @1n.`
+Message @1n create@s a shimmering sphere.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Shell of Might`
+Guilds 0 0 1 0 0 0 1 0 1 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Punch`
+Gen 1 0 10 0 594 30 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Grapple`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Windblast`
+Gen 0 0 24 1 74 31 23 5 0
+Ndam blast`
+Damg r(18,35)`
+Wear_Off The spell has worn off @1n.`
+Message @1n blast@s @3f back with a burst of wind!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Zap`
+Pre_Name Noxious Cloud`
+Guilds 0 1 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Multi Wield`
+Gen 1 0 10 0 570 32 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Third Attack`
+Guilds 4 0 0 0 0 0 0 1 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Lightning Bolt`
+Gen 0 0 19 5 95 32 16 5 0
+Ndam lightning`
+Damg r(19,38)`
+Wear_Off The spell has worn off @1n.`
+Message @1n hit@s @3f with a $Blightning$7 bolt!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Windblast`
+Pre_Name Fiery Fist`
+Guilds 0 1 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Spike`
+Gen 0 0 24 2 60 33 22 5 0
+Ndam puncture`
+Damg r(19,38)`
+Wear_Off The spell has worn off @1n.`
+Message @1n conjure@s a wicked-looking spike which streaks out and hits @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Acid Arrow`
+Pre_Name Lava Stream`
+Guilds 0 1 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Cold Ray`
+Gen 0 0 22 8 53 34 16 5 0
+Ndam ice`
+Damg r(21,40)`
+Wear_Off The spell has worn off @1n.`
+Message A ray of cold leaves @1n and strikes @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Acid Arrow`
+Pre_Name Noxious Cloud`
+Guilds 0 1 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Liquid Lead`
+Gen 0 0 19 6 90 34 17 5 0
+Ndam fire`
+Damg r(20,40)`
+Wear_Off The spell has worn off @1n.`
+Message @1n spray@s @3f with a ball of liquid lead!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Fiery Fist`
+Pre_Name Spike`
+Guilds 0 1 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Fortify`
+Gen 2 0 10 0 319 34 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Guilds 0 0 0 0 0 3 0 3 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Haste`
+Gen 0 2 40 5 16 34 18 6 0
+Duration 3 + l/5`
+Wear_Off The spell has worn off @1n.`
+Message @1p motion speeds up!`
+Comp 1 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Second Attack`
+Guilds 3 2 0 2 1 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Aff 0 0 4194304
+END_SPELL
+
+SPELL
+Name Fire Weapon`
+Gen 1 0 10 0 555 35 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Armor Penetration`
+Pre_Name Balance`
+Guilds 3 0 0 0 3 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Riposte`
+Gen 1 0 10 0 585 35 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Parry`
+Guilds 3 0 0 0 0 0 0 4 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Gather`
+Gen 2 0 10 0 307 35 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Chop`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Skin`
+Gen 2 0 10 0 308 35 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Gather`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Decay Cloud`
+Gen 0 0 19 9 85 35 19 5 0
+Ndam decay`
+Damg r(21,41)`
+Duration 4`
+Wear_Off You don't feel so rotten.`
+Message @1n conjure@s a cloud of $8decay$7 which appears on top of @3f.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Cold Ray`
+Pre_Name Windblast`
+Guilds 0 1 0 0 0 0 0 0 0 0 
+Teachers 1039 1089 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 32
+END_SPELL
+
+SPELL
+Name Alchemy`
+Gen 2 0 10 0 323 35 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Brew`
+Guilds 0 0 0 0 0 0 3 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Disarm`
+Gen 1 0 10 0 593 35 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Piercing Weapons`
+Guilds 2 0 0 0 0 0 0 2 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Track`
+Gen 2 2 10 0 325 35 20 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Investigate`
+Guilds 0 0 0 0 2 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Overpower`
+Gen 1 0 10 0 597 35 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Punch`
+Pre_Name Tackle`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Demoralize`
+Gen 2 0 10 0 329 35 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Inspire`
+Guilds 0 0 0 0 0 0 0 0 0 4 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Healing`
+Gen 0 1 10 2 23 36 22 5 0
+Damg r(30,56)`
+Wear_Off The spell has worn off @1n.`
+Message @1n make@s @3f look a lot better!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Heal Critical`
+Guilds 0 0 3 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Spell 0 0 2
+END_SPELL
+
+SPELL
+Name Rejuvenate`
+Gen 0 1 25 8 28 36 15 5 0
+Damg r(25,60)`
+Wear_Off The spell has worn off @1n.`
+Message @3n look@s a LOT more refreshed!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Heal Critical`
+Guilds 0 0 2 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Spell 0 0 4
+END_SPELL
+
+SPELL
+Name Flame Ray`
+Gen 0 0 29 4 68 36 28 5 0
+Ndam flame`
+Damg r(22,41)`
+Wear_Off The spell has worn off @1n.`
+Message A ray of $9flame$7 shoots out from @1n and hits @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Lightning Bolt`
+Pre_Name Liquid Lead`
+Guilds 0 2 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Acid Bolt`
+Gen 0 0 23 10 80 36 21 5 0
+Ndam acid`
+Damg r(22,42)`
+Wear_Off The spell has worn off @1n.`
+Message @1n create@s $2an acid bolt$7 which flies right at @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Cold Ray`
+Pre_Name Spike`
+Guilds 0 1 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Guard`
+Gen 1 0 10 0 562 37 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Rescue`
+Guilds 1 0 0 0 0 0 0 3 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Stoneskin`
+Gen 0 2 45 2 44 38 35 6 0
+Damg 15+l/3`
+Duration l/3`
+Wear_Off The stone falls away from @1p body.`
+Message @1n surround@s @3f with a skin of $Fstone$7!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Shell of Might`
+Guilds 0 3 0 0 0 0 0 3 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag armor 0 0 0
+END_SPELL
+
+SPELL
+Name Mine`
+Gen 2 2 10 0 305 40 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Chop`
+Guilds 0 0 0 0 3 3 2 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Detect Hidden`
+Gen 0 1 35 2 6 40 30 6 0
+Duration l/3`
+Wear_Off The yellow glow around your eyes fades.`
+Message @1p eyes are surrounded by a $Byellow$7 glow.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Detect Invisible`
+Guilds 0 0 0 2 2 0 0 0 2 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 21 21 0 0 0 0 
+Flag Det 0 0 2
+END_SPELL
+
+SPELL
+Name Sharpen`
+Gen 2 2 10 0 322 40 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Fortify`
+Guilds 3 0 0 0 0 3 0 2 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Circle`
+Gen 1 0 10 0 558 40 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Backstab`
+Pre_Name Sneak`
+Guilds 1 0 0 3 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Absorb Blow`
+Gen 1 0 10 0 595 40 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Punch`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Grip`
+Gen 1 0 10 0 598 40 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Overpower`
+Pre_Name Absorb Blow`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Gale`
+Gen 0 0 29 1 75 41 28 5 0
+Ndam gale`
+Damg r(24,48)`
+Wear_Off The spell has worn off @1n.`
+Message A gale force wind leaves @1p and strikes @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Lightning Bolt`
+Pre_Name Decay Cloud`
+Guilds 0 2 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Icy Blast`
+Gen 0 0 27 8 54 42 26 5 0
+Ndam ice`
+Damg r(24,48)`
+Wear_Off The spell has worn off @1n.`
+Message $F@1n send@s $Ean icy blast$7 toward @3f!$7`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Acid Bolt`
+Pre_Name Decay Cloud`
+Guilds 0 2 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Pelt`
+Gen 0 0 27 2 61 42 29 5 0
+Ndam pummel`
+Damg r(24,50)`
+Wear_Off The spell has worn off @1n.`
+Message @1n pelt@s @3f with a hail of stones!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Acid Bolt`
+Pre_Name Liquid Lead`
+Guilds 0 2 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Sanctuary`
+Gen 0 1 70 8 39 42 35 6 0
+Duration l/4`
+Wear_Off You feel less protected.`
+Message @1n receive@s the protection of the Gods!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Stone Skin`
+Guilds 0 0 3 0 0 0 0 2 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Aff 0 0 65536
+END_SPELL
+
+SPELL
+Name Magma Blast`
+Gen 0 0 26 6 91 43 22 5 0
+Ndam magma`
+Damg r(25,50)`
+Wear_Off The spell has worn off @1n.`
+Message @1n blast@s @3f with a powerful gush of $9magma$7!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Flame Ray`
+Pre_Name Pelt`
+Guilds 0 2 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Ball Lightning`
+Gen 0 0 26 5 96 43 21 5 0
+Ndam ball`
+Damg r(25,50)`
+Wear_Off The spell has worn off @1n.`
+Message @1n send@s a ball of $Blightning$7 hurtling toward @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Gale`
+Pre_Name Flame Ray`
+Guilds 0 2 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Phase`
+Gen 0 2 1 0 592 43 10 6 0
+Wear_Off The spell has worn off @1n.`
+Message THIS IS NOT A SPELL TO CAST!!!!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Blink`
+Guilds 0 4 4 0 0 0 0 0 4 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Acid Spray`
+Gen 0 0 34 10 81 44 31 5 0
+Ndam acid`
+Damg r(25,51)`
+Wear_Off The spell has worn off @1n.`
+Message @1n spray@s @3f with $2acid$7!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Icy Blast`
+Pre_Name Pelt`
+Guilds 0 2 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Black Cloud`
+Gen 0 0 25 9 86 44 22 5 0
+Ndam decay`
+Damg r(25,51)`
+Duration 6`
+Wear_Off The black cloud lifts.`
+Message A $8black$7 cloud settles on top of @3f.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Icy Blast`
+Pre_Name Gale`
+Guilds 0 2 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 34
+END_SPELL
+
+SPELL
+Name Multi Kick`
+Gen 1 0 10 0 560 45 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Kick`
+Guilds 4 0 0 0 0 0 0 1 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Shield Bash`
+Gen 1 0 10 0 586 45 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Shield Block`
+Guilds 2 0 0 0 0 0 0 3 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Smash`
+Gen 1 0 10 0 563 45 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Bash`
+Guilds 4 0 0 0 0 0 0 2 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Extrude`
+Gen 2 0 10 0 309 45 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Gather`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Chameleon`
+Gen 2 0 10 0 312 45 10 6 0
+Duration l/7`
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Hide`
+Guilds 0 4 0 4 5 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Scribe`
+Gen 2 0 10 0 315 45 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Alchemy`
+Guilds 0 2 0 0 0 0 3 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Enchant`
+Gen 2 0 10 0 321 45 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Scribe`
+Guilds 0 3 0 0 0 0 3 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Lesser Powershield`
+Gen 0 2 80 16 201 45 120 6 221
+Wear_Off The spell has worn off @1n.`
+Message @1n create@s a shimmering sphere.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Minor Powershield`
+Guilds 0 0 2 0 0 0 2 0 2 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Pound`
+Gen 1 0 10 0 596 45 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Absorb Blow`
+Pre_Name Punch`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Deflect Blow`
+Gen 1 0 10 0 600 45 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Absorb Blow`
+Pre_Name Grip`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Forge`
+Gen 2 0 10 0 320 45 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Mine`
+Guilds 2 0 0 0 0 2 2 2 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Fireball`
+Gen 0 0 37 4 69 48 32 5 0
+Ndam fireball`
+Damg r(28,55)`
+Wear_Off The spell has worn off @1n.`
+Message @1n conjure@s a massive $9fireball$7 which slams into @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Flame Ray`
+Pre_Name Magma Blast`
+Guilds 0 3 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Heal Major`
+Gen 0 1 50 2 24 49 33 5 0
+Damg r(40,75)`
+Wear_Off The spell has worn off @1n.`
+Message @1n make@s @3f look much better!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Healing`
+Guilds 0 0 4 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 25 0 0 0 0 
+Flag Spell 0 0 2
+END_SPELL
+
+SPELL
+Name Warding`
+Gen 0 2 55 8 45 49 45 6 0
+Damg 400`
+Duration l*2/3`
+Wear_Off The sphere of warding has disappeared.`
+Message @1n ward@s @3f from attack.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Stoneskin`
+Guilds 0 4 0 0 0 0 0 4 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag armor 0 0 0
+END_SPELL
+
+SPELL
+Name Capture`
+Gen 2 0 10 0 313 50 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Hide`
+Guilds 0 0 0 5 5 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Sixth Sense`
+Gen 2 2 10 0 324 50 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Search`
+Guilds 0 0 0 3 3 0 0 0 3 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Spetznatz`
+Gen 1 0 10 0 599 50 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Grip`
+Pre_Name Pound`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name peek`
+Gen 2 0 10 0 326 50 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name investigate`
+Guilds 0 0 0 4 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Emplace`
+Gen 2 2 10 0 318 50 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Forge`
+Guilds 0 0 0 0 4 4 4 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Diplomacy`
+Gen 2 1 10 0 327 50 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Demoralize`
+Guilds 0 0 0 0 0 0 0 0 0 5 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Immovable`
+Gen 1 0 10 0 590 51 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Steadiness`
+Guilds 3 0 0 3 0 0 0 3 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Tornado`
+Gen 0 0 34 1 76 52 37 5 0
+Ndam tornado`
+Damg r(31,62)`
+Wear_Off The spell has worn off @1n.`
+Message @1n conjure@s a tornado which slams into @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Ball Lightning`
+Pre_Name Black Cloud`
+Guilds 0 3 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Frost Cone`
+Gen 0 0 36 8 55 53 32 5 0
+Ndam frost`
+Damg r(30,62)`
+Wear_Off The spell has worn off @1n.`
+Message A $Econe of frost$7 leaves @1n and strikes @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Acid Spray`
+Pre_Name Black Cloud`
+Guilds 0 3 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Lightning Blast`
+Gen 0 0 39 5 97 53 33 5 0
+Ndam lightning`
+Damg r(31,62)`
+Duration 5`
+Wear_Off The spell has worn off @1n.`
+Message @1n blast@s @3f with a giant bolt of $Blightning$7!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Tornado`
+Pre_Name Fireball`
+Guilds 0 3 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 33024
+END_SPELL
+
+SPELL
+Name Boulder`
+Gen 0 0 34 2 62 54 40 5 0
+Ndam smash`
+Damg r(32,65)`
+Wear_Off The spell has worn off @1n.`
+Message @1n create@s a giant boulder and use@s it to smash @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Acid Spray`
+Pre_Name Magma Blast`
+Guilds 0 3 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Detect Chameleon`
+Gen 0 1 80 0 8 55 90 6 0
+Duration l/5`
+Wear_Off You can no longer discern shifting colors...`
+Message @1p eyes glow $Agreen$7 briefly.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Detect Hidden`
+Guilds 0 4 0 0 4 0 0 0 4 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 25 25 0 0 0 0 
+Flag Det 0 0 8
+END_SPELL
+
+SPELL
+Name Acidic Stream`
+Gen 0 0 46 10 82 55 42 5 0
+Ndam acid`
+Damg r(33,67)`
+Duration 5`
+Wear_Off The spell has worn off @1n.`
+Message @1n send@s a stream of corrosive $2acid$7 hurtling toward @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Frost Cone`
+Pre_Name Boulders`
+Guilds 0 3 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 327680
+END_SPELL
+
+SPELL
+Name Screaming Cloud`
+Gen 0 0 33 9 87 55 28 5 0
+Ndam scream`
+Damg r(33,67)`
+Duration 8`
+Wear_Off The screaming finally stops!`
+Message @1n conjure@s a multi-hueued cloud of screaming tortured souls which settles about @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Frost Cone`
+Pre_Name Tornado`
+Guilds 0 3 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 24
+END_SPELL
+
+SPELL
+Name Stop Blow`
+Gen 1 0 10 0 602 55 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Deflect Blow`
+Pre_Name Pummel`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Graft`
+Gen 2 2 10 0 316 55 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Forge`
+Guilds 4 0 0 0 0 4 4 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Immersion`
+Gen 0 0 33 6 92 57 29 5 0
+Ndam fire`
+Damg r(35,71)`
+Duration 5`
+Wear_Off The spell has worn off @1n.`
+Message @1n call@s forth a shroud of pure magma which immerses @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Fireball`
+Pre_Name Boulders`
+Guilds 0 3 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 131073
+END_SPELL
+
+SPELL
+Name Purification`
+Gen 0 1 75 2 25 58 44 5 0
+Damg r(55,105)`
+Wear_Off The spell has worn off @1n.`
+Message @3n get@s purified!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Healing`
+Guilds 0 0 4 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 27 0 0 0 0 
+Flag Spell 0 0 14
+Flag Hurt 0 0 179
+END_SPELL
+
+SPELL
+Name Icestorm`
+Gen 0 0 45 8 56 59 38 5 0
+Ndam ice`
+Damg r(37,74)`
+Duration 6`
+Wear_Off The spell has worn off @1n.`
+Message A massive $Fice storm$7 envelopes @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Acidic Stream`
+Pre_Name Screaming Cloud`
+Guilds 0 4 0 0 0 0 1 0 1 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 512
+END_SPELL
+
+SPELL
+Name Summon`
+Gen 0 3 100 16 11 60 80 6 0
+Wear_Off The spell has worn off @1n.`
+Message @1n summon@s @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Recall`
+Guilds 0 3 3 0 0 0 0 0 3 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Transport 2
+Flag Spell 0 0 384
+END_SPELL
+
+SPELL
+Name Locate Thing`
+Gen 0 3 90 16 15 60 70 6 0
+Wear_Off The spell has worn off @1n.`
+Message @1n search@s for @1s quarry...`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Summon`
+Guilds 0 0 4 0 0 0 4 0 4 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Spell 0 0 32
+END_SPELL
+
+SPELL
+Name Powershield`
+Gen 0 2 100 16 202 60 140 6 222
+Wear_Off The spell has worn off @1n.`
+Message @1n create@s a shimmering sphere.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Lesser Powershield`
+Guilds 0 0 3 0 0 0 3 0 3 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Monster Knowledge`
+Gen 0 4 10 16 2 60 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Identify`
+Guilds 0 0 0 0 0 0 0 0 5 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Spell 0 0 24576
+END_SPELL
+
+SPELL
+Name Multi Backstab`
+Gen 1 0 10 0 557 60 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Circle`
+Pre_Name Second Attack`
+Guilds 1 0 0 4 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Imbue`
+Gen 2 0 10 0 304 60 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Scribe`
+Pre_Name Forge`
+Guilds 0 0 0 0 0 3 4 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Flamestrike`
+Gen 0 0 43 4 70 61 35 5 0
+Ndam strike`
+Damg r(38,76)`
+Duration 6`
+Wear_Off The spell has worn off @1n.`
+Message @1n shoot@s out a torrent of $9flame$7, striking @3f hard!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Lightning Blast`
+Pre_Name Immersion`
+Guilds 0 4 0 0 0 0 1 0 1 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 1
+END_SPELL
+
+SPELL
+Name Hands of Wind`
+Gen 0 0 46 1 77 63 43 5 0
+Ndam wind`
+Damg r(40,81)`
+Duration 6`
+Wear_Off The spell has worn off @1n.`
+Message @1n clap@s hands together and the force of the blow slam@s @3f backwards!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Lightning Blast`
+Pre_Name Screaming Cloud`
+Guilds 0 4 0 0 0 0 1 0 1 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 1024
+END_SPELL
+
+SPELL
+Name Shards`
+Gen 0 0 46 2 63 64 44 5 0
+Ndam shards`
+Damg r(42,84)`
+Duration 6`
+Wear_Off The spell has worn off @1n.`
+Message A shower of shards stream out from @1p, striking @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Acidic Stream`
+Pre_Name Immersion`
+Guilds 0 4 0 0 0 0 1 0 1 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 4096
+END_SPELL
+
+SPELL
+Name Critical Hit`
+Gen 1 0 10 0 584 65 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Multi Backstab`
+Guilds 2 0 0 5 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Enhanced Kick`
+Gen 1 0 10 0 566 65 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Multi Kick`
+Guilds 5 0 0 0 0 0 0 1 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Acid Blast`
+Gen 0 0 57 10 83 65 53 5 0
+Ndam acid`
+Damg r(43,85)`
+Duration 8`
+Wear_Off The spell has worn off @1n.`
+Message @1n blast@s @3f with a wall of $2acid$7!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Icestorm`
+Pre_Name Shards`
+Guilds 0 4 0 0 0 0 1 0 1 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 327680
+END_SPELL
+
+SPELL
+Name Pummel`
+Gen 1 0 10 0 601 65 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Spetznatz`
+Pre_Name Stop Blow`
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Total Protection`
+Gen 0 2 10 0 38 65 10 6 0
+Duration 5`
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Sanctuary`
+Pre_Name Warding`
+Guilds 0 0 4 0 0 0 0 3 3 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Aff 0 0 262144
+END_SPELL
+
+SPELL
+Name Death Cloud`
+Gen 0 0 39 9 88 66 33 5 0
+Ndam death`
+Damg r(44,86)`
+Duration 10`
+Wear_Off The cloud of death slowly fades away...`
+Message @1n send@s a cloud of pure white to engulf @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Icestorm`
+Pre_Name Hands of Wind`
+Guilds 0 4 0 0 0 0 1 0 1 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 8208
+END_SPELL
+
+SPELL
+Name Electric Storm`
+Gen 0 0 45 5 98 67 35 5 0
+Ndam wind`
+Damg r(45,90)`
+Duration 8`
+Wear_Off The spell has worn off @1n.`
+Message @1n catch@s @3f inside a giant $Belectric storm$7!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Hands of Wind`
+Pre_Name Flamestrike`
+Guilds 0 4 0 0 0 0 1 0 1 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 33028
+END_SPELL
+
+SPELL
+Name Block`
+Gen 1 0 10 0 588 68 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Immovable`
+Guilds 4 0 0 4 0 0 0 4 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Plasma Wave`
+Gen 0 0 44 6 93 68 38 5 0
+Ndam plasma`
+Damg r(46,91)`
+Duration 8`
+Wear_Off The spell has worn off @1n.`
+Message @1n send@s a wave of $Fplasma$7 streaking out toward @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Flamestrike`
+Pre_Name Shards`
+Guilds 0 4 0 0 0 0 1 0 1 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Room 0 0 131077
+END_SPELL
+
+SPELL
+Name Avalanche`
+Gen 0 0 51 8 57 69 42 5 500
+Ndam ice`
+Damg r(47,95)`
+Duration 9`
+Wear_Off The spell has worn off @1n.`
+Message @1n drop@s an avalanche on top of @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Acid Blast`
+Pre_Name Death Cloud`
+Guilds 0 5 0 0 0 0 2 0 2 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 768
+END_SPELL
+
+SPELL
+Name Ravage`
+Gen 1 0 10 0 556 70 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Critical Hit`
+Pre_Name Multi Wield`
+Guilds 5 0 0 5 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Teleport`
+Gen 0 2 80 16 12 70 70 6 0
+Wear_Off The spell has worn off @1n.`
+Message @1n disappear@s in a pillar of scintillating light...`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Summon`
+Guilds 0 4 0 0 0 0 0 0 4 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Transport 1
+Flag Spell 0 0 128
+END_SPELL
+
+SPELL
+Name Divine Healing`
+Gen 0 1 100 2 26 71 56 5 0
+Damg r(80,145)`
+Wear_Off The spell has worn off @1n.`
+Message @1n Divinely Heal@s @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Purification`
+Guilds 0 0 5 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 30 0 0 0 0 
+Flag Spell 0 0 14
+Flag Hurt 0 0 32763
+END_SPELL
+
+SPELL
+Name Inferno`
+Gen 0 0 51 4 71 73 45 5 0
+Ndam inferno`
+Damg r(50,101)`
+Duration 9`
+Wear_Off The spell has worn off @1n.`
+Message @1n cause@s a blistering $9inferno$7 to appear around @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Purification`
+Pre_Name Plasma Wave`
+Guilds 0 5 0 0 0 0 2 0 2 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 5
+END_SPELL
+
+SPELL
+Name Hurricane`
+Gen 0 0 54 1 78 74 50 5 0
+Ndam hurricane`
+Damg r(52,105)`
+Duration 9`
+Wear_Off The spell has worn off @1n.`
+Message Hurricane force winds fly out of @1p hands, rocking @3f world!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Electric Storm`
+Pre_Name Death Cloud`
+Guilds 0 5 0 0 0 0 2 0 2 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 3072
+END_SPELL
+
+SPELL
+Name Crush`
+Gen 1 0 10 0 565 75 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Smash`
+Guilds 5 0 0 0 0 0 0 1 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Zanthars Knives`
+Gen 0 0 67 2 64 75 50 5 0
+Ndam slice`
+Damg r(53,107)`
+Duration 9`
+Wear_Off The spell has worn off @1n.`
+Message A swirling mist of knives appear above @1n, and then streak toward @3f!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Acid Blast`
+Pre_Name Plasma Wave`
+Guilds 0 5 0 0 0 0 2 0 2 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 4224
+END_SPELL
+
+SPELL
+Name Greater Powershield`
+Gen 0 2 150 16 203 75 150 6 223
+Wear_Off The spell has worn off @1n.`
+Message @1n create@s a shimmering sphere.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Powershield`
+Guilds 0 0 4 0 0 0 4 0 4 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Sacrifice`
+Gen 1 2 10 0 180 80 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Guilds 0 5 5 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Portal`
+Gen 0 3 150 16 14 80 10 6 253
+Wear_Off The spell has worn off @1n.`
+Message @1n create@s a mystical portal!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Astral Walk`
+Guilds 0 5 0 0 0 0 0 0 5 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Spell 0 0 272
+END_SPELL
+
+SPELL
+Name Astral Walk`
+Gen 0 3 100 16 13 80 80 6 0
+Wear_Off The spell has worn off @1n.`
+Message @1n disappear@s in a puff of smoke!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Teleport`
+Guilds 0 4 0 0 3 0 0 0 4 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Transport 3
+Flag Spell 0 0 128
+END_SPELL
+
+SPELL
+Name Piercing Mastery`
+Gen 1 0 10 0 621 80 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Dual Wield`
+Pre_Name Piercing Weapons`
+Guilds 0 0 0 4 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 25 0 0 0 
+END_SPELL
+
+SPELL
+Name Concussion Mastery`
+Gen 1 0 10 0 622 80 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Dual Wield`
+Pre_Name Concussion Weapons`
+Guilds 3 0 0 0 0 3 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 25 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Whipping Mastery`
+Gen 1 0 10 0 623 80 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Dual Wield`
+Pre_Name Whipping Weapons`
+Guilds 4 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 25 0 0 25 0 0 0 
+END_SPELL
+
+SPELL
+Name blackshade`
+Gen 4 0 10 0 700 80 10 6 0
+Ndam darkness`
+Damg r(20,80)`
+Duration 5`
+Wear_Off The spell has worn off @1n.`
+Message A $8black$9 aura$7 surrounds @3n!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Guilds 0 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 8192
+END_SPELL
+
+SPELL
+Name Slashing Mastery`
+Gen 1 0 10 0 620 80 10 6 0
+Wear_Off The spell has worn off @1n.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Dual Wield`
+Pre_Name Slashing Weapons`
+Guilds 4 0 0 0 0 0 0 0 0 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 25 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Hammer of Hell`
+Gen 0 0 70 3 99 82 50 5 0
+Ndam hammer`
+Damg r(63,123)`
+Duration 3`
+Wear_Off The spell has worn off @1n.`
+Message @1n smite@s @3f with a hammer of hell!`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Zanthars' Knives`
+Pre_Name Hurricane`
+Guilds 0 5 0 0 0 2 3 0 3 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 7424
+END_SPELL
+
+SPELL
+Name Annihilate`
+Gen 0 0 80 12 100 86 55 5 0
+Ndam nullify`
+Damg r(67,132)`
+Duration 5`
+Wear_Off The spell has worn off @1n.`
+Message @1n annihilate@s @3f!`
+MessageRepeat @1n writhe@s under the nullification!`
+CompName squirrel`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Inferno`
+Pre_Name Hammer of Hell`
+Guilds 0 5 2 0 0 0 2 0 2 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 9216
+END_SPELL
+
+SPELL
+Name Major Powershield`
+Gen 0 2 200 16 204 90 10 6 224
+Wear_Off The spell has worn off @1n.`
+Message @1n create@s a shimmering sphere.`
+Comp 0 0 0 0 0 
+Repeat 0 0 0
+Pre_Name Major Powershield`
+Guilds 0 0 5 0 0 0 5 0 5 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+END_SPELL
+
+SPELL
+Name Creeping Death`
+Gen 0 0 90 15 101 92 60 5 0
+Ndam death`
+Damg r(74,149)`
+Duration 1`
+Wear_Off The spell has worn off @1n.`
+Message $9Creeping Death!$7`
+Comp 0 0 0 0 0 
+Repeat 2 1 0
+Pre_Name Annihilate`
+Pre_Name Hammer of Hell`
+Guilds 0 5 4 0 0 0 4 0 4 0 
+Teachers 0 0 0 0 0 0 0 0 0 0 
+Stats 0 0 0 0 0 0 0 
+Flag Hurt 0 0 16384
+END_SPELL
+
+
+END_OF_SPELLS

@@ -1,0 +1,85 @@
+\chapter{Crafting}
+
+\section{Introduction}
+
+There's crafting code in the game for objects, and I will leave that there,
+but this is designed to supersede that code for mining and forging armor
+and such. The idea is this. Every object is created by applying a process
+to a certain number of arguments, or other objects. What happens is that
+there's an area (106200 CRAFTGEN\_AREA\_VNUM) with a bunch of things
+in it that generate things that can be used to craft other things. I hope
+after this is done, I will be able to get back to the "society needs"
+code and finish that correctly to give players lots of cool stuff that
+they can find for mobs so they can get rewarded.
+
+
+\section{Craftgen Objects}
+
+These objects are in the craftgen area, and there will be special cases
+later on, but these are the basics.
+
+The objects get a name that's a single word or a string of words in quotes (so
+that f\_word works correctly) and then they're set up as objects. If
+you want them to be containers, make them not have the TH\_NO\_CONTAIN 
+thing flag. 
+
+Then they have a list of extra descriptions.
+
+If they have an extra description called "names", that means that we will
+make many versions of this object. For example, mineral chunks and
+rock boulders and trees come in several types. That will let us make
+objects of many different kinds. Use this when you want an object to
+have many different forms. Only use this on base items, because the
+code isn't general enough to handle it for crafted items. I may fix
+this at some future date.
+
+If they have an extra description called "gen", then this is setup data.
+The gen edesc has a few words that give you information about the object:
+
+\begin{itemize}
+
+\item plural -- The object appears as some foo instead of a or an foo.
+
+\item base -- This is a base item. Make the absolute utter raw materials base
+  items. They are used for naming items.
+
+\item noname -- Don't affix prefix names based on the materials being used to
+  build this item. 
+
+\end{itemize}
+
+\section{Crafting Procedure}
+
+
+Essentially, to craft an item, you need to give a command to carry out a
+proces, and you need to have certain objects on or near you and maybe some
+other requirements. The name of the crafting process is given in an edesc (so
+you could have more than one crafting process to make an item if you so chose)
+and it has a list of lines that have requirements for making the craft process
+work.
+
+The lines start with a command, and then some arguments telling what to do
+with that command.
+
+\begin{itemize}
+
+\item wear, wield, hold -- These require someone to have certain objects
+  equipped. You cannot specifiy a number here.
+
+\item here -- This means there has to be an object on you or in the room
+  you're in for the crafting to work.
+
+\item use, made -- These specify objects that will disappear at the end of the
+  crafting session. The difference is that the made command sets the prefix on
+  the item name (like iron ingot vs ingot) and use just uses up the item.
+
+\item room -- This word followed by some room sector flags are requirements
+  for certain types of crafting (usually gathering).
+
+\end{itemize}
+
+You should be able to craft "iron ingot" and have it use up iron chunks
+only. If you don't specify the specific item, it shouldn't work if the item
+does accept a list of prefixes.
+
+

@@ -1,0 +1,262 @@
+\chapter{Combat}
+
+\section{Introduction}
+
+The combat system is pretty simple. I realize that some people like
+combat systems where you have to pick from 100 moves and defensive
+positions and you're constantly trying to guess what your opponent
+will do and each move has lagtime and all that blah.... but I don't
+like that. That seems too much like a twitch game like quake where
+combat is heavily dependant on the abilities of the PLAYER as opposed
+to the CHARACTER. I feel that is the wrong way to run an RPG because
+you're supposed to be building up a character, not learning how to
+shoot 1000 shots a second in Quake. (I'm not saying Quake is bad, but
+it's a different type of game.) 
+
+All of the functions mentioned below should be in fight.c but if not,
+you know how to use grep to find them.
+
+I want combat to have several characteristics that I like. First, you
+should not die too quickly. You should be able to predict somewhat how
+your health will drain once you have experience playing the
+game. However, there is some randomness (such as critical hits) that
+can lead to extreme damage over a short period of time.
+
+I don't want combat to have too many different options. I never really
+got the point of MUDs where they have 10 kinds of kick and 7 kinds of
+punch which are essentially kicks anyway.
+
+One thing I do like is having combat skills that can be improved
+incrementally by a person practicing more skills. This is appealing to
+be because then everyone can have ``kick'', but only specialists will
+get access to the advanced versions of kick. At the same time, the
+advanced versions don't have different commands...they build on the
+effectiveness of the original kick command. This plays into one of my
+other philosophies that the CHARACTER should be the determining factor
+in how combat goes, not the player.
+
+\section{Generic Combat}
+
+The core combat works as follows. Every 2 seconds or so, everyone
+who's fighting tries to attack the person they're fighting. Each
+person attacks at their own time, however since each fighter gets its
+own combat update event. This process consists of doing some sanity
+checks in update\_combat() followed by calling multi\_hit() for that
+character. The multi\_hit() function goes down the list of weapons the
+attacker is wielding and sees how many hits they will get.
+
+There are several skills that affect
+this like second attack, third attack haste, and multi wield. The
+reason multi wield is not called dual wield is because it's possible
+to have more than 2 arms. Essentially, you get your full complement of
+attacks from your first weapon and half as many attacks from any
+subsequent weapons you use.
+
+ If the attacker is not a pc, it can have a
+weapon value VAL\_WEAPON placed on it directly. That val weapon gives
+the mob \_extra\_ attacks with a damage range given by the amounts
+given when setting up the VAL\_WEAPON. If the attacker has no weapons,
+the game checks to see if they can do some hand to hand hits. You
+might want to add something in there for monks or martial arts, but
+I'm not terribly interested in that.
+
+
+
+Every time the attacker tries to hit the victim, first the game
+checks if the attacker is using a weapon. The game calls one\_hit()
+and the one\_hit() function does many things. Most combat hits are
+normal, but some are special hits (like backstabs).
+
+This function first checks if you hit, the formula is based on things
+like your dex and level and stuff like that. Most of the time you hit.
+This is something I picked up from the old Emlen code...you make the
+hitroll really only affect the chance of hitting between 50 and 100
+percent. 
+
+If you hit, then you check if the weapon can hit the victim. This is
+checked by checking the obj\_flags on the weapon vs the mob\_flags on
+the victim. As stated in the previous section on flags, the 
+power object flag allows weapons to hit dragon mobs and so forth.
+This is a useful idea I think because with the way spells work,
+you can have special spells that either remove mob defenses (like
+dragonbane would remove a dragon flag on a mob...if you set it to
+remove permanent flags) and another type of spell might put a
+temporary (or permanent) power flag on a weapon that would allow it
+to hit a dragon. This also leads to having a lot of nice spells
+that alchemists can get by tiering them so that the temp spells
+are low tiers, and the perma spells are more powerful.
+
+Then, if the attack is not a special one, the game checks parry,
+dodge, shield block, and blink using the check\_defense() function.
+Note that in this function there are several tiers of ``parry''
+and ``dodge'' skills which build on previous skills. So instead of
+giving the player 10000 defensive options, the game knows that
+you're able to defend yourself and it does it for you.
+
+If the attack gets through the defenses then the damage is calculated.
+I think most games use a ``dice'' system with 4d2 3d6 or whatever. I chose
+to go with a range between a min and max number to give me more 
+room to work with it. I knew that I would be allowing people to improve
+their weapons (using the sharpen skill) so I didn't want to run out of
+options for dice amounts. It does take the average of two random numbers
+picked from this range so the distribution is triangular and centered
+on the mean. 
+
+Note that the ``basedam'' restricts the total damage done from a hit
+to double the base weapon damage amount. That means no more loading 
+up on damroll eq and wielding no weapon expecting to hit for
+a lot of damage. Sorry.
+
+There are some other additions like tinkers and concussion weapons
+and enhanced damage and some stuff relating to skills like ravage
+and backstab, and the warrior guild and implant ranks.
+
+After that, the armor that the victim is wearing is used to
+reduce the damage. Note that the armor reduces damage point
+for point, so vs powerful hits, armor isn't so good.
+
+After the armor damage is reduced, the damage resistance
+given by sanctuary and body implants and total protection 
+are removed. This damage reduction is on a percent basis
+and is therefore much more powerful than armor for powerful
+hits. 
+
+Then after that, the damage() function is called.This function gets used a lot for things like drowning or rooms
+trapping people or spells causing damage, so just be careful when
+changing it because it really encompasses all types of damage a thing
+can receive. The one\_hit function returns TRUE if the damage function
+returns TRUE.
+
+After the damage function is called, some code dealing with damaging
+equipment and poisoned weapons follows.
+
+
+
+
+\section{Damage Function}
+
+This function handles all damage dealt out to players. There are
+several things which are checked first.  Damage is doubled if the
+attacker is permadeath, and halved if the victim is permadeath. Also,
+AFF\_RAW on the victim doubles damage, outline increases damage based
+on the level of the attacker, and AFF\_WEAK on the attacker halves the
+damage done. The relics that the player alignments may have affect the
+damage done also, along with built up society areas adding defensive
+value. 
+
+ALSO IF THE ATTACKER HAS LOST HIT POINTS THE AMOUNT OF DAMAGE THE
+ATTACKER DOES IS ALSO DECREASED!!!!!
+
+The next thing checked is powershields. These items store up
+energy and use it to block damage from all types of
+attacks. 
+
+If the victim is casting or firing, then their concentration might be broken.
+
+
+After all that is done, the messages are sent, and the hps of the victim
+are reduced.
+
+If the victim's hps go too low, the victim gets killed by calling the
+get\_killed function that handles stuff like exp and corpses and stopping
+fighting. 
+
+Finally, there is some code that lets people autoflee in certain
+cases.
+
+\section{Fight Commands}
+
+\bul Kill. You use the kill command to initiate combat with someone,
+or to switch opponents. 
+
+\bul Kick. The kick command lets you cause some extra damage against the
+enemy you're fighting. This command requires skills to use
+effectively. However, in keeping with my original premise of keeping
+combat simple, there aren't 10 kinds of kick that you have to choose
+from if you know several kick skills. The more advanced skills just
+let you kick harder and more often. Also, note that if the kicker is a
+PC and he has more than one pair of legs, he will kick more times. Be
+careful with those ``centaur''-type races for this reason.
+
+
+\bul Bash. The bash command lets you slam yourself into your enemy,
+knocking him down to the ground for a few rounds. You will be unable
+to use any combat commands for several rounds, including a few rounds
+after he gets back up and starts fighting you again. This command is
+useful if you want to cast a spell in combat, since spells require
+precast incantations that can be interrupted by taking damage. So, if
+you bash someone and immediately cast, you may get off a pspell of
+decent power. There are several tiers of bash skills that increase the
+length of time the victim is bashed, and also allow you to do some
+damage while bashing.
+
+\bul Tackle. Tackling someone puts the two of you into
+``groundfighting'' position. That means you claw and attack each other
+on the ground. When you're in this position, you are harder to hit
+with normal melee hits, but in order to flee, you must first stand up
+(which is hard to do) and then flee normally. You cannot tackle
+someone if you have anything in your hands (including gems).
+
+\bul Flee. Use this if you want to run away from combat. Setting your
+wimpy will make you autoflee at a certain level of hps.
+
+\bul Cast. You can cast offensive spells vs your enemies or sometimes
+defensive or healing spells to help your friends. This stuff will be
+explained more in the chapter on spells.
+
+\bul Rescue. This lets you pull someone out of combat and make their
+attacker start to attack you. If they are being hit by several
+creatures, you will have to use this skill more than once. 
+
+\bul Guard. This lets you guard another player, i.e. you will attempt
+to autorescue that player periodically if they're being attacked.
+
+\bul Load/Unload. These commands let you load or unload a ranged
+weapon if you have the correct kind of ammo for it. The load command
+with no arguments will try to load every ranged weapon you're wearing.
+
+\bul Fire. The fire command is a delayed command that lets you attempt
+to loose all of your ranged weapons on a victim. If you successfully
+aim at your victim, you will unload all of your weapons into the
+victim one by one. If the victim dies, you will unload the rest of
+your shots from subsequent weapons into other creatures with the same
+name as the killed victim. So, for example, firing at ``enemy'' will
+keep you firing at all enemies until all of your shots for that round
+are used up, or all opp align enemies are dead.
+
+\bul Disengage. This command lets you step out of combat if you're not
+being attacked. You may re-engage if you have autoassist on, so be
+careful with this.
+
+\bul Disarm. This lets you attempt to knock an item out of your
+enemy's hand. It can be anything from a gem to a weapon to a potion to
+whatever.
+
+\bul Assist. This lets you start fighting on the side of whoever you
+name (as long as it's appropriate).
+
+\bul Backstab. This works a little differently here than it does
+elsewhere. If you and your victim are not fighting, you hit for full
+damage. If either of you is fighting, this is essentially a ``circle''
+that does less damage. You cannot backstab someone attacking you. You
+also cannot backstab a mob that's not fighting if you're fighting. But
+again, there is no more ``circle'' command. My reasoning is this. In
+pk, mages are constantly being rescued/disengaging/casting and so you
+type bs sprite and it casts a spell, and now you can't backstab, so
+you try to circle. Then, it gets rescued and you finish your circle
+only to see that you can't circle anyone unless they're fighting. This
+situation is annoying so I decided to code it out of existence. :)
+
+\bul Flurry. Flurry lets you attack several more times at the expense
+of many movement points. This is useful against creatures with bad
+armor since you can do a great deal of damage quickly. Against
+opponents with heavy armor and powerful magical defenses, combat hits
+do almost nothing, so kicks are usually better.
+
+Also, notice that there is no combat command (besides spells) that allows
+you to hit every creature in the room at once. This is intentional,
+but feel free to add this if you want.
+
+There is also no ``martial arts'' or ``unarmed combat'' code just because
+I want people to go out and get equipment. An appropriate place
+to add this is marked near the end of the multi\_hit() function.

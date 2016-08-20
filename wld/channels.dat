@@ -1,0 +1,85 @@
+CHAN
+Name say`
+Name sa`
+Name '`
+Message $F@1n say@s`
+Flags 2
+END_CHAN
+
+CHAN
+Name chat`
+Name .`
+Name gos`
+Name gossip`
+Message $B@1n <$Fgossip@s$B>`
+Flags 8
+END_CHAN
+
+CHAN
+Name tell`
+Name t`
+Message $E--> $A@1n tell@s`
+Flags 1
+END_CHAN
+
+CHAN
+Name gt`
+Name gtell`
+Name ;`
+Message $A@1n tell@s the group`
+Flags 64
+END_CHAN
+
+CHAN
+Name emote`
+Name :`
+Name em`
+Message @1n`
+Flags 130
+END_CHAN
+
+CHAN
+Name yell`
+Name ye`
+Message $9@1n yell@s`
+Flags 4
+END_CHAN
+
+CHAN
+Name clantalk`
+Name ct`
+Name ctalk`
+Message $B[Clantalk] @1n` 
+Flags 32
+ClanType 0
+END_CHAN
+
+CHAN 
+Name admintalk`
+Name admin`
+Name wiznet`
+Message $F@1n Admin:`
+Flags 24
+LevelUse 101
+LevelTo 101
+END_CHAN
+
+
+CHAN
+Name schat`
+Name sch`
+Name secttalk`
+Message $B[Secttalk] @1n` 
+Flags 32
+ClanType 1
+END_CHAN
+
+CHAN
+Name recho`
+Message `
+Flags 130
+LevelUse 101
+END_CHAN
+
+END_OF_CHANNELS
+

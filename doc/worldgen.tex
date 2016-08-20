@@ -1,0 +1,137 @@
+\chapter{World Generation}
+
+The game has extensive code for generating areas and other content because
+I got sick of not having any builders and not being able to build myself.
+
+\section{Worldgen Clearing}
+The top level of the generation code is the worldgen code. It is accessed
+by using the worldgen command. There are a few steps involved in generating
+a world. First, you want to type {\bf{worldgen clear yes}} and clear all
+of the old worldgen data so that you can make a new world. You can always
+type worldgen clear yes to clear the generated world...but a word
+of warning: If you do this you delete characters' eq so don't do this
+once you get a world up an running! 
+
+
+\section{Generate the Area Sectors}
+Once the world is clear and you've rebooted, you need to type {\bf{worldgen
+dx dy}}. dx and dy must be between 5 and WORLDGEN\_MAX -1 (currently 33). 
+This will generate a grid of sector types that will be used to generate the
+world. The general algorithm seeds some snow to the north, some 
+deserts to the east, some swamps to the SW, some forests to the 
+SE, and then some other fields and whatnot around. 
+
+From these few seeds
+the program repeatedly attempts to add new sectors next to existing
+sectors by looking at blank sectors next to made sectors and
+seeing if the sectors grow. The chances of each kind of sector 
+being grown next to each other are given by the sector\_adjacency
+matrix in worldgen.c. The types are the same from L-R and Top-Bottom.
+The way it works is that the blank square gets all of the numbers for each
+sector type added up from all adjacent squares, then a random number
+is picked from that set, and the new sector gets made. This is an
+asynchronous update. Within the function worldgen\_add\_sector,
+look at the curr\_exits variable. Note that when it's large, it's
+very unlikely that a room will be added in this room. This makes
+the map stringier.
+
+After every iteration of trying to add adjacent sectors, the map is 
+checked for adjacency, and once all of the squares are touching, the
+growth stops. This makes very stringy and curvy maps which IMO are 
+interesting in that they give some nice chokepoints.
+
+The levels of each area are also generated at this point by setting
+the southernmost areas on the map (next to where the player outposts
+will go) to level 10 or so. Then repeatedly, the map is scanned and
+any level 0 areas that are adjacent to areas that aren't level 0 get
+put to the previous area level + some constant. If there's more than
+one area next to an area with level 0, it picks the S then N then 
+average of the levels of the areas adjacent. The net effect of this
+is that areas near where the players start are easy and areas far away
+are hard.
+
+\section{Worldgen Generate}
+
+At this point, we can generate the whole world. The command to do this is
+worldgen generate number. Number gives the approximate size that
+the generated areas will be and if number is omitted, then it's
+assumed to be 500. There is an upper limit on the number of things
+that can be made, so if you're likely to use more than 400000 things
+for the top world (say if you had a 20x20 grid of 1000 room areas)
+then you need to increase the WORLDGEN\_VNUM\_SIZE variable in
+worldgen.h.
+
+
+
+\begin{itemize}
+
+\item Societies get generated using the code in socigen.c. They get
+mobs created and placed into area 112000 (currently) and they get
+eq given to them that has a chance of repopping when the society
+creatures are made.
+
+
+\item Randpop mobs get generated. This uses the seeds in area 105200
+(currently) to generate all kinds of simple animals and other kinds
+of highlevel creatures like beasts and elementals that players can find
+when they wander around the world. These are not meant to be really
+complex things. They're just there to make up the background so that
+players will see the expected mobs when they walk around the world.
+Also note that these creatures have room sectors on them so that 
+when they repop, they tend to repop in the "right" rooms.
+
+
+
+\item Then the areas get generated. Each area is generated and its
+starting vnum is placed into the worldgen\_areas grid and the
+worldgen\_underworld grid. The level of each area is a random number
+based on the level generated above when the sectors were created.
+The underworld areas are stronger than the above ground areas in
+the same location. The size of the area is also a random number based
+on the size of the world requested. If no size is requested, it is
+assumed that the area size desired is 500. Be aware that if you set
+an area to size 500, probably only 1/2-2/3 of the area will be
+rooms, and many of those will be things like trees and catwalks and
+underpasses and other things that get added on later. The initial
+rooms used in the area are generally 40pct of the size of the area.
+
+\item Then the game links the areas. It links above ground to 
+above ground and below ground to below ground, then each area has
+a link from the overworld to the underworld. The rooms used to link
+up are the dir\_edge rooms made in the areagen function. 
+
+
+\item Then, catwalks are added between areas. When the trees and
+catwalks are made in the areagen code, some trees are labelled as
+dir\_tree trees which means they're the most north, south, east
+or west in the area. Those trees on the extremes get linked to trees
+in other areas (if possible). The catwalks here are actually two halves
+that get spliced together so one catwalk isn't "hanging over" another
+area quite so much.
+
+\item After that, the societies get placed into the world. Since each 
+society generally has some room sector flags associated with it,
+the societies are placed into areas with some of the same
+room sector flags that the society has. Each area can hold at most
+one society at this point.
+
+\item After that, the player outposts (areas 1000 and 1050) are 
+linked to the rest of the world on the southern edge of the map. 
+For that reason, make sure that you have a few areas on the
+southern edge of the map.
+
+\item Following the outpost addition, some simple quests (fedex quests)
+are generated using the questgen code.
+
+\item The history of the world including deities, powerful races, and the
+  history itself are generated.
+
+\item The overall map of the world is saved under the help WORLDMAP
+  helpfile. That way players can have an idea of the shape of the world
+  without knowing all of the details.
+
+\item Then the world is purged, the teachers of various skills are
+  created and sent into the world, and the overhead map symbols for the
+rooms in the world are cleaned up.
+
+\end{itemize}

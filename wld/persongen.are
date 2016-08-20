@@ -1,0 +1,697 @@
+THING 105000
+Name persongen.are`
+HpMv 0 10 5 200
+HWT 0 0
+Cost 100
+Timer 2
+Short Person Generators`
+type Lonath`
+ThFl 1089531
+Flag Area 0 0 28
+END_THING
+
+THING 105001
+Name pilferer`
+Level 14
+HWT 0 0
+Color 7
+Desc This is the area used to generate persons. The name of this room changes since it's used to generate
+persons from society castes.
+`
+Short Person Generator Room`
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Aff 0 0 18
+END_THING
+
+THING 105002
+Name paladin`
+Level 30
+HWT 0 0
+Color 7
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+THING 105003
+Name cavalier`
+Level 20
+HWT 0 0
+Color 7
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+THING 105006
+Name wanderer`
+HWT 0 0
+Sex 2
+ThFl 2209
+END_THING
+
+THING 105007
+Name prophet`
+HWT 0 0
+Sex 2
+ThFl 2209
+END_THING
+
+THING 105008
+Name knight`
+Level 40
+HWT 0 0
+Sex 2
+ThFl 2209
+END_THING
+
+THING 105009
+Name traveler`
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105010
+Name pilgrim`
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105011
+Name ranger`
+Level 30
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105012
+Name priest`
+Level 35
+HWT 0 0
+ThFl 2209
+Val cast 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 105013
+Name mystic`
+Level 25
+HWT 0 0
+ThFl 2209
+Val cast 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 105014
+Name hermit`
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105015
+Name witch`
+Level 40
+HWT 0 0
+Sex 1
+ThFl 2209
+Val cast 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 105016
+Name peddler`
+Level 10
+HWT 0 0
+ThFl 2209
+Val shop 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 105017
+Name gypsy`
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105018
+Name shaman`
+Level 25
+HWT 0 0
+ThFl 2209
+Val cast 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 105019
+Name hunter`
+Level 35
+HWT 0 0
+ThFl 2209
+Flag Aff 0 0 2
+END_THING
+
+THING 105020
+Name journeyer`
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105021
+Name explorer`
+Level 5
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105022
+Name guardian`
+Level 40
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105023
+Name wizard`
+Level 50
+HWT 0 0
+ThFl 2209
+Val cast 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 105024
+Name mage`
+Level 45
+HWT 0 0
+ThFl 2209
+Val cast 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 105025
+Name warrior`
+Level 35
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105026
+Name watcher`
+Level 15
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105027
+Name lumberjack`
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105028
+Name acolyte`
+Level 10
+HWT 0 0
+ThFl 2209
+Val cast 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 105029
+Name apprentice`
+Level 5
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105030
+Name highwayman`
+Level 10
+HWT 0 0
+ThFl 2209
+Flag Aff 0 0 16
+Flag Act 0 0 1
+END_THING
+
+THING 105031
+Name robber`
+Level 10
+HWT 0 0
+ThFl 2209
+Flag Aff 0 0 16
+Flag Act 0 0 1
+END_THING
+
+THING 105032
+Name thief`
+Level 10
+HWT 0 0
+ThFl 2209
+Flag Act 0 0 1
+Flag Aff 0 0 16
+END_THING
+
+THING 105033
+Name brigand`
+Level 10
+HWT 0 0
+ThFl 2209
+Flag Act 0 0 1
+Flag Aff 0 0 16
+END_THING
+
+THING 105034
+Name bandit`
+Level 10
+HWT 0 0
+ThFl 2209
+Flag Act 0 0 1
+Flag Aff 0 0 16
+END_THING
+
+THING 105035
+Name villager`
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105036
+Name outcast`
+HWT 0 0
+ThFl 2209
+Flag Act 0 0 512
+END_THING
+
+THING 105037
+Name forsaken`
+HWT 0 0
+ThFl 2209
+Flag Act 0 0 512
+END_THING
+
+THING 105038
+Name scout`
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105039
+Name rogue`
+Level 10
+HWT 0 0
+ThFl 2209
+Flag Act 0 0 1
+Flag Aff 0 0 16
+END_THING
+
+THING 105040
+Name alchemist`
+Level 30
+HWT 0 0
+ThFl 2209
+Val cast 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 105041
+Name thug`
+Level 10
+HWT 0 0
+ThFl 2209
+Flag Act 0 0 1
+Flag Aff 0 0 16
+END_THING
+
+THING 105042
+Name pathfinder`
+Level 25
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105043
+Name sentry`
+Level 20
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105044
+Name mercenary`
+Level 25
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105045
+Name guard`
+Level 15
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105046
+Name berserker`
+Level 30
+HWT 0 0
+ThFl 2209
+Flag Act 0 0 1
+END_THING
+
+THING 105047
+Name novice`
+Level 5
+HWT 0 0
+ThFl 2209
+Val cast 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 105048
+Name sentinel`
+Level 20
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105049
+Name witch doctor`
+Level 15
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105050
+Name soldier`
+Level 10
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105051
+Name walker`
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105052
+Name sage`
+Level 35
+HWT 0 0
+ThFl 2209
+Val cast 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 105053
+Name warder`
+Level 25
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105054
+Name reaver`
+Level 30
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105055
+Name adept`
+Level 25
+HWT 0 0
+ThFl 2209
+Val cast 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 105056
+Name soothsayer`
+Level 20
+HWT 0 0
+ThFl 2209
+Val cast 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 105057
+Name battlemaster`
+Level 20
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105058
+Name champion`
+Level 60
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105059
+Name magician`
+Level 25
+HWT 0 0
+ThFl 2209
+Val cast 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 105060
+Name miner`
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105061
+Name spelunker`
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105062
+Name raider`
+Level 20
+HWT 0 0
+ThFl 2209
+Flag Act 0 0 1
+END_THING
+
+THING 105063
+Name skirmisher`
+Level 15
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105064
+Name bard`
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105065
+Name musician`
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105066
+Name gleeman`
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105067
+Name exile`
+Level 10
+HWT 0 0
+ThFl 2209
+Flag Act 0 0 512
+END_THING
+
+THING 105068
+Name footpad`
+Level 5
+HWT 0 0
+ThFl 2209
+Flag Aff 0 0 16
+END_THING
+
+THING 105069
+Name marauder`
+Level 45
+HWT 0 0
+ThFl 2209
+Flag Act 0 0 1
+END_THING
+
+THING 105070
+Name pariah`
+Level 5
+HWT 0 0
+ThFl 2209
+Flag Act 0 0 512
+END_THING
+
+THING 105071
+Name huntress`
+Level 35
+HWT 0 0
+Sex 1
+ThFl 2209
+END_THING
+
+THING 105072
+Name nobleman`
+Level 30
+HWT 0 0
+Sex 2
+ThFl 2209
+END_THING
+
+THING 105073
+Name noblewoman`
+Level 30
+HWT 0 0
+Sex 1
+ThFl 2209
+END_THING
+
+THING 105074
+Name disciple`
+Level 20
+HWT 0 0
+ThFl 2209
+Val cast 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 105075
+Name protector`
+Level 25
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105076
+Name zealot`
+Level 15
+HWT 0 0
+ThFl 2209
+Val cast 1 0 0 0 0 0 0 0 `
+Flag Act 0 0 512
+END_THING
+
+THING 105077
+Name fanatic`
+Level 25
+HWT 0 0
+ThFl 2209
+Flag Act 0 0 1
+END_THING
+
+THING 105078
+Name madman`
+HWT 0 0
+ThFl 2209
+Flag Act 0 0 1
+END_THING
+
+THING 105079
+Name hero`
+Level 35
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105080
+Name patriarch`
+Level 30
+HWT 0 0
+Sex 2
+ThFl 2209
+Val cast 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 105081
+Name matriarch`
+Level 30
+HWT 0 0
+Sex 1
+ThFl 2209
+Val cast 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 105082
+Name runner`
+Level 10
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105083
+Name poacher`
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105084
+Name citizen`
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105085
+Name courier`
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105086
+Name rebel`
+Level 10
+HWT 0 0
+ThFl 2209
+Flag Act 0 0 512
+END_THING
+
+THING 105087
+Name templar`
+Level 35
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105088
+Name lookout`
+Level 15
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105089
+Name assassin`
+Level 60
+HWT 0 0
+ThFl 2209
+Flag Act 0 0 1
+Flag Aff 0 0 16
+END_THING
+
+THING 105090
+Name nomad`
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105091
+Name landless`
+HWT 0 0
+ThFl 2209
+END_THING
+
+THING 105092
+Name freeman`
+HWT 0 0
+Sex 2
+ThFl 2209
+END_THING
+
+THING 105093
+Name freewoman`
+HWT 0 0
+Sex 1
+ThFl 2209
+END_THING
+
+END_OF_AREA
+

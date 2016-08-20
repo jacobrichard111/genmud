@@ -1,0 +1,206 @@
+\chapter{AI}
+
+\section{Introduction}
+
+One of the neat aspects of this code is the AI and societies
+code. Basically, there's a simple RTS inside of the MUD. There are
+groups of mobs that go about their lives collecting resouces,
+fighting, building cities and settling new lands all without player
+interaction. What this means is that players are embroiled within a
+war and they won't be able to predict what the game will look like
+from day to day. 
+
+For example, a society of trolls may set up shop on
+the main highway leading out of your hometown. If they do it at night
+and noone stops them, they will set up guard posts which could block
+people into their city. Then, they will have to be exterminated over
+time, since even if they're all killed off, they may keep coming
+back. Eventually they can be destroyed, and not only are their enemies
+out there to interact with, but players can also help other societies
+by giving them resources and helping them when they're being
+attacked. 
+
+I also believe that this kind of simulation is the future of games.
+There's no way to generate enough content by hand, so you may as well
+just start working on making better simulations to do it for you.
+It won't be as good as hand-generated MUDs for a long time, but
+eventually it will be.
+
+
+
+\section{Tactical AI}
+
+The combat AI in the game comes in two parts; the initiating combat
+AI, and the combat actions AI.
+
+\subsection{Initiating Combat}
+
+Things in the game initiate combat for many reasons. They may have
+been attacked by something previously, they may have a script that
+keeps spamming ``kill foo'', they may have a VAL\_FEED on them and
+they're looking for some prey, or they may be attacking enemies of
+their society or alignment. The way to determine if something is an
+enemy or friend is to use the is\_enemy() and is\_friend() functions
+in fight.c.
+
+These attacks only get checked during the thing\_update() for most
+things, using the function attack\_stuff(). This checks the room the
+thing is in for anything that is an enemy, and if it finds one, it
+attacks. attack\_stuff() also gets called during the fast\_update,
+which means that players will see things attacking more frequently
+than mob vs. mob attacks will occur. 
+
+Society mobs also do other things. Since they go on raids and they
+scan for enemies near their locations (if they're combat society
+members), they also initiate combat by hunting things that are near
+them. When they find their victims, then they attack the victim. 
+
+Mobs can also find things to attack by responding to yells either from
+attackers warning that there are enemies nearby, or from victims
+yelling that they've been attacked. That means that you can't
+guarantee a quiet raid just by letting all of the mobs attack
+you. They may yell when they attack you, and help may come for them.
+
+Finally, mobs may attack if they're in the room with some combat and
+they need to assist their allies. This includes assisting players,
+pets assisting things, and mobs of the same vnum and society (if any)
+and alignment helping each other. Note that this doesn't mean that
+mobs of the same number always assist each other, since it is possible
+to have two different societies with the same mobs in different
+alignments, which would make them enemies. Therefore, you should be
+very careful about using vnum to determine who's friends with whom.
+
+\subsection{Combat AI}
+
+The AI that the mobs use in combat is hardcoded. I tried to do some
+simulations of large numbers of combats to get an idea what the most
+effective tactics worked, but it wasn't working since there were too
+many variables and I wasn't doing it right. So, I just coded what my
+tactics would be and I hope that's good enough.
+
+Basically, combats in the MUD will be 1 on many or 1 on 1 sometimes,
+but I expect many on many battles over time, simply because the
+societies use numbers to function well.
+
+Each round in combat, a fighting mob will have chance to use some AI.
+When it does this, it calls combat\_ai() in combatai.c and that
+function does the following:
+
+First, it counts up the number of friends and enemies in the room
+relative to this mob and also their powers and total hps. These three
+numbers are used to tell roughly how the battle is going. They are
+used to calculate a number called relative\_power which is a number
+from 0 to 24. 
+
+If the number is near 0, the mob is losing the battle,
+and may try to flee. Otherwise, if the relative power is fairly high
+and the mob is not too hurt, it may try to rescue an ally. If the
+battle is tilted a lot in its favor, it may try to attack the
+strongest pc opponent. Otherwise, it will generally go after the
+weakest opponent.
+
+
+Assuming that none of those rescues or switching attacks take place,
+the mob will then decide to bash or tackle.  These are ``restraining''
+skills since they make it harder for the victim to flee. They are
+generally only used if the mob is winning the battle, and they are
+used much more frequently if the victim is really hurt,since they
+don't do damage and they make the attacker have a harder time fleeing,
+too. That means that mobs should avoid bashing and tackling much,
+until they're fighting something that gets really weakened, then they
+should go after it and try to keep it from fleeing hurt.
+
+If they haven't done anything else to this point, the mobs will
+generally kick, and sometimes flurry (since kick is more consistent
+damage and flurry can be either really cheater or really bad depending
+on the defenses of the victim).
+
+One ting that I may do at some point is give mobs a "bravery" stat that
+will modify the relative\_power number up or down for that individual
+mob so that they don't all do exactly the same thing. (Eric Young idea)
+
+
+
+\section{Pathfinding}
+
+The pathfinding in the game is done with a breadth-first search, where
+certain rooms are culled as being impassible. The reason for this is
+that there is no notion of direction in the world, so I can't use
+something like A* to steer the search in the right direction. One
+thing I may do at some point is have a hierarchical system where the
+connections between areas are checked first, then paths through each
+area are calculated. I have avoided this so far since the timing
+hasn't been a problem yet. Also, since if many things are going to the
+same place, they all follow the same trail generated by the first
+thing to look for the path. And beyond that, most of the paths needed
+are really close by from the start point, so the hierarchy wouldn't
+get used that much anyway.
+
+
+Pathfinding starts when a thing is hunting something. It does a
+breath-first search, where each room is checked based on what
+type of thing is being hunted.
+
+
+I had a question about what
+\vv
+"Tracks of An Open Field leading out to the north, in from the nowhere, with 4
+hours left." 
+\vv
+means when you edit a room.
+
+What happens is that when mobs and players move around they leave tracks
+(sometimes). When mobs pathfind, they do a search of the room graph and when
+they find the room where they're going, the game calls place\_backtracks()
+that leaves a trail of tracks from the mob's room to the ending room. The
+thing that these tracks point to is the room itself, hence the thing like
+"Tracks of An Open Field" and the in from nowhere is because these tracks will
+never be seen by players. They are only used internally by mobs so I don't
+need to add the dir that the thing came from (saves a little cpu).
+
+The reason I do this is again so that if a lot of things are going from one
+location to another (like raiding or settling) then the first one calculates
+a path, then the rest of them search for the tracks that were laid down
+by the first thing and follow the tracks room by room. It's much more
+efficient.
+
+
+\begin{enumerate}
+
+\item If the thing being hunted is a room, the room is checked to see
+if it's that room. Otherwise, it checks the tracks in that room to
+see if one of them points to the proper room. Things hunt for
+rooms by hunting a number rather than a name.
+
+\item If it's something else, the contents of the room are checked.
+The way it works is that if you don't have a hunt\_victim
+pointer set to something, then you're searching for a name.
+It searches the contents of the room for something with that
+name, and then searches the tracks in the room to see if something 
+with that name left a track here recently.
+
+
+\item If the thing is not found, and a trail is not found, then the
+adjacent rooms are checked. Of course, rooms are only checked once,
+and the room being checked cannot be impassable to the thing doing the
+hunting. If these BADROOM\_BITS are set and the thing can't pass
+terrain like that, then the room is not checked. The BADROOM\_BITS
+restriction can be overriden by the move\_flags a thing has. If it's
+capable of flying or underwater breath, for example, then ROOM\_AIRY
+or ROOM\_WATERY and ROOM\_UNDERWATER flags are allowed in tracking.
+
+\end{enumerate}
+
+After all that, if the thing is not here, but a path is found, then
+the mob takes a step in that direction. A special case is if the mob
+can cast spells or has a ranged weapon. Then, it will check first if
+the thing it's hunting is nearby. If it is, then it will not move into
+that room, but will range attack.
+
+If this is the location we desire, or if the thing we desire is here,
+then we do something based on the kind of hunting we were
+doing. Possibilities include killing something, setting up a new
+society, setting up a guard post, gathering raw materials, and
+building a city. If you want mobs to do other things, this is where to
+add special functions and hunting types, so when you send them
+someplace, they will be able to do something.

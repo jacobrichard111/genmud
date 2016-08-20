@@ -1,0 +1,25 @@
+THING 127000
+Name guildmaster.are`
+HpMv 0 10 5 1000
+HWT 0 0
+Timer 7
+Short The Guildmaster area`
+type Lonath`
+ThFl 135307259
+Flag Area 0 0 28
+END_THING
+
+THING 127001
+HWT 0 0
+Color 7
+Desc This area is used to have a place for guildmasters to reset. It isn't
+supposed to be played in.
+`
+Short The Guildmaster Area`
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+END_OF_AREA
+

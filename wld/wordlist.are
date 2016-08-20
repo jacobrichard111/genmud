@@ -1,0 +1,498 @@
+THING 105900
+Name wordlist.are`
+HpMv 0 10 5 100
+HWT 0 0
+Timer 11
+Short The Wordlist Area`
+type Lonath`
+ThFl 135307259
+Flag Area 0 0 28
+END_THING
+
+THING 105901
+HWT 0 0
+Color 7
+Desc This area contains some simple strings used to make mob long descs so
+that they aren't so boring. They are used in mobgen.c when the
+random mobs are created.
+`
+Short Mob Long Description Generators`
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+THING 105902
+Name building_size`
+HWT 0 0
+Color 7
+Desc old
+new
+large
+small 
+tiny
+big
+little
+spacious
+cramped
+`
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+THING 105903
+Name building_adjective`
+HWT 0 0
+Color 7
+Desc dirty
+clean
+comfortable
+crowded
+neat
+messy
+dingy
+brick
+stone
+wood
+well-lit
+grimy
+weatherbeaten
+spare
+`
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+THING 105906
+Name mob_action`
+HWT 0 0
+Desc standing
+walking
+moving
+motionless
+'standing still'
+'sniffing the ground'
+'sniffing the air'
+'snuffing the ground'
+''
+''
+''
+''
+''
+''
+`
+END_THING
+
+THING 105907
+Name mob_searching`
+HWT 0 0
+Desc 'searching for'
+'looking for'
+'trying to find'
+'on the lookout for'
+'on the hunt for'
+'hunting for'
+`
+END_THING
+
+THING 105908
+Name mob_searchfor`
+HWT 0 0
+Desc food
+'something to eat'
+'a meal'
+something
+'some food'
+'a resting place'
+'a place to rest'
+`
+END_THING
+
+THING 105909
+Name mob_notice`
+HWT 0 0
+Desc ''
+''
+''
+'You notice'
+'You see'
+'There is'
+'There appears to be'
+"There's"
+''
+''
+''
+'There is'
+'There is'
+'There is'
+'There is'
+"There's"
+"There's"
+''
+''
+''
+''
+'You notice that there is'
+'You notice there is'
+`
+END_THING
+
+THING 105910
+Name mob_action_flying`
+HWT 0 0
+Desc flying
+flitting
+floating
+fluttering
+gliding
+soaring
+`
+END_THING
+
+THING 105911
+Name mob_searchrest`
+HWT 0 0
+Desc 'somewhere to rest'
+'somewhere to land'
+'someplace to rest'
+'someplace to land'
+'a place to land'
+'a place to rest'
+'a landing spot'
+`
+END_THING
+
+THING 105912
+Name mob_notice_plural_verb`
+HWT 0 0
+Desc 'There are'
+'There appear to be'
+'It looks like there are'
+'You see that there are'
+'There are'
+''
+''
+''
+`
+END_THING
+
+THING 105913
+Name mob_notice_plural`
+HWT 0 0
+Desc 'You see'
+'You see that'
+'You notice that'
+'You see'
+'It appears that'
+'It looks like'
+''
+''
+''
+`
+END_THING
+
+THING 105914
+Name a_an_plural`
+HWT 0 0
+Desc Some
+Many
+'A Few'
+'A bunch'
+'A lot'
+Several
+Lots
+Some
+`
+END_THING
+
+THING 105915
+Name near_here`
+HWT 0 0
+Desc here
+'near here'
+here
+here
+here
+here
+here
+here
+here
+here
+'around here'
+'near you'
+'right here'
+`
+END_THING
+
+THING 105916
+Name mob_adjective`
+HWT 0 0
+Desc tired old young energetic weary wary cautious observant watchful calm
+stoic steady nervous smiling happy frowning unhappy quiet harried guarded
+reserved wizened wise ancient haggard unkempt smelly dirty smiling
+frowning grimacing shady honest upstanding trustworthy whistling humming
+honorable kind haughty disreputable worn-out shy confident bashful
+insecure quick slow bold cocksure dauntless fearless intrepid presumptuous
+self-assured valiant upbeat decisive firm forceful strong-willed assertive
+brazen composed poised hesitant timid unconfident inhibited diffident
+imperious imposing officious audacious daring forward gritty resolute
+stout unabashed valorous meek fainthearted easygoing level-headed
+nochalant placid sanguine serene worried agitated affable chummy clubby
+convivial genial helpful kind friendly neighborly outgoing sociable
+solicitous considerate unselfish cold-hearted amicable attractive charming
+cheerful cordial delightful engaging good-humored good-natured gracious
+obliging pleasant righteous warm-hearted antisocial disagreeable
+quarrelsome rude surly contrary good-tempered polite discontented
+antagonistic nasty perverse reluctant uneager caring ardent cantankerous
+bellicose contentious flippant ornery nasty truculent acrimonous bitter
+belligerent caustic morose resentful sardonic sullen disaffected
+apprehensive circumspect demure humble self-effacing skittish unassertive
+abashed gregarious cheerful chipper merry mirthful peaceful upbeat
+lumbering dull fervent lethargic disheveled bedraggled greasy slovenly
+unkempt 
+`
+END_THING
+
+THING 105917
+Name bad_furniture_material`
+HWT 0 0
+Desc wood
+wood
+wooden
+wood
+stick
+log
+rough
+plank
+`
+END_THING
+
+THING 105918
+Name bad_furniture_adjective`
+HWT 0 0
+Desc creaky
+filthy
+flimsy
+old
+worn
+wobbly
+forlorn
+worn-out
+used
+used-up
+beat-up
+dirty
+sturdy
+neat
+new
+abused
+poor-quality
+rustic
+crude
+broken
+tidy
+maintained
+sad
+sagging
+warped
+dingy
+cracked
+lopsided
+split
+`
+END_THING
+
+THING 105919
+Name obj_long_format`
+HWT 0 0
+Desc 'sdesc obj_location'
+'obj_notice sdesc'
+'obj_notice sdesc obj_location'
+'obj_notice_that sdesc obj_location_that'
+'sdesc has_been_was obj_location_was'
+'obj_notice sdesc has_been_was obj_location_was'
+`
+END_THING
+
+THING 105920
+Name obj_notice`
+HWT 0 0
+Desc 'You notice'
+'you see'
+'there is'
+"there's"
+`
+END_THING
+
+THING 105921
+Name obj_location_that`
+HWT 0 0
+Desc 'is here'
+'has been left here'
+'was abandoned here'
+'was left here'
+'is sitting here'
+'is on the ground'
+'is here'
+'looks abandoned'
+'is lying on the ground'
+'is lying here'
+'was dropped here'
+'was left here'
+`
+END_THING
+
+THING 105922
+Name obj_notice_that`
+HWT 0 0
+Desc 'you notice that'
+'you see that'
+'it appears that'
+'it looks like'
+`
+END_THING
+
+THING 105923
+Name obj_location`
+HWT 0 0
+Desc here
+'on the ground'
+'abandoned here'
+'dropped here'
+'sitting here'
+'lying here'
+'lying on the ground'
+`
+END_THING
+
+THING 105924
+Name room_size`
+HWT 0 0
+Desc small
+tiny
+large
+grand
+giant
+huge
+medium
+`
+END_THING
+
+THING 105925
+Name gate_house`
+HWT 0 0
+Desc gatehouse
+gate
+'city gate'
+'guard post'
+citygate
+'guard house'
+'guardpost'
+'city entrance'
+entrance
+portal
+`
+END_THING
+
+THING 105926
+Name building_condition`
+HWT 0 0
+Desc crumbling
+new
+ancient
+sturdy
+large
+small
+foritfied
+neglected
+old
+dirty
+dingy
+weatherbeaten
+`
+END_THING
+
+THING 105927
+Name obj_location_was`
+HWT 0 0
+Desc 'left here'
+'put here'
+'dropped here'
+'placed here'
+'abandoned here'
+`
+END_THING
+
+THING 105928
+Name has_been_was`
+HWT 0 0
+Desc 'has been'
+was
+`
+END_THING
+
+THING 105929
+Name pottery_material`
+HWT 0 0
+Desc clay
+clay
+clay
+clay
+mud
+mud
+mud
+glazed
+glazed
+wood
+wood
+shell
+shell
+horn
+ivory
+brass
+copper
+bronze
+iron
+niebold
+jade
+jadetite
+laquered
+laquered
+enameled
+enameled
+porcelain
+ceramic
+ceramic
+celadon
+ornamental
+painted
+painted
+earthen
+'terra cotta'
+stone
+stoneware
+`
+END_THING
+
+THING 105930
+Name woven_materials`
+HWT 0 0
+Desc flax
+flax
+cloth
+cloth
+hide
+hide
+leather
+leather
+fiber
+fiber
+woven
+woven
+`
+END_THING
+
+END_OF_AREA
+

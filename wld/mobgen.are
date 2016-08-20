@@ -1,0 +1,1217 @@
+THING 105200
+Name mobgen.are`
+HpMv 0 10 5 700
+HWT 0 0
+Timer 14
+Short Mob Generators`
+type Lonath`
+ThFl 135307259
+Flag Area 0 0 28
+END_THING
+
+THING 105201
+HWT 0 0
+Color 7
+Desc You use these mobs to generate lots of randpop mobs. The way it works is the same way as the detailgen mobs, you
+make a name like a long_desc short_desc name is here.
+ 
+The room_flags you set get set onto the mob also to restrict where
+it can pop. The level is variable and using some keywords may
+change the mob stats.
+ 
+If you have the words white arctic snow in a desc, it assumes
+you want a snow mob and will change the room flags accordingly.
+Area 101000 must be empty except for possibly a couple of rooms for
+these things to be generated. They can only be generated if the
+worldgen code is being invoked (Although you can change this
+if you want). And invoking worldgen_clear will clear these mobs. 
+ 
+The mobs also have "parts" used for armors wpns and jewelry.
+ 
+If the mob is level 40+ it may get used to n"name" items as
+a suffix like "sword of the unicorn" and so forth.
+`
+Short Base Mob Generators`
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+THING 105210
+Name ant`
+Level 5
+HWT 8 30
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 921600
+EDESC armor`
+chitin shell
+`
+EDESC kname`
+ant termite
+`
+EDESC kshort`
+red fire black brown gray
+`
+EDESC klong`
+giant small large
+`
+END_THING
+
+THING 105211
+Name bat`
+Level 7
+HWT 5 40
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 2035712
+Flag Aff 0 0 524288
+EDESC jewelry`
+head claw
+`
+EDESC armor`
+wing skin hide
+`
+EDESC klong`
+Furry fuzzy small giant
+`
+EDESC kshort`
+black brown red tan white
+`
+EDESC kname`
+bat
+`
+END_THING
+
+THING 105212
+Name chipmunk squirrel`
+Level 5
+HWT 5 40
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 458752
+EDESC klong`
+fuzzy furry chittering
+`
+EDESC kshort`
+brown black gray white
+`
+EDESC kname`
+chipmunk squirrel
+`
+END_THING
+
+THING 105213
+Name hare rabbit jackrabbit`
+Level 6
+HWT 5 40
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 2031616
+EDESC jewelry`
+foot bone
+`
+EDESC armor`
+hide skin pelt fur
+`
+EDESC klong`
+Small large furry fuzzy sniffing playful bushy-tailed
+`
+EDESC kshort`
+white brown black gray mottled
+`
+EDESC kname`
+hare rabbit jackrabbit bunny
+`
+END_THING
+
+THING 105214
+Name jackal fox coyote wolverine hyena`
+Level 12
+HWT 10 100
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 983040
+EDESC weapon`
+bone
+`
+EDESC jewelry`
+bone claw tooth
+`
+EDESC armor`
+hide pelt skin fur
+`
+EDESC klong`
+Bushy-tailed furry sniffing
+`
+EDESC kshort`
+red brown white gray black arctic mottled spotted
+`
+EDESC kname`
+jackal fox coyote wolverine hyena 
+`
+END_THING
+
+THING 105215
+Name groundhog hedgehog opossum badger mole raccoon`
+Level 17
+HWT 12 100
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 462848
+EDESC armor`
+fur hide skin pelt
+`
+EDESC klong`
+Big fat waddling large smelly
+`
+EDESC kshort`
+brown white gray 
+`
+EDESC kname`
+groundhog hedgehog opossum badger mole raccoon
+`
+END_THING
+
+THING 105216
+Name elk moose deer buck reindeer antelope caribou`
+Level 25
+HWT 50 3000
+Sex 2
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 458752
+EDESC weapon`
+antler bone
+`
+EDESC jewelry`
+bone tooth
+`
+EDESC armor`
+pelt skin hide fur
+`
+EDESC klong`
+Proud strutting eating observant
+`
+EDESC kshort`
+brown white 
+`
+EDESC kname`
+elk moose deer buck reindeer antelope caribou
+`
+END_THING
+
+THING 105217
+Name doe`
+Level 25
+HWT 50 3000
+Sex 1
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 458752
+EDESC armor`
+hide pelt skin fur
+`
+EDESC klong`
+Proud strutting eating observant
+`
+EDESC kshort`
+white brown 
+`
+EDESC kname`
+doe
+`
+END_THING
+
+THING 105218
+Name hawk eagle falcon raven`
+Level 20
+HWT 15 50
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 peck`
+Flag Aff 0 0 524288
+Flag Room 0 0 2031616
+EDESC weapon`
+claw talon
+`
+EDESC jewelry`
+bone claw feather talon
+`
+EDESC armor`
+feather
+`
+EDESC kshort`
+white brown golden black gray
+`
+EDESC kname`
+hawk eagle falcon raven
+`
+END_THING
+
+THING 105219
+Name crow`
+Level 9
+HWT 6 30
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 458752
+EDESC klong`
+sleek
+`
+EDESC kshort`
+black
+`
+EDESC kname`
+crow
+raven
+`
+END_THING
+
+THING 105220
+Name frog bullfrog toad`
+Level 6
+HWT 5 40
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 1445888
+EDESC armor`
+skin
+`
+EDESC klong`
+Skinny fat large small croaking
+`
+EDESC kshort`
+green brown gray mottled spotted cave
+`
+EDESC kname`
+frog bullfrog toad
+`
+END_THING
+
+THING 105221
+Name salamander`
+Level 12
+HWT 15 50
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 1966080
+EDESC armor`
+skin
+`
+EDESC klong`
+Spotted speckled slithering scaly large small
+`
+EDESC kshort`
+red green yellow white black gray mottled orange
+`
+EDESC kname`
+salamander
+`
+END_THING
+
+THING 105222
+Name lizard `
+Level 18
+HWT 10 70
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 1572864
+EDESC armor`
+skin
+`
+EDESC klong`
+Spotted speckled scaly giant large small
+`
+EDESC kshort`
+red green yellow brown black gray mottlled orange
+`
+EDESC kname`
+lizard
+`
+END_THING
+
+THING 105223
+Name bee bumblebee wasp hornet`
+Level 3
+HWT 5 40
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 sting`
+Flag Room 0 0 2035712
+Flag Aff 0 0 524288
+EDESC weapon`
+stinger sting
+`
+EDESC klong`
+Angry swarming buzzing humming
+`
+EDESC kshort`
+yellow black brown
+red
+striped
+`
+EDESC kname`
+bee bumblebee wasp hornet
+`
+END_THING
+
+THING 105224
+Name wolf warg`
+Level 40
+HWT 25 1200
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 2031616
+EDESC weapon`
+fang claw tooth
+`
+EDESC jewelry`
+bone tooth fang claw
+`
+EDESC armor`
+hide fur skin pelt
+`
+EDESC klong`
+Sniffing alert curious growling
+`
+EDESC kshort`
+gray black brown white arctic mottled
+`
+EDESC kname`
+wolf warg wolfling
+wolfen
+`
+END_THING
+
+THING 105225
+Name boar pig`
+Level 25
+HWT 30 1200
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 claw claw bite`
+Flag Room 0 0 1507328
+EDESC jewelry`
+tusk bone tooth
+`
+EDESC weapon`
+tusk fang
+`
+EDESC armor`
+hide fur skin
+`
+EDESC klong`
+Snorting growling sniffing scraping tusked  large wild untamed
+`
+EDESC kshort`
+red brown arctic mottled gray
+`
+EDESC kname`
+boar pig
+`
+END_THING
+
+THING 105226
+Name horror`
+Level 90
+HWT 0 0
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 claw bite`
+Flag Act 0 0 1
+Flag Mob 0 0 4
+Flag Room 0 0 4096
+EDESC klong`
+Slobbering shambling moaning staggering
+`
+EDESC kshort`
+hooked helmed clawed scaly
+`
+EDESC kname`
+horror
+`
+END_THING
+
+THING 105227
+Name hummingbird bird sparrow woodpecker wren owl`
+Level 7
+HWT 5 40
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 peck`
+Flag Room 0 0 2031616
+Flag Aff 0 0 524288
+EDESC jewelry`
+bone feather
+`
+EDESC klong`
+Fluffy small cute tiny fuzzy downy
+`
+EDESC kshort`
+red brown white gray blue
+`
+EDESC kname`
+hummingbird bird sparrow woodpecker wren owl
+ 
+`
+END_THING
+
+THING 105228
+Name beetle insect maggot`
+Level 5
+HWT 5 40
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 2035712
+EDESC klong`
+Poisonous stinging large small giant
+`
+EDESC kshort`
+brown green black yellow blue gray trapper hunter borer
+`
+EDESC kname`
+beetle bug insect centipede roach maggot
+`
+END_THING
+
+THING 105229
+Name skunk`
+Level 12
+HWT 10 50
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 1507328
+EDESC klong`
+white-striped smelly stinky
+`
+EDESC kshort`
+black
+`
+EDESC kname`
+skunk
+`
+END_THING
+
+THING 105230
+Name goat 'mountain goat' 'billy goat' ram`
+Level 22
+HWT 60 5000
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 196608
+EDESC weapon`
+horns horn
+`
+EDESC armor`
+skin hide fur
+`
+EDESC klong`
+Small proud braying loud large
+`
+EDESC kshort`
+white gray brown
+`
+EDESC kname`
+sheep goat 'mountain goat' 'billy goat' ram
+`
+END_THING
+
+THING 105231
+Name puma bobcat panther jaguar 'mountain lion' cougar`
+Level 40
+HWT 40 300
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 136253440
+EDESC jewelry`
+tooth claw fang
+bone
+`
+EDESC weapon`
+tooth claw fang
+`
+EDESC armor`
+hide fur pelt skin
+`
+EDESC klong`
+Crouching angry wary curious tense
+`
+EDESC kshort`
+gray mottled brown black white
+`
+EDESC kname`
+puma bobcat panther jaguar 'mountain lion' cougar
+tiger
+lion
+cheetah
+leopard
+tiger
+`
+END_THING
+
+THING 105232
+Name snake boa mamba asp`
+Level 25
+HWT 20 2000
+ThFl 67745
+Val weapon 1 5 0 0 0 0 0 0 bite`
+Flag Room 0 0 1970176
+EDESC jewelry`
+fang
+`
+EDESC weapon`
+fang
+`
+EDESC armor`
+skin hide scale
+`
+EDESC klong`
+Large giant small slithering still sinuous
+`
+EDESC kshort`
+green brown spotted yellow water rock striped tree moss black
+constrictor
+`
+EDESC kname`
+snake boa mamba asp
+serpent
+viper
+`
+END_THING
+
+THING 105233
+Name fly mosquito serpentfly dragonfly`
+Level 4
+HWT 5 40
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 1970176
+Flag Aff 0 0 524288
+EDESC klong`
+Buzzing annoying
+`
+EDESC kshort`
+black blue brown green
+`
+EDESC kname`
+fly mosquito serpentfly dragonfly
+`
+END_THING
+
+THING 105234
+Name dog`
+Level 20
+HWT 35 1800
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 2035712
+EDESC klong`
+Feral wild snapping growling angry
+`
+EDESC kshort`
+brown white black mottled spotted mixed-breed
+`
+EDESC kname`
+dog
+`
+END_THING
+
+THING 105235
+Name crocodile alligator`
+Level 45
+HWT 30 7000
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 1048576
+EDESC armor`
+hide skin scale
+`
+EDESC klong`
+Large small growling
+`
+EDESC kshort`
+green brown scaly scaled
+`
+EDESC kname`
+crocodile alligator cayman
+`
+END_THING
+
+THING 105236
+Name leech`
+Level 7
+HWT 5 40
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 1048576
+EDESC klong`
+small large
+`
+EDESC kshort`
+sucking sticky
+black green blue
+`
+EDESC kname`
+leech
+`
+END_THING
+
+THING 105237
+Name bear`
+Level 55
+HWT 80 10000
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 462848
+EDESC weapon`
+tooth bone claw
+`
+EDESC jewelry`
+tooth bone claw
+`
+EDESC armor`
+skin hide pelt fur
+`
+EDESC klong`
+Large small furry growling
+`
+EDESC kshort`
+brown black gray grizzly polar
+`
+EDESC kname`
+bear ursar
+`
+END_THING
+
+THING 105238
+Name butterfly`
+Level 3
+HWT 5 40
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Act 0 0 16384
+Flag Room 0 0 1441792
+EDESC klong`
+Flying flitting resting soaring
+`
+EDESC kshort`
+red blue green yellow multi-hued spotted orange magenta
+`
+EDESC kname`
+butterfly
+`
+END_THING
+
+THING 105239
+Name sloth`
+Level 35
+HWT 40 1200
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 1179648
+EDESC jewelry`
+bone claw tooth
+`
+EDESC weapon`
+claw
+`
+EDESC armor`
+skin pelt hide fur
+`
+EDESC klong`
+Lethargic large small sleepy giant
+`
+EDESC kshort`
+'three-toed' 'two-toed'
+`
+EDESC kname`
+sloth
+`
+END_THING
+
+THING 105240
+Name scorpion`
+Level 5
+HWT 5 40
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 sting`
+Flag Room 0 0 524288
+EDESC weapon`
+stinger claw pincer
+fang
+`
+EDESC jewelry`
+stinger claw
+pincer
+`
+EDESC armor`
+chitin shell
+`
+EDESC klong`
+Large small poisonous
+`
+EDESC kshort`
+black yellow brown gray hunter white
+`
+EDESC kname`
+scorpion
+`
+END_THING
+
+THING 105241
+Name mephit imp`
+Level 10
+HWT 5 20
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Val money 50 0 0 0 0 0 0 0 `
+Flag Det 0 0 4
+Flag Aff 0 0 524288
+Flag Mob 0 0 2
+EDESC armor`
+skin
+`
+EDESC klong`
+Small medium large spotted glowing
+`
+EDESC kshort`
+ice air fire earth water flame wind
+`
+EDESC kname`
+mephit imp
+`
+END_THING
+
+THING 105242
+Name fish`
+Level 10
+HWT 5 40
+ThFl 67745
+Flag Aff 0 0 1048576
+EDESC klong`
+'school of'
+'bunch of'
+''
+''
+`
+EDESC kshort`
+silvery bluish silver pale translucent
+`
+EDESC kname`
+fish
+cod flounder catfish guppy
+`
+END_THING
+
+THING 105243
+Name shark`
+Level 35
+HWT 100 4000
+ThFl 67745
+Flag Act 0 0 512
+Flag Aff 0 0 1048576
+EDESC jewelry`
+tooth
+`
+EDESC weapon`
+tooth
+`
+EDESC armor`
+scale skin hide
+`
+EDESC klong`
+large small dangerous
+`
+EDESC kshort`
+white hammerhead gray sleek
+`
+EDESC kname`
+shark
+`
+END_THING
+
+THING 105244
+Name cyclops`
+Level 100
+HWT 0 0
+ThFl 67745
+EDESC klong`
+large small 
+`
+EDESC kshort`
+hairy
+skinny fat
+`
+EDESC kname`
+cyclops
+`
+END_THING
+
+THING 105245
+Name harpy`
+Level 75
+HWT 0 0
+ThFl 67745
+Flag Aff 0 0 524288
+EDESC klong`
+flying hovering 
+old 
+`
+EDESC kshort`
+screeching hideous putrid fetid
+disgusting hideous
+`
+EDESC kname`
+harpy
+'harpy hag'
+hag
+`
+END_THING
+
+THING 105246
+Name rat mouse`
+Level 5
+HWT 0 0
+ThFl 67745
+EDESC kshort`
+brown gray black mottled sandy
+`
+EDESC klong`
+small large scurrying chittering squeaking furry
+`
+EDESC kname`
+rat mouse
+vermin
+`
+END_THING
+
+THING 105247
+Name spider`
+Level 5
+HWT 0 0
+ThFl 67745
+Flag Room 0 0 987136
+EDESC klong`
+large small giant crouching ugly
+`
+EDESC kshort`
+wooly black brown spotted mottled yellow hairy
+green
+gray
+`
+EDESC kname`
+spider spiderling
+`
+END_THING
+
+THING 105248
+Name turtle`
+Level 7
+HWT 6 30
+ThFl 67745
+EDESC kname`
+turtle tortoise
+`
+EDESC kshort`
+green brown sea lumbering 
+snapping
+`
+EDESC klong`
+small large
+`
+EDESC armor`
+shell
+`
+END_THING
+
+THING 105249
+Name chicken turkey`
+Level 10
+HWT 0 0
+ThFl 67745
+Flag Room 0 0 393216
+EDESC klong`
+fluffy
+waddling
+pecking
+feathery
+downy
+`
+EDESC kshort`
+wild
+brown
+white
+`
+EDESC kname`
+chicken
+turkey
+goose
+swan
+`
+END_THING
+
+THING 105250
+Name ooze jelly`
+Level 80
+HWT 0 0
+ThFl 67745
+Val weapon 1 6 0 3 0 85 0 0 touch slap`
+Flag Det 0 0 5
+Flag Act 0 0 1
+EDESC kname`
+ooze jelly 'icky thing' mound
+blob
+`
+EDESC kshort`
+red
+green
+black white
+clear
+plaid
+spotted
+striped
+blue
+orange
+yellow
+purple
+magenta
+gray
+grey
+`
+EDESC klong`
+sloshing
+shambling
+slimy
+gelatanous
+jiggling
+bouncing
+`
+END_THING
+
+THING 105400
+Name gargoyle`
+Level 71
+HWT 50 10000
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 203296768
+Flag Act 0 0 512
+Flag Aff 0 0 524288
+EDESC armor`
+shell
+`
+EDESC klong`
+Large small
+`
+EDESC kshort`
+stone iron rock
+`
+EDESC kname`
+gargoyle
+`
+END_THING
+
+THING 105401
+Name unicorn`
+Level 75
+HWT 90 5000
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Aff 0 0 65536
+Flag Room 0 0 136253440
+EDESC weapon`
+horn
+`
+EDESC jewelry`
+hoof tooth mane
+`
+EDESC armor`
+pelt hide skin fur
+`
+EDESC klong`
+Large small proud
+`
+EDESC kshort`
+war battle
+white
+`
+EDESC kname`
+unicorn
+`
+END_THING
+
+THING 105402
+Name pegasus`
+Level 80
+HWT 60 5000
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Aff 0 0 524288
+Flag Room 0 0 136253440
+EDESC jewelry`
+feather bone tooth
+`
+EDESC armor`
+hide skin pelt fur
+`
+EDESC klong`
+large small
+`
+EDESC kshort`
+silver white
+`
+EDESC kname`
+pegasus
+`
+END_THING
+
+THING 105403
+Name hulk beast creature dread`
+Level 85
+HWT 80 9000
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 bite`
+Flag Room 0 0 136253440
+Flag Act 0 0 512
+EDESC klong`
+Large small shiny
+dull
+`
+EDESC kshort`
+black white brown green gray mottled striped spotted
+`
+EDESC kname`
+hulk beast creature dread
+`
+END_THING
+
+THING 105404
+Name elemental`
+Level 71
+HWT 50 1000
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 drain`
+Flag Aff 0 0 1572864
+EDESC klong`
+small medium large giant huge
+`
+EDESC kshort`
+air earth fire water
+`
+EDESC kname`
+elemental
+`
+END_THING
+
+THING 105405
+Name golem automaton`
+Level 100
+HWT 70 10000
+ThFl 67745
+Val weapon 0 0 0 0 0 0 0 0 crush slap smack`
+EDESC klong`
+Small large old creaking
+`
+EDESC kshort`
+bronze stone gold iron steel diamond bone clay mist
+`
+EDESC kname`
+golem automaton
+`
+END_THING
+
+THING 105406
+Name griffon hippogriff chimera cockatrice`
+Level 90
+HWT 80 4000
+ThFl 67745
+Flag Aff 0 0 524288
+Flag Act 0 0 1
+EDESC weapon`
+tooth claw fang talon bone
+`
+EDESC jewelry`
+tooth fang claw talon
+bone
+`
+EDESC armor`
+hide skin pelt fur
+`
+EDESC klong`
+Large small medium giant
+`
+EDESC kshort`
+Furry feathered brown green black gray white
+`
+EDESC kname`
+griffon hippogriff chimera cockatrice
+griffin
+`
+END_THING
+
+THING 105407
+Name mist cloud blob`
+Level 15
+HWT 50 50
+ThFl 67745
+EDESC klong`
+spotted speckled glowing translucent rolling sliding
+tumbling wandering plaid 
+striped checked
+`
+EDESC kshort`
+red blue green yellow purple orange black white transparent
+sky-blue
+cyan magenta
+`
+EDESC kname`
+mist cloud blob thing 'icky thing' mold jelly
+`
+END_THING
+
+THING 105408
+Name dragon`
+Level 80
+HpMult 2
+HWT 700 30000
+ThFl 67745
+Flag Aff 0 0 524288
+EDESC kname`
+dragon dragon dragonling wyvern drakon
+`
+EDESC kshort`
+red blue green white black purple yellow cyan
+`
+EDESC klong`
+small medium large
+`
+EDESC armor`
+hide skin scale
+`
+EDESC jewelry`
+tooth claw talon
+bone
+`
+EDESC weapon`
+tooth claw talon bone
+fang
+`
+END_THING
+
+THING 105409
+Name werewolf`
+Level 75
+HWT 0 0
+ThFl 67745
+Flag Mob 0 0 4
+Flag Act 0 0 2
+EDESC klong`
+staring angry hissing growling moaning baying
+frothing
+`
+EDESC kname`
+werewolf wolfen
+`
+EDESC kshort`
+black brown gray mottled
+`
+END_THING
+
+END_OF_AREA
+

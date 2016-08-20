@@ -1,0 +1,23 @@
+THING 150000
+Name randobj.are`
+HpMv 0 10 5 20000
+HWT 0 0
+Timer 9
+Short The Randobj Area`
+ThFl 1089531
+Flag Area 0 0 28
+END_THING
+
+THING 150001
+Name The Randobj Area`
+HWT 0 0
+Color 7
+Desc This area has a huge number of items that monsters can load.
+`
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+END_OF_AREA
+

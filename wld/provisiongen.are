@@ -1,0 +1,121 @@
+THING 107500
+Name provisiongen.are`
+HpMv 0 10 5 500
+HWT 0 0
+Timer 14
+Short The provision generators`
+type Lonath`
+ThFl 135307259
+Flag Area 0 0 28
+END_THING
+
+THING 107501
+HWT 0 0
+Color 7
+Desc This area has generators for things like fruits, vegetables, breads, meats
+and drinks. It also has generators for things like maps and tools and
+bags and other provisions players might need.
+`
+Short Provision Generators`
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+THING 107506
+HWT 0 0
+ThFl 100934
+Val food 1 0 0 0 0 0 0 0 `
+EDESC kshort`
+delicious ripe unripe hard soft mushy firm sweet 
+fresh old moldy
+`
+EDESC kname`
+apple orange pear banana kiwi peach
+`
+END_THING
+
+THING 107507
+HWT 0 0
+ThFl 100934
+Val food 1 0 0 0 0 0 0 0 `
+EDESC format`
+'some klong kshort of kname'
+'some klong kname kshort'
+`
+EDESC klong`
+delicious dried salted spiced moldy smelly old fresh 
+spicy dry moist stringy
+`
+EDESC kshort`
+leg breast loin pieces chunks meat sausage jerky
+`
+EDESC kname`
+chicken beef lamb turkey duck pig
+`
+END_THING
+
+THING 107508
+HWT 0 0
+ThFl 100934
+Val food 1 0 0 0 0 0 0 0 `
+EDESC kshort`
+delicious rotten old moldy fresh firm soft mushy crisp
+browning bruised
+`
+EDESC kname`
+carrots celery cabbage tomatoes lettuce broccoli cauliflower
+cucumbers sprouts potatoes okra onions
+`
+EDESC format`
+'some kshort kname'
+`
+END_THING
+
+THING 107509
+HWT 0 0
+ThFl 100934
+Val drink 1 0 0 0 0 0 0 0 `
+EDESC kshort`
+large small medium tiny huge giant
+`
+EDESC kname`
+waterskin skin bladder cask flask jar glass bottle pouch
+`
+END_THING
+
+THING 107510
+HWT 0 0
+ThFl 100934
+Val map 1 0 0 0 0 0 0 0 `
+EDESC klong`
+old ancient forgotten translucent transparent
+cryptic mystical mysterious
+`
+EDESC kshort`
+tattered dusty cracked faint faded painted bloody crumpled
+paper trollskin demonskin
+`
+EDESC kname`
+map
+`
+END_THING
+
+THING 107511
+HWT 0 0
+ThFl 100930
+Val i_exit 0 3 3 0 0 0 0 0 `
+EDESC kname`
+sack bag backpack
+pouch
+`
+EDESC kshort`
+cloth leather ripped dirty clean woven brown gray
+`
+EDESC klong`
+small large tiny huge giant
+`
+END_THING
+
+END_OF_AREA
+

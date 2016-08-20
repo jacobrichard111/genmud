@@ -1,0 +1,348 @@
+\chapter{Resets}
+
+\section{Introduction}
+
+Everything is a thing as we have seen in the previous chapters. One
+place that this becomes very useful is when dealing with resets.
+A reset is essentially a periodic repopulation of the world with
+things. This occurs a few times an hour per area, although the
+specific reset times for each area are randomly staggered. 
+(This can be changed in upd.c..look for reset\_thing in upd.c,
+and work with the numbers in that general area of the code. The timer
+on the thing counts down to when it gets reset.
+
+Resets here are lots of fun. They also save you work if you use
+them correctly. As a quick example, if you want 10 guards to reset
+in a room with randomly popping armor, using the old methods,
+you would go to the room and make 10 resets of a guard. Between each
+guard reset, you would have to put reset for armor and weapons,
+and it would end up being a big mess with 50-60 resets in the
+room. Using this reset code, you put a reset of 2 random weapons on
+the mob, a reset of 5 random armors on the mob, and then you put a
+reset of 10 guard mobs in the room. Using recursiveness and randomness
+you took a job requiring 50-60 resets and turned it into one requiring
+3 resets.
+
+
+\section{The Reset Structure}
+
+The reset structure looks like this:
+
+\begin{verbatim}
+
+struct reset_data
+{
+  RESET *next;
+  int vnum;
+  unsigned char pct;
+  unsigned char nest;
+  unsigned int max_num;
+};
+
+\end{verbatim}
+
+The next is there because these are stored in a list. Note that
+specific instances of mobjects don't get the resets copied.
+Only the prototype keeps that information, since there didn't
+seem to be a need to add it, because you can just look at the
+prototype. 
+
+
+ The vnum is the
+vnum of the thing being reset. However, in many cases, the vnum of the
+reset is not the vnum of the thing being created. This is because of
+random repops. You can see VAL\_RANDPOP in the chapter on values for
+some information on this, although more will follow. When a thing
+has a randpop value on it, that tells the reset code to reset another
+thing instead of the randpop item.
+
+The pct is a number from 0 to 100 that gives the percentage chance of
+this reset being called when it's accessed.
+
+The nest is how deep in the reset stack this item should go. As an
+example of this. Suppose you have a room with a chest in it, and you
+want to reset a blanket inside the chest. Then the chest would
+be reset with a nest of 1, and the blanket would be reset with
+a nest of 2. This is useful if you want to have the chest resetting
+in several locations with different items in it at each location.
+However, if you only had one instance of the chest resetting, you
+could make a reset of the chest in the room at nest 1, and a reset
+of the blanket on the chest thing with a nest of 1. This nesting
+property is very powerful, and can do very bad things, so be careful.
+
+
+The max\_num is the max number of this item that will pop in the thing
+being reset. There are several cases of how this works.  A quick note:
+the resets are totally recursive, so if you have say 100 mobs popping
+in an area with 100 items on them each, you make approximately
+10000 items. So, if you have 1000 mobs with 1000 items, you get 
+1 million items. Be careful with this, because I don't have any
+safeguards on this in case you have some reason to have such
+massive numbers of resets. You have been warned, and you will
+be warned again. If you get too many items, the game will shut down
+since there's an upper limit on the number of things that can
+be created to keep the game from eating up all the resources
+on the computer.
+
+If the thing being reset is the start area, the reset is a ``global'' 
+reset, and the max number is capped by the max number of this
+thing in the whole world.
+
+If the thing being reset is another area, then the reset is an area
+reset, and the max num is capped by the total number of things
+of that type in the area. This is a useful distinction, since
+if you wanted to reset a gray wolf all over the MUD, you could
+either make a global reset, or you could make a single gray wolf mob
+and in each area with a forest, you could reset 5, 10, 20 wolves
+somewhere in each of those areas...and the game will check the
+total population in the area you are resetting, and use that
+number to determine how many more get popped.
+
+If the thing being reset is anything else, from a room to a mob
+to a chest or something, then the max pop is checked against the
+number of things of that type already in the room or chest. This
+is useful because if you want 10 gateguards at a gate, you just
+make a reset in the room with a max\_pop of 10, and the gates
+will reset with 10 guards. Also, if 5 guards get killed, then the
+gates will reset back up to 10 guards during the next reset.
+
+A note about random resets. There are random resets, which let you
+pop items from certain ``tiers'' you can set up. If there are 
+N tiers of items and K items per tier in the random repop, then
+the max\_pop checks against all things with numbers from the
+starting number of the random repop up to the starting number plus
+N$\times$K. It will make more sense down below in the part on random
+repops. 
+
+\section{The Reset Command}
+
+If you are editing something, then the word ``reset'' will try to
+make a reset on that thing. In that case, use the command ``rese''
+instead of ``reset'', or else the game will keep trying to put
+resets onto the thing you're editing.
+
+If you type ``reset'' by itself in a room, you will get a list
+of all the resets in that room. 
+
+If you type reset area, you reset the area you are currently
+inside of. Note that if you're in a room in the start area, you
+will do those ``global'' resets.
+
+
+If you type reset room, you reset whatever room you're currently 
+inside of.
+
+\section{Editing resets}
+
+When you're in the editor, you can edit resets. You will notice
+that they look like a list. Type edit 1200 to see a list of a 
+lot of resets. They look kind of like this:
+
+\begin{verbatim}
+Reset 1: (1613 - a small boy) (100 pct) (20 max) (1 nest)
+Reset 2: (1614 - a small girl) (100 pct) (20 max) (1 nest)
+\end{verbatim}
+
+They are all ordered starting at 1. You can delete a reset by typing
+reset $<$number$>$ delete. You can also add resets in at different
+locations by typing the number of the reset you want to push down
+the list. So, for example, if you wanted a reset before item 8,
+you would start the reset command with reset 8 ....
+
+The whole syntax for a reset is as follows:
+
+\begin{verbatim}
+reset <number> <vnum> <percent> <max_num> <nest>
+\end{verbatim}
+
+You don't have to enter all of the numbers. You can stop at the
+vnum. If you do this, here are how the remaining numbers are set:
+ the percent is assumed to be 100, the max\_num
+is assumed to be 1, and the nest is assumed to be 1. 
+
+A quick reminder. Resets are totally recursive, so if your max\_num's
+are too big, you will get massive numbers of things being created.
+
+However, this recursiveness is nice to have, since it makes your
+life easier. Say, for example, you wanted some rangers patrolling
+a forest. You wanted them to have backpacks filled with randomized
+equipment. What you could do is make a reset of the rangers in
+the area, then on the rangers you put a reset of a backpack, and
+either in the ranger, or in the backpack, you put a reset of
+some randomized equipment. Much easier than having 10 different
+spots with a ranger repop, followed by a backpack repop, followed
+by some random repops of stuff to put in the backpacks.
+
+\section{Room ``Sectors'' and resets}
+
+When using area/global resets, it is possible to use room sectors to
+determine where things will get reset. The room sectors in this
+code are room\_flags. One of the reasons for it was so I could
+get this random reset code to work. If you have something being
+reset as an area reset, and it has no roomflags on it, it gets
+reset to a random room anywhere in the area. If it has certain
+roomflags, like desert, or forest, but not nomagic or extramana,
+then it will only get reset into rooms with at least one of the
+flags the same. So, you could make a ranger that resets in forest
+or field rooms, or a guard that resets in easymove (road) or inside
+rooms in a city. This lets you have random repops of several
+different kinds of creatures within one area, and you don't
+have to worry about stupid stuff like fish on the highway, or 
+people at the bottom of the ocean. 
+
+\section{Random Resets}
+
+So far, I have talked about how to make randomized resets in terms of
+areawide or worldwide or percentagewise resets. Now, I will explain
+the idea behind ``randpops''. As I said before, there is a ``value''
+called VAL\_RANDPOP which is explained in the chapter on randpops,
+but I will go into detail here.
+
+
+
+My thinking is the following. In MUDs, there are generally several
+``qualities'' or ``ranks'' of equipment that perform a single
+function. There might also be several interchangable items (like
+herbs) and you might want to load any one of a large number of
+those items. You might also have several ranks of several kinds
+of items, and you might want to decide to say take a random item
+from rank 2 or something like that. This comes up with armor,
+weapons, and gems...since there are several ranks of each kind
+of item, but within each rank, there are several different items.
+So, we will want to be able to pick a rank of item, and a specific
+item within that rank. It would also be nice to be able to specify
+say ``a gem reset'', and have the game determine the power of
+the gem made based on the level of the mob with the reset.
+
+This also comes up in other ways. Suppose you have about 15
+different ``forests'' in your MUD. You need to populate each
+of these forests with cruddy little creatures that people
+just walk by and ignore. You can't just leave them out,
+because people will complain that the areas are blank.
+What you can do is the following. Make an area called
+``forestmobs.are'' or whatever name you want to give it,
+and inside of that area...you make 50? 100?...some large number
+of forest creatures. You don't need 10 kinds of ``a gray squirrel''
+in your MUD, although that's your choice if you want to.
+You could even set them up in tiers, so that you have
+small creatures...rabbits/squirrels...and somewhat larger
+creatures...fox/wolf...and even bigger things like bears. Then,
+you could use this randpop idea to make sure that on average
+there are 5 little creatures per medium and 5 medium per large
+or something like that. Or, you could just randomly pick from a 
+list of forest creatures. Either way, once you're done all you have
+to do to populate subsequent forests is put a reset in the area
+saying you want 20..50..200? ``forest creatures'' reset in your
+area, and it will all be taken care of for you. You could
+even just have a global reset with a huge number of forest creatures,
+and over time that would just populate the whole world,
+but this becomes trickier as you will have to keep track of how 
+dense the population is and up it as time goes on or else there
+will be fewer and fewer creatures in more and more forests.
+
+
+
+
+Within the VEL\_RANDPOP value, here are what the various numbers
+represent:
+
+\begin{enumerate}
+
+\item val[0] = vnum where you start popping stuff.
+
+\item val[1] = number of items per tier (rank).
+
+\item val[2] = number of tiers of items
+
+\item val[3] = Check vs level of the thing being reset onto. This 
+	means if nr (1,val[3]) < level\_of\_thing, you advance a
+	tier. This is useful for stuff like gems, so that a highlevel
+	mob has a large chance of resetting a good gem,
+	while a lowlevel mob has only a small chance of resetting one.
+See item 277 for an example of this. The level in that case is 300,
+so even a level 150 mob only has a 1/16 chance of resetting a super
+gem...and that's after you consider the reset chance is something like
+5 percent on average. However, a level 300 mob (pretty much unkillable) would
+have a 100 percent chance of popping a super gem.
+
+\item val[4]/val[5] These are used together. If you set val[4] larger
+than 0, and val[5] larger than 0, then when you check to advance a
+tier, you check if nr(1,val[4]) < val[5], you advance a tier. This is
+useful for something like resetting minerals. If you wanted to have
+a 1/3 chance of advancing to the next mineral, you would set
+val[4] to 3, and val[5] to 2. Then you only advance if nr(1,3) <
+2..which would only happen about 1/3 of the time. 
+\end{enumerate}
+
+So, how do you have to set up the items to make this work? There are
+two basic ways. First, the items must be all in a row after the val[0]
+number. Sorry, but coding something that was totally general would be
+too hard and messy. So, the normal setup is to have N tiers, and K
+items per tier. To set this up, you put the K items in the first tier
+in a row, starting at val[0]. For examples of this, look at how the
+standard weapons are set up starting at 600 (randpop item 270) and the
+armors starting at item 635 (randpop item 271). Then, directly after
+the K items in tier 1, you put the K items in tier 2. So, you end up
+with a block of N$\times$K items in a row accessed by the randpop.
+
+Ther is another way to do this, however. This is the method where
+you put all of the items of the same type in a row, and then
+make a sequence of those lists of items of the same type in 
+increasing rank. An example of this is gems. Start looking at item
+110, and note that the four ranks of diamond gems are all in a
+row. Then, the emerald gems...etc. The way to get this to work with
+the randpop code is to make the randpop word ``interlaced''. Perhaps
+it should have been interleaved, but wtf I don't care :P. The idea is
+that the items in the ranks are not sequential, but interweaved
+between the verious ranks of a single item type. To see a randpop that
+uses this method of setting up the items, look at item 277.
+
+You can leave blanks in your setup...so if you have 10 crappy items, 8
+good items, 6 very good items, and 2 awesome items...you can still use
+this. It's just that your chances of getting the better items will be
+decreased since when the code comes to a number where no thing exists,
+it just ignores the command to reset it and moves on. 
+
+Getting back to the previous section on max\_pop, this is where the
+max\_pop checking gets affected by randpops. Instead of checking
+the number of things present vs the vnum you are popping, it
+first checks for a randpop, and if the thing you chose to reset
+has a randpop on it, it checks for anything with a vnum in the
+range val[0] to val[0] + (val[1]*val[2]). That way, you don't
+get 5000 forest mobs in an area because there are 50 types of
+mobs and a reset that loads 100 of them...so it won't try to
+fill up the forest with 100 of each of those 50 types of mobs. It
+will just fill up the forest with 100 things coming out of
+the list of 50.
+
+So what other kinds of setups can you do? You have seen the setups
+with armor and weapons and gems with several ranks of items which have
+several item types within each rank. 
+
+You can also do things where you have one rank, and randomly pick an
+item. The example I give for this might be resetting herbs in a forest
+for people to pick up. You have 50 herbs, and just randomly pick
+one. To do this, set val[2] to 1...so you have one tier. Then the code
+will ignore val[3], val[4] and val[5], and just pick something from
+tier 1. 
+
+You can also do things where each tier only has one item in it, and
+you pick from those tiers. This might work in the case of mining
+minerals or something where you just have several ranks of minerals.
+
+Some other stuff I've thought about would be like the following. Put
+all of your superpowerful mobs in one place, and all of your
+superpowerful equipment in another. Randomly reset the supermobs all
+over the game (maybe 5-10 at a time), and put small chances of super
+items on them, and randomly pick the super items. THAT would really
+mess up the players who expect to be able to goto the same spot
+and pop the same mob with the same eq each time. I haven't implemented
+this, but it seems like a good idea...even if it would make players
+mad since they will have to actually search all over. This would
+work better if you had maybe 50 supermobs, but only several are 
+reset globally at once, and if you have many super items. You would find
+items coming into the game much slower...and ``most bestest'' kits
+will be harder to come by. 
+
+So, have fun with the resets, I think you will like them once you
+see what they can do.

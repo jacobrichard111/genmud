@@ -1,0 +1,6700 @@
+HELP MORT
+Key WORLDMAP WORLD_MAP`
+Admin `
+Text World Map:
+            $5^$2#                   $7
+           $A,$5^$5^                   $7
+          $2*$2*$2#$2*$2*                  $7
+          $2* $9@ $2#$A,                 $7
+              $A,$2#$2*$A,               $7
+              $A,$6$$2*$2*$2*              $7
+               $A,$A,$F*$F*$5^$B,$5^           $7
+                $A,$A,  $5^            $7
+              $5^$6$$2*$2* $B,$B,            $7
+             $2*$2#$A,$A,$2* $5^             $7
+             $2*$2#   $A,$6$             $7
+            $A,$2*$2*                  $7
+            $2* $A@                  $7
+
+
+Evil outpost: $9@$7.   Good outpost: $A@$7.   
+All outposts are entered from the area just north of them.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key CRAFT CRAFTING CRAFTS CRAFTGEN`
+Admin You make craft items in area 106200 and they load automatically on
+worldgen.
+
+You put the base name of the item as a name (in quotes if it's more than 
+one word).
+
+Then you make a list of edescs. 
+
+gen: These words go in the gen edesc if you want.
+	base: This is a base item (raw material).
+	noname: Don't generate a series of objects based on different
+	types. Just make one thing. Like forge vs granite forge.
+	plural: Object shows up as "some foo" instead of "a/an foo"
+
+names: List of names (used on base raw materials only) to generate
+	many of these kinds of objects.
+
+process: This isn't literally called process, but it's called whatever
+	you want like mine, smelt, build etc... It has a list of
+	ingredients needed to make the object.
+
+	hold/wield/wear: You must wear/wield this item.
+
+	make <number>: Make a certain number of things instead of
+	just one.
+
+	here/use/made <number> item [in <item2>]:
+	Here just says the item has to be here.
+	Use and made actually use up the item. The reason for the
+	difference is that the made argument tells what prefixes
+	may be put onto the item based on the prefixes on the raw
+	materials used.
+	The item can also be put into another item if you want.
+
+	Special args:
+		corpse: requires a corpse to be in the room.
+		water: Requires a drink container someplace.
+		Can specify what kind of container must contain water.
+
+$9Remember this: The crafted item MUST have a "made" line or be a base
+item or the game won't be able to make the item, since it won't be
+able to search back to find its "base prototype".$7
+
+`
+Text The craft command gives you info about crafting. Type
+
+craft commands
+
+to see a list of crafting commands you can use and what gets made.
+
+Type
+
+craft materials <itemname> 
+
+to see what is needed to make that item.
+
+Then type
+
+process item  or  process prefix item  to make an item named item.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key DIPLOMAT DIPLOMACY DEMORALIZE INSPIRE`
+Admin `
+Text The diplomat's guild gives players access to skills that can help or
+harm societies. 
+
+Diplomacy makes a society hate you less and like you more (based on
+your past actions toward that society), thereby making it easier to 
+get the society to stay on your side, or switch alignments.
+
+Inspire raises the morale of a society so its members work harder.
+
+Demoralize demoralizes an enemy society so that its members work less.
+`
+SeeAlso WORLDGEN AREAGEN MOBGEN OBJGEN SOCIGEN CITYGEN CAVEGEN DETAILGEN`
+END_HELP
+
+HELP MORT
+Key HISTORY BACKSTORY`
+Admin `
+Text As I recollect the golden epochs so many centuries ago, I catch myself
+becoming tremendous regret with regard to how the past is lost. It was the
+epoch when the harmonious deities followed Rariaw the Neutral deity of
+Wisdom and Dance, Dehis the Evil god of Luck and Warriors and Poto the
+Good deity of Retaliation, Destruction and Decay. the Powerful Neutral
+Sonote, the Mighty Evil Bebsohi and the Ancient Good Needasi protected the
+peace at the behest of the deities.
+
+However the breaking came. The legion of nations of the world were
+destroyed, and the people such as the wood elf were cast from their homes.
+Many battles were fought and the powerful sonote and the other ancient
+races were unable to keep their power. And thus did the power of the
+deities retreat into the mists of time. This is what the Demons had waited
+ages for as they spilled into the world, but were cast back to the Pits
+wiping out many nations.
+
+The civilizations slipped into darkness, and the state of the world has
+continued unmoving for many epochs. But now, the Demons are starting to
+return. The races are broken and disorganized and squabbling among
+themselves. They must be brought together to fight the demons in this
+Testing Battle for Destiny Testing
+
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key PEDIT`
+Admin `
+Text There is no pedit command. To edit a player just do edit 
+<playername>.`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key SOCIETYGEN SOCIETY_GEN SOCIGEN`
+Admin `
+Text This area (106000-107000) has names of societies 
+that will get automatically generated.
+
+Things in this area cannot be created. If you look at thing.c
+and look at create_thing, it will refuse to make anything 
+in this area. These are only used as prototypes for generating
+real societies that then get put 
+
+You put the name, the plural name and the adjective name into the
+name field. If you want to have an adjective, put that into
+the short desc field.
+
+For example: elf elves elven go into the name field, wood goes
+into the short desc field.
+
+If you put anything into the short desc field and you want a
+society made with no adjective, you must put the word noadj
+into the short desc field or else the society without the
+adjective will not get made. 
+
+Add any flags you want to the flags for this thing.
+ 
+The base flags added to the thing are settler, fixed_align, xenophobic
+and aggressive. If you set society flags on this thing, then
+they're XORed with those flags autoset, so if you want to
+remove any of the base flags, then add them to your list. 
+
+When society_generate is called, there can't be any generated
+societies in the game. If there are, do society clearall and then
+you can generate the societies which then makes up the new societies.
+
+$9Having these things generated is important since a great deal
+of the other generation code relies on this for lists of race
+names...like if I need a "bandit" I will go to the society list
+to get the name of a race for that bandit rather than having
+some secondary list which has the same data in it.$7
+
+`
+SeeAlso MOBGEN OBJGEN CITYGEN AREAGEN WORLDGEN CAVEGEN DETAILGEN CRAFTGEN`
+END_HELP
+
+HELP BLD
+Key MOBGEN`
+Admin This should really be admins only, but it's up to you.
+`
+Text To use this, go to the mob generators area and look at some of the mobs.
+You see there are lots of animals and if you decide to make a new
+mob type, you create some names in the edescs (using kname kshort
+klong unless you feel like using others) and then set the stats
+like level and so forth. Level 70+ are "hard" mobs and 69- are
+easier. 
+
+The armor/jewelry/weapon names are for various kinds of body parts
+that can get put into item names in objectgen.
+
+These mob load randomly within each area and are set by the
+worldgen code. They run off a randpop item, so the powerful
+mobs won't appear in newbie areas (much).
+
+`
+SeeAlso AREAGEN WORLDLGEN SOCIGEN OBJGEN OBJECTGEN CRAFTGEN CAVEGEN CITYGEN`
+END_HELP
+
+HELP BLD
+Key OBJECTGEN OBJGEN`
+Admin These pieces of data will probably be set by admins
+`
+Text The object generators area has lists of words for making all kinds
+of armor, weapons and jewelry. It's used all over in the generation
+code so you shouldn't have to worry about making items if you don't
+want to.
+
+You can look at the lists of words and try to add appropriate words
+as you find them. 
+
+`
+SeeAlso AREAGEN WORLDLGEN SOCIGEN MOBGEN CRAFTGEN CAVEGEN CITYGEN`
+END_HELP
+
+HELP MAX
+Key WORLDGEN AREAGEN`
+Admin `
+Text Areagen makes an area. Syntax: Areagen <Start> <size> <sector_Type>
+Sector type must be rough, field, forest, snow, desrt, swamp, underground.
+
+
+Type worldgen x y 
+
+to generate an overall view of what the world will look like. Each 
+position on the screen represents an area that will be made.
+
+Type worldgen generate area_size 
+
+to actually make the areas (overworld and underworld).
+
+Without an area size, it defaults to the WORLDGEN_AREA_SIZE in
+worldgen.h
+
+The areas are then linked together and they are linked to the
+underworld.
+
+Type
+
+worldgen autogen
+
+to toggle autogeneration of a new world every 12-16 hours.
+
+To clear the worldgen and delete all of the files in the worldgen
+range (Assuming you didn't mess with their names) type
+
+worldgen clear yes
+
+To see the current worldgen sectors that you've made without
+creating the areas, type worldgen show
+
+Just a note about this: This takes up HUGE amounts of memory
+and CPU so you should try this out on a machine where you have
+lots of room to do stuff before you put it on a public machine.
+
+I generally do worldgen 13-14 13-14 and then worldgen generate 300-500
+to make areas. 
+
+The reasons for the gaps in the areas in the worldgen map is
+because the areas don't line up too well so this will make it less likely
+that problems will arise when players are mapping.
+
+
+`
+SeeAlso OBJGEN SOCIGEN MOBGEN CAVEGEN CITYGEN CRAFTGEN DETAILGEN `
+END_HELP
+
+HELP BLD
+Key CAVEGEN`
+Admin `
+Text Syntax: cavegen max_x max_y max_z
+
+OR
+
+cavegen num_rooms
+
+(and the max_x max_y max_z get set)
+
+This code is used when creating underground areas. It works by having
+several levels of space available, and then seeding a 3d lattice with
+a few rooms. From there, the rooms grow out so they don't touch with
+each other that much. It also tries to avoid making U/D 
+connections until it needs to. 
+
+CAVEGEN DOESN'T ALWAYS WORK. Be careful if you mess with the algorithm
+since it can flail around for a long time before finding something
+that will work.
+
+Also, be aware that the caves created have some patterns in them
+that players may recognize. What I mean by this is if you have a 
+3 level cave, it seems like levels 1 and 3 are very similar and level 2
+is usually the "inverse" or "dual" cave to the other two (up to the
+few u/d connections that get made).
+
+When used within the areagen code to make underground areas, the
+game replaces mapgen with this code, and then the area gets
+filled in as normal with all of the details in the areagen code.
+
+`
+SeeAlso OBJGEN CRAFTGEN DETAILGEN CITYGEN AREAGEN WORLDGEN SOCIGEN MOBGEN `
+END_HELP
+
+HELP BLD
+Key DETAILGEN`
+Admin This should really be admin only.
+
+`
+Text The "area details area" contains things that serve as prototypes for
+small "mini-areas" to be found within areas to flesh them out.
+The idea is normally to have a room or rooms placed into the
+area (as the rooms are randomly chosen from the first 200? in the
+area, and then more details are added within that.
+
+For cases where you want a room to just have an object, you can
+set the room to have a name called "same_name" as some of the details do,
+and then reset an object inside of that. The reset object is then
+what's actually created in the area.
+
+The parsing and grammars work the same as they do in the
+mobgen and citygen code.
+
+This is actually the first really recursive generation code I wrote
+since it seemed easier than the citygen code which really sucks and
+is really hard.
+
+So, if you look at the detailgen code and the citygen code you will
+notice a lot of similarities, but the citygen code is capable of more
+things at this point.
+
+The idea is you create base objects that will get tested to see
+if they get plopped into the area, then add resets to those objects
+and the reset objects add more details within the previous details
+and so forth.
+
+`
+SeeAlso OBJGEN MOBGEN AREAGEN WORLDGEN SOCIGEN CAVEGEN CRAFTGEN CITYGEN`
+END_HELP
+
+HELP BLD
+Key CITYGEN`
+Admin This should really be admin only
+
+`
+Text syntax: 
+
+citygen target_start_vnum size [<level>] [<start obj vnum -- if not 101001>]
+
+The citygen code tries to create cities or perhaps individual buildings
+recursively. It's sort of a second attempt at the detailgen code
+and shares many similarities.
+
+The idea is to create a city by going down a list of resets inside the
+first obj in the citygen setup area, then recursively add details until
+the city is filled up. As with all of the other generators, you 
+make things that have lists of words and attributes in them, then
+you use the generator to instantiate actual prototypes. This allows
+for randpop things, as well, so say if you want "a store" of some kind
+in an area, you can make a randpop item that chooses one store and
+places it there. Or if you have 10 kinds of "citizens" you can choose
+one of them if you wish. 
+`
+SeeAlso MOBGEN AREAGEN WORLDGEN CAVEGEN OBJGEN SOCIGEN CRAFTGEN DETAILGEN`
+END_HELP
+
+HELP MAX
+Key ECHO`
+Admin This command lets you send a message to everyone in the game.
+Plz don't abuse it.
+`
+Text `
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key RAZE`
+Admin `
+Text When you attack a city owned by an enemy society, you can raze
+the city which will damage it and has a small chance of starting
+a fire.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key BRIBE`
+Admin `
+Text You can bribe societies to change alignment, or bribe them to
+stay with your alignment. The costs can be estimated by
+going to the appropriate alignment and looking at how powerful
+it is, but beware the those estimates are only estimates.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key UPDATE`
+Admin The update command lets you force certain ticks to occur.
+
+Syntax update [number] <update_type>
+
+where update_type is one of combat, auction, superfast,
+things, hour, society, all.
+
+The number is a number from 1 to 200 that makes the update happen
+several times in a row. 
+
+$9BE CAREFUL WITH THIS AS IT SCREWS UP THE FLOW OF THE GAME IF YOU
+USE IT$7
+`
+Text `
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key GREETING`
+Admin `
+Text This is what you see when you log into the game. 
+
+
+
+
+
+
+
+
+
+
+`
+SeeAlso `
+END_HELP
+
+HELP 100
+Key ITEM_POWER OBJ_POWER OBJECT_POWER`
+Admin `
+Text These are the object strengths you can make.
+
+Wpns, no more than ave 10-11. Plz don't make 1-20 wpns either,
+keep them like 5-15 or so.
+
+Ave 9-10-11 wpns should be low pcts on level 100+mobs.
+
+If you make a 2 handed wpn I guess the damage can go up to around
+13-15, but don't make them light, and please make a bunch of
+low power 2 handed wpns if you make the good ones.
+
+Armors, 1 pt = bad, 8-9 pts = really good. Again, pop on mobs
+level = 10x the armor.
+
+Only make a few +dam/+stat items per area. Never have more than
++1dam/+1stat ever. Not even if the item has "massive penalties"
+or is "impossible to get". These should be on level 100+ mobs
+at low low pcts.
+
+Hps/mvs can go from +1 up to +10 or so, again with a multiplier of
+10 levels per +.
+
+Stuff like kickdam/spellattack/hitroll should go from about +1 to
++3-4 max...with the mob at least 30x the + amount.
+
+Items cannot have more than 1-2 plusses, and if you have two of them,
+at least one of the plusses must be a crappy one like hps or
+mv or hitroll, and even then, it must be lower in power than it 
+normally would be.
+
+Also, adamantium eq is much more powerful than anything you are
+permitted to make, so if your eq is even close to that, it's too powerful.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key IMPLANT IMPLANTS`
+Admin `
+Text Implants are extra bonuses you can obtain for your character.
+You must find the implant room and go there with enough money,
+levels, remorts and warpoints to get an implant.
+
+There are 4 types of implants: head, body, arms and legs (corresponding)
+to the various body parts you can have.
+
+You can get up to 7 tiers in each implant, and you can find out
+the costs for each tier by typing implant costs. You get 6 "implant points"
+per remort, which work like guild points in that it costs N implant
+points to go from tier N-1 to N in any implant category.
+
+That means it takes 1+2+3+4+5+6+7 = 28 implant points to max one implant.
+
+You get 66 total points, so you can either get 2 implants maxxed, or you
+can get (essentially) all 4 types of implants up to tier 5, along
+with one tier 6. I might change this at some point since I just realized
+how lame it would be to get a tier 7 implant. I might make it so
+the max implant point cost is something like 5 points...but it costs
+more gold and warpoints. But that's for later. 
+
+To get a list of the implant costs, type
+
+implant costs
+
+The tiers you can afford right now are listed as green numbers, and the 
+ones you can't afford are red.
+
+If you type 
+
+implant <head/body/arms/legs> you will try to advance your implant
+of that type one tier.
+
+Head implants help you cast better, and help you to resist magic.
+Body implants give you armor against physical attacks.
+Arm implants let you hit harder in combat.
+Leg implants let you kick harder and move farther before tiring.
+
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key DAMAGE APB ATTACK MELEE`
+Admin `
+Text This is a list of the various damage messages. Pretend that you're
+fighting Bob.
+
+
+You barely hit Bob with your slash.
+You hit Bob with your slash.
+Your slash hits Bob hard.
+Your slash hits Bob very hard.
+Your slash hits Bob extremely hard.
+Your slash causes Bob's face to contort in agony.
+Your slash hits Bob accurately and with great force.
+Your slash hits Bob with incredible accuracy.
+Your slash causes Bob to spasm with pain!
+You MUTILATE Bob with your slash.
+You DECIMATE Bob with your slash.
+You MANGLE Bob with your slash.
+You PULVERIZE Bob with your slash.
+You *DEMOLISH* Bob with your slash.
+You *OBLITERATE* Bob with your slash.
+You **EVISCERATE** Bob with your slash.
+You **ANNIHILATE** Bob with your slash.
+You ***ERADICATE*** Bob with your slash.
+You .. .  .   .VAPORIZE.   .  . .. Bob with your slash.
+
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key CAPTURE`
+Admin `
+Text This will let you capture an enemy and trap him or her for a brief time.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key CHOP`
+Admin `
+Text This will let you chop down trees for wood.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key AREA AREAS`
+Admin This command shows you extra info like the filename and the vnums. 
+`
+Text This shows you a list of areas within the game and who built them.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key BS BACKSTAB CIRCLE`
+Admin `
+Text This command lets you try to sneak around behind something and
+stick a piercing weapon in its back. There is *NO* circle command
+here. If you attempt to backstab someone, if they are fighting
+when you hit them, you just do less damage. And, you cannot backstab
+someone who is fighting you, or who is guarding. The circle skill
+is necessary to allow you to backstab in combat.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key BUCK`
+Admin `
+Text Buck lets you try to force a rider off your back.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key BUTCHER`
+Admin `
+Text The butcher command lets you try to chop up a corpse to make edible
+steaks out of it.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key CAST CASTING`
+Admin `
+Text The cast command lets you invoke a spell. The basic syntax is
+
+c 'spellname' target
+
+Generally, if you omit the target, you are assumed to be the target,
+or, if you are fighting, your opponent is the target.
+
+Area spells are handled by typing 
+
+
+c mass spellname target 
+
+or
+
+c area spellname target
+
+When you cast an area spell, it requires more mana, more time to
+cast, and it is cast at an effectively higher level. It also
+does less damage, and has a smaller chance of putting an affect on
+the victim. 
+
+It is possible for powerful wizards to cast ranged spells, or
+even ranged area spells, and ranged spells behave similarly to
+area spells in that they are harder to cast, and weaker once
+they take effect. Ranged area spells have much less power than
+a single victim nonranged spell does. 
+
+See help mana, help gems, and help magic for more information.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key CLIMB`
+Admin `
+Text Syntax: climb <direction> <item>
+
+This transports you to another location when you climb the
+proper kind of item in the proper direction. Valid directions
+are north, south, east, west, up, down, in, and out.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key CLOSE OPEN PICK BREAK LOCK UNLOCK`
+Admin `
+Text Close lets you close a door or item.
+
+Syntax: close <direction or item>
+
+Open lets you open a door or item.
+ 
+Syntax: open <direction or item>
+
+Lock lets you lock an item or door (if you have the key).
+
+Syntax: lock <direction or item>
+
+Unlock lets you unlock an item or door (if you have the key).
+
+Syntax: unlock <direction or item>
+
+Pick lets you try to jimmy open a lock without a key.
+
+Syntax: pick <direction or item>
+
+Break lets you try to force a door open in a certain direction.
+Your success is based on your strength and the strength of the door.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key CLS`
+Admin `
+Text Cls will allow your whole screen to start scrolling again.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key COMPARE`
+Admin `
+Text Syntax: compare <weapon 1> <weapon 2>
+
+This command will examine two weapons and tell you which one
+does more damage on average, as well as possibly a few other
+pieces of information.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key CONSIDER GCONSIDER`
+Admin `
+Text The consider command will give you an idea how likely you are to
+survive an encounter with a creature. Gconsider does the same thing
+for your whole group. The way this is carried out is by running
+through a "fake" combat, and seeing who dies the fastest. This
+is not a sure thing, so be careful.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key CHAMELEON`
+Admin `
+Text This command will let you blend into the environment until you engage
+in combat.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key UP DOWN EAST WEST NORTH SOUTH`
+Admin `
+Text These commands let you move around in the world in the indicated
+directions.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key GROUP FOLLOW DITCH`
+Admin `
+Text The follow command lets you follow someone else.
+
+The group command with no argument prints out the status of your
+current group.
+
+group all will atttempt to group everyone who is following you at the
+moment.
+
+ditch <person> will let you remove someone from the group you are leading.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key DELETE`
+Admin You can delete a playername by typing delete <playername>.
+You cannot delete yourself since it will attempt to delete the
+character named "character".
+
+`
+Text You can delete your character if you wish.
+
+The proper syntax is delete character forever yes oh yes now
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key DRINK EAT FILL`
+Admin `
+Text You can get hungry and thirsty over time.
+
+Therefore, you must find drinks, and type drink <drinkname> to
+get less thirsty.
+
+You also must find food and type eat <foodname>.
+
+Please note that food and drink may have spells on them (potions
+and pills), and these spells might be helpful or harmful.
+
+If you have a container of some drink and you need to refill it, take
+it to a fountain and type fill <drinkname> <fountainname>.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key MOUNT DISMOUNT`
+Admin `
+Text Some creatures will let you ride them. To ride a creature, type
+mount <creaturename>. To stop riding a creature, type
+dismount <creaturename>.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key DROP`
+Admin `
+Text Drop <item/all>
+
+This command lets you attempt to take some item(s) in your inventory,
+and place them in the thing you are currently in.
+
+You can use numbered arguments like drop 10.bread.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key GET TAKE GRAB`
+Admin `
+Text get <item/all>
+
+This command lets you attempt to take some item(s) from the thing you
+are currently in to put them into your inventory.
+
+You can use numbered arguments like get 10.bread.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key GIVE PUT`
+Admin `
+Text These two commands do essentially the same thing. They let you
+try to take something from your inventory, and give it to or put
+it in another object either in your inventory, or something in the
+same thing as you.
+
+Technically, I guess put should work on inanimate objects, and give
+should work when the target is able to think for itself. However,
+there are no such distinctions right now, so you can give sword bag
+or put bread Bob...even if it doesn't make complete sense.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key EQUIPMENT EQ`
+Admin `
+Text This command lists all of the stuff you are wearing.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key INVENTORY`
+Admin `
+Text This commands lists all of the stuff you are carrying, but not
+wearing.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key EXTINGUISH LIGHT`
+Admin `
+Text If you have a light source, you can light it and make it start
+to glow.
+
+If you wish to turn off a light source, type extinguish <light>.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key ENTER LEAVE`
+Admin `
+Text enter <object>
+
+This command lets you attempt to enter an object such as a portal or a boat.
+
+leave
+
+This command lets you attempt to leave whatever you are in at the
+moment.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key FINGER`
+Admin `
+Text This command gives you a little information about the desired
+person, as long as they are on your side.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key FIRE AIM RANGED RANGED_WEAPONS AMMO`
+Admin `
+Text fire <target> 
+aim  <target>
+
+This command lets you try to fire a ranged weapon or siege engine
+at a target. It takes some time after the command is typed
+before you can actually fire the projectile as you aim.
+
+You must know how to use the aim skill to fire a ranged weapon.
+Your weapon must also be loaded with the correct kind of ammunition
+for that weapon for you to be able to fire.
+
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key GOTO`
+Admin `
+Text This command lets you goto some person or location or thing in the world.
+
+You can go to a wilderness room by typing go x y where x and y
+are at least 0 and less than wilderness_size which is 2000 currently.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key HOLD WEAR WIELD`
+Admin `
+Text wear <item/all>
+
+These commands let you attempt to take something from your inventory
+and equip it so you can use it.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key IGNORE`
+Admin `
+Text ignore <person>
+
+This lets you ignore someone, i.e. none of their communication
+will get through to you. Helpful for annoying people.
+Ignore with no argument lists everyone you have ignored.
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key < >`
+Admin `
+Text These commands let you move up and down a number when editing
+things, skills, or races.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key INVESTIGATE`
+Admin `
+Text investigate corpse
+
+This gives you information on what killed something. Useful
+for finding out who pkilled that newbie friend of yours, or 
+if you find a random monster corpse around, you can find out
+who is out and about.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key LOOK EXAMINE`
+Admin `
+Text Look without an argument shows you what you are in.
+
+Look <item/creature> looks at a creature and can tell
+some information about it. The peek skill will let you see a
+creature's inventory.
+
+Look in <item>  lets you look inside of something.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key MYTHOLOGY`
+Admin `
+Text This lets admins generate gods and powerful organizations, as well
+as histories for the game. It is supposed to be used within 
+the worldgen code, but if you need to use it to test, these are
+the arguments:
+
+setup : sets up all mythology -- deities, races, history
+history : generates a history of the world.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key LOAD AMMO UNLOAD`
+Admin `
+Text This command lets you put some ammo into a ranged weapon.
+
+You must have the ammo on you, but the ranged item may be
+in the room.  The ammo and the ranged weapon must have
+matching ammo types for this to work, and the ranged 
+weapon must not have any ammo in it.
+
+Syntax: Load <ranged weapon> <ammo>
+
+The unload command lets you remove ammo from a ranged weapon.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key LOG`
+Admin `
+Text This command lets you log a person log <player>, or log everyone.
+Repeating the command toggles it off.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key MEDITATE`
+Admin `
+Text Typing meditate will put you into a position where you can regain
+mana much faster.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key MEMORY`
+Admin `
+Text This gives a list of estimated data memory use.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key MINE`
+Admin `
+Text This will let you try to find ore in mountains and tunnels.
+Mining your homeland will not work, as those areas have
+been used up already. You will need a pickaxe and some patience
+to mine, and you will find that most of the minerals you manage
+to pick out of the earth will be of low quality. You should
+also know that locations lose their ore quickly, so you should
+be prepared to move to new locations frequently to continue
+extracting ores from the earth.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key MANAGE SKIM`
+Admin `
+Text Certain shops can be bought and controlled by players. If you 
+find such a shop, there will be a (steep) price you can pay to
+try to take it over, even if it is already owned. Once you
+own the shop, you can give items to the shopkeeper and have
+it sell them, and you can also skim off any profits by using the
+skim command. This way, you can make some money selling stuff.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key NOAFFECT`
+Admin `
+Text This removes all (non permanent) affects from a thing.
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key PURGE`
+Admin `
+Text purge with no argument destroys all things inside the thing you are in.
+
+Purge area will purge everything in every room in the area you are in,
+as long as you are inside a room.
+
+Purge all will purge everything in the whole world and reset the societies.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key PREREQ PREREQUISITES`
+Admin `
+Text Almost all skill/spells have prerequisites: things you must learn
+before you can practice that skill. To see the prerequisite tree
+for any skill, type pre <skillname>. At the end, you see a list
+of all the requirements for that skill, and how many you know,
+and how many more you need, and whether or not you have enough
+slots leftover to get this skill.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key PBASE`
+Admin `
+Text The pbase command shows you some information about how
+the various sides stack up.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key PLAY`
+Admin `
+Text The play command lets you play with friendly society children.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key PKDATA TOPTEN RATING`
+Admin `
+Text Topten shows you the top players in terms of warpoints.
+
+Rating shows you the top players in terms of power.
+
+pkdata <argument> shows you some other information like
+total wps, wps, highest average level of kills, highest number
+of pkills, lowest number needed to help pkill, most times pkilled,
+most number of solo pkills, and the big group pkill whores who need
+an entire army to take down a lone person.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key PURSE`
+Admin `
+Text This shows you how much money you have on you, and how much you have
+in the bank.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key PAGELENGTH`
+Admin `
+Text Syntax: pagelength <number>
+
+This lets you set your pagelength. The min length is 10 lines I think.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key PASSWORD`
+Admin `
+Text Syntax: password <old password> <new password>
+
+This lets you change your password.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key PEACE`
+Admin `
+Text This command lets you stop all combat at your location.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key QUIT LOGOUT`
+Admin `
+Text You can leave the game by typing quit. You will not be able to
+quit if you have recently been in combat, or if you have
+encountered someone of the opposite align.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key REPLY`
+Admin `
+Text Syntax: reply <message>
+
+Reply sends a tell to the last person that sent you a tell.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key REMOVE`
+Admin `
+Text Syntax: remove <item/all>
+
+This command attempts to remove item(s) you are wearing so they
+can be put into your inventory.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key REMORT`
+Admin `
+Text This command lets you "restart" your character in the sense of being
+lowered to level 1, and losing all skills. However, every time you
+remort, you gain 1/2 skill/trap/proficiency/poison that you can
+use, and one more spell you can use above your racial + alignment
+maximums. You also gain 4 stat points you can put into any
+stats you want. There are currently 10 remorts, and each 
+subsequent one costs more and more in terms of levels, warpoints,
+killpoints and money.
+
+You stop needing to drink when you reach 5 remorts, and you stop needing
+to eat when you reach 8 remorts.
+
+Type remort
+
+to see the remort costs.
+
+Type remort <stat> <stat> <stat> <stat>
+
+to actually remort.
+
+You must be in the proper location, and you must have the
+proper requirements met.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key REPAIR`
+Admin `
+Text This command lets you repair one or more items in your inventory.
+All items can be damaged, and items are repaired in the shops
+that sell them.
+
+Syntax: repair <item/all> <yes>
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key RESIZE`
+Admin `
+Text When you pick up an item, it might be too big or too small.
+The resize command lets you have the item remade so it will 
+fit you.
+
+Syntax: resize <item/all> <yes>
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key REST`
+Admin `
+Text This command puts you into a position where you will heal faster,
+but you are still aware of your surroundings.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SLEEP`
+Admin `
+Text This command puts you into an extremely restful position useful
+for healing, but you aren't aware of your surroundings while
+sleeping.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key WAKE`
+Admin `
+Text If you are sleeping, this command will wake you up (unless you are
+under a magical sleep spell), and have you stand.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key STAND`
+Admin `
+Text This command will wake you if sleeping and make you stand, and
+it will also attempt to get you out of a groundfight.
+
+It will also make you stand if you are resting.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key RESTORE`
+Admin `
+Text This command restore full hps and moves to a thing.
+
+Restore all will restore all players in the game. Don't
+do this too much since they will bitch if someone was almost
+dead and you did a restore all.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key REBOOT`
+Admin `
+Text This command saves everything and restarts the server.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key RUN`
+Admin `
+Text The run command lets you attempt to go through many rooms in one
+direction all at once. It also uses up more moves per room.
+
+Syntax: run <direction>
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key RETURN`
+Admin `
+Text This command returns you to your body if you switched into something
+else.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key SWITCH`
+Admin `
+Text This command lets you switch into something other than a player.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key SNOOP`
+Admin `
+Text This lets you see everything that a player sees. You shouldn't
+use this much, since it's kind of lame to snoop players :P
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SACRIFICE`
+Admin `
+Text This command lets you destroy an item on the ground, if you could
+have picked it up.
+
+Syntax: sacrifice <item>
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key SITEBAN`
+Admin `
+Text Syntax: siteban
+
+lists all banned sites, including who did it and when.
+
+siteban <string>
+
+This should be an IP number, since the numbers are compared to the
+inet_ntoa output. It works if you put in a partial IP address, also.
+
+If you type siteban <address> and the address was sitebanned, it
+now becomes unsitebanned.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SNEAK SNEAKING`
+Admin `
+Text This command lets you try to move silently.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SPLIT`
+Admin `
+Text Syntax: split <amount> 
+
+or
+
+split <amount> <cointype>
+
+You can split either a raw amount of money, or you can do split
+100 gold or something like that. It takes the money you designate
+to be split, and tries to give equal amounts to everyone in
+your group in the room.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key FORTIFY`
+Admin `
+Text This command lets you fortify a piece of armor (For a price). You can
+try to fortify an item more than once, but it is dangerous and
+could very likely ruin the item.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SCAN`
+Admin `
+Text This command lets you look around and see what kinds of creatures
+are in the rooms adjacent to your current room. It will look out
+a few rooms in each direction, but it stops in any given direction
+once it finds a mob for you to look at.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key SSET`
+Admin `
+Text Syntax: sset <playername> <spellname> <percent>
+
+This lets you set a certain playername with a certain spell at a 
+certain percent. This might be useful in a script where the
+reward is spell knowledge. You can also make spellname == "all"
+in which case the victim gets ALL spells set.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SEARCH`
+Admin `
+Text This command lets you search for hidden exits and hidden items and
+creatures in the room.
+
+Syntax: search 
+
+This checks if there are hidden items in the room, or whether or not
+there appears to be a hidden exit anywhere.
+
+Syntax: search <direction>
+
+This searches a specific direction for a hidden door.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SWAP`
+Admin `
+Text This switches the first and second items you have held.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SKIN`
+Admin `
+Text You might be able to skin corpses for hides someday.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key TITLE`
+Admin `
+Text This command lets you set your title. You can use color codes in it,
+but the total length is limited.
+
+Syntax: title <string>
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key INFO TIME WORLD WEATHER`
+Admin `
+Text These commands give some general info about the world.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key TRACK`
+Admin `
+Text This command lets you try to track someone by name. It takes
+a couple of seconds per room for you to look for their tracks, 
+so if you move too quickly, you won't be able to follow the
+tracks.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key TROPHY`
+Admin `
+Text This gives you a list of everyone you have opp align pkilled.
+Note that the list is sorted by remorts and level, so if that
+dork gets his 5th remort and goes out to try to "clear" his
+trophies, he will just get another trophy showing him as
+a 5x remort lowlevel, and the trophy won't be cleared.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key THINK`
+Admin `
+Text This command does nothing. It just gives you a way of typing
+something in that you will never see. Apologies to the MUD that
+I ripped this off of (it was discussed on the Mudconnector).
+Tell me who came up with this and I'll credit them.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key TRANSFER TRANS`
+Admin `
+Text This command lets you transfer one or more people to your current room.
+
+Syntax: transfer <name>
+
+This transfers one person to your room (player or mob).
+
+Syntax: transfer all the players right now
+
+This transfers all players to your current location. It is long
+to type in so you don't accidentally do it.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key TSTAT`
+Admin `
+Text This command lets you stat a thing. It just runs through the code
+used for showing editing things.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key UNLEARN`
+Admin `
+Text This lets you unlearn a certain skill or unlearn all of them at once.
+
+Syntax: unlearn <skillname/all>
+
+You don't get any practices back unless you unlearn all. Otherwise
+you could cheat.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key USERS`
+Admin `
+Text This gives you a list of everyone who's connected, along with
+their IP numbers.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key VALIDATE`
+Admin `
+Text This command lets you fix a pfile so its validation bit is set.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key VISIBLE`
+Admin `
+Text This command removes all flags that obscure you, including hide,
+sneak, invis and chameleon.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key WHO`
+Admin `
+Text This command gives you a list of everyone who's on that you can
+see.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key WHERE`
+Admin `
+Text This gives you a list of all players who are in your area.
+Note that this still gives you the location, even if the person
+is disconnected. There may come a time where certain harmful 
+spells will allow you to be seen on where by people of the
+opposite alignments.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key WEIGHT`
+Admin `
+Text This tells you how much you are carrying.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key WSAVE`
+Admin `
+Text This command lets you save the areas, spells, scripts, etc...
+
+Valid arguments are:
+
+changed -- saves areas that have been edited.
+spells -- saves spells if they were changed
+races -- saves race and align info
+code -- saves triggers and code for scripts
+yesnow -- saves the database of mob/object locations.
+clans -- saves all the clan/sect info.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SOCIAL SOCIALS`
+Admin Editing socials is easy. I don't really care too much about
+socials, but they do add atmosphere, so I added them in. In doing so,
+I did them in the easiest way possible. You need to edit socials.dat
+offline. There is no online editor because a) it's easy to do it
+offline and b) you really shouldn't be changing socials TOO often, and
+c) they aren't really an integral part of the game, so they can wait
+for the next reboot.
+
+A social has 3 strings in it.
+
+The first string is the social word itself like "bow" followed by the
+backwards quote.
+
+The second string is the "no argument" string and looks like this:
+
+@1n bow@s down deeply.
+
+The third string is the "victim" string and looks like this:
+
+@1n bow@s down before @3n.
+
+Note that this editing uses act () so help ACT to see how it works.
+
+You can reload socials by typing social reload.
+
+`
+Text Socials are little commands you can type in that send messages to
+everything in the same room as you. Generally, you can do <socialname>
+without an argument, and <socialname> <person name> to do the social
+onto that person. This fails if the person you are looking for is not
+here.
+
+
+Eg.
+
+"bow" sends
+
+You bow down deeply.
+
+"bow lonath" sends
+
+You bow down before Lonath.
+
+(if he is here, and "They aren't here." if he is not.)
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key WIMPY`
+Admin `
+Text Wimpy lets you set the hps where you will start to try to autoflee.
+
+Wimpy <number> will set your wimpy to that number, but the number must
+be between 0 and 1/3 of your max hps.
+
+Wimpy max  will set your wimpy to 1/3 of your max hps.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key PFILE PFILES`
+Admin `
+Text You can download a copy of your pfile by typing pfile sendnow.
+
+Since spamming is bad
+
+1. You can only do this once you are level 40, to prevent lamers from
+making 10000 chars to spam other people with.
+
+2. You can only send one pfile every 48 hours, to prevent spammers
+from sending 10000 copies of a pfile to one person.
+
+3. If you make a char with a bs email address and someone
+complains that they got an email they didn't request,
+your site gets banned, and everyone gets deleted from that site.
+
+4. No, I will not ever allow you to upload a pfile to the server.
+If you ask, you get banned for thinking that I'm as stupid as
+Blizzard.
+
+5. No, I will not send you anyone else's pfile. If you ask,
+you get banned on general principles. (You could ask them, though).
+ 
+$9PLEASE DONT ABUSE THIS. I DO THIS BECAUSE I WANT YOU TO BE ABLE
+TO HAVE A COPY OF YOUR OWN CHAR IF YOU WANT IT, AND I DON'T WANT
+OTHER PEOPLE TO HAVE A COPY OF YOUR CHAR WITHOUT YOUR CONSENT!$7
+
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key SPEEDUP`
+Admin `
+Text Typing speedup foozball will toggle the server between superfast and
+regular speed. I use this to test the simulation by letting the
+game run for the equivalent of days or weeks in a single day.
+
+This will not work if > 2 people have been online since the last
+reboot. This is so that you can't accidentally hurt the players
+by speeding up the game when someone else is playing.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key PROMPT PROMPTS`
+Admin `
+Text You can set your prompt. See help VAR_REP for a list of variable
+replacements.
+
+Typing prompt default will set your prompt back to the default prompt.
+
+Typing config prompt will toggle whether you see a prompt off and on.
+
+The color code is a little funky here, so see help ansi to see how
+to set colors.
+
+You must encase every variable to be replaced in a beginning and ending @
+
+If you want padding you can add numbers.
+
+putting a - in front of a number makes the text left justified, 
+putting a ! in front of it, makes it centered, and a regular number
+will just right justify the text with that much padding.
+
+For example, if your name is "lonath" and you want to have padding a
+total of 20 characters (which is the max padding allowed) around
+your name, you can do
+
+@20nm@ 
+
+which will make 14 spaces then put your name down like so:
+
+              lonath
+
+If you want left justified, do
+
+@-20nm@ 
+
+which will make your name and then put 14 blank spaces after it like so:
+
+lonath             |---- first space after the name.
+
+If you want it centered, do
+
+@!20nm@ 
+
+which will put 7 spaces before and after your name (if the padding is
+uneven on a centered string, the extra character goes first).
+
+       lonath       |---- first available space.
+
+This is the exact same editor used for scores, so you can make up
+whatever score you want (if you are an admin).
+
+
+`
+SeeAlso SCORE VAR_REP VARIABLES`
+END_HELP
+
+HELP MORT
+Key CREDITS DIKU MERC EMLEN NIMUD`
+Admin `
+Text I started learning to code on EmlenMUDs, but when I needed 
+rooms = objs = mobs, and Emlen wouldn't let me release his code, 
+I started over. These people below are people who have helped me
+out either by releasing the code that I learned to code on, or by
+helping me to make a MUD at various points. The current project
+and files can be found at
+
+http://www.sf.net/projects/genmud/
+
+
+DikuMUD:  Hans Staerfeldt, Katja Nyboe, Tom Madsen, Michael Seifert, 
+          Sebastian Hammer.       
+
+MERC:     Furey, Hatchet, Kahn.
+
+NiMUD:    Locke
+
+EmlenMUD: Owen Emlen
+
+LocMUD:	  Kizmet and Trent and everyone else who played and helped
+	  build and admin.
+
+Find some bugs and give me some suggestions and you can get on this list:
+
+GenMUD:	  Prophit (Yes the one from MPV. :))
+	  Irmin Auwerda (Sideshowbob)
+	  Charles Dube (Arkane)
+	  Thomas Schwarz
+	  Jean-Daniel Beaubien
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key CHANNEL CHANNELS SAY TELL CHAT GOSSIP EMOTE YELL COMMUNICATIONS CTALK 
+CLANTALK SECTTALK`
+Admin You have a special channel you can use with builders and so forth
+called admin channel. If you want a 110->110 channel then make one,
+but I see no need atm.
+
+
+THE MAX NUMBER OF CHANNELS IS 15 SO IF YOU FIND YOUR GAME IS CRASHING
+WHEN IT REBOOTS AFTER YOU ADD MORE CHANNELS IT IS QUITE POSSIBLY DUE
+TO THE FACT THAT YOU HAVE TOO MANY CHANNELS AND NOW YOU NEED TO
+INCREASE MAX_CHANNEL IN serv.h SO YOU CAN HAVE MORE CHANNELS!!! ALSO
+NOTE THAT THE SCROLLBACK STUFF IS PLACED ON EACH PC SO IF YOU END
+UP WITH HUNDREDS OF PLAYERS ONLINE, YOU WILL NEED TO CHANGE THIS
+TO ONLY ALLOW GLOBAL SCROLLBACKS OR ELSE YOU WILL HAVE A HYOOOJ 
+AMT OF WASTED MEMORY FOR SCROLLBACKS!!!! (approx 3 megs per 100 players)
+`
+Text Communicating is one of the most important parts of the game. There
+are several ways in which you can do this.
+
+You can see what channels you are listening to by typing channels.
+
+You can turn a channel off by typing <channelname> off
+
+You can turn it back on by using the channel.
+
+If you see a player online, you can tell to them (send them a private 
+message) by typing tell <name> <message>.
+
+If you want to say something to everyone in the same room as you,
+then you can type say <message> 
+
+Emote sends a message to everyone in the room, but it arrives in the form 
+<yourname> <message> - without any quotes or anything like that.
+
+If you want to tell your group something, type gtell <message>.
+
+If you want to send a message to everyone on your side, type chat 
+<message>.
+
+If you want to send a message to everyone in your clan or sect, type
+ctalk <message> or secttalk <message>.
+
+There may be more channels added later if I feel like it.
+
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key SOCIETY SOCIETIES SOCI_FLAGS SOCIETY_FLAGS`
+Admin `
+Text Societies are groups of mobs that are born weak, and grow in power.
+They are placed in certain areas around the world. Once a society
+creature exists, it has a chance every 5 minutes or so of increasing
+in power and becoming a new creature. When it does this, it keeps
+all of its current equipment, and it can load new equipment. See
+neriks for an example of this.
+
+To get a list of all the societies, type society list
+
+To count the number of society members type society count.
+
+You can qualify the last two with society list/count name and restrict
+yourself to certain names.
+
+To see detailed info on a society type society show <number>.
+
+To update a society, type society update <times> <vnum>
+If the times is blank, it assumes 1. If the vnum is optional,
+it assumes all at once, not just one. 
+
+To copy a society create the target society and type
+society copy <oldvnum> <newvnum>
+
+To edit a society type soci edit <number> or soci create to make
+a new society.
+
+To clear the society cities and to clear out all generated 
+societies, type society clearall. Then, after next reboot, you
+can regenerate the societies.
+
+
+$9Societies will not save if they have the NUKE flag set, or if they
+are destructible, have 0 population, and a 0 chance of their "child"
+caste producing new members. This is so that when societies spawn new
+populations, and those populations are wiped out (since they're
+set to destructible automatically), they don't save and I won't
+have to do cleanup. If you want them to save, tweak the code in
+write_societies() in societyio.c to alter the conditions when a
+society is saved.$7
+
+Societies have a room_start which is the lower end of the starting
+rooms where they can appear, and they have a room_end 
+and they should appear in the rooms in that range.
+
+Societies have several names associated with them.
+name is the singular form of the society name. It is not used much
+pname is the plural form of the name, it is used a lot.
+aname is the "adjective" version of the society name which is mostly 
+      used to describe the city that the society makes.
+
+For example name: elf pname: elves aname: elven
+I tried this with one name (the plural name) essentially and tried
+to make it "singular" to deal with cities and it wasn't good enough
+for me so you have to enter three names.
+
+The adjective is some descriptive word like gray elf vs high elf vs
+wild elf. It is not working yet. There is also code now where you
+can generate societies just by giving the name and some basic
+information.
+
+The level or levels or level_bonus is a bonus to all society
+members when they are created. The reason for this is when
+a society gets taken over, it gets stronger to avoid stupid
+stuff like an outpost that gets killed off every day since
+it's too weak.
+
+warrior_percent sets a number between 20 and 80 for how many warriors
+the soceity should make. It alters the chances of certain castes being
+picked by children "growing up".
+
+generated_from sets what prototype this was generated from---
+Don't set this by hand.
+
+lifespan sets the average length (in game hours) that a society
+member will live before dying of old age. When they die they
+drop a corpse, so be careful with this.
+
+raw <type/all> <number> sets the raw materials that the society wants.
+The types are listed under help raw. The raw materials are in the form
+current(wanted), in case they don't have enough to builder certain
+things.
+
+Flags are regular flags like you find on things, races, aligns and spells.
+When you set flags, the society members get these flags set when they're
+made.
+
+society_flag <flagname> toggles flags that the society has. Flags include
+                settler -- society makes new societies.
+		aggressive -- battle castes attack all and raid.
+		xenophobic -- battle castes attack all in society rooms.
+		nuke -- do not save this society to disk. 
+ 		destructible -- 25% to destroy if reduced to 0 pop.
+                noresources -- They don't collect resources. They get
+                               their power from killing things. 
+                fixed_align -- Cannot change alignments.
+		nocturnal  --  Sleeps during the day.
+		nosleep   --   Does not have a sleep cycle. 
+		noname --      Members are not given generated names.
+Goals are the things the society wants to build next hour.
+
+Quality is something that makes the mobs higher level when they're
+created.
+
+$9There are several timers in societies: raid, alert, settler. You can
+set them independently so the society can do many things at once.$7
+
+You can type raid and then one of the following things to set:
+
+hours <number>: Number of hours left in the raid before things go
+home.
+
+setup_hours <number>: the number of hours left to set up.
+
+rally_point <number>: Where the mobs gather before raiding.
+
+post <number>:       The room the mobs finally attack in the raid.
+
+society <number>:    The number of the society they're attacking.
+
+
+Alerts are now different. Type the following to modify them:
+
+alert <number> Sets the alert level.
+
+last_alert <number> The alert level of the last alert (alerts have to
+                    go a lot higher than the last alert to trigger
+                    another alert.
+
+alert_hours <number> The number of horus left in the alert.
+
+alert_rally_point <number> Where alerted mobs gather before attacking.
+
+Settling is now different: 
+
+settle_hours <number> gives the number of hours before the society
+		      will try to settle again.
+
+alife_combat <number> Gives the bonus percent to the alife combat 
+		      routines.
+
+alife_growth <number> Gives the bonus percent to the alife growth
+		      routines.
+
+The castes are different now. There are 10 castes hardcoded and
+the way you edit them is the following. You type 
+
+<word> <1-10> <amount>
+
+where word can be any one of the following:
+
+start:     what the first mob in the caste is.
+max_pop:   what the max pop of that caste is.
+max_tier:  what the max tier of that caste is (number of diff mobs in it)
+curr_tier: what the current tier of that caste is...
+cflag:      set or remove a flag.
+           cflags are warrior, worker, builder, healer, wizard,
+	   leader, shopkeeper
+  
+
+base_chance: Change the chance that this caste is picked when a society member
+           turns into. NOT percents anymore. Now all the chances for all
+	   the castse are added up and a random number is picked out of
+           the sum of these numbers, and then wherever that number lands
+           in the list of numbers is where the new member grows into.
+
+chance:    Change the current chance to something. These move around
+           a little bit if the society needs more/less
+           warriors/workers. They do eventually settle back down to
+           the base_chance.
+	   
+
+Also, if you want to see how societies grow, you can type soci update
+<num> or leave the num out and it will update them all once.
+
+
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key ACT`
+Admin `
+Text Act is this nice little function that sends messages to things in the
+room.  I hated the way this was imped on Emlen's code, so one of the
+reasons I wrote this new stuff is so I could write this function
+correctly.  That means 1. No void* pointer junk and 2. There is a
+TO_ALL option so all that TO_CHAR TO_VICT TO_NOTVICT stuff can be
+avoided. It is really a simple function. You basically take a string
+and go down the list of contents in a thing. For each thing on the
+list, you check if it is an appropriate viewer. If not, you continue,
+else you parse the buffer replacing certain symbols with words and
+names based on the viewer, and the arguments to the function.  This
+formatting is used to make channels, damage messages, spell messages,
+and socials.
+
+The prototype looks like:
+
+act (char *buf, THING *th, THING *use, THING *vict, char *txt, int
+type);
+
+char *buf is the thing that gets parsed over and over.
+
+This is a list of the replacements.
+
+$0-$F give color codes just like in help colors.
+
+@s at the end of a string will change singular words to plural EXCEPT
+when the viewer == the sender.
+
+@t gets replaced by the char *txt in the argument list.
+
+@1, @2 and @3 access th, obj, and vict in the arguments (the first,
+second and third THING's in the arguments.
+
+When a thing is accessed, the next letter determines what gets sent:
+
+n sends the name (short desc) of the thing.
+
+m sends him/her/hit/your
+
+p sends the possessive name of the thing
+
+s sends his/her/its/your
+
+h sends he/she/it/you
+
+f is special. If you use @3f and th == vict, then it sends
+himself/herself/itself/yourself, otherwise it acts like @3n.  This is
+useful for spells so you don't see
+
+"Bob surrounds Bob with a warm glow."
+
+but instead you see
+
+"Bob surrounds himself with a warm glow."
+
+
+
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key SECTORS`
+Admin `
+Text Typing sector will give you a condensed map of the wilderness by
+showing you the dominant terrain type in each sector
+
+Typing sector align will show you all of the alignment populations
+and their sizes in the sector map
+
+The neutrals are black, the darkies are red, the whities are green
+(from the align number being pumped into the ansi code in 
+sprintf). The areas of conflict (more than one align) are cyan
+(sky blue).
+
+Typing sector <align name> or sector <society name> will show you
+the populations of those sectors.
+
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key MAP MAPPING`
+Admin Legend for the society caste houses:
+
+Children - S - School
+Warrior - B - Barracks
+Leader - P - Pavillion
+Worker - W - Worker's Hall
+Builder - H - Hall of Builders
+Healer - T - Temple
+Wizard - A - Academy
+Thief - D - Den
+Shopkeeper - M - Marketplace
+Crafter - C - Craftsman's Guild
+Farmer - F - Farm
+
+`
+Text Overhead mapping works. Type config mapping to toggle it.  You can
+check out the rest of the configuration options by typing help
+configure.  
+
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key SCRIPT SCRIPTING SCRIPTS`
+Admin `
+Text This is an introduction to scripts. The idea behind it is this.
+
+When something happens in the game like movement, or communication or
+giving or dropping, the things that are around the action get checked
+for certain "triggers". If a proper trigger is found, then the trigger
+checks whether the "code" associated with it exists or not.
+
+Then, this code is copied to the trigger and an "event" gets made, and
+is put into a list. This list is checked 10x a second, and all events
+which have timestamps <= the current time get executed.
+
+What you need to know is how the triggers work, and how the code
+works. There are two sections, help TRIGGERS and help CODE.
+
+
+After reading all that see help EXAMPLES.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key BUILDERS BUILDING BUILDER BUILDER_RULES ADMIN_RULES`
+Admin `
+Text Building here consists of making areas for use within the game.
+
+First, I give away the MUD code and the areas to whoever wants them.
+You are free to download the MUD from www.sf.net/projects/genmud
+and make your own areas on your own server and keep them secret.
+If you make an area on this copy of the server, it will be given
+out to whoever wants it and people may use your areas to make
+money and you may not be given credit anywhere. I won't remove
+areas you have made here if you ask, nor will I stop distributing 
+them if you ask, so think carefully before you build here. You 
+always have the option of making your own MUD using this  
+codebase and running it on your own server where you pay for 
+everything and decide what gets done with the areas you make.
+
+While building, don't mess with other peoples' areas. Don't make
+cheater items (like items which have more than one of weapon/armor/
+ranged/powershield stats on them. $9Don't Make Gems$7. 
+
+Also, if for some reason I did something stupid and let builders
+online while players are online playing the game, don't interfere
+with the players. If you are a level 110, then you can deal with
+problems with the players, but don't pick fights with them or
+anything. Also, $9Don't Make Gems$7. Don't hand out stuff to the
+players or help them find corpses or anything. 
+
+If you are a builder or admin, you aren't an "immortal" or a "god" or
+anything retarded like that. You are just a person who has decided
+to make stuff for the game, or decided to help run the game instead
+of playing the game. The game should mostly run itself, and since
+I have the final say in what gets done here, don't make promises
+to the players that things will change. 
+
+Now, with respect to building...you should be capable of writing,
+and finishing projects you start, since building an area is like
+writing a small book, or making a presentation. There are lots
+of picky details, and it requires a lot of creativity, and some
+parts aren't very fun. Also, before you start building, you should
+type help edit and get an overview of how to make the things here
+since it's different from other MUDs you may have built on before.
+
+If you still want to build, write a note to lonath saying you want
+to build, and you might get a builder position. Even if you don't
+get one here, if you are serious about wanting to build, download
+the MUD from www.sf.net/projects/genmud and you can set up your
+own game.
+
+
+
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key TRIGGERS TRIGGER TRIGEDIT`
+Admin `
+Text The way to access triggers is to type
+
+
+trigedit <triggername>
+
+or
+
+trigedit create <triggername>
+
+trigedit list lists all of the triggers.
+
+There are several parts to a trigger:
+
+1. The name. This is set up when you make the trigger and can't be
+changed.
+
+2. The type...these are the following: timed, taken, moved, moving,
+given, dropped, taken_from, get, leave, enter, creation, death,
+say, tell, command, arrive, bribe.
+
+3. Thing: this is the number of the thing that will run the script.
+
+4. The timer, for timed scripts how many seconds pass before it is
+executed again. Can be VERY CPU intensive.
+
+5. Code: A string which tells which code chunk is used for this
+script.  The code is copied to an event so that you can edit code
+while an event is running, and it will use the old code until the
+event is done.
+
+6. Keywords: Depending on the type of script..if it is a given/dropped
+script, the keyword is the number of the item. If it is a
+communication script, it is the keyword in the phrase. If it is a
+command script, the keyword is the command itself.
+
+7. flags: typing interrupt will mean that someone can restart
+the script by doing the original action again (even if its running).
+leave_stop means that the script stops executing if the starter
+gets away from the thing doing the script. i.e. leaving the room
+or mob or dropping the object and leaving it behind. 
+
+
+After reading all that see help EXAMPLES.
+
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key ZEDIT`
+Admin `
+Text This lets you edit multiple things at once:
+
+
+example zedit 1000 1200 short A dark passageway
+
+would set the short for 1000 to 1200 to "a dark passageway".
+
+You can do up to 500 things at once, but they must all be in the
+same area I think.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key CODE SCRIPT_CODE`
+Admin `
+Text The script coding is done in the following way.
+
+type edit code <codename>
+
+or
+
+edit code delete <codename>
+
+edit code list lists all of the code chunks.
+
+Note that scripts can only go 5 lines deep, and the code terminates
+after 100 lines executed to avoid infinite loops.
+
+There are several different kinds of code lines possible. I will
+discuss some here, and put some others into other helpfiles.
+
+1. label <labelname> This is a line which a goto statement looks for.
+
+2. goto <labelname> This tells the script for label <labelname>, and
+it jumps to that line if it exists.
+
+3. wait <number> This tells the script to wait <number> seconds before
+continuing execution.
+
+4. call <codename> This tells the script to call a different piece of
+code, execute it, and then return from it just like regular functions.
+
+5. end or done This tells the script to exit (or if it was called from
+another piece of code, it returns.
+
+6. make <number> creates a thing of that number (if possible). If you
+type make <number> > @t0-@t9 it makes a certain pointer in the event
+equal to the value of the new thing. Useful for do lines.
+
+7. nuke <number> nukes the first thing with that number in the room or
+inventory of the script runner. If you type nuke @o, it nukes the
+object used to initiate the script (in the case of drop/give scripts).
+
+8. do <@r/@o/@u/@t0-@t9> <command string>. This sends the string to the
+interpreter, and the thing attempts to execute it. This lets you have
+say a mob that creates new "helpers" and then have the helpers attack
+the person who started the script by doing
+
+make 500 > @t0 do @t0 kill @snm
+
+
+See help VARIABLES for info on how to access variables and data within
+a script.
+
+See help MATHLINE for help with math formulas, and help IFLINE for
+help on if statements.
+
+After reading all that see help EXAMPLES.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key GUILD GUILDS GUILDMASTER`
+Admin To set up a guildmaster, use val guild.
+v0 is the guild type, v1 = min tier taught, v2 = max tier taught,
+if v2 == 0, then the guildmaster teaches all tiers, but you can use
+this to split up guildmasters and make people go on worse quests
+for each tier ;)
+`
+Text Guilds are groups of people with common purpose, who band together
+to share knowledge. Essentially guilds here give you access to skills
+and spells that outsiders cannot learn. Sometimes guilds work together
+to require that you gain knowledge in several guilds before you can
+have access to a certain piece of knowledge, and sometimes a single
+guild will control access to this information.
+
+There are 10 guilds currently: warriors, wizards, healers, thiefs,
+rangers, tinkers, alchemists, knights, mystics, and diplomats. Joining 
+a guild may increase your stats slightly, depending on which guild
+you join, and which tier you are advancing to.
+
+To see a list of guilds, type guild.
+
+To see how expensive it is to join a guild, type guild costs.
+
+If you are at a guildmaster, and you have enough money, warpoints,
+and guildpoints leftover, you can type guild advance to advance
+a tier in that guild.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key VARIABLE VARIABLES`
+Admin `
+Text Variables in scripts come in several forms.
+
+First, there are the internal script numbers. These are all set to 0
+when a script starts, and they are numbered @v0-@v9.
+
+The other things that can be accessed in the scripts are the starter,
+the runner, the object, and the (up to) 10 things made for the
+scripts. The @u thing means several different things based on the runner.
+If the runner is an area, @u is a random thing in a random room in
+the area. If the runner is a room, @u is a random thing in the room.
+If the runner is worn, @u is what is wearing the runner. Otherwise,
+@u is a random thing inside the same thing as the runner.
+
+You access these "things" by using the strings @s, @r, @o, @u, and @t0-@t9
+respectively.
+
+However, you don't just stop with naming these things, you also need
+to specify what piece of the thing data you want to look at.
+
+See help VAR_REP for a list of these things.
+
+
+For example:
+
+@rnm gives the name of the runner.
+
+@sqf:farm1:3 gives the value of the third variable in the scriptflag
+called "farm1" on a PC, and nothing if its not a PC.
+
+After reading all that see help EXAMPLES.
+
+`
+SeeAlso VAR_REP EXAMPLES PROMPT SCORE`
+END_HELP
+
+HELP MORT
+Key SCORE`
+Admin Typing score reload will reload the score string from score.dat inside
+of the game.
+
+To edit the score file, go into score.dat and use the same formatting
+as prompts. See help prompt for information on how to do this editing.
+
+
+`
+Text Typing score will give you an idea of how well your character is
+progressing. It has many stats and pieces of information that will
+be useful for you to know.
+`
+SeeAlso PROMPT VAR_REP`
+END_HELP
+
+HELP MORT
+Key VAR_REP`
+Admin `
+Text Variable replacement lets you access the database directly by using
+certain strings to represent pieces of data within a thing struct.
+
+This function is used in scripts, in the tset command, and may be used
+in the score command eventually.
+
+
+This is a list of all of the strings and what they represent: These
+work on all things.
+
+
+ac  armor 
+al  alignment 
+cs  cost 
+cw  weight carried 
+cn  number carried
+ca  phrase telling amount carried in stones and pebbles
+cp  carry string like "you are unburdened"
+hc  current hp 
+hm  max hp 
+hg  height 
+lv  level 
+lg  light 
+ld  long descr 
+nm  name
+sd  short desc
+sx  sex
+ti  timer
+sz  size (inside size) 
+ty  type (ref only in scripts)
+vm  max mv 
+vc  current mv 
+wg  weight
+
+if you are fighting, you have access to the following:
+bl   bashlag
+dl   delay
+oc   opponent condition
+tk   tank condition
+
+
+If the thing is a PC, you have access to the following:
+
+an  align name
+bk  bank amount
+g:<first 3 chars of a guild> accesses that character's guild tier. 
+g:all lists all guild tiers at once
+ip:<part name> accesses the implant level for that part.
+ip:all lists all of the tiers of all of the implants
+mm  max mana 
+mc  current mana 
+ob  offensive bonus
+ofd  off_def percent
+pr  practices
+rm  remorts 
+rc  race number
+rn  race name 
+wm  wimpy
+ex  total experience points
+el  experience needed for the next level
+ed  thing editing number
+z<stat short name>  a stat like str, int, wis etc...
+s<number> the practice percent for spell number <number>.
+
+(these are not settable)
+elb  epb, elemental level and power bonuses
+sab  spell attack bonus
+shb  spell healing bonus
+srb  spell resist bonus
+sta  thief attack bonus
+sdf  defense bonus (+dodge/parry etc...)
+skd  kickdam bonus
+sdr  damage resistance bonus
+sga  groundfight attack bonus
+sgd  groundfight defense bonus
+
+Values are different. Use the format
+
+v:<valuename>:<0-6 or w>.
+
+This accesses the value0-value6 or the word. You can therefore
+set specific items to have special value stats, like improving
+a long sword or making a gem better or some such crap. This is
+powerful so plz don't mess with it and screw things up. :)
+You can also access the value timer by puttig ti or timer in there.
+
+Questflags are different.  To access quest flags, you must do
+
+qf:<flagname>:<0-5>
+
+The qf says this is a questflag, the flagname tells which questflag it
+is (and it gets created) and the 0-5 tells which variable you are
+accessing. Note that this is much nicer than regular flags...you have
+actual variables, so please if you are a builder use all of them up,
+before you go off and make new flagnames. Plz try to keep them in the
+form like lon1 lon2 lon3, the first few letters of your name followed
+by a 1, 2, 3 in order as you use them up. Also, if you have say a
+sevreral stage script, you can check if a certain script variable is
+equal to a number or not to determine if you are supposed to do
+something special at this point.
+
+After reading all that see help EXAMPLES.
+`
+SeeAlso SCORE PROMPT`
+END_HELP
+
+HELP MAX
+Key MATHLINE`
+Admin `
+Text Math lines have the following form
+
+<variable1> <operator> <math formula>
+
+What happens is variable1 is operated on by the math formula in the
+manner prescribed by
+
+The variable on the left gets set.
+
+The operator is either + - / * or =, and the thing on the left gets
+modified by the math formula on the right in terms of the operator.
+
+eg.
+
+@v0 + 1 adds one to @v0   (same as @v0 = @v0 + 1)
+
+@sqf:farm1:3 - 4 removes 4 from the third value in the farm1
+scriptflag on the pc who started the script.
+
+@rhc = @rhm restores the hps on the runner.
+
+@rhc / 2 halves the current hps of the runner, useful for cheater
+spells I guess :P
+
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key IFLINE`
+Admin `
+Text An ifline works in the following way:
+
+if (<left arg> <comparison> <right arg>) <number>
+
+Left arg and right arg are things which are parsed replacing
+variables like in the math line. Both sides are calculated and
+final numbers are found.
+
+The comparison is one of == < > >= <= != which work in the usual ways.
+
+If the comparison is TRUE, then the next line is done.
+
+If <number> is blank or not a number, <number> is assumed to be 1.
+
+If the comparison is FALSE, then <number> lines are skipped and the
+execution continues.
+
+See help variables for help on how to use variables and how to access
+data.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key EXAMPLES EXAMPLE`
+Admin `
+Text These are examples of simple scripts:
+
+The farm1 trigger looks like:
+
+Trigger: farm1     ,   Type: say       ,   Thing: 5700
+Timer: 0,  Flags: 0 
+Code: farm1     ,   Keywords: yes
+
+This means it is a say trigger, and thing 5700 runs it, and the
+actual code is farm1, and the keyword is "yes".
+
+The farm1 code looks like this:
+
+1> label start
+2> @v0 = @v0 + 1
+3> do say this is number @v0.
+4> if (@v0 < 10) 1
+5> goto start
+6> done
+
+This is a simple loop indexed by @v0.
+
+The output should look like this:
+
+Farmer Al says 'this is number 1'
+Farmer Al says 'this is number 2'
+Farmer Al says 'this is number 3'
+Farmer Al says 'this is number 4'
+Farmer Al says 'this is number 5'
+Farmer Al says 'this is number 6'
+Farmer Al says 'this is number 7'
+Farmer Al says 'this is number 8'
+Farmer Al says 'this is number 9'
+Farmer Al says 'this is number 10'
+
+
+You can also set data on things in scripts. 
+
+Take the ref1 trigger:
+Trigger: ref1      ,   Type: say       ,   Thing: 500
+Timer: 0,  Flags: 0 
+Code: ref1      ,   Keywords: ref
+
+1> do say I have @rhc out of @rhm hps.
+2> @rhm = @rhm + 1000
+3> do say I have @rhc out of @rhm hps.
+4> @rhc = @rhm
+5> do say I have @rhc out of @rhm hps.
+
+outputs 
+
+A test mob says 'I have 238235 out of 238235 hps.'
+A test mob says 'I have 238235 out of 239235 hps.'
+A test mob says 'I have 239235 out of 239235 hps.'
+
+So, it lets you set mob hps, and then change the current hps to the max
+hps. Essentially this idea works for anything.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key HELP HELPFILES`
+Admin Each helpfile has a level set for who can read it.
+
+You can set raw numbers or MAX for max level (Admin) or
+(BLD) for builder level, or MORT for level 0.
+You can also set other levels if you only want the helps appearing
+to level 30+ you can put a 30 before the helpfile.
+
+Each helpfile also has two parts. This first part is the admin
+part of the helpfile that has extra info only MAX_LEVEL players
+can see. You can use this to give some info to the players, then
+more info for the admins.
+
+ `
+Text Typing help <keyword> will give you help on subject <keyword>. 
+ `
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key LOC`
+Admin `
+Text LOC is what Lonath started out working on a long time ago. It
+is around somewhere being run by other people, and the code is still
+around somewhere.  `
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key DEATH DYING PERMADEATH PVP PK PKILL PKILLING`
+Admin DONT EVER EVER GIVE ANYONE A REIMB IF THEY HAVE PERMADEATH ON!!!!  `
+Text You will die here. If you are a regular char, you can keep playing.
+If you are a permadeath char, you only have one life, but you do
+double dam and take half dam. Should be interesting. Should this prove
+too sick, the relative bonuses might be changed (nerfed), and if they
+ever are, people who are permadeath will be given the option of not
+being permadeath, however, anyone who was permadeath and died will not
+get a reimb.  
+
+$9 LET ME STATE AGAIN: IF YOU DIE AND YOU ARE A PERMADEATH CHARACTER,
+YOUR CHARACTER WILL BE DELETED AND NEVER BE REIMBURSED EVEN IF THE
+REASON YOU DIED WAS DUE TO LAG OR SOME BUG IN THE GAME OR FOR ANY
+OTHER REASON, INCLUDING CHEATING ADMINS SCREWING YOU OVER.$7
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key GRAFT`
+Admin `
+Text This skill lets you take a gem and 5 of the same weapon and it
+grafts the weapon onto the gem. The grafted weapon will not be
+as powerful as the original.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key IMBUE`
+Admin `
+Text This skill lets you take 5 gems of the same type, and a
+weapon which is not imbued, and put the power of the gems into the
+weapon.
+
+The restrictions are as follows.
+
+The number of colors on the gems cannot exceed your alchemist tier.
+The level of the gems must be no more than 10x your alchemist tier.
+The mana in the gems must be no more than 20x your alchemist tier.
+The power of the gem will be decreased.
+
+If you fail to use the skill properly, there is a small chance that
+the weapon or the gems or both may be destroyed.
+
+Also, if you attempt to imbue something which is a gem, bad things
+will happen.  
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key QUIT`
+Admin PCS can quit anywhere atm..will be fixed soon
+ `
+Text This is how you log out of the game. You must type it out fully to
+do it.  `
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SAVE`
+Admin Typing save all will save every player in the game (even linkdead ones).
+
+ `
+Text Saves your character to disk. It will only work every few minutes.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key COLOR COLORS ANSI`
+Admin `
+Text The colors are a little different here.
+
+They all work with a dollar sign followed by a hex digit from 0 to F.
+
+$0 = dark black      $8 = bright black 
+$1 = dark red        $9 = bright red 
+$2 = dark green      $A = bright green 
+$3 = dark yellow     $B = bright yellow 
+$4 = dark blue       $C = bright blue 
+$5 = dark purple     $D = bright purple 
+$6 = dark cyan       $E = bright cyan 
+$7 = light gray      $F = bright white
+
+Note that you can use these colors all over the place. Score, prompt,
+description, title, in strings when editing things, notes, everything
+runs off the same simple scheme. It is kind of annoying to learn,
+but oh well :P
+
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key ALIAS ALIASES`
+Admin `
+Text These things let you store a command, or a string of commands which
+can be accessed with a short keyword.
+
+These aliases are processed before the interpreter, so it is possible
+to override commands like kill.
+
+You can have up to three arguments in your aliases, and they should be
+entered as @1 @2 and @3, which are then replaced with new strings you
+determine. Note that the regular quote ' around a string of words
+makes all of those words into a single argument, just as with
+spellcasting.
+
+To enter an alias, you type
+
+alias <aliasname> <alias string>.
+
+To see a list of aliases, type alias.
+
+To clear an alias that already exists, either type alias <keyword>, or
+alias <number>. Note: If you have an alias which is actually a number,
+alias <number> will remove the alias which has a keyword called that
+number, and the alias numbered that will remain. Of course, if you do
+it twice, the second time around, the alias numbered that value will
+be deleted.
+
+If you want to replace an alias, just type alias <keyword> <new alias>
+and will overwrite the old alias.
+
+You currently have 40 alias slots available.
+
+If you wish to put more than one command into an alias, you need to
+separate the aliases with a *.
+
+Example 1.
+
+alias cc c 'magic missile' @1
+
+If you type cc enemy, the string that gets sent to the interpreter is
+
+c 'magic missile' enemy
+
+Example 2.
+
+alias x n*e*s*e*e*n*open branches*u
+
+The following commands get sent to the interpreter, and they are
+executed 10 per second until they are all done:
+
+n e s e e n open branches u
+
+Example 3.
+
+alias 22 tackle @1*say @2*l @3
+
+If you type 22 enemy 'You suck!' 2.enemy
+
+You will perform the commands
+
+tackle enemy say You suck!  l 2.enemy
+
+
+Also a quick note, if you want to enter several commands at once
+without using an alias, say you want to pass an aggro mob, you can use
+the backwards quote (below the tilde), and when you type this
+character in, the game reads it as a newline, so again you can stack
+commands if you wish to. This character replaces the ~ from Dikus,
+since ~ may be useful later in scripts.
+
+
+And finally, if someone gives me a compelling reason to do so, I can
+add more replacement strings easily, but I just couldn't think up any
+real reason to do so.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key STAT STATS STR INT WIS DEX CON LUC STRENGTH INTELLIGENCE WISDOM
+DEXTERITY CONSTITUTION LUCK`
+Admin Stats range from 3 to 32.
+
+`
+Text Stats are basic attributes which determine how powerful your character
+is.
+
+They are:
+
+Strength: How much you can carry and how hard you hit.
+
+Intelligence: How well you use offensive magic and how fast you learn
+new things.
+
+Wisdom: How well you resist magic, cast defensive magic, and how often
+you can learn new things.
+
+Dexterity: How quick you are on your feet and how adept you are at
+ manipulating things with your hands.
+
+Constitution: How tough and durable you are.
+
+Luck: Hm...
+
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key RUMOR RUMORS`
+Admin Typing rumor mortal will let you see rumors the way players see them
+(without the lag time.)
+
+Otherwise, typing rumor by itself will give you the list of current
+rumors.
+
+`
+Text `
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key NEWS`
+Admin This combines the "quest" and "rumor" ideas into one thing. More
+info types may be added later.
+
+`
+Text Typing news near a friendly creature may get you an update on some
+important news about the world. What you do with that information
+is entirely up to you.
+
+Typing news delivery in the same room as the leader of a friendly
+society may give you a job to deliver an item to another society.
+You will have a limited amount of time to do this, and enemy
+societies will be watching out to try to kill you. Do not take
+this lightly, because the society that gives you the task puts
+a great deal of resources into making this item, so if it's not
+delivered, your alignment suffers.
+
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key NOTE NOTES`
+Admin If you type note adminrep <number>, you will be able to append a 
+string to a note and it will show up as an admin reply. There is
+only one available per note, but it's good for keeping people 
+up to date on what's going on.
+
+`
+Text Notes don't require a board at the moment. When you want to see all
+the notes, type note list.
+
+When you want to read the next note on your unread list, type note
+read.
+
+Note subject, note to, note write are all the same. The editor for
+writing the note is a little different, such as .d finishes a note, .f
+still formats, .c clears a line, .r <old> <new> will eventually
+replace text, but not yet.
+
+Note post still posts the note.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key EMAIL WEB ADMINS ADMIN WWW WEBSITE`
+Admin If you want to be here, tell Lonath.
+`
+Text The project site is www.sf.net/projects/genmud
+
+Admins: Lonath                    johna@wam.umd.edu
+
+
+	
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key MMORPG`
+Admin `
+Text What a pretentious person calls their MUD when they think they are
+better than everyone else. 
+ `
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key NEW_MUDDER`
+Admin `
+Text Hi, welcome to what may become the most addictive thing you have
+encountered on the internet. What are MUDs? Well, I think of them as
+chat rooms combined with games, which can become a daily part of your
+life (like watching a soap...except you're IN the soap).
+
+Most of them are based on fantasy or science fiction, since most of
+the creators are umm... well... kind of nerdy. I am no exception, and
+so this is based on fantasy, but could be changed to fit another
+theme.
+
+So, what is the idea of a MUD? The idea is you make a character and
+travel around in a virtual world and do stuff. This might not sound
+interesting, but the idea is you improve your character by doing
+things, and you improve the character. You will spend time collecting
+items, fighting with things, solving puzzles, and chatting with other
+people. Some MUDs are strict about "roleplaying"...which I find
+annoying, so if you wanted to, you could literally log on and chat
+with other people, and never actually try to "play" the game here. You
+could also log on and play the game by yourself and never interact
+with anyone...but that is very hard to do.
+
+`
+SeeAlso NEW_MUDDER2 NEWBIE NEWBIE2`
+END_HELP
+
+HELP MORT
+Key NEW_MUDDER2`
+Admin `
+Text Commands.
+
+So, what kinds of commands will you need?  To start with, type l You
+will see the room you are in.
+
+Type i You will see the stuff in your inventory.
+
+Type wear all You should have tried to wear all of the stuff in your
+inventory.
+
+Type eq Now you should see you have some things "equipped".
+
+Typing look again, you see that A glowing blue portal is here.?
+
+Type enter portal You were just transported to another location.
+
+See the Exits: .... line?
+
+Type the first word after the Exit:, actually only type the first
+letter.
+
+The commands n e w s u d are commands that move you in those
+directions.
+
+Walk around some, and when you see things below the exits, look in the
+description for a keyword that looks like it might be part of the
+sentence, like if you see
+
+A giant guard patrols the outpost.
+
+type l giant
+
+For a list of commands, type commands.
+
+Then, try typing help <command name> to see what the helpfile says.
+
+Now for some more help type help NEWBIE2
+
+`
+SeeAlso NEW_MUDDER NEWBIE NEWBIE2`
+END_HELP
+
+HELP MORT
+Key NEWBIE START MUD`
+Admin If you're a newbie reading this, oh is the MUD is in trouble :) 
+
+`
+Text Hi, and welcome to the MUD. This is being
+run by Lonath (johna@wam.umd.edu) just cuz it's fun. This is a racewar
+pkill MUD, with little emphasis on rp. If you have never played MUDs
+before, please type help NEW_MUDDER.
+
+
+`
+SeeAlso NEW_MUDDER NEW_MUDDER2 NEWBIE2`
+END_HELP
+
+HELP MORT
+Key NEWBIE2`
+Admin `
+Text Welcome to Battle for Destiny. This will hopefully be a little different 
+than the kinds of MUDs you have played before..
+
+The following helpfiles will give you an idea of some of the things
+you should know:
+
+
+help RULES help COMMANDS help MOVEMENT help TALKING help
+COMBAT help SKILLS help PKILL help BANKS help SHOPS
+
+`
+SeeAlso NEWBIE NEW_MUDDER2 NEW_MUDDER`
+END_HELP
+
+HELP MORT
+Key AUCTION AUCTIONS BID`
+Admin Auctions should send items back over crash/reboots, but check.
+
+`
+Text Auctions allow you to buy and sell objects across the game. To start
+an auction type auction <item> <amount>. A transaction fee which is a
+portion of the value of the item will be added to your amount.
+
+Then, if you want to see all of the auctions, just type auction list.
+
+To stop your auction, type auction halt. You will be assessed a fee
+for this.
+
+To bid on an item type bid <amount> <auction number>.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key CLAN SECT ACADEMY`
+Admin The clan code is really different. Find CLAN_MAX in serv.h and look
+for the clantypes there. There is a variable in const.c called
+clantypes which matches up with the CLAN_XXX stuff in serv.h
+
+
+There is no "do_clan" function. If a person types in the full name
+such as "clan" or "sect", etc...the interpreter takes them to the clan
+function, and the type is determined by which word is entered.
+
+As an admin, you can also edit clans, using the same function the
+players use. You can do the following:
+
+clan/sect <number> <thing to do>.
+
+So, down below, replace <> with clan 4 or sect 3 or whatever.
+
+
+
+<> create: makes a new <> of that number.
+
+<> leader: sets the <> leader.
+	   
+<> room_start: sets the starting room for the <> area.
+
+<> num_rooms: sets the number of rooms for this <>'s area.
+
+<> minlev: sets the minimum level to enter.
+
+<> nosave/all_align sets these clan flags.
+
+Also, when you do clan 4 <something>, you are given the power of the
+<> leader.
+
+
+`
+Text A clan or sect is a group of players who join together to form a
+smaller community within the MUD. These groups can be set up with the
+help of an admin. There are some commands you can use with clans and
+sects, replace <> with clan or sect or academy or whatever.
+
+<> show: Shows you your clan.
+
+<> list: Lists all <>'s.
+
+<> quit: Makes you leave your <>.
+
+<> add: Adds a member to the <> you lead.
+
+<> remove: Removes a member from the <> you lead.
+
+<> motto: Changes the <> motto.
+
+<> name: Changes the <> name.
+
+<> history: Changes the <> history.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SPELL SPELLS SKILL SKILLS TRAP TRAPS POISON POISONS PROFICIENCY PROFICIENCIES`
+Admin Spells have an editor called SEDIT, which you can find out about by
+typing help SEDIT.
+
+`
+Text "spells" is a general term used to describe things that the players
+can do which require certain abilities.
+
+We have spells, skills, procs, poisons, traps.
+
+See help SLIST to see how to reference all of these.
+
+You can also type skill or spell or trap or proficiency or poison by
+itself to get a list of all of the skills of each type that you know.
+
+
+`
+SeeAlso PRACTICE IMPROVE`
+END_HELP
+
+HELP MORT
+Key IMPROVE`
+Admin Note: If you hate the "no improves in homeland" feature on your MUD,
+edit out the line:
+
+!DIFF_ALIGN (th->in->in->align, th->align) ||
+
+in check_spell() in spell.c
+`
+Text When you use skills, you will get better at them (once you have
+practiced them a sufficient amount). 
+
+$9You will not improve your skills through use while you are in
+an area with the same alignment as you. This means that you cannot
+just whore safe improves sitting in your safe homeland casting spells
+on yourself or fighting wussy mobs all day. This will also apply to
+any clanhouses for people of your own alignment, and no, you won't
+get a neutral clanhouse zone, and if you do, it will be changed 
+when we find out about it. =D$7
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SLIST`
+Admin Slist lets you see the vnums of the spells if you are of admin level.
+There is no slookup spell anymore, just slist <name> to find out what
+vnum that spell is.  `
+Text Slist has many options.
+
+Slist <name> will show you a lot of info on a single spell.
+
+Slist skills/spells/profs/poisons/traps will slist all spells of that
+type.
+
+Slist <manatype> slists all spells using that mana.
+
+Slist <guild> slists all spells which require that guild.
+
+Slist offensive/defensive/self/anyone lists all spells with that target
+type.
+
+Slist no_prereq or slist noprereq lists all skills/spells with no
+prerequisites.
+ 
+These can be combined somewhat, but generally not more than one from
+ each category.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key NOLEARN`
+Admin `
+Text This command lets you specify that you will not try to learn
+certain skills and spells so you can pare the tree of skills
+you want to learn. This lets you decide how to more precisely make
+your character. It can also be useful to do this to get one
+specific skill after a skill you're currently working o first.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key MATH_PARSE`
+Admin `
+Text Here is the way the parser works. You can enter mathematical
+expressions (using whole numbers) like
+
+3 + (6*7)
+
+and they are evaluated. You can also add a few kinds of variables.
+
+The math parser looks like int (math_parse (char *txt, int val)
+
+So, it takes a number as an argument, and the text string to be
+interpretted.
+
+The number val is accessed by using 'l' in the parser. Why?
+because this was set up for use with spells, and spells are
+generally level based :P This is also the code used in SCRIPTS
+for assignment lines and mathematics in there too.
+
+You can also use the letter 'd' in the math parser and it will
+change that into a value from 1 to val.
+
+You can also put things of the form r(a,b), like r(10,25) and it
+will give a random number from 10 to 25.
+
+You can only use + - / and * in the parser, and all operations are
+performed IN THE ORDER IN WHICH THEY ARE WRITTEN!!, however
+you can put parentheses around pieces of the string and
+those parts will be processed first.
+
+For example:
+
+3 + 5 * 6 equals 8 *  6 = 48.
+
+3 + (5 * 6) = 33.
+
+d/2 gives a random number from 1 to val then divided by 2.
+
+r(10,50) gives a random number from 10 to 50.
+
+You can also try out combinations with random values by
+using the checkparse function.
+
+The checkparse function is used by typing
+
+chp <val> <string>.
+
+The val is what number 'l' represents in the string. It does
+the operation 10 times so you can get an idea what kind of numbers
+are going to be outputted
+
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key SEDIT`
+Admin Sedit lets you edit spells/skills/profs etc. The way to start is
+
+sedit create <number>, or
+
+sedit <name> or sedit <number>
+
+Number must be between 1 and 1000. (MAX_SPELL)
+
+The following commands are available with sedit:
+
+creates <num>: Makes this thing when cast.
+
+damg <str>: damage string, see help MATH_PARSE.
+
+done: Ends the editing session.
+
+duration <str>: How long it lasts when cast see help MATH_PARSE.
+
+flag <stuff>: see help FLAGS for more info on this.
+
+guild <guildname> <tier>: Sets guild to this tier, current 0 to 5.
+
+level <num>: Sets it to this level.
+
+message <str>: This sets the message of the spell. See help ACT for
+more info on this.
+
+mana <air/fire/earth/water/spirit>: toggles whether this is a mana
+type of the spell. See help GEMS for how this works.
+
+mana <num>: gives the mana amount the spell requires.
+
+ndam <str>: damage name like "shock" or "fry" or whatever.
+
+name <str>: Name of the spell.
+
+pre <1 or 2> <name of spell>: Sets the indicated prerequisite to the
+indicated spell name.
+
+pos <position_name>: Sets the spells minimum casting position.
+
+stat <statname> <value>: Sets the min stat name to practice fully.
+Use the short names of the stats like str, int, wis etc..
+
+For each point the player is below these min stats, they can prac 5
+ percent less on the spell. Minimum prac percent is 30.
+
+time <num>: Time it takes to cast: 10 = 1 second, 18 = 1 combat round.
+
+target <defensive/offensive/self/anyone>: Sets what kind of spell this
+is.
+
+trans -- you set this number and it determines what kind of spell you
+have.  0 == recall, 1 == teleport, 2 = summon, 3 = inverse summon (caster
+goes to the victim) anything above 3 sends the caster to that room
+number (and it must be a room). The nosummon and norecall flags
+counteract some of these options. Essentially, norecall means the person
+moving cannot start in this room. Nosummon means a person doing the
+casting cannot summon someone to them.
+
+type <spell/skill/prof/poison/trap>: Sets the spell type.
+
+vnum <num>: Sets the spells vnum to a new number.
+
+wear_off <str>: Sets what message is sent when the spell wears
+off. See
+ help ACT for more info.
+
+typing sedit find teacher locations 
+
+will find up to 10 places where each spell is taught.
+
+`
+Text `
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key RACE RACES ALIGN ALIGNS`
+Admin $9SEE HELP ASCEND$7
+
+There are some races that are "Ascend" races meaning that the way
+you get them is to max your character and start over. These races
+can be made ascend races by making the ascend_from attribute
+set to some other race number.
+
+
+These things are editable. Do race edit <num/name>, or align edit
+<num/name>, or race create or align create.
+
+The editor is a lot like the spell editor, with the following
+commands:
+
+done: ends the editing session.
+
+flag <stuff>: See help flags. All of these are added to pc's of this
+type when they are created so be careful.
+
+
+part <partsname> <num>: Sets the number of parts of that type: head,
+arms,
+ legs, body for that race/align. 1 is standard for races, 0 is
+standard for
+ alignments.
+
+stat <statname> <num>: Sets the max stat for that race. For
+alignments, it sets the BONUS! so make sure to set most of those to 0
+in the alignments. 25 is normal for races.
+
+nat <number from 0 to 2> <spellname/number>: Members of this
+race/align get
+ this spell automatically at 100 pct and it does not count toward the
+ number of spells they can learn.
+
+gate <number>   Sets the room where the outpost gate is that gets linked
+                when the world is generated.
+
+nat <number> <none>: Clears the spell there.
+
+name <str>: Sets the race/align name.
+
+learn <spell/skill/prof etc.> <number>: Sets the max number of
+spell/skill/prof that this race can learn. For alignments, this is a
+bonus so set most to 0.
+
+height <num> <num>: Sets the min/max height for this race. Align
+ does nothing.
+
+weight <num> <num>: Sets the min/max weight for this race. Align
+ does nothing.
+
+hp_regen <num>  Set these to something other than 0 and it alters your  
+mv_regen <num>  hp regen rate and your mv regen rate.
+
+mana_bonus <num> Set this to something nonzero and it changes the
+                 amount of mana that this race can store.
+
+relic_room <num> Sets the relic room of an alignment
+ascend_room <num> Sets the ascend room for a race.
+`
+Text race/align list: Lists all races or alignments.
+
+race/align <num/name>: Gives you info on the race numbered that
+number, or with that name.
+
+When you attain several remorts, you will notice other races. You can
+see more info about these races by typing help ASCEND.
+
+The power bonus when you see alignment info represents the bonus your
+align gets to all attacks/defense because the people on your alignment 
+suck. This bonus is calculated by seeing who's ruling on the
+(positive) pkdata charts.
+
+
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key WILDERNESS WILDALIFE`
+Admin `
+Text There is a "wilderness" area in the code. A 2000x2000 grid of rooms
+that's stored in a file called wilderness.dat. You can generate new
+wildernesses using a program called terraform such that if you
+create a 2000x2000 wilderness using terraform (You shouldn't make
+a 500x500 and scale up since I tried it and it scaled to 1997x1997
+or so.) and then save it as a .grd file, and then create the grid.c
+file in the src directory, you should have a wilderness in the
+proper format. You may have to tweak the parameters in grid.c
+since it sets rooms to different terrains based on the height in
+the terrain file.
+
+
+Within the wilderness, random creatures repop as you walk around, and
+it also has an overlying grid of SECTORS (See help SECTOR) and
+the societies that you make are used to generate encounters in the
+wilderness that mean something. When you encounter society members
+and kill them, it weakens that society in that sector.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key ASCEND`
+Admin `
+Text When you get to max level and max remorts you can type ascend and
+start over with an ascension race. You will have NOTHING. No
+pk stats, no money, no eq, no trophies, nothing. But, you will get
+one of the more powerful races.
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key REDIT MEDIT OEDIT AEDIT OFIND MFIND RFIND AFIND OWHERE MWHERE`
+Admin `
+Text These commands don't exist anymore. They have been superseded by
+"things".  See help THINGS to see about this.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key BUILDER BUILDERS BUILDING`
+Admin Ok, to get started on the ideas here, there are a few helpfiles of
+interest, like help SPELLS, RACES, THINGS to get started.
+
+`
+Text We are not currently accepting builders.
+
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key THING THINGS`
+Admin `
+Text Ok, we all know that MUD code is sort of limited in that you always
+want to have stuff that does more than one thing. For example, a boat
+you can pick up and then drop onto the ground and sail into the ocean.
+Maybe you want a tank you can enter and shoot stuff out of.  Maybe
+you want a sword that talks to you and sends you on a quest.  Maybe
+you want a gemsword.
+
+Whatever you want, the dikuesque code is very limiting, and not only
+that, but I was not allowed to release the old code I had since emlen
+didn't want me to. So, I decided to start over to do this...so
+if you are used to that style of code..bear with me as I explain this
+idea.
+
+Now, all mobs/objs/rooms/areas are "things". A thing is just a
+database element which has attributes which determine what it can and
+cannot do.
+
+The way things interact with each other is discussed in help
+THING_FLAGS.
+
+The way the world is set up is this. There is a thing called
+"the_world".
+ Its contents are the things which are AREAS. Each area then has
+ contents which are "prototypes" of other things. Since we only have
+ one copy of rooms, those are used directly in the game. With the
+other things, the prototypes are edited, then copies are made for
+ use in the game.
+
+
+Help EDIT gives more information on things.
+
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key THING_FLAGS THING_FLAG`
+Admin `
+Text What do all of the operations like move/get/give/drop etc.. have in
+common? Essentially, what you have is a thing called the initiator
+which sets out to move another thing called a mover. The mover starts
+in a thing called start_in, and ends up in a thing called end_in.
+
+So, every "movement" of a thing involves 4 things. Sometimes some of
+these are the same. For example, enter/leave/n/e/w/s/u/d all have
+mover == initiator.
+
+Get has initiator == end_in.
+
+Drop has initiator == start_in, and so forth.
+
+So, what I did was essentially restrict when things can be moved
+around in certain ways. To put these attributes onto a thing, type
+thing <name> when you are editing a thing, and these flags will be set
+or unset.
+
+
+no_take: if mover has this, initiator cannot be end_in.
+
+no_move_self: initiator cannot be mover.
+
+no_contain: This can never be end_in.
+
+no_drag: Cannot be dragged...
+
+no_given: Will not accept things from other things.
+
+no_give:  Will not let you give it to anything...must be dropped.
+
+no_drop: Will not let a thing remove this from itself.
+
+drop_destroy: Goes *poof* if it is dropped.
+
+no_can_get: This thing cannot reach out and get something from
+ another thing.
+
+no_move_by_other: This thing cannot be the mover for a different
+ initiator.
+
+no_take_from: This thing will not let you take anything from it.
+
+no_move_into: A thing cannot move itself into this (but things can
+ be put into it)
+
+no_leave: A thing cannot move itself from this by itself.
+
+no_fight: This thing will not start combat.
+
+no_talk: This thing cannot communicate.
+
+no_remove: Cannot remove this if it is worn.
+
+is_room: Special: This is a room.
+
+is_area: Special: This is an area.
+
+unseen: Cannot see this except by holylight.
+
+no_peek: Dunno if I will implement this or not.
+
+Also, there are special commands in edit () which let you set up mobs
+or objects fast.
+ 
+setup mob sets these flags to what a regular mob should be and setup
+obj sets these flags to what an obj should be.
+
+nuke: This makes the thing not save.
+
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key EDIT TEDIT THEDIT EDITOR`
+Admin `
+Text < and > move you backwards/forewards to the next number.
+
+The thing editor works in the following way. First, you type edit
+ <number>, or edit create <number> or edit create area <number>.
+
+Now, edit create checks if the number you pick is already in an area.
+If the thing already exists, it lets you edit the existing thing.
+
+If you are editing an area, there are a few special things to note.
+ The ac of the area is a number (set to 500 to start), and the level
+ is a number (set to 1000) to start.
+
+The ac tells how many "rooms" the area has, and all things created
+ between area->vnum and area->vnum + area->ac are made into "rooms".
+ All other things after the rooms are regular things.
+
+These numbers can be changed, but there is some checking and be
+careful so you don't mess things up. It may require some tweaking to
+get it
+ right.
+
+You can use the following commands in edit ().
+
+
+armor: Sets the ac of the thing. 0 = autocalc. Note + armor is GOOD!
+(IN AREAS THIS IS THE NUMBER OF ROOMS (MUST BE LESS THAN LEVEL))
+(You can also do num_rooms <num> if you're editing an area.)
+
+align: Sets the alignment of the thing, 0 = neutral, 1-? = pc aligns.
+
+cost: Cost when this is bought/sold...randomized when it is cloned.
+
+color: This tells what color this thing is on the overhead map. See
+ help COLORS for more info on how this works.
+
+desc: Sets the thing's description. You can use copyfrom (number) and
+      copyto (number) to either copy another thing's description or
+      to copy this thing's description to another, respectively.
+
+done: Ends the editing session (wsave changed saves things.)
+
+eds edesc extra_description ex_description:
+
+These let you edit the extra description of a thing.
+
+edesc delete <name> deletes the edesc with this keyword.
+edesc add <names> lets you add an edesc with those names.
+edesc <name> <new name> lets you replace an edesc with an older
+name with a newer list of names. You have to do all at once unfortunately.
+edesc <name> desc lets you edit the description for this name.
+
+flag: See help FLAGS.
+
+size: Sets how much stuff this thing can contain, 0 = infinite.
+
+height: Sets the height of this 72 = 6 feet.
+
+hpmult: 10 = standard, goes from 2 to 1000 (.2x hps to 100x hps).
+
+level: Sets the level. Level 100 is nice exp, 200 is damn hard,
+ 300 imposs. (IN AREAS THIS IS THE NUMBER OF THINGS TOTAL)
+(You can also do num_things <num> if you're editing an area.)
+
+light: Sets how much light this gives off.
+
+long: Sets the long desc of this thing you see when you are in the
+ same room. (IN AREAS THIS IS THE REPOP MESSAGE!!!!)
+
+miw: Sets the max number of this that can show up. 0 = infinite.
+
+name: Sets a list of keywords which can be used to find this thing.
+(IN AREAS THIS IS THE FILENAME!!!!!!)
+
+resil: Pct from 0 to 100 sets how damage resistant this is.
+
+reset: See help RESET.
+
+sex: 0 = neut, 1 = female, 2 = male.
+
+setup: mob/obj sets the thing flags for things of these types see
+ help THING_FLAGS.
+
+short: sets the thing short description like: a stocky dwarf
+(IN AREAS THIS IS THE NAME OF THE AREA THAT YOU SEE WHEN TYPING WHERE)
+
+symbol: This sets the character that shows up on mapping.
+
+type: This is a string which describes the thing like weapon, dragon
+ etc.. (IN AREAS THIS IS THE LIST OF BUILDERS!!!!)
+
+thing/thingflags: This sets the thing flags for this thing.
+
+val/value: Sets the values for this thing. See help VALUES.
+
+wear: This sets the wear location for this thing (if any). Only one
+ per thing.
+
+weight: This sets the weight of this thing: 10 = 1 lb approx.
+
+See help RESETS, FLAGS, VALUES.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key EXIT EXITS`
+Admin `
+Text This command gives you a list of all the exits around you.
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key DOORS DOOR EXIT_FLAGS DOOR_FLAGS DOOR_FLAG`
+Admin `
+Text These are the following flags for doors. You set them
+on an exit as v2 and as v1...v2 is the reset flags,
+and v1 has the current flags.
+
+door = 1
+closed = 2
+hidden = 4
+pickproof = 8
+breakproof = 16
+draining = 32
+locked = 64
+wall = 128
+nobreak = 256
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key FLAG FLAGS`
+Admin `
+Text A flag is a small chunk of data like something that says a thing is
+invisible, or that it is +2 damroll.
+
+There are different kinds of flags:
+
+thing: help THING_FLAGS 
+area: help AREA_FLAGS 
+room: help ROOM_FLAGS
+obj: help OBJ_FLAGS 
+hurt: help HURT_FLAGS 
+prot: help PROT_FLAGS 
+aff: help AFF_FLAGS 
+det: help DET_FLAGS 
+act1: help ACT_FLAGS 
+act2: help ACT_FLAGS 
+mob: help MOB_FLAGS 
+pc1: help PC_FLAGS 
+pc2: help PC_FLAGS
+spell: SPELL_FLAGS
+
+These are bitvectors which store bits telling whether or not a thing
+has certain attributes associated with it. You can mix and match
+allowing for a sword you can pick up and wield, and then drop it and
+it will attack enemies.
+
+
+Then, there are other kinds of flags, which are affects which
+essentially only work on players. The following affects can be put
+onto players, with numbers
+
+str: strength 
+int: intelligence 
+wis: wisdom 
+dex: dexterity 
+con: constitution 
+luc: luck 
+dam: damroll 
+hit: hitroll 
+hp: max_hp 
+mv: max moves
+sp_attack: spell attack power (percent) 
+sp_resist: spell resistance number (percent) 
+sp_heal: spell healing power (percent)
+th_attack: thief attack bonus (percent) 
+th_defense: thief defensive powers (percent) 
+kickdam: how hard you kick (number) 
+armor: how much you absorb damage (number) 
+dam_resist: how well you absorb damage (percent)
+
+
+So, how do you edit flags?
+
+You type flag <flagtype like dam or room> and then either a name for
+ the bitvectors, or a number for the affects.
+
+Also, flag <type> delete
+
+You can only have one flag of any one type on a thing you are editing.
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key THING_FLAGS`
+Admin `
+Text Thing flags give the most important information about an item.  They
+determine how this thing can interact with other things through
+movement and other methods.
+
+You alter them by typing thing <flagname> while editing a thing.
+
+
+no_take:                Another thing cannot move this.  
+no_move_self:           This cannot move itself.  
+no_contain:             Nothing can be put or move into this.  
+no_drag:                This cannot be dragged around.  
+no_given:               Cannot give to this.  
+no_drop:                Cannot drop this.  
+no_can_get:             It cannot get anything.
+no_move_by_other:       Other things cannot move this.  
+no_take_from:           Other things cannot remove stuff from this.  
+no_move_into:           Other things cannot move themselves into this.  
+no_leave:               Other things cannot leave this.  
+no_fight:               You can't start a fight with this.  
+no_talk:                It cannot communicate.  
+marked:                 for internal use.  
+no_remove:              Cannot remove this if it's worn.  
+is_room:                Is a room. Cannot be toggled.
+unseen:                 Cannot be seen without holylight.  
+is_area:                Is an area. Cannot be toggled.  
+nuke:                   The prototype for this will not save.   
+no_peek:                Looking at it, you cannot see inside.  
+script:                 This has a script associated with it.
+
+Thing flags are set differently than other flags. They are separate
+because they are necessary, whereas all other kinds of flags are
+optional.
+
+To set a thing flag, type thing <keyword> and it will be toggled.
+
+You should not really be setting thing flags on areas or rooms, so
+that leaves mobjects. There is an editing shortcut called setup and if
+you type setup obj or setup mob, it sets up the appropriate flags for
+that kind of thing. You can also play with the thing_flags in
+mobjects..for example a container is an object that doesn't have
+no_contain set. You can make mobs you can pick up and wield to use a
+weapons (5507). Use your imagination, but plz keep the funny stuff down a
+little so the players don't get confused and start whining to me :P
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key AREA_FLAGS`
+Admin `
+Text closed:   Mortals cannot move here.
+noquit:   Cannot quit in here.  
+nosettle: Societies will not attempt to settle here.
+norepop:  Global random repops will skip over this area. 
+nolist:   This area will not show up in the mortals' area listings.
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key ROOM_FLAGS`
+Admin `
+Text inside:       Cannot see weather.  
+watery:       Need swim or UWB for this.  
+airy:         Need fly to go here.  
+fiery:        Burns you without prot from fire.
+earthy:       Need AFF_FOGGY (pass door) to go here. 
+noisy:        Yells don't go as far.  
+peaceful:     No fighting allowed here.  
+dark:         Need light to see here.  
+extramana:    Faster mana regen.  
+extraheal:    Faster hp regen.
+manadrain:    Mana is sapped away in here.  
+nomagic:      Cannot cast here.
+underground:  No weather.
+underwater:   You drown here under water.  
+notracks:     Tracks won't go through here.  
+noblood:      Blood trails aren't made here.
+easymove:     Fewer moves needed here (roads). 
+rough:        Harder to move through here (hills).  
+forest:       Gloomy, harder to move through.
+field:        Open, easier to move through.
+mountain:     You need mountain boots to pass through here: val tool v2 = 1
+snow:         Cold and you lose lots of moves here.  
+desert:       Hot and dry area.
+swamp:        Hot Watery Area.
+norecall:     Cannot recall (leave) with magic.
+nosummon:     Cannot draw people here w/magic.
+minerals:     Can be mined etc...wears out.   
+light:        There is light in here.
+astral:       Powerful things reside here.   
+nomap:        Room cannot be mapped.
+none:         You guessed it, nothing.
+
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key OBJ_FLAGS`
+Admin `
+Text Obj flags and mob flags are linked. Basically, some
+mob flags give mobs resistances, and some obj flags say those weapons
+can hit those mobs with the resistances.
+
+glow:           Can hit ghosts.  
+blessed:        Can hit demons. 
+hum:            Can hit undead.
+power:          Can hit dragons.  
+cursed:         Can hit angels. 
+water:          Can hit fire mobs.  
+fire:           Can hit water mobs.  
+air:            Can hit earth mobs.  
+earth:          Can hit air mobs.  
+two_handed:     Uses up two hands when wielded.
+noauction:      Cannot be auctioned.	 
+driveable:      Can move around in this like a boat. (dirs: newsud)
+nostore:        Cannot store this.
+magical:        Cannot be enchanted.
+nosacrifice:    Mortals cannot sacrifice this.	
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key MOB_FLAGS`
+Admin `
+Text Mob flags give resistances to things when people try to fight them.
+
+ghost:                  Need glowing weapon to hit.  
+demon:                  Need blessed weapon to hit.
+undead:                 Need glow/hum weapon to hit.  
+dragon:                 Need power weapon to hit.  
+angel:                  Need cursed weapon to hit.  
+fire:                   Need water weapon to hit.  
+water:                  Need fire weapon to hit.  
+earth:                  Need air weapon to hit.
+air:                    Need earth weapon to hit.  
+nomagic:                NO magic affects this.
+nohit:                  NO physical attacks can hit this.
+
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key HURT_FLAGS PROT_FLAGS`
+Admin `
+Text These flags are related in that if a spell is cast on you, and you are
+protected from all of the hurt_bits in that spell, it does not affect
+you. However, if the spell say blinds and curses, and you are
+protected from blind and not curse, you will still be affected by
+curse. You can access these flags by typing
+
+flag hurt <flagname>
+
+or
+
+flag prot <flagname>
+
+
+blind:                You cannot see. 
+curse:                You cannot recall.  
+sleep:                You cannot wake up.  
+fear:                 You cannot attack.  
+disease:              Reduced regen, take damage, and it spreads.
+wound:                Take lots of damage.
+raw:                  Takes more damage in combat.
+slow:                 Attacks less, more time for delayed things.
+numb:                 Tends to drop things.
+confuse:              About 1/8 of the commands entered fail.
+forget:               Tends to forget to do timed activities.
+befuddle:             Makes lots of casting mistakes.
+weak:                 Does less damage with any attack.
+paralyze:             Cannot do anything.
+air:                  Takes more damage from air spells.
+earth:                Takes more damage from earth spells.
+fire:                 Takes more damage from fire spells.
+water:                Takes more damage from water spells.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key FORGE`
+Admin `
+Text The forge command lets you create items out of chunks of minerals
+you can mine in certain locations in the world. It has been said
+that mining within the safety of your homelands will not garner
+any minerals, and that locations can be mined out.
+
+To forge equipment, you must follow several steps. You must
+first find a forge someplace in the world. Then, you must find
+a hammer and an anvil to use to forge the equipment. You must
+also get enough chunks of minerals to mine the equipment.
+
+The following types of minerals can be mined and turned into
+equipment:
+
+brass, copper, iron, steel, silver, gold, platinum, obsidian,
+mithril and adamantium.
+
+The more rare the mineral, the better the created equipment will be.
+
+You can forge the following types of items:
+
+anvil, hammer, helmet, mask, (breast) plate, vambraces, gauntlets,
+shield, sword, mace, dagger, belt, greaves, boots.
+
+Everything from helmet on will cost 8 chunks of the proper type to
+make, and your hammer and anvil must be at least as powerful as the
+type of mineral you are trying to forge into something.
+
+A hammer of a certain rank can be forged with a hammer and anvil of
+one rank lower quality.
+
+An anvil of a certain rank can be forged with a hammer of the same
+rank, and an anvil of one rank lower quality.
+
+When you forge a hammer or an anvil, you lose the old hammer or
+anvil. The cost of forging a hammer or anvil is 20 chunks.
+
+You need many guilds at low tiers to learn to forge. Basically,
+you need to have some magical knowledge, and knowledge of arms
+to succeed at it. However, your rank within the Tinker's guild
+will determine how powerful your items can be. The maximum rank of
+mineral you can forge into an item is the following:
+
+Tier 1: copper
+Tier 2: steel
+Tier 3: gold
+Tier 4: obsidian
+Tier 5: adamantium
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key RANDPOP RANDOM_RESETS`
+Admin `
+Text There are several random repops. 
+
+270 is weapons, give 1-2 pops at about 75 pct.
+
+271 is armors, give 3-5 pops at about 75 pct.
+
+272-276 are other armor pops cloth, chain etc...
+
+277 is gems, give 1 repop at about 5-10 pct.
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key AFF_FLAGS DET_FLAGS`
+Admin `
+Text The way this works is that the first few flags in the AFF category
+attempt to obscure you, and the ones in the DET category let you
+detect a person who is obscured.
+
+invis:                 Can't see you.  
+hidden:                Can't see you.  
+dark:                  No light in here, det = infrared.  
+chameleon:             Can't see you.  
+sneak:                 Can't hear you coming.
+foggy: Passdoor/Detect through fog.
+
+(End of obscurement flags. After this the det flags are useless.)
+
+sanct:             Protection from damage.  
+reflect:           Sends spells back at the caster..once. 
+protect:           Massive protection from damage.  
+flying:            Duh.  
+breathe_water:     Can breathe underwater. 
+regenerate:        Faster hp/mv restoration.  
+haste:             More attacks in combat.  
+blink:             Magically dodges combat attacks. (Det blink is cumul)  
+prot_align:        Reduced damage from opp align.
+
+
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key MAKE`
+Admin `
+Text The make command makes a thing with the number you specify.
+
+Syntax: 
+
+make <obj>
+
+or 
+
+make <number> <obj>
+
+The number can be between 1 and 100.
+
+The obj can be a vnum or it can be "this" to make whatever you're editing.
+
+
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key ACT_FLAGS`
+Admin `
+Text These flags basically tell something about how mobs act. There are two
+bitvectors atm, but more can be added if needed.
+
+ACT:
+
+aggressive:           Attacks things in the room.  
+fasthunt:             Hunts fast.
+nofight:              It will not fight.  
+banker:               You can bank here.  
+kill_opp:             Kills opp align things.  
+assistall:            Assists anything fighting players.  
+sentinel:             Will not wander.  
+angry:                Like aggressive, just not as bad.
+
+ACT2:
+
+thief:                Steals things from you.  
+loud:                 Dunno? Better yell?
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key PC_FLAGS CONFIG CONFIGURE`
+Admin These are flags only you can set.
+
+command:      (internal: typed a command)
+ holywalk:    Can walk anywhere.
+holylight:    Can see all.  
+holypeace:    Cannot fight here.  
+wizinvis:     Cannot be seen. 
+ wizquiet:    Cannot hear channels.
+
+These three have their own commands like freeze <playername>
+
+silence:      Cannot talk.  
+freeze:       Cannot do anything.  
+deny:         Cannot log in.
+
+
+`
+Text You can set the following flags by typing config <option>
+
+autoloot:      You loot corpses when you kill things.  
+autoexit:      You see exits as you walk around.  
+brief:         Turns off room descs.  
+autosac:       Sacrifices corpses after you kill things.  
+autogold:      Loots gold from corpses.  
+autosplit:     Splits money within your group.  
+tackle:        You can try to tackle, and are easier to tackle.  
+nospam:        Spammy combat messages off.  
+mapping:       Turn overhead mapping on and off. 
+assist:        You assist groupies when not pkilling.
+autoscan:      You automatically scan for opp align people nearby.
+ansi:          You see ANSI color in your messages.
+blank:         You get a blank line in front of your prompt.
+asciimap:      You see the overhead map using extended ascii symbols.
+number_dam:    You see numerical damage messages in combat.
+See help OFFENSIVE for fight configuration.
+
+Typing config without an argument will show you your current
+configuration.
+
+
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key SPELL_FLAGS`
+Admin `
+Text These are the flags you can set on spells:
+
+opp_align:    Only works on opp align.
+heals:        Heals damage.
+remove_bit:   Removes spell affects.
+pc_only:      Can only be cast on PC's.
+npc_only:     Can only be cast on NPC's.
+show_location: Locate person/object.
+transport:    Makes the spell do transport stuff see help sedit for more info.
+same_align:   Can only be cast on the same alignment.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key OFFENSIVE`
+Admin `
+Text Syntax offensive <percent>.
+ 
+Offensive if a percent where 0 offensive means you are very defensive
+and 100 offensive means you are very offensive oriented.  This means
+you will hit more, and do more damage, and be hit more if you have a
+high offensive, and will hit less often, and less hard, but will in
+turn be hit less hard if you have a low offensive.
+
+A high offensive also decreases your chance of fleeing.  
+
+`
+SeeAlso KICK FLEE RESCUE COMBAT`
+END_HELP
+
+HELP BLD
+Key VALUE VALUES`
+Admin `
+Text Ok, this is probably one of the most odd parts of this code. Values
+are larger pieces of data that can basically represent anything. This
+helpfile needs some work, as does editing values since I haven't made
+it terribly user friendly yet.
+
+The way to access them is to type
+
+val <valtype> <v<0-5>> <number> or val <valtype> word <string> or val
+<valtype> delete.
+
+
+You can use prefixes like
+
+
+v w v0 5000 would be the same as val wexit v0 5000.
+
+
+See help DIG for a shortcut.
+
+These are a list of the values:
+
+nexit, sexit, eexit, wexit, uexit, dexit, iexit, oexit.
+
+These are exits. The first 6 are regular exits from rooms to rooms.
+The iexit means a portal. Check out obj 252 for an example.  The oexit
+is a lid on a container, and doesn't really lead out.
+
+for exits: v0 = to_room_num, v1 = door_flags (see help door_flags), v2 =
+reset_door_flags, v3/v4 = curr/max str needed to break, v5 = trap, 
+v6 = key needed to unlock.  the word is the door name like gate, door, 
+lid, etc...
+
+You can get a list of all exits to/from the area you are currently
+in by typing exlist.
+
+
+Outer exits are for climbable things. There are different values for
+each so you can make an item which is climbable in several directions.
+
+nouter, souter, wouter, eouter, uouter, douter, oouter, iouter.
+
+These all work the same way, and atm v0 is just the room they move you
+to. The syntax for climb is climb <item> <dir>.
+
+weapon: v0 = min dam, v1 = max dam (NOT DICE!!!), v2 = type 0 = slash,
+1 = pier, 2 = conc, 3 = whip. v3 = number of (extra) attacks. v4 =
+number of poison shots left, v5 = poison number, word = attackname.
+v3 can be + or - to make faster/slower wpns. Do not use v4/v5 on
+wpns plz, since they are cheater. Feel free to make a few tough
+mobs with v4/v5 tho...since then they will get some nasty initial
+attacks in ;) 
+
+powershield: v1 = curr power, v2 = max power. Plz don't make these,
+	since they are cheater and will be used for spells only.
+
+gem: v0 = colors 1 = a, 2 = e, 4 = f, 8 = w, 16 = sp. v1/v2 = curr/max
+mana, v3 = level.
+
+armor: v0 = head, v1 = body, v2 = arms, v3 = legs armor.
+
+food: v0 = amt of hours, v2 = flags??? v3-v5 = spells food casts on
+you. Food = pills now.
+
+drink: v0 = current_drinks, v1 = max_drinks (unlim = 0), v2 =
+flags???, v3-v5 = spells it casts on you (potion = fountain = drink
+now)
+
+magic_item: v0: 1=scroll, 2=wand, 3=staff, v1/v2 = current/max charges
+v3-v6 = spells. Level is given by the level of the item.
+
+tool: v0 = See help TOOLS. v2 = vehicle types, 
+      v2 = 1 = mountain boots (worn on feet) atm.
+
+raw: v0 = type (wood/mineral/herb), v1 = rank (copper/adamantium), v2
+= number???
+
+ammo: v0 = mindam, v1 = maxdam, v2 = curr_shots, v3 = max_shots, v4 =
+type: must match ranged
+
+ranged: v0 = speed, v1 = range, v2 = number of shots fired at once, v3
+= multiplier (10 = normal dam), v4 = type: must match ammo
+
+society: THESE ARE USED INTERNALLY!! DO NOT CREATE THEM ON THINGS.
+	 THIS HELPFILE IS HERE ONLY SO THAT YOU KNOW WHAT THE VALUES
+	 MEAN IF YOU HAPPEN TO EDIT OR STAT A SOCIETY MOB!!!! 
+	 v0 = society number, v1 = caste number, v2 = caste flags,
+	 v3 = state (which raw looking for, what kind of guard/hunt)
+	 v4 = raid number (for raiders.) v5 = capturing society	(prisoners)   
+
+build: THESE ARE USED INTERNALLY LIKE SOCIETIES DO NOT CREATE THEM!
+       v0 = society owning this v1 = build_tier v2 = rank witin tier
+       v3 = building type v4 = how burnt this room is v6 = how many
+       hours this room has been abandoned.
+
+shop: v0/v1 = open/close hour, v2 = profit pct (100 = normal), v3 =
+hrs it makes something, v4 = vnum made, v5 = number in inven before
+price decreases
+
+shop2: leave all of these at 0. This allows players to own/run
+       shops. v0 = the cost to buy the shop, v1 = the number of
+       previous owners, word = name of owner. DO NOT USE THIS
+       UNLESS YOU HAVE THE PREMISSION OF LONATH. THIS WILL BE VERY
+       RARE WITHIN THE GAME SINCE IT IS PROBABLY REALLY CHEATER!!!!
+
+teacher: v0-v5 = vnums of spells this teaches.
+teach1:  v0-v5 = more spells taught
+teach2:  v0-v5 = more stuff taught
+
+money: v0 = copper, v1 = silver, v2 = gold, v3 = plat, v4 = obsid. Use
+this to set money on mobs.
+
+guard: v0 = flags (kind of guarding), v1-v3 = vnums of things guarded,
+v4-v5 clan/sect type guarded and clan number guarded. The word has a
+list of characters from newsud and these tell which direction(s) it
+guards.
+
+Here are the flags: 
+
+guard_door = 1, guard_door_align = 2, guard_door_pc = 4,
+guard_door_npc = 8, guard_door_society = 16,
+guard_vs_above = 32 (as opposed to guarding below a number)
+
+There is an exception to this. If v4 >= 10, it is not a clan/sect guard.
+If v4 >= 10, and v5 > 0, then the thing acts as a guard vs levels
+or hps or things like that. This is how that guard_vs_above/vs below
+thing works. Normally, you have to have at least v5 amount of whatever
+v4 represents, but if you guard vs above, then you have to have less
+than that amount.
+
+Here are the types of v4's you can have:
+
+v4 = 10, guard vs level.
+v4 = 11, guard vs remorts.
+v4 = 12, guard vs mana.
+v4 = 13, guard vs max mana.
+v4 = 14, guard vs hp.
+v4 = 15, guard vs max hp.
+v4 = 16, guard vs bank account.
+v4 = 40 to 40 + stat max (stats in order = str int wis dex con luc),  
+         guard vs stat.
+v4 = 60 to 60 + guild max (guilds in order = war wiz hea thi ran tin alch 
+         kni myst) guard vs that guild tier (good for making guild houses).
+
+So, for example v4 = 10 and v5 = 50 means you must be at least level
+50 to pass this item in a direction it guards. If guard from above
+is set, you have to be below level 50 to pass.
+
+
+
+cast: v0-v6 casts these spells occasionally. If this is an item, it
+casts on who is wearing it. If it is a mob, it casts attack spells on
+what it's fighting, and healing spells on people of the same align in
+the room. If it is a room, it casts healing spells on those within the
+room of the same align, and attack spells on those of a different
+align. This supersedes all the stupid ROOM_GASTRAP flags.
+
+powershield: v1 = current_power, v2 = max_power, absorbs damage before
+being drained.
+
+map: v0 this is the room where the map is drawn...I am too lazy to
+make maps by hand, so the computer does it automatically using the
+same code as the "map" command. If people spam this and cause
+bandwidth problems, I will just make maps one use or only a few uses.
+
+guild: These are guildmasters. v0 is the type of guild.
+To see what guilds go with what numbers, type guild 
+and the game will show you a list of all the guilds and what
+numbers go with them. So, type v0 3 to make it a healer's guildmaster.
+v1 = min tier taught, v2 = max tier taught. This way, you can set up
+quests for each tier. v2 = 0 means the guildmaster teaches all tiers.
+
+randpop: These are used to make randomly popping items. It requires
+you to make a block of items so that the first K are the worst, followed
+by K better ones, and K even better ones etc. v0 = the vnum where
+you start popping stuff v1 = number of elements per tier, v2 = number
+of tiers. If v3 > 0, then you advance a tier if nr(1,v3) < level of
+thing yo are resetting, otherwise if nr(1,v4) <= v5 you advance a tier.
+Then, it attempts to load the item you tell it to. If the value v6 
+is nonzero, then the way it works is that you have v1 types of items
+in v2 tiers, but the types of items are next to each other, as the
+gems are...so you get the 4 diamonds first, and you can do a randpop
+for gems in such a way that the first tier is the lowest level gems,
+and the second is the next higher level etc...
+
+madeof: These will be used someday if I ever get the society needs
+code working. It will be a process in v0 followed by several
+ingredients that are needed to make this item.
+
+replaceby: If this thing times out, then when it gets destroyed,
+it gets replaced by whatever thing is picked. The form for telling
+what gets created in its place is the same as the randpop code.
+
+craft: Used internally to keep track of crafted items.
+     v0 = base_proto vnum -- raw materials used for this.
+     v1 = prototype vnum -- what general item generates items in this
+          class.
+     v2 = made from proto, what is the prototype for the item that 
+          makes this thing.
+
+daily_cycle: Used internally to make mobs walk from their home to
+     work and back again during the day.
+
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key TOOLS TOOL`
+Admin `
+Text Tools are needed by mobs so they can craft things and fulfill the
+needs that they have.
+
+Here are the current tools. Look for TOOL_XXXX in serv.h to see
+the numbers involved here.
+
+lockpicks:          1
+hammer:             2
+anvil:              3
+forge:              4
+oven:               5
+needle:             6
+saw:                7
+knife:              8
+plane:              9
+loom:              10
+grinder:           11
+jar:               12
+plate:             13
+bowl:              14
+pottery_wheel:     15
+spinning_wheel:    16
+
+
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key TSET`
+Admin `
+Text This lets you set the stats on a specific thing (room obj mob player).
+The syntax is
+
+tset <thingname> <location> <value>
+
+Location uses the same code found in help VAR_REP cuz I am too
+lazy to code the same stuff over and over 10 different ways for
+10 different things.
+
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key DIG`
+Admin `
+Text Dig is a shortcut to the values used when making rooms,
+since most values are exits. To use it, you must be in a room. You can
+type
+
+e dig <number>,
+
+which will do val eexit v0 <number> and find out if that other
+numbered room exists, and if it does, it makes a val wexit v0 <your
+current number> in there. If not, it creates the room and does the
+wexit. In either case, you end up in the new room. Dig only works if
+the target and destination are from the same area.
+
+Also, if you just type e dig, the game will look for the next unused
+room IN THE SAME AREA!!! and it will create it and it will set up the
+exits and it will send you to the next room. This means you can have
+aliases for fast building.
+
+do aliases like
+
+alias ee e dig @1 alias ww w dig @1 alias ss s dig @1
+
+etc... and you can build fast, since if you want to make a trail that
+goes e e n n e n e e from where you are, you just type ee ee nn nn ee
+nn ee ee and it makes the whole thing. You can also use the commands
+like e d and w d and so forth which does the same things. 
+
+
+You can get a list of all exits to/from the area you are currently in
+by typing exlist.
+
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key RESET RESETS`
+Admin `
+Text Typing reset loc vnum will give you all the resets for the thing
+with that vnum.
+
+
+Since everything is now a thing, resets have been redone. They are
+VERY recursive so you need to be careful. They come in a few
+varieties.
+
+First, there are resets on a thing which is not an area and not a
+room.  These resets get called every time that thing is copied. For
+example, if you had a guard numbered 32543 and you wanted to load 5
+pieces of armor on it, you could put the resets on it, and every time
+that guard number 32543 is created, it resets those armors on it. (And
+if those armors contained other things then with each instance of
+making a new thing, the inner objects are also cloned...this is why it
+is so dangerous and powerful.  $9Do not mess around with this.$7 I will
+delete you real fast if you mess around with this to see "how many
+things" you can make up with this.  I refuse to put checks on this
+because I demand that the builders here not be morons.
+
+
+Now, this is more powerful since you can put one reset in a room
+
+reset 1 32543 100 10 1
+
+and it will reset 10 copies of that guard, all equipped.
+
+
+The syntax is reset <number> delete
+
+or
+
+reset <number> <thing_number> <percent> <max_number> <nest>.
+
+
+
+Resets in rooms reset things in that room up to the max number allowed
+in
+ that room.
+
+Note: these max_in_world (miw) from EDIT are HARD CODED!! You cannot
+load more copies of something even with the make command once you have
+ gone beyond the miw. Also, as of now, limited does not work per
+se. It does not count things on pc's stored in pfiles.
+
+
+Resets in _AREAS_ take the reset thing and put it randomly into one of
+the rooms in that area. If you wish to restrict the placement to a
+room with a certain "sector type" like water, underground, inside,
+easymove, forest, rough, airy, fiery etc...you must set that room flag
+on the thing you want to reset too. If you have several room flags in
+the room, and several on the mob... (out of the previous list), it
+will place that mob only in rooms of that type.
+
+If you put a reset into start.are, then it will repop randomly
+in a random area (subject to room types), so you can do
+worldwide resets if you wish.
+
+Area resets also limit the number of things by the number in that area.
+Therefore, if you are making a forest and you don't feel like making
+wolves or deer or something, you can just pick a mob from another
+area and reset several copies of it in your area.
+
+Also, note that there are random repop items. When these are reset,
+they don't appear themselves. They tell the game to load a certain
+thing with a different number. They are highly dependent on how
+the things you make are ordered within your area. A few examples
+of this can be found by looking at the standard armors, weapons and
+gems. They have their randpop items (tfind pop) and these items
+repop random items based on the level of the mob they are popping on.
+The randpop value (in edit use val rand...) has several numbers.
+v0 is the vnum of the first thing in the list of randpop things,
+v1 is the number of elements in each "tier" of the randomly
+popping items, v2 is the number of tiers. If v3 is nonzero, then you
+advance a tier when a random integer from 1 to this number is no more
+than the level of the thing you are popping in. If v4 and v5 are nonzero,
+then the rank of the item advances whenever nr(1,v4) < v5. If the word
+is "interlaced" then the way the items are set up is different. In
+the non-interlaced setup, all the crap items come first, then
+the better ones etc... like armors and weapons. If you make it so
+that all tiers of a specific type of item come first, then for
+a different item come second...like gems, you type 
+val rand word interlaced to set this up. 
+
+If you just have N items you want to pop one of randomly,
+make v0 the start number, v1 the number of items, v2 = v3 = v4 = v5 = 0.
+This might be useful if you have say 50 kinds of herbs and you want to
+randomly pop them, but don't feel like making resets for all of them.
+
+If you have several ranks of one specific item you want to pop,
+make v0 the start number, v1 = 1, v2 = num_ranks, and set up v3,
+v4, v5 however you need it to work. This is useful for things like
+mining where people pop random chunks of metal...that way the 
+crap metals are more common than the better ones.
+
+Again, these are all recursive...so be careful please.
+
+
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key MANA MANATYPES MANA_TYPES GEM GEMS`
+Admin `
+Text Air, Earth, Fire, Water, Spirit. You need these to cast spells.
+
+The mana function shows you your current mana and level in each of the
+spheres of magic.
+
+Gems work in the following way. For each color, your max casting level
+is your natural casting level plus the HIGHEST gem level which is of
+that color. $9Gem casting level is capped at TWICE your natural
+level!$7
+
+Your mana for that color is your natural mana plus ALL mana from ANY
+gem which is of that color.
+
+So, if you have nat level of 25 and 50 nat mana. You wield a level 20
+fire gem with 60 mana, and a level 10 fire gem with 30 mana.
+
+Your fire mana level is then 25 + 20 (max gem level, up to twice nat
+level).
+
+Your fire mana total is 50 + 60 + 30 = 140.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key SILENCE FREEZE DENY`
+Admin `
+Text Silence makes a person unable to talk.
+
+Freeze makes a person unable to do anything.
+
+Deny makes a person unable to log in.
+
+Please use these sparingly. Don't be a loser control freak who
+punishes people for disagreeing or arguing with you. You are not a
+god. You are a person, and the players are people, and this is a
+game. If you can't separate it from real life, you need help.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key RULES2`
+Admin `
+Text Ok, let's go over these rules in a little more detail.
+
+1. This one is just here so that if it becomes necessary, I can do
+what I must for the game if it seems like it needs it.
+
+$9I may hold each member of a clan responsible for the actions of
+an individual clan member if the clan appeared to get some
+benefit from that individuals' actions.$7
+
+$9Don't try to lawyer me or BS me. Seriously, I've seen so much
+shit that if I get a bad feeling about what you're saying, I'll 
+just stop you right there and assume that you did something wrong.$7
+
+2. This one is a biggie for me. No multiplaying AT ALL.  This means no
+looking over someone else's shoulder, no having access to your
+brother/roomate's password to swap eq or pop that big mob, no
+characters on opposite alignments, and no "storage characters" which
+are just logged on for short periods of time and kept in safe places
+to store good eq or anything else you might think of to get around
+this rule. Storage characters are not allowed even if they are
+played by your roomate who doesn't play but who logs on for you just
+to deal with eq. I am really mean and very willing to delete people
+who play games with this rule or who try to lawyer me into believing
+their BS that they weren't multiplaying.
+
+Don't believe I'm serious about this?
+
+I deleted Devlin for multiplaying Mig because 6 months previously, at 
+5am Devjr logged for 5 minutes from the same site where Mig played.
+
+I deleted a whole clan for having a character that was "technically" 
+played by someone, but in reality was passed around to almost everyone 
+in the clan for storage of forging equipment.
+
+Ask Eertu and Gausser and the clan of Tards :P about that. If you and
+a bunch of people play from the same site or house, play on the same
+alignment. I will not do alignment changes, and if you can't get it
+together enough to all move to the same alignment when asked, you will
+all be deleted. That's why the rule is stated the way it is. If you
+somehow access or look at the output for more than one character, or
+if you ever control more than one character, then you're cheating.
+
+3. Of course don't try to crash the game, and if you do...explain how
+ you did it so it can be fixed. If you find something that is giving
+ waaay too much reward for too little effort, please tell
+me. Otherwise, it gets everyone else pissed off. Also, if you ever
+tell me there is a bug, and try to "hold out" or ask for a reward, or
+you tell me someone told you a bug but they don't want to tell who it
+is...  Delete and siteban. Sorry, but I don't like blackmail.
+
+
+The game is set up as a multi-align pkill MUD. This means you should
+not know who is on the other side (unless you use in-game methods),
+nor should you know what they are doing. Don't share information
+across alignments with other electronic methods of passing information
+outside of the game e.g. AIM, ICQ, email, IRC, other MUDs, or any
+other kind of outside communications. It just makes it lame as hell
+for everyone.
+
+These are also things not to do:
+
+Swapping eq, spam dying, and excessive same-side pkill are out, since
+they hurt the balance between the sides. Don't ever swap eq, and don't
+leave the portal room too hurt to get into a pkill fight until you
+have a bunch of your hps. I might code is so you need to heal halfway
+or something to leave the portal, although I do know that sometimes
+during raids you have to die a few times to kill some highbee with a
+l33t set who is almost dead.  Wrt same-side pkill, I am more strict
+about this when highbees attack and kill newbies they don't like. Try
+ignore first. If you think the newbie is a spy, tell the admins first
+before you go and kill that person.
+
+
+Also, I don't usually hassle people about what they say, but I don't
+like too much profanity and abusive language. I don't think I have
+ever deleted anyone for this, but I may have silenced people once in a
+while when they got out of hand.
+
+
+And finally, if you manage to find some loophole which makes a lot of
+people pissed, and I feel that it is harmful to the game, you may be
+punished retroactively, and changes made to code out that activity, or
+to just make it forbidden...and add it to the rules.  Also, rewards
+you have gained by doing that may be removed. I know this paragraph
+sucks, and I don't want to ever have to do this, but it may be a
+possibility...I just don't know.
+
+see help GUIDELINES
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key RULE RULES POLICY POLICIES`
+Admin Don't mess with morts or interfere unless it really seems necessary.
+You cannot have a mort, sorry.
+
+`
+Text These are the rules. Punishment usually means deletion, or a siteban.
+
+1. Admin decisions are final, and any aspect of the game can be changed
+   at any time, and you don't have a right to be here.
+
+2. No player shall ever use or have access to more than one character,
+   and no character shall ever be used or be able to be accessed
+   by more than one player. This includes no selling/swapping/giving
+   away of characters. 
+
+3. Do not interfere with the game. This includes helping another
+   alignment in any way, using crash bugs, or other bugs that
+   seem to give too much reward for too little effort, or excessive
+   same-side or clan pkilling. This also includes too much foul
+   or offensive (as deemed by me) language. 
+
+
+`
+SeeAlso RULES2 GUIDELINES`
+END_HELP
+
+HELP MORT
+Key GUIDELINES`
+Admin Please try to follow these guidelines. Don't interfere
+with morts plz.  
+`
+Text Ok, the rules suck. I sound like a hardass. If you ask people around
+tho, I really don't enforce rules too often, nor do I interfere much.
+I have been doing this for a few years now, so the "novelty" of being
+a k3wl g0d has worn off. I also have learned to back off when people
+ask me to change things, and usually if you ask me to change
+something, I will say no. This isn't to be a dick, it's mainly because
+my reaction is not to mess with things. 
+
+I don't like making changes to characters. I don't expect I will ever
+do a reimburse, even if it's for some bug that makes you lose a set.
+I may, if say, an admin deletes you for no good reason, but that's
+about it. $9Note that this will NEVER apply to permadeath
+characters.$7 I also won't do things like guild/race/align changes.  I
+also won't be doing retirements, since it gets to be a pain, and
+people always want their chars back and there's a lot of switching and
+bitching and whining. Basically, if I do them for one person, I have
+to do them for all, and I would have to do them whenever people want
+them.
+
+Also, I do not automatically side with the admins. I have seen so many
+stupid, powerhungry, a-hole admins that I will believe the players if
+they seem to have a credible story. However, if you are an annoying
+brat player, and I get to dislike you, I will tend to discount your
+complaints. It sucks, but that's the way it is, and you now have fair
+warning. Finally, I do have the final say in these things, so if
+some admin is messing with you, please email me at
+johna@wam.umd.edu. Of course, if your problem is with me...well that's
+not good, but at least give it a shot. However, if it is a rule
+breaking problem, and I caught you, you have almost no chance of
+appealing. I have had soo many people lie to me before I wore them
+down, with evidence to the point that they admitted their infraction
+(usually some form of multiplaying), that I have a really sensitive
+nose for BS, (Read the stuff on lawyerly reasoning above), and
+I don't put up with it.
+
+Ok, and after all that, it is real easy to stay on my good side.
+Just play your character, and only your character, help out your
+alignment, and make the other alignment miserable by pkilling them,
+and have fun!
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key COMMANDS COMMAND`
+Admin `
+Text This gives a list of all the commands you can use. They should have
+helpfiles.  
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key ADVANCE`
+Admin `
+Text Advance <player> <level> changes the level of a player.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key ATTRIBUTES`
+Admin `
+Text Gives you a list of your stats. You don't see the numbers until level
+15. 
+ `
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key AFFECTS AFF AFFECT`
+Admin `
+Text Gives you a list of all the affects and flags set on you.  
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key ARMOR`
+Admin `
+Text This gives you a list of how well your various body parts are armored.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key BALANCE STEADINESS IMMOVABLE BLOCK`
+Admin `
+Text Balance, steadiness, and immovable give you chances of dodging kicks,
+bashes, and tackles. They individually don't do much, but their
+chances do add up.
+
+Block gives a very good chance of stopping a kick.  `
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key ACCOUNT STORE UNSTORE WITHDRAW DEPOSIT BANK BANKING BANKS`
+Admin To make a bank, just type flag act banker in edit, and reset this
+thing in a room.
+
+`
+Text You must be in a room with a banker to use these functions.
+
+Account tells you how many coins you have in the bank.
+
+Withdraw <amount/all> removes money from the bank.
+
+Deposit <amount/all> puts money into the bank.
+
+Store: lists the items you have in storage
+
+Store <item> tells you how much it will cost to store
+
+Store <item> yes actually stores the item.
+
+Unstore <item/number> yes retrieves an item from the bank.  `
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SHOP SHOPS BUY SELL APPRAISE LIST`
+Admin To make shops, you edit and use val shop.  v0 = hour it opens, v1 =
+hour it closes (or if v0 > v1), it's open from v1 until v0 the next
+day... v2 = profit percent, 100 = normal, lower means shop buys/sells
+for less. v3 = how often it makes something, v4 = what it makes, v5 =
+how many of an item it has to have before it decreases in how much it
+pays for more of the same kind. The word tells what kinds of items the
+shop accepts... e.g. weapon, gem, armor. And if an item has any of
+those types, it can be bought/sold there.
+
+`
+Text List: gives a list of items for sale here.
+
+Buy <item> lets you buy an item for sale in the shop.
+
+Sell <item> lets you sell an item at the shop.
+
+Appraise <item> tells you how much something can be sold for, if this
+shop will take it.
+
+Resize <item> will resize a piece of armor so you can wear it. 
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key COMBAT FIGHTING`
+Admin `
+Text These are all of the commands you are likely to use in combat.
+
+One of my philosophies is to avoid things where there are 10 kinds of
+"kick" or "punch" skills which basically do the same thing, but which
+are given to different classes so "gee we now have 10 skills instead
+of one." At any rate, each of these commands does something different.
+
+`
+SeeAlso KILL BASH KICK GROUNDFIGHT FLURRY FLEE RESCUE OFFENSIVE`
+END_HELP
+
+HELP MORT
+Key KILL`
+Admin `
+Text Kill will attempt to start combat with something. Once this
+happens, you will continue to fight each other until one of you is
+dead, or flees.  
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key FLEE`
+Admin `
+Text This command lets you attempt to stand up from a groundfight, or to
+flee.  
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key RESCUE`
+Admin `
+Text Rescue <person who is fighting>
+
+This command lets you attempt to rescue someone who is fighting, and
+make their attacker attack you instead.  
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key GUARD`
+Admin `
+Text Guard <person>
+
+When you are guarding someone, you attempt periodically to make any
+attackers they have attack you instead. This becomes less effective
+the more people who are attacking you already.  `
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key BASH SMASH CRUSH`
+Admin `
+Text Bash will make your opponent unable to move or attack
+for a few combat rounds. This is powerful when combined with spells,
+since spells take time to cast, and if you are hit during the casting,
+you lose your concentration and must start over. A good alias is alias
+<something> bash @1*cast 'some attack spell' @1
+
+This way, you bash it, and then you immediately cast at it.
+
+Smash is a more powerful version of bash, and it has a chance of
+keeping your opponent down longer, and of making your wait time even
+less. Smash also does a little bit of damage. However, you still use
+the command "bash" to use smash. Crush another level of improvement
+over bash and smash.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key KICK 'MULTI KICK' 'ENHANCED KICK'`
+Admin `
+Text Kick is a damage skill, and it ignores armor and other protective
+spells, but not powershields, so it is very useful vs powerful armored
+opponents.
+
+Multi kick is automatic once practiced, and it attempts to send more
+kicks flying toward your opponent.
+
+Enhanced kick gives you a better chance to hit, and it lets you
+do more damage.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'CRITICAL HIT'`
+Admin `
+Text Gives a small chance of making any combat hit do much more damage.  
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key FLURRY RAVAGE`
+Admin `
+Text Flurry makes you open a rapid, wild series of attacks. It also drains 
+some of your stamina.
+
+Ravage is a more powerful version of flurry in which you can
+make yourself disappear, an reappear behind your opponent. You do
+double damage, and they cannot dodge, parry, shield block, or blink
+away from your attack. This is automatic once you have practiced it.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key PRACTICE NOLEARN`
+Admin Note that you can set trainers using 3 values teacher0,
+teacher1, and teacher2. You can also set objects that can
+be picked up to teach..(books), and they set the vict to
+the min prac pct where they can learn more. You can also
+set rooms to teach to avoid practitioners altogether.
+`
+Text To learn your spells and skills, you must find a trainer
+and type practice. Some books let you use them to practice,
+but they will disappear after you use them. Also, some
+locations are imbued with magical energy and can themselves
+teach you new skills.
+
+Syntax: practice
+
+Practice without any arguments lists all of the things you
+know.
+
+practice <spellname>
+
+lets you practice a specific spell or skill.
+
+Once you have practiced something, it will improve with use.
+See help Improve for information on this.
+
+$9Most spells cannot be learned in this way. You must use the
+prerequisites for a spell a great deal and eventually you will
+be automatically granted the spell assuming that you meet the
+level and guild and max skill/spell and stat requirements.$7
+
+Since you automatically learn subsequent skills by learning current
+ones, and since you have a limited number of skill/spell slots,
+you can set spells to be unlearnable by typing 
+
+nolearn <spellname>
+
+This will set a spell as unlearnable and you won't try to learn
+it. Typing it again makes it available to learn. Once you have
+learned a spell, nolearning the spell does nothing.
+
+You can also use this to target your learns by nolearning all
+spells after a certain on except for one which will target
+your learns onto that particular spell. Then you can switch
+to another spell and so forth if you wish.
+
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key TWHERE`
+Admin `
+Text This command lets you find all instances of a thing
+which are in the game (not the prototypes for mobs and objs things.
+
+Typing twhere prisoner or twhere kidnapped will give a list of all
+things that are currently prisoners.
+
+
+syntax: twhere <name> 
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key TFIND`
+Admin Find prototypes...
+
+`
+Text This command lets you find prototypes of a certain kind.
+
+You can enter several arguments.
+
+mob -- finds things that can move or fight.  
+obj -- finds things that cannot move or fight.  
+room -- finds things that are rooms.  
+area -- If you are in a room or area, it restricts it to this area.
+nodesc -- find things without descriptions
+noval -- don't search for values -- like guard
+<valname> -- finds things which have values of this kind.  
+<number> -- the first number is the lower vnum range, second is upper.  
+<name> -- it searches for things with this specific name.
+
+You can put arguments together to find say objs named something, or
+mobs between certain numbers named something, or objs with certain
+values.  
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key MAGIC`
+Admin `
+Text The magic system works whereby there are spells you can cast (slist spells), and also poisons and traps you can coat on weapons or place in rooms, on doors etc...which are essentially their own special spells that you can't cast directly. See help gems for how the mana system works.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'DETECT INVISIBLE' INVISIBILITY INVISIBLE`
+Admin `
+Text The invisibility spell makes you impossible to see unless the viewer
+has the ability to detect invisible, either from natural racial
+affects, or from the spell.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'DETECT HIDDEN' HIDE`
+Admin `
+Text The hide command allows you to try to hide in a room for a while.
+If you cast the detect hidden spell, you will be able to
+see hidden people for a short time.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'MAGIC MISSILE'`
+Admin `
+Text The magic missile spell is the weakest magic attack spell. It
+does very little damage.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'MINOR GUARDING'`
+Admin `
+Text Minor guarding is a weak defensive spell that gives you a little
+bit of armor.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SCORCH`
+Admin `
+Text This is a minor fire attack spell.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key ICICLE`
+Admin `
+Text This is a minor water/ice attack spell.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'HEAL LIGHT'`
+Admin `
+Text This is a minor healing spell. It only restores health.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SHIELDING`
+Admin `
+Text This spell will place a small shield around you, deflecting
+a little bit of melee damage.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key PEBBLE`
+Admin `
+Text This spell sends a small pebble flying straight toward your
+victim's body.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key PUFF`
+Admin `
+Text This spell causes a minor puff of air to smack your opponent.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key REFRESH`
+Admin `
+Text This spell restores a small amount of your movement points
+(stamina).
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'MAJOR GUARDING'`
+Admin `
+Text This is a spell of middling power that uses magic to absorb
+a small amount of melee damage.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'HEAL SERIOUS'`
+Admin `
+Text This is a minor healing spell, which is only slightly more powerful
+than heal light.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'BURNING HANDS'`
+Admin `
+Text Using this incantation, you reach out with fiery hands and grab
+your enemy, scorching him.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key BLINK`
+Admin `
+Text This is not a real spell. When you learn it, you automatically
+attempt to evade melee hits using magic.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key INFRAVISION`
+Admin `
+Text This spell lets you see in the dark without a light source.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key ROCK`
+Admin `
+Text This spell conjures up a small rock and sends it flying toward
+your enemy.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'LAVA STREAM'`
+Admin `
+Text Invoking this spell causes a spout of lava to shoot from your
+fingers, scorching your opponent.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'GUST OF WIND'`
+Admin `
+Text This spell causes a blast of wind to slam into your opponent.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'ICY GRIP'`
+Admin `
+Text This incantation allows you to encase your hands in icy cold
+for long enough to reach out and touch your opponent.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key ZAP`
+Admin `
+Text This spell sends a small shock out to jolt your enemy.
+
+This is also the command to use a wand.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key BRANDISH RECITE`
+Admin `
+Text Brandish is the command to use a staff, and recite is the command
+you use to use a scroll.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key WIZLOCK`
+Admin `
+Text This command lets you wizlock/unwizlock the game.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'NOXIOUS CLOUD'`
+Admin `
+Text This surrounds your opponent with a small cloud of poisonous
+gas.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'ACID ARROW'`
+Admin `
+Text This spell sends a small acidic arrow shooting toward your 
+opponent.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'SHELL OF MIGHT'`
+Admin `
+Text This is a fairly powerful defensive spell which surrounds
+you in a shell of magical energy that helps to dissipate
+combat attacks.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'HEAL CRITICAL'`
+Admin `
+Text This is a healing spell of middling power.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'FIERY FIST'`
+Admin `
+Text This spell conjures a fist of pure fire which strikes your
+enemy with a powerful blow.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key WINDBLAST`
+Admin `
+Text This spell causes a blast of air to slam into your enemy.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'LIGHTNING BOLT'`
+Admin `
+Text This spell sends a bolt of pure energy hurtling toward your
+opponent.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SPIKE`
+Admin `
+Text This spell creates a spike of granite to appear just long
+enough to be sent out to impale your enemy.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'COLD RAY'`
+Admin `
+Text This spell sends a beam of pure cold out to strike your 
+enemy.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'LIQUID LEAD'`
+Admin `
+Text This spell sends a blast of molten lead toward your opponent.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'DECAY CLOUD'`
+Admin `
+Text This spell surrounds your opponent in a stinking cloud of 
+death and decay.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key HEALING`
+Admin `
+Text This is a fairly powerful healing spell.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key REJUVENATE`
+Admin `
+Text This is a more powerful version of refresh. It restores your
+movement points.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'FLAME RAY'`
+Admin `
+Text This spell sends a fan of fire out from your hands to
+strike your opponent.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'ACID BOLT'`
+Admin `
+Text This sends a larger arrow of acid toward your opponent.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key STONESKIN`
+Admin `
+Text This is a powerful defensive spell which changes the very
+makeup of your skin, causing it to deflect some blows.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key GALE`
+Admin `
+Text This sends a massive blast of air hurtling toward your 
+opponent, causing major damage from the force of the
+blow.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'ICY BLAST'`
+Admin `
+Text This spell sends a blast of pure cold right at your 
+opponent.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key PELT`
+Admin `
+Text This spell pelts your opponent with a shower of rocks
+and pebbles of various sizes.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SANCTUARY`
+Admin `
+Text This spell surrounds you in a field of magical energy which
+absorbs much of the damage opponents try to inflict on you.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'MAGMA BLAST'`
+Admin `
+Text This spell sends a giant sphere of magma at your enemy,
+causing massive burn and concussion damage.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'BALL LIGHTNING'`
+Admin `
+Text This spell causes nodes of power to appear all around
+your enemy, pelting him with multiple simultaneous bolts
+of energy.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key PHASE`
+Admin `
+Text This is a more powerful version of blink. It is not a spell,
+but it works in conjunction with blink to use your mystical
+training to help you avoid combat hits.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'ACID SPRAY'`
+Admin `
+Text This spell showers your opponent in a hail of acid.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'BLACK CLOUD'`
+Admin `
+Text This surrounds your opponent in a cloud of complete 
+blackness and death.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key FIREBALL`
+Admin `
+Text This spell sends a ball of pure fire streaking toward your
+enemy.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'HEAL MAJOR'`
+Admin `
+Text This is a powerful healing spell.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key WARDING`
+Admin `
+Text This is a powerful spell which helps you to absorb attacks.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key TORNADO`
+Admin `
+Text This surrounds your victim in a swirling column of air
+and debris, pelting him repeatedly.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'FROST CONE'`
+Admin `
+Text This spell causes a cone of pure cold to leap from your
+hand, surrounding your opponent in a disk of cold.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'LIGHTNING BLAST'`
+Admin `
+Text This spell sends a very powerful bolt of energy toward
+your opponent.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key BOULDER`
+Admin `
+Text This spell conjures a boulder which drops on your enemy's
+head.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'DETECT CHAMELEON'`
+Admin `
+Text This spell lets you see people who have blended into the
+environment.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'ACIDIC STREAM'`
+Admin `
+Text This spell sends a stream of deadly acid out, striking
+your enemy.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'SCREAMING CLOUD'`
+Admin `
+Text This cloud surrounds your enemy with the voices of the dead.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key IMMERSION`
+Admin `
+Text This spell conjures a column of fire which immerses your
+enemy in a bath of plasma and fire.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key PURIFICATION`
+Admin `
+Text This spell heals, and also removes some maladies.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key ICESTORM`
+Admin `
+Text This spell engulfs your enemy in a storm of freezing air
+and flying icicles, freezing him, and pelting him repeatedly.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key FLAMESTRIKE`
+Admin `
+Text This spell knocks your opponent backwards with a blast of pure 
+fire.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'HANDS OF WIND'`
+Admin `
+Text This spell crushes your opponent between two opposing
+walls of air.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SHARDS`
+Admin `
+Text This spell creates a flurry of sharp rocks and crystals
+which stream toward your opponent, cutting him repeatedly.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'ACID BLAST'`
+Admin `
+Text This spell creates a giant spike of acid, which rams
+into your opponent.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'DEATH CLOUD'`
+Admin `
+Text This spell surrounds your victim with a cloud that drains the
+very life out of him.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'ELECTRIC STORM'`
+Admin `
+Text This spell creates a web of interlocking energy nodes which
+all lash out at your enemy.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'PLASMA WAVE'`
+Admin `
+Text This spell sends a wall of plasma into your opponent.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key AVALANCHE`
+Admin `
+Text This spell drops a mound of snow, ice and debris on top
+of your enemy.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'DIVINE HEALING'`
+Admin `
+Text This power healing spell restores health, stamina, and cures
+several maladies.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key INFERNO`
+Admin `
+Text This engulfs your opponent in a sphere of pure fire.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key HURRICANE`
+Admin `
+Text This spell sends a shockwave of wind hurtling toward your
+opponent.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'ZANTHARS KNIVES'`
+Admin `
+Text This spell creates a swirling field of knives around your
+opponent, striking him repeatedly.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'HAMMER OF HELL'`
+Admin `
+Text This spell causes a demonic hammer to appear and smite
+your enemy.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key ANNIHILATE`
+Admin `
+Text This spell uses negative energy to try to destroy the very
+matter of your opponent.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'CREEPING DEATH'`
+Admin `
+Text Heh heh heh.
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key WIZHELP WIZ IMM IMMHELP`
+Admin `
+Text Ok, there are a bunch of commands that you can use.
+You should look at their helpfiles for more information.
+
+First off, there are no force and slay commands. If they seem necessary
+or if you want them on your own game then put them in, but I don't
+see any reason to have them.
+
+reboot -- reboots the game, reboot (num_hours) delays the boot.
+make -- lets you make things.
+purge -- lets you clear the room or area of things.
+goto -- lets you go to things like rooms or mobs.
+transfer -- lets you bring other things to you.
+visible -- makes you become visible.
+world -- lets you see data on the world (you see more than morts do).
+memory -- lets you see a memory usage breakdown.
+
+edit -- lets you edit things and chunks of code.
+tfind -- lets you find things with certain properties or names (prototypes).
+twhere -- lets you find all instances of things with certain names.
+tset -- lets you set values on things. See help VAR_REP for a list of types.
+tstat -- lets you find the stats on something here.
+
+
+validate -- lets you validate a player.
+noaffect -- lets you remove affects from yourself or others.
+peace -- stops combat in your room.
+advance -- lets you set someone else's level.
+memory -- see how much memory the game is using for data.
+sset -- set spells on someone.
+restore -- restore hps and mvs.
+
+silence -- stop someone from talking.
+freeze -- stop someone from doing anything.
+deny -- stop someone from logging in.
+snoop -- see what some other player sees.
+switch -- switch into another thing.
+return -- return to your original body.
+siteban -- lets you siteban someone.
+
+alliance -- lets you remove and set alliances between alignments.
+reset -- lets you see resets where you are.
+society -- this lets you look at societies and edit them.
+race/align -- puts you into the race/align editor
+sedit -- lets you edit spells (and skill definitions online)
+trigedit -- lets you edit triggers for scripts
+zedit -- lets you do an editing command to several things at once.
+wsave -- lets you save various kinds of things.
+mapgen -- lets you generate small blocks of randomized maps.
+areagen -- lets you generate an area
+worldgen -- lets you generate a whole world!
+historygen -- lets you generate things like deities and such.
+
+< and > -- move you up or down a vnum when in edit sedit etc...
+
+
+
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key MAPGEN`
+Admin `
+Text Mapgen is lots of fun. Mapgen lets you create small chunks of maps.
+Mapgen is rasterizing code on steroids.
+
+To use mapgen, you can do the following:
+
+mapgen clear/delete/nuke -- this clears the current map you have generated.
+
+mapgen show <playername> -- this lets you see your own generated map if
+                            you give it no argument, or someone else's map
+                            if you input their playername. This way you
+                            can inspect other people's interesting maps.
+                            $9MAPGEN MAPS DON'T SAVE!$7
+
+mapgen make/generate/create <vnum> -- this attempts to make a mapgen that
+                            you have already set up using the long mapgen
+                            command using rooms starting at vnum. There
+                            are several restrictions. If your current map
+                            has num_rooms rooms in it (which is shown on
+                            mapgen show). Ok, all of the things numbered
+                            between vnum and vnum + num_rooms must be in
+                            the same area. They must all be set up as
+                            rooms, and _none_ of the things in that
+                            range can exist. If all of these criteria are
+                            satisfied, then the map gets generated using
+                            real rooms.
+
+The real mapgen command to make blocks of rooms looks like this.
+
+mapgen dx dy length width fuzziness holeyness curviness
+
+Ok, dx and dy essentially give the slope of the core line you want to make.
+So, if dx = 4, and dy = 1, the map would go 4 spaces to the right for
+every space it goes up 1. For a regular map, you may as well pick
+dx = 1 dy = 0 or vica versa.
+
+If dx = -3 and dy = 5, it goes 3 spaces to the left for every 5 spaces it
+goes up.
+
+The length is approximately how many spaces long the path will be. The
+actual distances you go in the x and y dir are calculated by dividing
+length by the proportion of (abs(dx) + abs(dy)) taken up by dx and dy.
+
+If you do mapgen dx dy length 0 0 0 0
+
+you will generate a simple path.
+
+The width of the line is how wide the line is (perpendicular to the
+direction of travel of the line). This lets you make fields. For
+example, typing
+
+mapgen 1 0 10 6 0 0 0 
+
+will generate a field 10 wide and 6 high.
+
+
+The fuzziness of the line is how much the width varies. The width
+is equal to the previous width of the line plus a random number equal to
+(nr (0, fuzziness) - nr (0, fuzziness)) with a few qualifications. If
+the current width is larger or smaller than the original width, it has
+a 1/3 chance of resizing the width to go back to the normal width. If
+the width is less than 1, it is reset to 1. If the width is more than 2
+units away from the previous width, it is reset to 2 units away from
+the previous width.
+
+So, what happens is you draw a pixel (room) and as you're drawing the 
+width at that point, each point added must be checked against holeyness.
+If nr (1,20) > holeyness, the pixel is added, otherwise it isn't added.
+This makes some interesting maps, but it also tends to make them 
+disconnected, so you have to be careful with this.
+
+
+For one more level of randomness, curviness makes your straight lines
+less straight. Normally, you have set positions where your line will
+"jump up" to follow the slope of the line you specified. With curviness
+greater than 0, whenever nr (1,50) < curviness, you get a jump. The
+distance jumped is determined by how big the curviness is.
+
+Then, there's another parameter which is the extra_lines
+parameter. This is used to add extra paths into the map to make it
+more connected. It's useful if you want a map with a lot of holes
+in it, but still connected. 
+
+
+You should try a certain set of parameters and see what comes up,
+and after you get an interesting map, mapgen generate. Try using
+small pieces you put together to make larger maps. 
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key ALCHEMY`
+Admin `
+Text This skill lets you turn chunks of minerals into more valuable chunks.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key ASSIST`
+Admin `
+Text This command lets you help a player on your own alignment that you 
+can see in the same room as you who is fighting.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key ALLIANCES ALLIES ALLY`
+Admin syntax: ally <align1> <align2> 
+
+This command lets you set or remove alliances between alignments.
+You can use the names or numbers of the alignments.
+
+`
+Text This command lets you see what alignments are allied.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key BEEP`
+Admin `
+Text This lets you send a beep to another player.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key BREW COLLECT`
+Admin `
+Text This command lets you make potions. Potions require herbs that you can
+find with the collect command.
+
+When you try to make a potion you can put up to 3 spells in it that
+you can cast, but the more spells you put in it, the more you must
+be advanced past the power of the spell, and the more herbs you
+will need.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key DISENGAGE`
+Admin `
+Text If you are fighting and noone is currently attacking you, you
+can stop fighting by typing disengage.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key DISARM`
+Admin `
+Text This skill lets you try to knock a weapon or gem or other item out
+of the hands of your opponent.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key DELET`
+Admin `
+Text You must type delete fully to delete your character.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key DRAW SHEATH`
+Admin `
+Text Draw lets you draw a weapon from your belt and place it in your hand.
+
+Sheath lets you place a weapon you are holding into your belt
+loop for safe keeping.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key EMPLACE`
+Admin `
+Text This lets you put ranged weapon powers into armor. You must have 5 of
+the item you want to emplace, and all 5 copies get destroyed.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key ENCHANT`
+Admin `
+Text This lets you add enchantments to items.
+
+The powers and costs of the enchantments vary, and the exact figures
+aren't in yet...except things like stats and damage will only be
+one point and will require almost 10 remorts and probably two level
+5 guilds (wizard and alchemist). 
+
+You cannot enchant a magic item. 
+You cannot add an enchantment of a type that's already on an item.
+If you try to do either of these things, the item will blow up badly.
+
+Sometimes the item will just get ruined and destroyed.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key EXTRUDE`
+Admin `
+Text This may let you remove blood from corpses to make potions. (not done)
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key GATHER`
+Admin `
+Text This lets you gather raw materials for making items. (not done)
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key LEVELS`
+Admin `
+Text This lets you see how much exp you need to level. You can also
+see just a small range like 
+
+level 10 25 
+
+would give you the level requirements from level 10 to 25. Note
+that all exp is lost from level to level so you really need to earn
+the amount shown to advance, not just the differences.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key ORDER`
+Admin `
+Text Syntax: order <name/all> command
+
+This command lets you give orders to your pets or mercenaries.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key PUSH`
+Admin `
+Text Syntax push <victim> <direction>
+
+This command lets you try to push someone into an adjacent room.
+It is not usually successful. 
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key QUI`
+Admin `
+Text You must type quit fully to quit out.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key REBOO`
+Admin `
+Text You must type reboot fully to reboot the game.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SLIST`
+Admin `
+Text This command lets you see information about a lot of spells/skills
+or just one.
+
+Typing slist skill/spell/prof/trap/poison gives you a list
+of all things of that type.
+
+You can also add a guild argument to only list skills requiring
+certain guilds.
+
+You can only list spells requiring certain mana by adding a mana
+type argument, also.
+
+If you type 
+
+slist 'spellname'
+
+then you get a lot of information about one specific spell.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SCRIBE`
+Admin `
+Text This skill may let you enscribe scrolls with spells, but it
+is not done and may never be put in.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SHARPEN`
+Admin `
+Text This lets you increase the average damage that a weapon does. It
+has an increasing chance of destroying the weapon every time
+it is attempted.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'WHIPPING WEAPONS' 'SLASHING WEAPONS' 'PIERCING WEAPONS' 
+'CONCUSSION WEAPONS' 'SLASHING MASTERY' 'PIERCING MASTERY' 
+'WHIPPING MASTERY' 'CONCUSSION MASTERY'`
+Admin `
+Text These are the four kinds of melee weapons in the game.
+Piercing weapons let things backstab and concussion weapons
+let tinkers do slightly more damage in combat.
+
+The mastery skills let you hit a little harder and more often.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'ARMOR PENETRATION'`
+Admin `
+Text This skill makes attacks go through armor better.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'ENHANCED DAMAGE'`
+Admin `
+Text This skill increases the amount of damage done with every melee hit.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key FLY`
+Admin `
+Text This spell lets you temporarily fly through the air.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key ENHANCE`
+Admin `
+Text This will let you improve the properties of armor, but it's not
+working yet.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key DODGE EVADE`
+Admin `
+Text These skills help people to avoid melee hits.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key PARRY RIPOSTE`
+Admin `
+Text Parry and riposte help to block melee hits with weapons. Riposte
+gives a small chance for a return strike on the attacker.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'SECOND ATTACK' 'THIRD ATTACK'`
+Admin `
+Text These skills give a chance for multiple hits during a given round of
+combat.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'MONSTER KNOWLEDGE'`
+Admin `
+Text This spell lets you find out information about a monster.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SWIM`
+Admin `
+Text This skill will let you swim through water.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'LOCATE THING'`
+Admin `
+Text This spell will let you find the location of an item in the world.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key RECALL`
+Admin `
+Text This skill lets you transport yourself home to safety.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'SHIELD BLOCK' 'SHIELD BASH'`
+Admin `
+Text These skills let you block attacks with your shield(s).
+Shield bash gives a small chance of getting a return hit with
+the shield.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key ACCURACY`
+Admin `
+Text This skill gives you a better chance of hitting with each melee
+attack.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'MINOR POWERSHIELD' 'LESSER POWERSHIELD' POWERSHIELD
+'GREATER POWERSHIELD' 'MAJOR POWERSHIELD'`
+Admin `
+Text These spells let you create a powershield that floats by your
+head and absorbs some damage. The powershields cannot be dropped.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key BATTLEGROUND`
+Admin The battleground is set up in the following way:
+
+Syntax: battleground <minlevel> <maxlevel> [money prize] [prize1...prize10].
+
+To stop a battleground currently being set up, type 
+
+battleground halt.
+`
+Text Typing battleground when there is a battleground being set up
+that you can join (because you are in the correct level range).
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key EXLIST`
+Admin `
+Text This command gives you a list of exits to and from the area you 
+are currently in. 
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key AT`
+Admin `
+Text The at command lets you issue commands at one or more locations at
+once.
+
+
+Syntax: at <vnum/minvnum maxvnum/name> <command>.
+`
+SeeAlso GOTO`
+END_HELP
+
+HELP MORT
+Key KNOCK`
+Admin `
+Text You can knock on a door and it will make a sound in the adjacent room.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'MULTI WIELD'`
+Admin `
+Text This skill lets you wield multiple weapons. Attacks with weapons after
+the first weapon have much less chance of hitting.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'MULTI BACKSTAB'`
+Admin `
+Text This lets you get backstabs in with more than one dagger.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key PORTAL`
+Admin `
+Text This spell opens a portal from your room to your target's room.
+Your target must be a player on your alignment.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'ASTRAL WALK'`
+Admin `
+Text This spell lets you transport yourself to any other creature
+in the game, except those which are not players and which are
+inside of areas owned by alignments different from yours. This
+is so that you can't raid a city by astral walking to some crap 
+mob hidden in some corner of the city.
+
+$9You *CAN* astral walk to a player of a different alignment.$7
+
+You will be stunned for many seconds after casting this spell,
+so be careful with it.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SUMMON`
+Admin `
+Text This spell lets you summon a player on your alignment to your
+room.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'SIXTH SENSE'`
+Admin `
+Text This skill lets you notice when people of opposite alignments
+arrive in rooms nearby.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key TELEPORT`
+Admin `
+Text This spell will transport you to a random room.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key IDENTIFY`
+Admin `
+Text This spell gives you a little information about something you
+are holding.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key HASTE`
+Admin `
+Text This spell gives you a chance to get an extra melee attack each
+round.
+`
+SeeAlso `
+END_HELP
+
+HELP BLD
+Key RAW 'RAW MATERIALS'`
+Admin `
+Text Raw materials are used to build other things. Here's a list of
+the types:
+
+mineral 1
+stone   2
+wood    3
+flower  4
+food    5
+herb    6
+ichor   7
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key GROUNDFIGHTING GROUNDFIGHT GROUND GF`
+Admin `
+Text Groundfighting is a form of combat where opponents are dragged
+to the ground and start kicking and biting and clawing in an attempt
+to kill their opponents. When in a groundfight, combat is
+automatic, and it's harder for others to hit you with regular
+combat blows, but groundfighting causes a great deal of damage
+quickly. In order to get out of groundfighting, you must stand
+or type flee to stand first, then flee once you're standing.
+
+See helps on TACKLE OVERPOWER GRAPPLE GRIP PUNCH PUMMEL POUND
+'ABSORB BLOW' 'DEFLECT BLOW' and 'STOP BLOW'
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key TACKLE OVERPOWER GRAPPLE GRIP`
+Admin `
+Text The tackle command lets you try to tackle someone to start
+groundfighting with them. 
+
+$9Powerful Mobs do a great deal of damage in groundfights so it
+might not be a good idea to tackle them to try to reduce the damage
+that they do.$7
+
+Tackle is the base skill you use to tackle someone and the overpower
+(which is automatically checked when you try to tackle someone) gives
+you a greater chance of tackling that person. Not all creatures
+can be tackled.
+
+Knowledge of the grapple and grip skills make it harder for your
+opponent to stand once you've tackled him or her.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key POUND PUMMEL PUNCH`
+Admin `
+Text These skills make you do more damage with each ground hit.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key 'ABSORB BLOW' 'DEFLECT BLOW' 'STOP BLOW'`
+Admin `
+Text These skills reduce the amount of damage that you take while
+groundfighting.
+
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key SPETZNATZ`
+Admin `
+Text This skill gives you the chance to land an extra blow while
+groundfighting.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key DIVINE`
+Admin `
+Text This allows you to summon a deity who will fight your enemies for
+a short time.
+
+You must be a powerful healer and mystic, and you must have thousands
+of warpoints to invoke this.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key SLAY`
+Admin `
+Text This command lets you slay $9monsters only$7. Use slay all to kill all
+of the monsters in your room. 
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key DESCRIPTION`
+Admin `
+Text This lets you change your description.
+`
+SeeAlso `
+END_HELP
+
+HELP MORT
+Key RACECHANGE`
+Admin `
+Text This lets you change your race at the cost of going back to
+level 1 of your previous remort.
+`
+SeeAlso `
+END_HELP
+
+HELP MAX
+Key METALGEN`
+Admin `
+Text This lets you generate random metals.
+`
+SeeAlso `
+END_HELP
+
+
+
+END_HELPS

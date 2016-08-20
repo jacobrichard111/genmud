@@ -1,0 +1,3137 @@
+THING 1
+Name start.are`
+HpMv 0 1 108 998
+HWT 0 0
+Cost 100
+Timer 7
+Short the start area`
+Long A cold wind blows by...`
+type Lonath`
+ThFl 537919488
+Flag Area 0 0 28
+END_THING
+
+THING 2
+HpMult 1
+HWT 0 0
+Color 7
+Desc If you are here, something bad happened. Sorry. 
+`
+Short The Screwup room`
+MIW 1
+Symbol |`
+ThFl 524779
+Val s_exit 1068 0 0 0 0 0 0 0 `
+END_THING
+
+THING 3
+HpMult 1
+HWT 0 0
+Color 7
+Desc If you are here, something REALLY bad happened. 
+`
+Short The Backup Screwup room`
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+THING 8
+Name home`
+Level 20
+HpMult 0
+HWT 0 0
+Color 8
+Desc This is my room. :)
+It has a tapestry in it.
+`
+Short Lonath's Room`
+MIW 1
+Long Lonath's Room is Here.`
+Symbol -`
+ThFl 524779
+Flag Room 0 0 16777217
+EDESC tapestry`
+This large wall-hanging depicts great battles between the forces of good and evil.
+`
+END_THING
+
+THING 26
+Name remort room`
+HWT 0 0
+Color 7
+Desc You can remort here. Congratulations.
+`
+Short The Remort Room`
+MIW 1
+Symbol -`
+ThFl 524779
+Val d_exit 209606 0 0 0 0 0 0 0 `
+END_THING
+
+THING 27
+Name implant`
+HWT 0 0
+Color 7
+Short The Implant Room`
+Wear chest`
+MIW 1
+Symbol -`
+ThFl 524779
+Val u_exit 1227455 0 0 0 0 0 0 0 `
+END_THING
+
+THING 40
+HWT 0 0
+Color 7
+Short The Great Outdoors`
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+THING 41
+HWT 0 0
+Color 7
+Short The Great Outdoors`
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Room 0 0 16777216
+END_THING
+
+THING 42
+HWT 0 0
+Color 7
+Short Water`
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Det 0 0 16777218
+END_THING
+
+THING 43
+HWT 0 0
+Color 2
+Short A Swamp`
+MIW 1
+Symbol #`
+ThFl 524779
+Flag Room 0 0 17825792
+END_THING
+
+THING 44
+HWT 0 0
+Color 10
+Short A Field`
+MIW 1
+Symbol ,`
+ThFl 524779
+Flag Room 0 0 262144
+END_THING
+
+THING 45
+HWT 0 0
+Color 7
+Short A Forest`
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Det 0 0 16908288
+END_THING
+
+THING 46
+HWT 0 0
+Color 5
+Short The Mountains`
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Room 0 0 83886080
+END_THING
+
+THING 47
+HWT 0 0
+Color 15
+Short Snow`
+MIW 1
+Symbol *`
+ThFl 524779
+Flag Room 0 0 134217728
+END_THING
+
+THING 48
+HWT 0 0
+Color 11
+Short A Desert`
+MIW 1
+Symbol ,`
+ThFl 524779
+Flag Room 0 0 17301504
+END_THING
+
+THING 49
+HWT 0 0
+Color 6
+Short A Road`
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Room 0 0 32768
+END_THING
+
+THING 50
+HWT 0 0
+Color 14
+Short In the Air`
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Room 0 0 4
+END_THING
+
+THING 51
+HWT 0 0
+Color 9
+Short In the Fire`
+MIW 1
+Symbol ^`
+ThFl 524779
+Flag Room 0 0 8
+END_THING
+
+THING 52
+HWT 0 0
+Color 8
+Short Inside`
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Room 0 0 1
+END_THING
+
+THING 53
+HWT 0 0
+Color 8
+Short Underground`
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Room 0 0 16781312
+END_THING
+
+THING 60
+HWT 0 0
+Color 5
+Desc The battleground. Enjoy. 
+`
+Short The Battleground`
+MIW 1
+Symbol |`
+ThFl 524779
+Val s_exit 61 0 0 0 0 0 0 0 `
+Flag Room 0 0 16842752
+END_THING
+
+THING 61
+HWT 0 0
+Color 5
+Desc 60`
+Short The Battleground`
+MIW 1
+Symbol |`
+ThFl 524779
+Val n_exit 60 0 0 0 0 0 0 0 `
+Val s_exit 62 0 0 0 0 0 0 0 `
+Flag Room 0 0 16842752
+END_THING
+
+THING 62
+HWT 0 0
+Color 5
+Desc 60`
+Short The Battleground`
+MIW 1
+Symbol {`
+ThFl 524779
+Val n_exit 61 0 0 0 0 0 0 0 `
+Val w_exit 63 0 0 0 0 0 0 0 `
+Val s_exit 65 0 0 0 0 0 0 0 `
+Flag Room 0 0 16842752
+END_THING
+
+THING 63
+HWT 0 0
+Color 5
+Desc 60`
+Short The Battleground`
+MIW 1
+Symbol /`
+ThFl 524779
+Val e_exit 62 0 0 0 0 0 0 0 `
+Val s_exit 64 0 0 0 0 0 0 0 `
+Flag Room 0 0 16842752
+END_THING
+
+THING 64
+HWT 0 0
+Color 5
+Desc 60`
+Short The Battleground`
+MIW 1
+Symbol }`
+ThFl 524779
+Val n_exit 63 0 0 0 0 0 0 0 `
+Val e_exit 65 0 0 0 0 0 0 0 `
+Val s_exit 66 0 0 0 0 0 0 0 `
+Flag Room 0 0 16842752
+END_THING
+
+THING 65
+HWT 0 0
+Color 5
+Desc 60`
+Short The Battleground`
+MIW 1
+Symbol /`
+ThFl 524779
+Val w_exit 64 0 0 0 0 0 0 0 `
+Val n_exit 62 0 0 0 0 0 0 0 `
+Flag Room 0 0 16842752
+END_THING
+
+THING 66
+HWT 0 0
+Color 5
+Desc 60`
+Short The Battleground`
+MIW 1
+Symbol {`
+ThFl 524779
+Val n_exit 64 0 0 0 0 0 0 0 `
+Val s_exit 67 0 0 0 0 0 0 0 `
+Val w_exit 73 0 0 0 0 0 0 0 `
+Flag Room 0 0 16842752
+END_THING
+
+THING 67
+HWT 0 0
+Color 5
+Desc 60`
+Short The Battleground`
+MIW 1
+Symbol \`
+ThFl 524779
+Val n_exit 66 0 0 0 0 0 0 0 `
+Val e_exit 68 0 0 0 0 0 0 0 `
+Flag Room 0 0 16842752
+END_THING
+
+THING 68
+HWT 0 0
+Color 5
+Desc 60`
+Short The Battleground`
+MIW 1
+Symbol \`
+ThFl 524779
+Val w_exit 67 0 0 0 0 0 0 0 `
+Val s_exit 80 0 0 0 0 0 0 0 `
+Flag Room 0 0 16842752
+END_THING
+
+THING 69
+HWT 0 0
+Color 5
+Desc 60`
+Short The Battleground`
+MIW 1
+Symbol +`
+ThFl 524779
+Val s_exit 70 0 0 0 0 0 0 0 `
+Val e_exit 72 0 0 0 0 0 0 0 `
+Val w_exit 80 0 0 0 0 0 0 0 `
+Flag Room 0 0 16842752
+END_THING
+
+THING 70
+HWT 0 0
+Color 5
+Desc 60`
+Short The Battleground`
+MIW 1
+Symbol \`
+ThFl 524779
+Val n_exit 69 0 0 0 0 0 0 0 `
+Val e_exit 71 0 0 0 0 0 0 0 `
+Flag Room 0 0 16842752
+END_THING
+
+THING 71
+HWT 0 0
+Color 5
+Desc 60`
+Short The Battleground`
+MIW 1
+Symbol /`
+ThFl 524779
+Val w_exit 70 0 0 0 0 0 0 0 `
+Val n_exit 72 0 0 0 0 0 0 0 `
+Flag Room 0 0 16842752
+END_THING
+
+THING 72
+HWT 0 0
+Color 5
+Desc 60`
+Short The Battleground`
+MIW 1
+Symbol \`
+ThFl 524779
+Val w_exit 69 0 0 0 0 0 0 0 `
+Val s_exit 71 0 0 0 0 0 0 0 `
+Flag Room 0 0 16842752
+END_THING
+
+THING 73
+HWT 0 0
+Color 7
+Desc 60`
+Short The Battleground`
+MIW 1
+Symbol -`
+ThFl 524779
+Val e_exit 66 0 0 0 0 0 0 0 `
+Val w_exit 74 0 0 0 0 0 0 0 `
+Flag Det 0 0 16842752
+END_THING
+
+THING 74
+HWT 0 0
+Color 5
+Desc 60`
+Short The Battleground`
+MIW 1
+Symbol +`
+ThFl 524779
+Val e_exit 73 0 0 0 0 0 0 0 `
+Val n_exit 75 0 0 0 0 0 0 0 `
+Val w_exit 77 0 0 0 0 0 0 0 `
+Val s_exit 79 0 0 0 0 0 0 0 `
+Flag Room 0 0 16842752
+END_THING
+
+THING 75
+HWT 0 0
+Color 5
+Desc 60`
+Short The Battleground`
+MIW 1
+Symbol \`
+ThFl 524779
+Val s_exit 74 0 0 0 0 0 0 0 `
+Val w_exit 76 0 0 0 0 0 0 0 `
+Flag Room 0 0 16842752
+END_THING
+
+THING 76
+HWT 0 0
+Color 7
+Desc 60`
+Short The Battleground`
+MIW 1
+Symbol /`
+ThFl 524779
+Val e_exit 75 0 0 0 0 0 0 0 `
+Val s_exit 77 0 0 0 0 0 0 0 `
+Flag Det 0 0 16842752
+END_THING
+
+THING 77
+HWT 0 0
+Color 5
+Desc 60`
+Short The Battleground`
+MIW 1
+Symbol }`
+ThFl 524779
+Val n_exit 76 0 0 0 0 0 0 0 `
+Val s_exit 78 0 0 0 0 0 0 0 `
+Val e_exit 74 0 0 0 0 0 0 0 `
+Flag Room 0 0 16842752
+END_THING
+
+THING 78
+HWT 0 0
+Color 5
+Desc 60`
+Short The Battleground`
+MIW 1
+Symbol \`
+ThFl 524779
+Val n_exit 77 0 0 0 0 0 0 0 `
+Val e_exit 79 0 0 0 0 0 0 0 `
+Flag Room 0 0 16842752
+END_THING
+
+THING 79
+HWT 0 0
+Color 5
+Desc 60`
+Short The Battleground`
+MIW 1
+Symbol /`
+ThFl 524779
+Val w_exit 78 0 0 0 0 0 0 0 `
+Val n_exit 74 0 0 0 0 0 0 0 `
+Flag Room 0 0 16842752
+END_THING
+
+THING 80
+HWT 0 0
+Color 5
+Desc 60`
+Short The Battleground`
+MIW 1
+Symbol \`
+ThFl 524779
+Val e_exit 69 0 0 0 0 0 0 0 `
+Val n_exit 68 0 0 0 0 0 0 0 `
+Flag Room 0 0 16842752
+END_THING
+
+THING 100
+Name neutral_recall`
+HpMult 0
+HWT 0 0
+Color 8
+Short The Neutral Recall Room`
+MIW 1
+Long the recall room is here.`
+Symbol -`
+ThFl 524779
+Flag Room 0 0 1
+END_THING
+
+THING 101
+Name evil_recall`
+HpMult 0
+HWT 0 0
+Color 8
+Short The Evil Recall Room`
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Room 0 0 1
+Reset 251 100 1 1
+END_THING
+
+THING 102
+Name good_recall`
+HpMult 0
+HWT 0 0
+Color 8
+Desc The Recall Room
+`
+Short The Good Recall Room`
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Room 0 0 1
+Reset 252 100 1 1
+END_THING
+
+THING 103
+HWT 0 0
+Color 8
+Short The Recall Room`
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Room 0 0 1
+END_THING
+
+THING 104
+HWT 0 0
+Color 8
+Short The Recall Room`
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Room 0 0 1
+END_THING
+
+THING 105
+HWT 0 0
+Color 8
+Short The Recall Room`
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Room 0 0 1
+END_THING
+
+THING 106
+HWT 0 0
+Color 7
+Short The Recall Room`
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Det 0 0 1
+END_THING
+
+THING 107
+HWT 0 0
+Color 8
+Short The Recall Room`
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Room 0 0 1
+END_THING
+
+THING 108
+HWT 0 0
+Color 8
+Short The Recall Room`
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Room 0 0 1
+END_THING
+
+THING 109
+HWT 0 0
+Color 7
+Short The Recall Room`
+MIW 1
+Symbol -`
+ThFl 524779
+Flag Det 0 0 1
+END_THING
+
+THING 110
+Name chip diamond`
+Level 20
+HWT 0 0
+Cost 5000
+Short a chip of $Fdiamond$7`
+Wear wield`
+Long A small chip of diamond is on the ground.`
+ThFl 100934
+Val gem 1 30 30 10 0 0 0 0 `
+END_THING
+
+THING 111
+Name gem small diamond`
+Level 40
+HWT 2 5
+Cost 15000
+Short a small $Fdiamond$7`
+Wear wield`
+Long A small, shimmering diamond is on the ground.`
+ThFl 100934
+Val gem 1 60 60 25 0 0 0 0 `
+END_THING
+
+THING 112
+Name diamond gem`
+Level 60
+HWT 2 5
+Cost 50000
+Short a $Fdiamond$7`
+Wear wield`
+Long A diamond has been left on the ground.`
+ThFl 100934
+Val gem 1 90 90 40 0 0 0 0 `
+END_THING
+
+THING 113
+Name large diamond gem`
+Level 80
+HWT 2 5
+Cost 120000
+Short a large $Fdiamond$7`
+Wear wield`
+Long A large, glittering diamond is on the ground.`
+ThFl 100934
+Val gem 1 120 120 55 0 0 0 0 `
+Flag Obj 0 0 8192
+END_THING
+
+THING 114
+Name chip emerald gem`
+Level 20
+HWT 2 5
+Cost 5000
+Short a chip of $2emerald$7`
+Wear wield`
+Long A chip of emerald has been left here.`
+ThFl 100934
+Val gem 2 30 30 10 0 0 0 0 `
+END_THING
+
+THING 115
+Name small emerald gem`
+Level 40
+HWT 2 5
+Cost 15000
+Short a small $2emerald$7`
+Wear wield`
+Long A small, pulsating emerald is here.`
+ThFl 100934
+Val gem 2 60 60 25 0 0 0 0 `
+END_THING
+
+THING 116
+Name emerald gem`
+Level 60
+HWT 2 5
+Cost 50000
+Short an $2emerald$7`
+Wear wield`
+Long There is an emerald here.`
+ThFl 100934
+Val gem 2 90 90 40 0 0 0 0 `
+END_THING
+
+THING 117
+Name emerald large gem`
+Level 80
+HWT 2 5
+Cost 120000
+Short a large $2emerald$7`
+Wear wield`
+Long A large emerald glows with an inner light.`
+ThFl 100934
+Val gem 2 120 120 55 0 0 0 0 `
+Flag Obj 0 0 8192
+END_THING
+
+THING 118
+Name chip sapphire gem`
+Level 20
+HWT 2 5
+Cost 5000
+Short a chip of $Csapphire$7`
+Wear wield`
+Long A chip of sapphire is on the ground.`
+ThFl 100934
+Val gem 8 30 30 10 0 0 0 0 `
+END_THING
+
+THING 119
+Name small sapphire gem`
+Level 40
+HWT 2 5
+Cost 15000
+Short a small $Csapphire$7`
+Wear wield`
+Long A small sapphire pulses with inner energy.`
+ThFl 100934
+Val gem 8 60 60 25 0 0 0 0 `
+END_THING
+
+THING 120
+Name sapphire gem`
+Level 60
+HWT 2 5
+Cost 50000
+Short a $Csapphire$7`
+Wear wield`
+Long There is a sapphire here.`
+ThFl 100934
+Val gem 8 90 90 40 0 0 0 0 `
+END_THING
+
+THING 121
+Name sapphire large gem`
+Level 80
+HWT 2 5
+Cost 120000
+Short a large $Csapphire$7`
+Wear wield`
+Long A large sapphire reflects light off its many facets.`
+ThFl 100934
+Val gem 8 120 120 55 0 0 0 0 `
+Flag Obj 0 0 8192
+END_THING
+
+THING 122
+Name ruby chip gem`
+Level 20
+HWT 2 5
+Cost 5000
+Short a chip of $9ruby$7`
+Wear wield`
+Long A chip of ruby has been discarded here.`
+ThFl 100934
+Val gem 4 30 30 10 0 0 0 0 `
+END_THING
+
+THING 123
+Name small ruby gem`
+Level 40
+HWT 2 5
+Cost 15000
+Short a small $9ruby$7`
+Wear wield`
+Long A small ruby has been left here.`
+ThFl 100934
+Val gem 4 60 60 25 0 0 0 0 `
+END_THING
+
+THING 124
+Name ruby gem`
+Level 60
+HWT 2 5
+Cost 50000
+Short a $9ruby$7`
+Wear wield`
+Long A ruby sparkles on the ground.`
+ThFl 100934
+Val gem 4 90 90 40 0 0 0 0 `
+END_THING
+
+THING 125
+Name ruby large gem`
+Level 80
+HWT 2 5
+Cost 120000
+Short a large $9ruby$7`
+Wear wield`
+Long The twinkling of a large ruby catches your eye.`
+ThFl 100934
+Val gem 4 120 120 55 0 0 0 0 `
+Flag Obj 0 0 8192
+END_THING
+
+THING 126
+Name chip amethyst gem`
+Level 20
+HWT 2 5
+Cost 5000
+Short a chip of $5amethyst$7`
+Wear wield`
+Long A chip of amethyst is lying here.`
+ThFl 100934
+Val gem 16 30 30 10 0 0 0 0 `
+END_THING
+
+THING 127
+Name small amethysst gem`
+Level 40
+HWT 2 5
+Cost 15000
+Short a small $5amethyst$7`
+Wear wield`
+Long A small amethyst pulses on the floor.`
+ThFl 100934
+Val gem 16 60 60 25 0 0 0 0 `
+END_THING
+
+THING 128
+Name amethyst gem`
+Level 60
+HWT 2 5
+Cost 50000
+Short an $5amethyst$7`
+Wear wield`
+Long An amethyst is here.`
+ThFl 100934
+Val gem 16 90 90 40 0 0 0 0 `
+END_THING
+
+THING 129
+Name large amethyst gem`
+Level 80
+HWT 2 5
+Cost 120000
+Short a large $5amethyst$7`
+Wear wield`
+Long A large, pulsating amethyst lies on its side here.`
+ThFl 100934
+Val gem 16 120 120 55 0 0 0 0 `
+Flag Obj 0 0 8192
+END_THING
+
+THING 130
+Name chip beryl gem`
+Level 20
+HWT 2 5
+Cost 5000
+Short a chip of $Bberyl$7`
+Wear wield`
+Long A chip of beryl is here.`
+ThFl 100934
+Val gem 9 25 25 9 0 0 0 0 `
+END_THING
+
+THING 131
+Name small beryl gem`
+Level 40
+HWT 2 5
+Cost 15000
+Short a small $Bberyl$7`
+Wear wield`
+Long A small beryl has been left here.`
+ThFl 100934
+Val gem 9 55 55 23 0 0 0 0 `
+END_THING
+
+THING 132
+Name beryl gem`
+Level 60
+HWT 2 5
+Cost 50000
+Short a $Bberyl$7`
+Wear wield`
+Long A beryl lies on the ground.`
+ThFl 100934
+Val gem 9 80 80 36 0 0 0 0 `
+END_THING
+
+THING 133
+Name large beryl gem`
+Level 80
+HWT 2 5
+Cost 120000
+Short a large $Bberyl$7`
+Wear wield`
+Long A large beryl emits a dim glow.`
+ThFl 100934
+Val gem 9 105 105 49 0 0 0 0 `
+Flag Obj 0 0 8192
+END_THING
+
+THING 134
+Name corundum gem chip`
+Level 20
+HWT 2 5
+Cost 5000
+Short a chip of $9co$1rund$9um$7`
+Wear wield`
+Long Someone has left a chip of corundum here.`
+ThFl 100934
+Val gem 5 25 25 9 0 0 0 0 `
+END_THING
+
+THING 135
+Name small corundum gem`
+Level 40
+HWT 2 5
+Cost 15000
+Short a small $9co$1rund$9um$7`
+Wear wield`
+Long There is a small corundum here.`
+ThFl 100934
+Val gem 5 55 55 23 0 0 0 0 `
+END_THING
+
+THING 136
+Name corundum gem`
+Level 80
+HWT 2 5
+Cost 50000
+Short a $9co$1rund$9um$7`
+Wear wield`
+Long A corundum is here.`
+ThFl 100934
+Val gem 5 80 80 36 0 0 0 0 `
+END_THING
+
+THING 137
+Name large corundum gem`
+Level 80
+HWT 2 5
+Cost 120000
+Short a large $9co$1rund$9um$7`
+Wear wield`
+Long A large corundum is lying here.`
+ThFl 100934
+Val gem 5 105 105 49 0 0 0 0 `
+Flag Obj 0 0 8192
+END_THING
+
+THING 138
+Name spinel chip gem`
+Level 20
+HWT 2 5
+Cost 5000
+Short a chip of $5s$9pine$5l$7`
+Wear wield`
+Long A chip of spinel is on the ground.`
+ThFl 100934
+Val gem 6 25 25 9 0 0 0 0 `
+END_THING
+
+THING 139
+Name spinel small gem`
+Level 40
+HWT 2 5
+Cost 15000
+Short a small $5s$9pine$5l$7`
+Wear wield`
+Long A small spinel glows with in inner light.`
+ThFl 100934
+Val gem 6 55 55 23 0 0 0 0 `
+END_THING
+
+THING 140
+Name spinel gem`
+Level 60
+HWT 2 5
+Cost 50000
+Short a $5s$9pine$5l$7`
+Wear wield`
+Long A forgotten spinel is lying here.`
+ThFl 100934
+Val gem 6 80 80 36 0 0 0 0 `
+END_THING
+
+THING 141
+Name large spinel gem`
+Level 80
+HWT 2 5
+Cost 120000
+Short a large $5s$9pine$5l$7`
+Wear wield`
+Long A spinel has been discarded here.`
+ThFl 100934
+Val gem 6 105 105 49 0 0 0 0 `
+Flag Det 0 0 8192
+END_THING
+
+THING 142
+Name chip topaz gem`
+Level 20
+HWT 2 5
+Cost 5000
+Short a chip of $Bt$Eopa$Bz$7`
+Wear wield`
+Long A chip of topaz is on the ground.`
+ThFl 100934
+Val gem 3 25 25 9 0 0 0 0 `
+END_THING
+
+THING 143
+Name small topaz gem`
+Level 40
+HWT 2 5
+Cost 15000
+Short a small $Bt$Eopa$Bz$7`
+Wear wield`
+Long Someone has left a small topaz behind.`
+ThFl 100934
+Val gem 3 55 55 23 0 0 0 0 `
+END_THING
+
+THING 144
+Name topaz gem`
+Level 60
+HWT 2 5
+Cost 50000
+Short a $Bt$Eopa$Bz$7`
+Wear wield`
+Long Lying here, a topaz gathers dust.`
+ThFl 100934
+Val gem 3 80 80 36 0 0 0 0 `
+END_THING
+
+THING 145
+Name large topaz gem`
+Level 80
+HWT 2 5
+Cost 120000
+Short a large $Bt$Eopa$Bz$7`
+Wear wield`
+Long Someone dropped a large topaz here.`
+ThFl 100934
+Val gem 3 105 105 49 0 0 0 0 `
+END_THING
+
+THING 146
+Name fire opal chip gem`
+Level 20
+HWT 2 5
+Cost 5000
+Short a chip of $1fire $8opal$7`
+Wear wield`
+Long A small chip of fire opal has been left here.`
+ThFl 100934
+Val gem 12 25 25 9 0 0 0 0 `
+END_THING
+
+THING 147
+Name small fire opal gem`
+Level 40
+HWT 2 5
+Cost 15000
+Short a small $1fire $8opal$7`
+Wear wield`
+Long A small fire opal is underfoot.`
+ThFl 100934
+Val gem 12 55 55 23 0 0 0 0 `
+Flag Obj 0 0 8192
+END_THING
+
+THING 148
+Name fire opal gem`
+Level 60
+HWT 2 5
+Cost 50000
+Short a $1fire $8opal$7`
+Wear wield`
+Long A fire opal is on the ground.`
+ThFl 100934
+Val gem 12 80 80 36 0 0 0 0 `
+END_THING
+
+THING 149
+Name large fire opal`
+Level 80
+HWT 2 5
+Cost 120000
+Short a large $1fire $8opal$7`
+Wear wield`
+Long For some reason, a large fire opal has been left here.`
+ThFl 100934
+Val gem 12 105 105 49 0 0 0 0 `
+Flag Obj 0 0 8192
+END_THING
+
+THING 150
+Name jadeite chip gem`
+Level 20
+HWT 2 5
+Cost 5000
+Short a chip of $2jadeite$7`
+Wear wield`
+Long A tiny chip of jadeite is here.`
+ThFl 100934
+Val gem 10 25 25 9 0 0 0 0 `
+END_THING
+
+THING 151
+Name small jadeite gem`
+Level 40
+HWT 2 5
+Cost 15000
+Short a small $2jadeite$7`
+Wear wield`
+Long A small jadeite burns with in inner fire.`
+ThFl 100934
+Val gem 10 55 55 23 0 0 0 0 `
+END_THING
+
+THING 152
+Name jadeite gem`
+Level 60
+HWT 2 5
+Cost 50000
+Short a $2jadeite$7`
+Wear wield`
+Long A jadeite pulses with a hypnotic pattern.`
+ThFl 100934
+Val gem 10 80 80 36 0 0 0 0 `
+END_THING
+
+THING 153
+Name large jadeite gem`
+Level 80
+HWT 2 5
+Cost 120000
+Short a large $2jadeite$7`
+Wear wield`
+Long A large piece of jadeite was left here.`
+ThFl 100934
+Val gem 10 105 105 49 0 0 0 0 `
+Flag Obj 0 0 8192
+END_THING
+
+THING 154
+Name chip aquamarine gem`
+Level 20
+HWT 2 5
+Cost 5000
+Short a chip of $Eaqu$Aamar$Eine$7`
+Wear wield`
+Long A chip of aquamarine is here.`
+ThFl 100934
+Val gem 11 20 20 8 0 0 0 0 `
+END_THING
+
+THING 155
+Name small aquamarine gem`
+Level 40
+HWT 2 5
+Cost 15000
+Short a small $Eaqu$Aamar$Eine$7`
+Wear wield`
+Long There is a small aquamarine here.`
+ThFl 100934
+Val gem 11 50 50 21 0 0 0 0 `
+END_THING
+
+THING 156
+Name aquamarine gem`
+Level 60
+HWT 2 5
+Cost 50000
+Short an $Eaqu$Aamar$Eine$7`
+Wear wield`
+Long A careless person dropped an aquamarine here.`
+ThFl 100934
+Val gem 11 70 70 32 0 0 0 0 `
+END_THING
+
+THING 157
+Name large aquamarine gem`
+Level 80
+HWT 2 5
+Cost 120000
+Short a large $Eaqu$Aamar$Eine$7`
+Wear wield`
+Long Someone left an aquamarine here.`
+ThFl 100934
+Val gem 11 90 90 43 0 0 0 0 `
+Flag Obj 0 0 8192
+END_THING
+
+THING 158
+Name turquoise gem chip`
+Level 20
+HWT 2 5
+Cost 5000
+Short a chip of $Ctu$Arquoi$Cse$7`
+Wear wield`
+Long A chip of turquoise is here.`
+ThFl 100934
+Val gem 14 20 20 8 0 0 0 0 `
+END_THING
+
+THING 159
+Name small turquoise gem`
+Level 40
+HWT 2 5
+Cost 15000
+Short a small $Ctu$Arquoi$Cse$7`
+Wear wield`
+Long A small turquoise has been left here.`
+ThFl 100934
+Val gem 14 50 50 21 0 0 0 0 `
+END_THING
+
+THING 160
+Name turquoise gem`
+Level 60
+HWT 2 5
+Cost 50000
+Short a $Ctu$Arquoi$Cse$7`
+Wear wield`
+Long A turquoise is here.`
+ThFl 100934
+Val gem 14 70 70 32 0 0 0 0 `
+END_THING
+
+THING 161
+Name large turquoise gem`
+Level 80
+HWT 2 5
+Cost 120000
+Short a large $Ctu$Arquoi$Cse$7`
+Wear wield`
+Long A large turquoise is here.`
+ThFl 100934
+Val gem 14 90 90 43 0 0 0 0 `
+Flag Obj 0 0 8192
+END_THING
+
+THING 162
+Name rose quartz gem chip`
+Level 20
+HWT 2 5
+Cost 5000
+Short a chip of $9rose $Fquartz$7`
+Wear wield`
+Long A chip of rose quartz rests on the ground.`
+ThFl 100934
+Val gem 7 20 20 8 0 0 0 0 `
+END_THING
+
+THING 163
+Name small rose quartz gem`
+Level 40
+HWT 2 5
+Cost 15000
+Short a small $9rose $Fquartz$7`
+Wear wield`
+Long Someone left a small rose quartz here.`
+ThFl 100934
+Val gem 7 50 50 21 0 0 0 0 `
+END_THING
+
+THING 164
+Name rose quartz gem`
+Level 60
+HWT 2 5
+Cost 50000
+Short a $9rose $Fquartz$7`
+Wear wield`
+Long There is a pulsing rose quartz here.`
+ThFl 100934
+Val gem 7 70 70 32 0 0 0 0 `
+END_THING
+
+THING 165
+Name large rose quartz gem`
+Level 80
+HWT 2 5
+Cost 120000
+Short a large $9rose $Fquartz$7`
+Wear wield`
+Long A large rose quartz les on the ground, glowing.`
+ThFl 100934
+Val gem 7 90 90 43 0 0 0 0 `
+Flag Obj 0 0 8192
+END_THING
+
+THING 166
+Name chip lapis lazuli gem`
+Level 20
+HWT 2 5
+Cost 5000
+Short a chip of $4lapis $2lazuli$7`
+Wear wield`
+Long A chip of lapis lazuli is here.`
+ThFl 100934
+Val gem 13 20 20 8 0 0 0 0 `
+END_THING
+
+THING 167
+Name small lapis lazuli gem`
+Level 40
+HWT 2 5
+Cost 15000
+Short a small $4lapis $2lazuli$7`
+Wear wield`
+Long A small lapis lazuli is here.`
+ThFl 100934
+Val gem 13 50 50 21 0 0 0 0 `
+END_THING
+
+THING 168
+Name lapis lazuli gem`
+Level 60
+HWT 2 5
+Cost 50000
+Short a $4lapis $2lazuli$7`
+Wear wield`
+Long It looks like someone left a lapis lazuli here.`
+ThFl 100934
+Val gem 13 70 70 32 0 0 0 0 `
+END_THING
+
+THING 169
+Name large lapis lazuli gem`
+Level 80
+HWT 2 5
+Cost 120000
+Short a large $4lapis $2lazuli$7`
+Wear wield`
+Long There is a large lapis lazuli on the ground.`
+ThFl 100934
+Val gem 13 90 90 43 0 0 0 0 `
+Flag Obj 0 0 8192
+END_THING
+
+THING 170
+Name zythracite chip gem`
+Level 20
+HWT 2 5
+Cost 5000
+Short a chip of $9z$By$Dt$Eh$Fr$8a$Cc$Ai$Ft$Be$7`
+Wear wield`
+Long A chip of zythracite is on the ground.`
+ThFl 100934
+Val gem 15 15 15 7 0 0 0 0 `
+END_THING
+
+THING 171
+Name zythracite small gem`
+Level 40
+HWT 2 5
+Cost 15000
+Short a small $9z$By$Dt$Eh$Fr$8a$Cc$Ai$Ft$Be$7`
+Wear wield`
+Long A small zythracite has been left here.`
+ThFl 100934
+Val gem 15 45 45 19 0 0 0 0 `
+END_THING
+
+THING 172
+Name zythracite gem`
+Level 60
+HWT 2 5
+Cost 50000
+Short a $9z$By$Dt$Eh$Fr$8a$Cc$Ai$Ft$Be$7`
+Wear wield`
+Long A zythracite is here.`
+ThFl 100934
+Val gem 15 60 60 28 0 0 0 0 `
+Flag Det 0 0 8192
+END_THING
+
+THING 173
+Name zythracite gem large`
+Level 80
+HWT 2 5
+Cost 120000
+Short a large $9z$By$Dt$Eh$Fr$8a$Cc$Ai$Ft$Be$7`
+Wear wield`
+Long A large zythracite is on the ground.`
+ThFl 100934
+Val gem 15 75 75 37 0 0 0 0 `
+Flag Obj 0 0 8192
+END_THING
+
+THING 189
+Name test scroll`
+Level 80
+HWT 0 0
+Short a test scroll`
+Wear wield`
+Long A test scroll is here.`
+ThFl 100934
+Val magic_item 1 0 0 24 24 6 88 0 `
+END_THING
+
+THING 190
+Name pickaxe`
+Level 40
+HWT 20 50
+Cost 50000
+Short a pickaxe`
+Wear wield`
+Long A pickaxe is here.`
+ThFl 100934
+END_THING
+
+THING 191
+Name hoe`
+Level 30
+HWT 0 50
+Short a hoe`
+Long A hoe is here.`
+ThFl 100934
+END_THING
+
+THING 192
+Name stone saw`
+Level 30
+HWT 0 100
+Short a stone saw`
+Long A saw used for cutting stone is here.`
+ThFl 100934
+END_THING
+
+THING 216
+Name test mob`
+HWT 0 0
+Desc This is the test mob used to test out the GA combat tactics
+code. When this is created, its level is randomized. So
+don't use this number for a real mob. 
+`
+Short the test mob`
+Long The test mob is here.`
+ThFl 2209
+Val guild 1 0 0 0 0 0 0 0 `
+Flag Det 0 0 4
+Flag Act 0 0 16
+Reset 270 50 1 1
+END_THING
+
+THING 220
+Name sphere tiny glowing powershield`
+Level 20
+HWT 3 5
+Timer 10
+Short a tiny glowing sphere.`
+Wear floating`
+Long A tiny glowing sphere is on the ground.`
+ThFl 100966
+Val powershield 0 0 25 0 0 0 0 0 `
+END_THING
+
+THING 221
+Name sphere small glowing powershield`
+Level 40
+HWT 3 5
+Timer 10
+Short a small glowing sphere`
+Wear floating`
+Long A small glowing sphere is on the ground.`
+ThFl 100966
+Val powershield 0 0 50 0 0 0 0 0 `
+END_THING
+
+THING 222
+Name sphere glowing powershield`
+Level 60
+HWT 3 5
+Timer 10
+Short a glowing sphere`
+Wear floating`
+Long A glowing sphere is on the ground.`
+ThFl 100934
+Val powershield 0 0 100 0 0 0 0 0 `
+END_THING
+
+THING 223
+Name large sphere glowing powershield`
+Level 80
+HWT 3 5
+Timer 10
+Short a large glowing sphere`
+Wear floating`
+Long A large glowing sphere is on the ground.`
+ThFl 100966
+Val powershield 0 0 160 0 0 0 0 0 `
+END_THING
+
+THING 224
+Name huge sphere glowing powershield`
+Level 100
+HWT 3 5
+Timer 10
+Short a huge glowing sphere`
+Wear floating`
+Long A huge glowing sphere is on the ground.`
+ThFl 100966
+Val powershield 0 0 250 0 0 0 0 0 `
+END_THING
+
+THING 230
+Name trainer`
+Level 100
+HWT 65 2000
+Short a trainer`
+Long A trainer is here.`
+ThFl 34977
+END_THING
+
+THING 240
+Level 20
+HWT 4 20
+Timer 10
+ThFl 100934
+END_THING
+
+THING 250
+Name glowing blue portal`
+Level 100
+HWT 0 0
+Short a glowing $Cblue$7 portal`
+Wear floating`
+Long A glowing $Cblue$7 portal is here.`
+ThFl 100935
+END_THING
+
+THING 251
+Name glowing blue portal`
+Level 100
+HWT 0 0
+Short a glowing $Cblue$7 portal`
+Long A glowing $Cblue $6portal is here.$7`
+ThFl 100935
+Val i_exit 1002 0 0 0 0 0 0 0 `
+END_THING
+
+THING 252
+Name glowing blue portal`
+Level 100
+HWT 0 0
+Short a glowing $Cblue$7 portal`
+Long A glowing $Cblue$6 portal is here.$7`
+ThFl 100935
+Val i_exit 1052 0 0 0 0 0 0 0 `
+END_THING
+
+THING 253
+Name mystical portal`
+HWT 0 0
+Short a mystical portal`
+Long A Mystical portal filled with swirling colors hangs in the air.`
+ThFl 101062
+Val i_exit 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 270
+Name weapon pop weaponpop`
+HWT 0 0
+Short a weaponpop`
+Long The Weaponpop is here.`
+ThFl 100934
+Val randpop 600 5 4 200 0 0 0 0 `
+END_THING
+
+THING 271
+Name armor pop armorpop`
+HpMult 1
+HWT 0 0
+Short an armorpop`
+Long The armorpop is here.`
+ThFl 100934
+Val randpop 635 8 5 200 0 0 0 0 `
+END_THING
+
+THING 272
+Name cloth pop clothpop`
+HpMult 1
+HWT 0 0
+Short the cloth pop`
+Long The clothpop is here.`
+ThFl 100934
+Val randpop 635 8 0 0 0 0 0 0 `
+END_THING
+
+THING 273
+Name leather pop leatherpop`
+HpMult 1
+HWT 0 0
+Short the leather pop`
+Long The leatherpop is here.`
+ThFl 100934
+Val randpop 643 8 0 0 0 0 0 0 `
+END_THING
+
+THING 274
+Name chain pop chainpop`
+HpMult 1
+HWT 0 0
+Short the chain pop`
+Long The chainpop is here.`
+ThFl 100934
+Val randpop 651 8 0 0 0 0 0 0 `
+END_THING
+
+THING 275
+Name thinpop thin pop`
+HpMult 1
+HWT 0 0
+Short the thinpop`
+Long The thinpop is here.`
+ThFl 100934
+Val randpop 659 8 0 0 0 0 0 0 `
+END_THING
+
+THING 276
+Name thickpop thick pop`
+HpMult 1
+HWT 0 0
+Short the thickpop`
+Long The thickpop is here.`
+ThFl 100934
+Val randpop 667 8 0 0 0 0 0 0 `
+END_THING
+
+THING 277
+Name gempop gem pop`
+HpMult 1
+HWT 0 0
+Short the gempop`
+Long The gempop is here.`
+ThFl 100934
+Val randpop 110 16 4 300 0 0 1 0 `
+END_THING
+
+THING 278
+Name mob randpop`
+HWT 0 0
+Short the mob randpop`
+Long The mob randpop is here.`
+ThFl 100934
+Val randpop 127100 1733 2 1000 0 0 0 0 `
+END_THING
+
+THING 279
+Name provision provisionpop`
+HWT 0 0
+Short The provision pop`
+Long The provision po pis here.`
+ThFl 101063
+Val randpop 125006 245 1 0 0 0 0 0 `
+END_THING
+
+THING 280
+Name randpop randpop`
+HWT 0 0
+Short The randpop item`
+ThFl 100934
+Val randpop 270 10 1 0 0 0 0 0 `
+END_THING
+
+THING 281
+Name randobj item`
+HWT 0 0
+Short the randobj item`
+Long The randobj item is here`
+ThFl 100934
+Val randpop 150006 500 5 200 0 0 0 0 `
+END_THING
+
+THING 300
+Name lantern light`
+Level 20
+HWT 0 20
+Cost 100
+Short a lantern`
+Wear wield`
+Long A lantern is here.`
+ThFl 100934
+Val light 100 100 0 0 0 0 0 0 `
+END_THING
+
+THING 349
+Name toolpop`
+HWT 0 0
+Short the toolpop`
+Long The toolpop is here.`
+ThFl 100934
+Val randpop 350 12 1 0 0 0 0 0 `
+END_THING
+
+THING 350
+Name lockpicks tool`
+Level 5
+HWT 4 30
+Short some lockpicks`
+Wear wield`
+Long Some lockpicks are here.`
+ThFl 100934
+Val tool 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 351
+Name anvil tool`
+Level 20
+HWT 20 1000
+Short an anvil`
+Wear wield`
+Long An anvil is here.`
+ThFl 100934
+Val tool 2 0 0 0 0 0 0 0 `
+END_THING
+
+THING 352
+Name hammer forging tool`
+Level 20
+HWT 10 400
+Short a forging hammer`
+Wear wield`
+Long A forging hammer is here.`
+ThFl 100934
+Val tool 3 0 0 0 0 0 0 0 `
+END_THING
+
+THING 353
+Name needle tool`
+Level 1
+HWT 1 2
+Short a needle`
+Wear wield`
+Long A needle is here.`
+ThFl 100934
+Val tool 4 0 0 0 0 0 0 0 `
+END_THING
+
+THING 354
+Name saw tool`
+Level 4
+HWT 5 20
+Short a saw`
+Wear wield`
+Long A saw is here.`
+ThFl 100934
+Val tool 5 0 0 0 0 0 0 0 `
+END_THING
+
+THING 355
+Name knife tool`
+HWT 3 10
+Short a knife`
+Wear wield`
+Long A knife is here.`
+ThFl 100934
+Val tool 6 0 0 0 0 0 0 0 `
+Val weapon 1 2 0 0 0 0 0 0 `
+END_THING
+
+THING 356
+Name plane tool`
+HWT 4 30
+Short a plane`
+Wear wield`
+Long A plane is here.`
+ThFl 100934
+Val tool 7 0 0 0 0 0 0 0 `
+END_THING
+
+THING 357
+Name bowl tool`
+HWT 5 15
+Short a bowl`
+Wear wield`
+Long A bowl is here.`
+ThFl 100934
+Val tool 8 0 0 0 0 0 0 0 `
+END_THING
+
+THING 358
+Name plate tool`
+HWT 1 5
+Short a plate`
+Wear wield`
+Long A plate is here.`
+ThFl 100934
+Val tool 9 0 0 0 0 0 0 0 `
+END_THING
+
+THING 359
+Name glass jar tool`
+HWT 5 20
+Short a glass jar`
+Wear wield`
+Long A glass jar is here.`
+ThFl 100934
+Val tool 10 0 0 0 0 0 0 0 `
+END_THING
+
+THING 360
+Name short metal pipe tool`
+HWT 10 30
+Short a short metal pipe`
+Wear wield`
+Long A short metal pipe is here.`
+ThFl 100934
+Val tool 11 0 0 0 0 0 0 0 `
+END_THING
+
+THING 600
+Name small dagger`
+Level 10
+HWT 0 20
+Cost 100
+Short a small dagger`
+Wear wield`
+Long A small dagger is here.`
+type weapon`
+ThFl 100934
+Val weapon 2 4 1 0 0 0 0 0 `
+END_THING
+
+THING 601
+Name iron short sword`
+Level 10
+HWT 0 20
+Cost 100
+Short an iron short sword`
+Wear wield`
+Long An iron short sword is here.`
+type weapon`
+ThFl 100934
+Val weapon 3 5 0 0 0 0 0 0 `
+END_THING
+
+THING 602
+Name small mace`
+Level 10
+HWT 0 20
+Cost 100
+Short a small mace`
+Wear wield`
+Long A small mace is here.`
+type weapon`
+ThFl 100934
+Val weapon 3 6 2 0 0 0 0 0 `
+END_THING
+
+THING 603
+Name small whip`
+Level 10
+HWT 0 20
+Cost 100
+Short a small whip`
+Wear wield`
+Long A small whip is here.`
+type weapon`
+ThFl 100934
+Val weapon 3 6 3 0 0 0 0 0 `
+END_THING
+
+THING 604
+Name small club`
+Level 10
+HWT 0 20
+Cost 100
+Short a small club`
+Wear wield`
+Long A small club is here.`
+type weapon`
+ThFl 100934
+Val weapon 3 6 2 0 0 0 0 0 `
+END_THING
+
+THING 605
+Name dagger`
+Level 10
+HWT 0 35
+Cost 250
+Short a dagger`
+Wear wield`
+Long A dagger is here.`
+type weapon`
+ThFl 100934
+Val weapon 3 7 1 0 0 0 0 0 `
+END_THING
+
+THING 606
+Name short sword steel`
+Level 10
+HWT 0 35
+Cost 250
+Short a $Fsteel$7 short sword`
+Wear wield`
+Long A steel short sword is here.`
+type weapon`
+ThFl 100934
+Val weapon 4 8 0 0 0 0 0 0 `
+END_THING
+
+THING 607
+Name mace lead`
+Level 10
+HWT 0 35
+Cost 250
+Short a $8lead$7 mace`
+Wear wield`
+Long A lead mace is here.`
+type weapon`
+ThFl 100934
+Val weapon 4 8 2 0 0 0 0 0 `
+END_THING
+
+THING 608
+Name whip leather`
+Level 10
+HWT 0 35
+Cost 250
+Short a leather whip`
+Wear wield`
+Long A leather whip is here.`
+type weapon`
+ThFl 100934
+Val weapon 4 9 3 0 0 0 0 0 `
+END_THING
+
+THING 609
+Name club wooden`
+Level 10
+HWT 0 35
+Cost 250
+Short a wooden club`
+Wear wield`
+Long A wooden club is here.`
+type weapon`
+ThFl 100934
+Val weapon 3 10 2 0 0 0 0 0 `
+END_THING
+
+THING 610
+Name long dagger`
+Level 15
+HWT 0 50
+Cost 500
+Short a long dagger`
+Wear wield`
+Long A long dagger is here.`
+type weapon`
+ThFl 100934
+Val weapon 4 10 1 0 0 0 0 0 `
+END_THING
+
+THING 611
+Name long sword`
+Level 15
+HWT 0 50
+Cost 500
+Short a long sword`
+Wear wield`
+Long A long sword is here.`
+type weapon`
+ThFl 100934
+Val weapon 5 11 0 0 0 0 0 0 `
+END_THING
+
+THING 612
+Name sturdy mace`
+Level 15
+HWT 0 50
+Cost 500
+Short a sturdy mace`
+Wear wield`
+Long A sturdy mace is here.`
+type weapon`
+ThFl 100934
+Val weapon 5 11 2 0 0 0 0 0 `
+END_THING
+
+THING 613
+Name barbed whip`
+Level 15
+HWT 0 50
+Cost 500
+Short a barbed whip`
+Wear wield`
+Long A barbed whip is here.`
+type weapon`
+ThFl 100934
+Val weapon 5 12 3 0 0 0 0 0 `
+END_THING
+
+THING 614
+Name spiked club`
+Level 15
+HWT 0 50
+Cost 500
+Short a spiked club`
+Wear wield`
+Long A spiked club is here.`
+type weapon`
+ThFl 100934
+Val weapon 6 11 2 0 0 0 0 0 `
+END_THING
+
+THING 615
+Name double pronged dagger`
+Level 20
+HWT 0 65
+Cost 1500
+Short a double-pronged dagger`
+Wear wield`
+Long A dagger with two prongs on it is lying here.`
+type weapon`
+ThFl 100934
+Val weapon 5 11 1 0 0 0 0 0 `
+END_THING
+
+THING 616
+Name steel long sword`
+Level 20
+HWT 0 65
+Cost 1500
+Short a $Fsteel$7 long sword`
+Wear wield`
+Long A steel long sword is here.`
+type weapon`
+ThFl 100934
+Val weapon 6 12 0 0 0 0 0 0 `
+END_THING
+
+THING 617
+Name large steel mace`
+Level 20
+HWT 0 65
+Cost 1500
+Short a large $Fsteel$7 mace`
+Wear wield`
+Long A large steel mace is here.`
+type weapon`
+ThFl 100934
+Val weapon 6 12 2 0 0 0 0 0 `
+END_THING
+
+THING 618
+Name steel barbed whip steel-barbed`
+Level 20
+HWT 0 65
+Cost 1500
+Short a $Fsteel$7-barbed whip`
+Wear wield`
+Long A steel-barbed whip is here.`
+type weapon`
+ThFl 100934
+Val weapon 7 13 3 0 0 0 0 0 `
+END_THING
+
+THING 619
+Name large spiked club`
+Level 20
+HWT 0 65
+Cost 1501
+Short a large spiked club`
+Wear wield`
+Long A large spiked club is here.`
+type weapon`
+ThFl 100934
+Val weapon 7 14 2 0 0 0 0 0 `
+END_THING
+
+THING 635
+Name cloth cloak`
+Level 10
+HWT 0 8
+Cost 50
+Short a cloth cloak`
+Wear about`
+Long A cloak made of heavy cloth is piled in a heap.`
+ThFl 100934
+Val armor 1 1 0 0 0 0 0 0 `
+Flag mv 0 0 2
+END_THING
+
+THING 636
+Name cloth hood`
+Level 10
+HWT 0 7
+Cost 50
+Short a cloth hood`
+Wear head`
+Long A cloth hood is here.`
+ThFl 100934
+Val armor 1 0 0 0 0 0 0 0 `
+Flag mv 0 0 2
+END_THING
+
+THING 637
+Name cloth shirt`
+Level 10
+HWT 0 7
+Cost 50
+Short a cloth shirt`
+Wear body`
+Long A cloth shirt is here.`
+ThFl 100934
+Val armor 0 1 0 0 0 0 0 0 `
+Flag mv 0 0 2
+END_THING
+
+THING 638
+Name cloth sleeves`
+Level 10
+HWT 0 7
+Cost 50
+Short some cloth sleeves`
+Wear arms`
+Long Some cloth sleeves are here.`
+ThFl 100934
+Val armor 0 0 1 0 0 0 0 0 `
+Flag mv 0 0 2
+END_THING
+
+THING 639
+Name cloth gloves`
+Level 10
+HWT 0 7
+Cost 50
+Short some cloth gloves`
+Wear hands`
+Long Some cloth gloves are here.`
+ThFl 100934
+Val armor 0 0 1 0 0 0 0 0 `
+Flag mv 0 0 2
+END_THING
+
+THING 640
+Name cloth belt`
+Level 10
+HWT 0 7
+Cost 50
+Short a cloth belt`
+Wear waist`
+Long A cloth belt is here.`
+ThFl 100934
+Val armor 0 1 0 0 0 0 0 0 `
+Flag mv 0 0 2
+END_THING
+
+THING 641
+Name cloth pants`
+Level 10
+HWT 0 7
+Cost 50
+Short some cloth pants`
+Wear legs`
+Long Some cloth pants are here.`
+ThFl 100934
+Val armor 0 0 0 1 0 0 0 0 `
+Flag mv 0 0 2
+END_THING
+
+THING 642
+Name cloth shoes`
+Level 10
+HWT 0 7
+Cost 50
+Short some cloth shoes`
+Wear feet`
+Long A pair of flimsy cloth shoes have been left here.`
+ThFl 100934
+Val armor 0 0 0 1 0 0 0 0 `
+Flag mv 0 0 2
+END_THING
+
+THING 643
+Name leather hood`
+Level 10
+HWT 0 16
+Cost 100
+Short a leather hood`
+Wear head`
+Long A leather hood has been dropped here.`
+ThFl 100934
+Val armor 2 0 0 0 0 0 0 0 `
+Flag mv 0 0 1
+END_THING
+
+THING 644
+Name leather shirt`
+Level 10
+HWT 0 16
+Cost 100
+Short a leather shirt`
+Wear body`
+Long Someone left a leather shirt here.`
+ThFl 100934
+Val armor 0 2 0 0 0 0 0 0 `
+Flag mv 0 0 1
+END_THING
+
+THING 645
+Name leather sleeves`
+Level 10
+HWT 0 16
+Cost 100
+Short some leather sleeves`
+Wear arms`
+Long There are some leather sleeves here.`
+ThFl 100934
+Val armor 0 0 2 0 0 0 0 0 `
+Flag mv 0 0 1
+END_THING
+
+THING 646
+Name pair leather gloves`
+Level 10
+HWT 0 16
+Cost 100
+Short a pair of leather gloves`
+Wear hands`
+Long A pair of leather gloves is on the ground.`
+ThFl 100934
+Val armor 0 0 2 0 0 0 0 0 `
+Flag mv 0 0 1
+END_THING
+
+THING 647
+Name leather belt`
+Level 10
+HWT 0 16
+Cost 100
+Short a leather belt`
+Wear waist`
+Long A leather belt lies wound up in a little loop on the ground.`
+ThFl 100934
+Val armor 0 2 0 0 0 0 0 0 `
+Flag mv 0 0 1
+END_THING
+
+THING 648
+Name leather pants`
+Level 10
+HWT 0 16
+Cost 100
+Short some leather pants`
+Wear legs`
+Long Some leather pants have been left behind by someone.`
+ThFl 100934
+Val armor 0 0 0 2 0 0 0 0 `
+Flag mv 0 0 1
+END_THING
+
+THING 649
+Name leather shoes`
+Level 10
+HWT 0 16
+Cost 100
+Short some leather shoes`
+Wear feet`
+Long Some light leather shoes are here.`
+ThFl 100934
+Val armor 0 0 0 2 0 0 0 0 `
+Flag mv 0 0 2
+END_THING
+
+THING 650
+Name leather cloak`
+Level 20
+HWT 0 10
+Cost 100
+Short a leather cloak`
+Wear about`
+Long A leather cloak is here.`
+ThFl 100934
+Val armor 1 2 0 0 0 0 0 0 `
+END_THING
+
+THING 651
+Name chain coif`
+Level 20
+HWT 0 20
+Cost 300
+Short a chain coif`
+Wear head`
+Long A chain coif is here.`
+ThFl 100934
+Val armor 3 0 0 0 0 0 0 0 `
+END_THING
+
+THING 652
+Name chain sleeves`
+Level 20
+HWT 0 20
+Cost 300
+Short some chain sleeves`
+Wear arms`
+Long Some chain sleeves are here.`
+ThFl 100934
+Val armor 0 0 3 0 0 0 0 0 `
+END_THING
+
+THING 653
+Name chain boots`
+Level 20
+HWT 0 20
+Cost 300
+Short some chain boots`
+Wear feet`
+Long Some chain boots are here.`
+ThFl 100934
+Val armor 0 0 0 3 0 0 0 0 `
+END_THING
+
+THING 654
+Name chain gloves`
+Level 20
+HWT 0 20
+Cost 300
+Short some chain gloves`
+Wear hands`
+Long Some chain gloves are here.`
+ThFl 100934
+Val armor 0 0 3 0 0 0 0 0 `
+END_THING
+
+THING 655
+Name chain shirt`
+Level 20
+HWT 0 20
+Cost 300
+Short a chain shirt`
+Wear body`
+Long A chain shirt is here.`
+ThFl 100934
+Val armor 0 3 0 0 0 0 0 0 `
+END_THING
+
+THING 656
+Name chain belt`
+HWT 0 0
+Short a chain belt`
+Wear waist`
+Long A chain belt is here.`
+ThFl 100934
+Val armor 0 3 0 0 0 0 0 0 `
+END_THING
+
+THING 657
+Name chain pants`
+Level 20
+HWT 0 20
+Cost 300
+Short some chain pants`
+Wear legs`
+Long Some chain pants are here.`
+ThFl 100934
+Val armor 0 0 0 3 0 0 0 0 `
+END_THING
+
+THING 658
+Name chain cloak`
+Level 20
+HWT 0 30
+Cost 300
+Short a chain cloak`
+Wear about`
+Long A chain cloak is on the ground.`
+ThFl 100934
+Val armor 0 3 0 0 0 0 0 0 `
+END_THING
+
+THING 659
+Name thin metal helmet helm`
+Level 30
+HWT 0 40
+Cost 500
+Short a thin metal helmet`
+Wear head`
+Long A thin metal helmet is on the ground.`
+ThFl 100934
+Val armor 4 0 0 0 0 0 0 0 `
+Flag mv 0 0 0
+END_THING
+
+THING 660
+Name thin metal plate breastplate`
+Level 30
+HWT 0 40
+Cost 500
+Short a thin metal breastplate`
+Wear body`
+Long A thin metal breastplate is here.`
+ThFl 100934
+Val armor 0 4 0 0 0 0 0 0 `
+Flag mv 0 0 0
+END_THING
+
+THING 661
+Name thing metal armplates`
+Level 30
+HWT 0 40
+Cost 500
+Short some thin metal armplates`
+Wear arms`
+Long Some thing metal armplates are here.`
+ThFl 100934
+Val armor 0 0 4 0 0 0 0 0 `
+Flag mv 0 0 0
+END_THING
+
+THING 662
+Name thin metal gauntlets`
+Level 30
+HWT 0 40
+Cost 500
+Short some thin metal gauntlets`
+Wear hands`
+Long Some thing metal gauntlets are here.`
+ThFl 100934
+Val armor 0 0 4 0 0 0 0 0 `
+Flag mv 0 0 0
+END_THING
+
+THING 663
+Name thin metal shield`
+Level 30
+HWT 0 40
+Cost 500
+Short a thin metal shield`
+Wear shield`
+Long A thin metal shield is here, propped up.`
+ThFl 100934
+Val armor 2 4 2 0 0 0 0 0 `
+Flag mv 0 0 0
+END_THING
+
+THING 664
+Name thin metal belt`
+Level 30
+HWT 0 40
+Cost 500
+Short a thin metal belt`
+Wear waist`
+Long A thin metal belt is here.`
+ThFl 100934
+Val armor 0 4 0 0 0 0 0 0 `
+Flag mv 0 0 0
+END_THING
+
+THING 665
+Name thin metal greaves`
+Level 30
+HWT 0 40
+Cost 500
+Short some thin metal greaves`
+Wear legs`
+Long A pair of thin metal greaves are here.`
+ThFl 100934
+Val armor 0 0 0 4 0 0 0 0 `
+Flag mv 0 0 0
+END_THING
+
+THING 666
+Name thin metal boots`
+Level 30
+HWT 0 40
+Cost 500
+Short some thin metal boots`
+Wear feet`
+Long Some thin metal boots are here.`
+ThFl 100934
+Val armor 0 0 0 4 0 0 0 0 `
+Flag mv 0 0 0
+END_THING
+
+THING 667
+Name thick metal helmet`
+Level 40
+HWT 0 50
+Cost 1000
+Short a thick metal helmet`
+Wear head`
+Long A thick metal helmet is here.`
+ThFl 100934
+Val armor 5 0 0 0 0 0 0 0 `
+Flag mv 0 0 0
+END_THING
+
+THING 668
+Name thick metal plate breastplate`
+Level 40
+HWT 0 50
+Cost 1000
+Short a thick metal breastplate`
+Wear body`
+Long A thick metal breastplate was discarded here.`
+ThFl 100934
+Val armor 0 5 0 0 0 0 0 0 `
+Flag mv 0 0 0
+END_THING
+
+THING 669
+Name thick metal armplates`
+Level 40
+HWT 0 50
+Cost 1000
+Short some thick metal armplates`
+Wear arms`
+Long Some thick metal armplates are here.`
+ThFl 100934
+Val armor 0 0 5 0 0 0 0 0 `
+Flag mv 0 0 0
+END_THING
+
+THING 670
+Name thick metal gauntlets`
+Level 40
+HWT 0 50
+Cost 1000
+Short some thick metal gauntlets`
+Wear hands`
+Long Some thick metal gauntlets have been tossed aside here.`
+ThFl 100934
+Val armor 0 0 5 0 0 0 0 0 `
+Flag mv 0 0 0
+END_THING
+
+THING 671
+Name thick metal shield`
+Level 40
+HWT 0 50
+Cost 1000
+Short a thick metal shield`
+Wear shield`
+Long A thick metal shield is here.`
+ThFl 100934
+Val armor 3 5 2 0 0 0 0 0 `
+Flag mv 0 0 0
+END_THING
+
+THING 672
+Name thick metal belt`
+Level 40
+HWT 0 50
+Cost 1000
+Short a thick metal belt`
+Wear waist`
+Long A thick metal belt is here.`
+ThFl 100934
+Val armor 0 5 0 0 0 0 0 0 `
+Flag mv 0 0 0
+END_THING
+
+THING 673
+Name thick metal greaves`
+Level 40
+HWT 0 50
+Cost 1000
+Short some thick metal greaves`
+Wear legs`
+Long Some sturdy-looking thick metal greaves are lying here.`
+ThFl 100934
+Val armor 0 0 0 5 0 0 0 0 `
+Flag mv 0 0 0
+END_THING
+
+THING 674
+Name thick metal boots`
+Level 40
+HWT 0 50
+Cost 1000
+Short some thick metal boots`
+Wear feet`
+Long Some thick metal boots are here.`
+ThFl 100934
+Val armor 0 0 0 5 0 0 0 0 `
+Flag mv 0 0 0
+END_THING
+
+THING 700
+Name catchall`
+HWT 0 0
+Cost 300
+Short the catchall`
+Long The catchall is here.`
+ThFl 100930
+END_THING
+
+THING 701
+Name corpse`
+HWT 0 0
+Timer 10
+Short a corpse`
+type corpse`
+ThFl 100934
+Val replaceby 710 1 1 0 0 0 0 0 `
+END_THING
+
+THING 702
+Name steak juicy`
+Level 5
+HWT 0 0
+Short a juicy steak`
+Long A juicy steak is here.`
+ThFl 100934
+Val food 10 0 0 0 0 0 0 0 `
+END_THING
+
+THING 703
+Name soul altar`
+Level 100
+HpMult 1
+HWT 0 0
+Short The Soul Altar`
+Long The Soul Altar sits here emanating power.`
+ThFl 101059
+END_THING
+
+THING 704
+Name soul dagger`
+Level 50
+HpMult 1
+HWT 0 200
+Cost 50000
+Short The Soul Dagger`
+Wear wield`
+Long The Soul dagger rests here, looking dangerous.`
+ThFl 100934
+Val weapon 5 10 0 0 0 0 0 0 `
+END_THING
+
+THING 705
+Name soul prison`
+HpMult 1
+HWT 0 500
+Short The Soul Prison`
+Wear wield`
+Long The Soul Prison is here in all it's inky black glory.`
+ThFl 100934
+END_THING
+
+THING 706
+Name potion bottle`
+Level 10
+HWT 7 5
+Cost 2000
+Desc This small flask is filled with liquid.
+`
+Short a potion bottle`
+Wear wield`
+Long A potion bottle is here.`
+ThFl 100934
+END_THING
+
+THING 707
+Name parchment paper `
+Level 10
+HWT 2 2
+Short a piece of paper`
+Wear wield`
+Long A piece of paper is here.`
+ThFl 100934
+Val magic_item 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 708
+Name vial crystal small`
+Level 80
+HWT 0 0
+Cost 20000
+Desc This small crystal vial has a stopper that twists on and 
+can keep even the most deadly liquids from seeping out. It
+glows with an inner light, almost as if it was made with magic.
+`
+Short a small $Ecrystal$7 vial`
+Long A small $Ecrystal$7 vial has been left here.`
+ThFl 100934
+END_THING
+
+THING 709
+Name happy fun relic`
+Level 300
+HWT 6000 5000
+Cost 1000000
+Desc Do not taunt Happy Fun Relic.
+Do not pick up Happy Fun Relic.
+Happy Fun Relic is not a toy.
+Happy Fun Relic is not a doorstop.
+Just Get The Hell Away From Happy Fun Relic Before You Get Hurt!!!
+`
+Short Happy Fun Relic`
+Wear wield`
+Long Happy Fun Relic is here. Do not get it. :)`
+Sex 2
+ThFl 100934
+Flag Obj 0 0 8192
+END_THING
+
+THING 710
+Name pile bones`
+HWT 0 0
+Timer 10
+Short a pile of bones`
+Long A pile of bones is here.`
+ThFl 100934
+END_THING
+
+THING 740
+Name slice roast pikachu`
+Level 30
+HWT 0 4
+Cost 23
+Short a slice of roast $Bp$9i$Bkac$9h$Bu$7`
+Long A yummy slice of roast $Bp$9i$Bkac$9h$Bu$6 has been left here.$7`
+ThFl 100934
+Val food 60 0 0 0 0 0 0 0 `
+END_THING
+
+THING 741
+Name water skin`
+Level 50
+HWT 0 0
+Cost 100
+Short a waterskin`
+Long A waterskin is here.`
+ThFl 100934
+Val drink 10 10 0 0 0 0 0 0 `
+END_THING
+
+THING 742
+Name minigun`
+Level 60
+HWT 0 0
+Short a minigun`
+Wear wield`
+Long A minigun is here.`
+ThFl 100934
+Val ranged 10 7 3 15 10 0 0 0 `
+END_THING
+
+THING 743
+Name belted ammo`
+Level 70
+HWT 0 0
+Short some belted ammo`
+Wear wield`
+Long Some belted ammo is here.`
+ThFl 100934
+Val ammo 1 20 200 200 10 0 0 0 `
+END_THING
+
+THING 744
+Name fountain`
+HWT 60 20000
+Short A fountain`
+Long A $Ffountain$6 bubbling with $Cwater$6 is here.$7`
+ThFl 101062
+Val drink 0 0 0 0 0 0 0 0 unlim`
+END_THING
+
+THING 745
+Name ladder`
+Level 30
+HpMult 1
+HWT 0 0
+Short a ladder`
+Long A ladder is here leading up.`
+ThFl 100934
+END_THING
+
+THING 746
+Name boat`
+Level 20
+HWT 0 0
+Short a boat`
+Long A boat is here.`
+ThFl 98882
+END_THING
+
+THING 772
+Name large bag`
+Level 30
+HWT 0 0
+Cost 500
+Short a large bag`
+Size 200
+Wear wield`
+Long A large bag is here.`
+ThFl 100930
+END_THING
+
+THING 800
+Name flower daisy`
+Level 20
+HWT 10 3
+Short a daisy`
+Long A daisy pokes up out of the ground.`
+ThFl 100934
+Val raw 4 0 0 0 0 0 0 0 `
+END_THING
+
+THING 801
+Name flower carnation`
+Level 20
+HWT 10 3
+Short a carnation`
+Long A carnation is here.`
+ThFl 100934
+Val raw 4 0 0 0 0 0 0 0 `
+END_THING
+
+THING 802
+Name flower lavendar`
+Level 20
+HWT 10 3
+Short a lavendar`
+Long A lavendar is here.`
+ThFl 100934
+Val raw 4 0 0 0 0 0 0 0 `
+END_THING
+
+THING 803
+Name flower bluebell`
+Level 20
+HWT 10 3
+Short a bluebell`
+Long A bluebell is here.`
+ThFl 100934
+Val raw 4 0 0 0 0 0 0 0 `
+END_THING
+
+THING 820
+Name birch log`
+Level 20
+HWT 0 500
+Cost 2500
+Short birch log`
+Long A birch log is here.`
+ThFl 100934
+Val raw 3 0 0 0 0 0 0 0 `
+END_THING
+
+THING 821
+Name ash log`
+Level 25
+HWT 0 500
+Cost 4000
+Short an ash log`
+Long An ash log is here.`
+ThFl 100934
+Val raw 3 1 0 0 0 0 0 0 `
+END_THING
+
+THING 822
+Name elm log`
+Level 30
+HWT 0 550
+Cost 5500
+Short an elm log`
+Long an elm log is here.`
+ThFl 100934
+Val raw 3 2 0 0 0 0 0 0 `
+END_THING
+
+THING 823
+Name pine log`
+HWT 0 600
+Cost 6000
+Short a pine log`
+Long A pine log is here.`
+ThFl 100934
+Val raw 3 3 0 0 0 0 0 0 `
+END_THING
+
+THING 824
+Name cedar log`
+Level 40
+HWT 0 700
+Cost 7500
+Short a cedar log`
+Long A cedar log is here.`
+ThFl 100934
+Val raw 3 4 0 0 0 0 0 0 `
+END_THING
+
+THING 825
+Name oak log`
+Level 50
+HWT 0 900
+Cost 8000
+Short an oak log`
+Long An oak log is here.`
+ThFl 100934
+Val raw 3 5 0 0 0 0 0 0 `
+END_THING
+
+THING 850
+Name sprig clover herb`
+Level 20
+HWT 0 3
+Cost 500
+Short a sprig of clover`
+Long A sprig of clover is here.`
+ThFl 100934
+Val raw 6 0 0 0 0 0 0 0 `
+END_THING
+
+THING 851
+Name sprig mandrake herb`
+Level 20
+HWT 0 3
+Cost 500
+Short a sprig of mandrake`
+Long A sprig of mandrake is here.`
+ThFl 100934
+Val raw 6 0 0 0 0 0 0 0 `
+END_THING
+
+THING 852
+Name sprig nightshade herb`
+Level 20
+HWT 0 3
+Cost 500
+Short a sprig of nightshade`
+Long A sprig of nightshade is here.`
+ThFl 100934
+Val raw 6 0 0 0 0 0 0 0 `
+END_THING
+
+THING 853
+Name sprig femtel herb`
+Level 20
+HWT 0 3
+Cost 500
+Short a sprig of femtel`
+Long A sprig of femtel is here.`
+ThFl 100934
+Val raw 6 0 0 0 0 0 0 0 `
+END_THING
+
+THING 854
+Name sprig gooseroot herb`
+Level 20
+HWT 0 3
+Cost 500
+Short a sprig of gooseroot`
+Long A sprig of gooseroot is here.`
+ThFl 100934
+Val raw 6 0 0 0 0 0 0 0 `
+END_THING
+
+THING 855
+Name sprig juniper herb`
+Level 20
+HWT 0 3
+Cost 500
+Short a sprig of juniper`
+Long A sprig of juniper is here.`
+ThFl 100934
+Val raw 6 0 0 0 0 0 0 0 `
+END_THING
+
+THING 856
+Name sprig oakroot herb`
+Level 20
+HWT 0 3
+Cost 500
+Short a sprig of oakroot`
+Long A sprig of oakroot is here.`
+ThFl 100934
+Val raw 6 0 0 0 0 0 0 0 `
+END_THING
+
+THING 897
+Name Forge`
+Level 100
+HWT 0 0
+Desc This large space has a hearth and tools used for metalworking.
+`
+Short a giant forge`
+Long A giant forge has been set up here.`
+ThFl 100935
+END_THING
+
+THING 900
+Name stone block limestone`
+Level 20
+HWT 10 500
+Short a block of limestone`
+Long A block of limestone is here.`
+ThFl 100934
+Val raw 2 0 0 0 0 0 0 0 `
+END_THING
+
+THING 901
+Name block stone shale`
+Level 40
+HWT 0 500
+Short a block of shale`
+Long A block of shale is here`
+ThFl 100934
+Val raw 2 1 0 0 0 0 0 0 `
+END_THING
+
+THING 902
+Name block granite stone`
+Level 60
+HWT 30 500
+Short a block of granite`
+Long A block of granite is here.`
+ThFl 100934
+Val raw 2 0 0 0 0 0 0 0 `
+END_THING
+
+THING 903
+Name block stone marble`
+Level 80
+HWT 20 500
+Short a block of marble`
+Long A block of marble is here.`
+ThFl 100934
+Val raw 2 0 0 0 0 0 0 0 `
+END_THING
+
+THING 920
+Name bunch wheat`
+Level 20
+HWT 10 40
+Short a bunch of wheat`
+Long A bunch of wheat is here.`
+ThFl 100934
+Val raw 5 0 0 0 0 0 0 0 `
+END_THING
+
+THING 921
+Name bunch rice`
+Level 20
+HWT 20 40
+Short a bunch of rice`
+Long A bunch of rice is here.`
+ThFl 100934
+Val raw 5 0 0 0 0 0 0 0 `
+END_THING
+
+THING 922
+Name bunch corn`
+Level 20
+HWT 20 40
+Short a bunch of corn`
+Long A bunch of corn is here.`
+ThFl 100934
+Val raw 5 0 0 0 0 0 0 0 `
+END_THING
+
+THING 950
+Name vial black ichor`
+Level 10
+HWT 0 0
+Short a vial of $8black$7 ichor`
+Long A vial of $8black$7 ichor is here.`
+ThFl 100934
+Val raw 7 0 0 0 0 0 0 0 `
+END_THING
+
+THING 951
+Name vial red ichor`
+Level 10
+HWT 0 0
+Short A vial of $9red$7 ichor`
+Long A vial of $9red$7 ichor is here.`
+ThFl 100934
+Val raw 7 0 0 0 0 0 0 0 `
+END_THING
+
+THING 952
+Name vial blue ichor`
+Level 10
+HWT 0 0
+Short A vial of $Cblue$7 ichor`
+Long A vial of $Cblue$7 ichor is here.`
+ThFl 100934
+Val raw 7 0 0 0 0 0 0 0 `
+END_THING
+
+THING 953
+Name vial green ichor`
+Level 10
+HWT 0 0
+Short A vial of $2green$7 ichor`
+Long A vial of $2green$7 ichor is here.`
+ThFl 100934
+Val raw 7 0 0 0 0 0 0 0 `
+END_THING
+
+THING 954
+Name vial yellow ichor`
+Level 10
+HWT 0 0
+Short A vial of $Byellow$7 ichor`
+Long A vial of $Byellow$7 ichor is here.`
+ThFl 100934
+Val raw 7 0 0 0 0 0 0 0 `
+END_THING
+
+THING 991
+Level 100
+HWT 0 0
+Timer 1
+ThFl 100934
+Val replaceby 270 0 0 0 0 0 0 0 `
+END_THING
+
+THING 998
+Name snow globe snowglobe ball`
+Level 102
+HWT 0 0
+Desc This glass globe has a picturesque scene of a little village inside.
+The bottom is covered with white flakes of some material that
+seem to come alive every time the globe is shaken even a little.
+`
+Short a snowglobe`
+Long A snowglobe was left here.`
+ThFl 16812614
+END_THING
+
+END_OF_AREA
+

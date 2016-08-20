@@ -1,0 +1,29 @@
+This is how you can set up the wilderness map. I am assuming that you're
+on a Linux machine using Xwindows.  In this directory,
+
+type terraform
+
+This will make the terraform program open up. Make a new picture 
+(try out several kinds of generators).
+
+ Set the size to whatever wilderness size you want I have found
+that the scaling doesn't work too well, it scaled 500x500 up to
+1997x1997 which isn't good. :P So, in my case I have to use
+2000x2000 pictures. Make an interesting picture then edit it
+with some of the advanced features, and then you save it. Save 
+it as a grid file .grd, and call it wld.grd
+
+(You must call the file wld.grd and have it in your wld directory
+unless you want to edit the file in the next part.)
+
+Now go to your src directory and type
+
+gcc -o gridmaker grid.c fileio.c
+
+Then type ./gridmaker 
+
+and it will overwrite your current wilderness file with the
+new one. 
+
+Then, you can start the game up and use the wildernes map.
+

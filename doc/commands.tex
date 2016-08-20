@@ -1,0 +1,111 @@
+\chapter{Commands}
+
+
+\section{Introduction}
+
+
+When someone connects to the game, they interact with it by typing
+things in. The commands come into an interpreter and get processed to
+make the game do stuff. Other things besides players can issue
+commands, but things don't always work the same between players and
+non players.
+
+
+\section{The cmd struct}
+
+The struct used to let things have commands is called struct cmd:
+
+
+struct cmd
+
+{
+
+  char *name;                        This is the "name" of the command
+				       you type in to use it. 
+
+  COMMAND\_FUNCTION *called\_function;  This is the actual pointer to the
+					actual function which is executed
+					when you do this thing. 
+
+  int level;                          Min Level to Use 
+
+  CMD *next;                          Next command in the list 
+
+  bool log;                           Is this always logged? 
+
+};
+
+
+The name is the string of letters that a character must type in to use
+that command. The command parser attempts to find commands even on
+partial strings of letters. The commands are hashed using only the
+first letter of the command, so if you wish to use a single letter
+command, the game will look for the commands that were added last to
+the lists (so they are at the front of the lists) when it looks
+something up.
+
+The called\_function is the actual piece of code to be called when the
+command is executed. This is just a pointer to the function in
+question, and when it gets called, 
+
+(*cmd->called\_function)(th, arg) 
+
+
+is called to execute the code.
+
+The level is the minimum level required to use this command. Useful
+for highlevel commands.
+
+Log determines if this command is always logged or not. This is useful
+for messy commands like delete and freeze where you want to track the
+stuff your staff is doing to your players. Commands can also be logged
+by setting a log bit on a player, like log bob, or by typing log all
+which will log every single command by every player.
+
+
+\section{The Interpreter}
+
+The interpreter works by passing two arguments to interpret(). The
+first argument is the thing attempting to do a command, and the second
+is an argument containing the command and any other arguments needed
+for the command.
+
+
+The game first does some checking to make sure that the thing and
+argument exist. Then, it checks for in-game restrictions on commands
+due to paralysis or freezing or other things, and it removes hidden
+from the thing doing the action.
+
+
+The next step is to see if the command is a channel (since those are
+stored on a separate list and accessed through a common interface.
+Then, clan editing commands are checked, and then the commands
+themselves are checked by matching the word to the command name.
+If none of these ended up with a match, then the command is checked
+against socials. Then, the actual command is called if there was one.
+
+
+Finally, everything in and around the thing doing the command gets
+checked for command scripts (verb binding), and the logs are updated,
+if necessary.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

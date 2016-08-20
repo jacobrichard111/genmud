@@ -1,0 +1,127 @@
+\chapter{Events}
+
+
+The game handles actions by giving each thing a few events that get
+triggered every few seconds for it.
+
+\section{Thing Events}
+ Most things get some of the
+following events:
+
+\begin{itemize}
+
+
+
+\item EVENT\_THING: This happens every 7-11 seconds depending on how
+the game is currently coded at the moment. This event deals with
+regenerating health and also for actions like society
+actions. Generally only mobs get this event, but other things that
+cast spells or have some special activity may get it also.
+
+\item EVENT\_COMBAT: This happens every 1.5-2 seconds for each thing
+that is in combat. This also calls the hunting code since these two
+things are mutually exclusive (in any given pulse) so it saves some
+resources over having a separate hunting event. Only mobs that have
+been in combat or have had to hunt something get this event.
+
+\item EVENT\_THING\_HOUR: This happens every 60-80 seconds within the game
+and it determines when tracks fade, and affects fade, and when things
+that are timed delete themselves. Every thing gets this.
+
+\item EVENT\_CAST: This is used by things that cast so that their
+casting is independent of other activities. They must have a VAL\_CAST
+on them for this to be set.
+ 
+\item EVENT\_FAST: Certain things happen only around pc's such as
+mobs doing socials, and mobs attacking faster. This event gets called
+every couple of seconds for each player.
+
+
+\end{itemize}
+
+There is also an event called EVENT\_TRACK that players get to
+use. This sets up a delay that lets them have a delay between entering
+a room and finding tracks.
+
+EVENT\_COMMAND is used to delay commands for players and mobs. One
+example of players using this is the cast command. One example of
+this for mobs is the wake command used when sleeping mobs wake up
+after hearing a yell. They are staggered so that it looks like they
+all wake up at different times.
+
+An interesting idea may be to make haste/slow a number that gets
+moved up and down around 100 (= normal) representing how hasted or
+slow a thing is, and then reschedule these events faster or slower
+based on that. I may do that at some point, but it would be hard to
+balance, so it will be left for later.
+
+\section{Global Events}
+There are also several global events that happen at certain
+intervals:
+
+\begin{itemize}
+
+
+\item EVENT\_AUCTION: This updates any auctions approximately every 15
+seconds.
+
+\item EVENT\_HOUR: This does updates like the hourly weather update
+and some saving.
+
+\item EVENT\_SOCIETY: A small percentage of societies get updated
+every second to spread out the load. This calls that update function.
+
+\item EVENT\_ALIGN: This updates the alignments to spread out the load
+required to update their AI and data.
+
+
+\end{itemize}
+
+\section{Special Events}
+
+There are also a couple of other special events.
+
+EVENT\_DAMAGE: This event is used to deal out damage over time instead
+of all at once. Spells have some ability to cause damage over time
+now.
+
+EVENT\_FREE\_THING: This is an event used to free things about a minute
+after they are removed from the game. The reason for this staggering
+of the destruction of things is to save on CPU. 
+
+First, when a mob
+dies, it leaves a lot of tracks and it's too expensive to search every
+room for tracks of that mob, so every hour, rooms delete tracks that
+belong to things that aren't in anything (such as deleted mobs). Since
+these updates are staggered over the minute or so each hour of game
+time takes up, it spreads out this cost, and doesn't duplicate as much
+work.
+
+Second, the code that saves the world snapshot works on its own
+thread. This was done because I don't see any good cheap way of saving
+a snapshot of the world other than just farming it off to its own
+thread. If I left it all in the main thread, there would be a
+noticeable lag, or the saving would have to be spread out so
+there would be more problems with contamination. Otherwise, I could
+use a DB, but that would be too expensive for the resources I have at
+hand (and this isn't written that way). So, I save things using a
+separate thread, and I do some checking in move\_thing, so that if a
+thing that isn't saved tries to move into something that is saved
+(except when pc's are around), the move fails. This happens about 5-10
+times when I try to save 100000 items (with the game really sped up),
+so I think that captures most of the errors that are likely to occur.
+The reason things aren't deleted right away is that if they are 
+removed from the game in the middle of them being saved by the other
+thread, pointers may go bad in the middle of that, and strings may
+get freed as they are being written to a file. That's not good, so
+I just try to remove the item partially, then remove it fully about a
+minute later.
+
+Like I said, it isn't a perfect solution, but it's close enough to
+what I want and it's cheap, so I can do more of the simulation that I
+like (since I don't really care if the simulation is perfect...since
+it's a numbers game to me).
+
+
+
+

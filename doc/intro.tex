@@ -1,0 +1,409 @@
+\chapter{Introduction}
+
+\section{Quick Start}
+
+If you are looking at this and are familiar with MUDs, here is a quick
+start method for logging into the game to look around. You have
+already untarred the files I hope, but if not here is how to do
+it. You must be in Linux unless this has been ported.
+
+You can untar the file in your main directory since it creates its own
+subdirectory. Another thing to remember is that if you're reading
+this, and this came as part of the tarfile, you can safely skip the
+next few steps by default. :) Assuming the filename of the tarfile is
+something.tar.gz, type gunzip something.tar.gz Then type tar -xvf
+something.tar These commands will set up your mud into the proper
+directories. type cd bfdmud then cd src and then make. These two
+commands should make the executable, but if not, then you have some
+debugging to do. If it works, type ./scs \& which runs the startup
+script. You may also want to edit your crontab to make the game start
+up on reboot.
+
+Assuming your username is mudadmin, in your home directory type
+crontab -e.  Then, type i and then type
+\vv
+@reboot cd /home/mudadmin/bfdmud/src ; ./scs \&
+\vv
+
+Now, hit the escape key and type :wq. That should make your mud boot
+up when the server reboots.
+
+Now inside the same shell, type telnet localhost 3300, or if you know
+the IP/name of the server log into the server at port 3300.  Once you
+are logged in, go through the process of making up a character and
+once you are in the game, quit out. Assuming you are still in the src
+directory, type cd ../plr. Now let's say your character name was
+Fred. Pick an editor you like in linux (I use pico, emacs, vi
+whatever..) and edit Fred. When you are editing Fred, you will notice
+a series of keyword/data pairs. Go find the one that says ``level''
+and make the number after it 110 (The maximum level). Save the pfile
+and quit the editor and then telnet localhost 3300 again and when you
+log in you will be max level. A few notes about ``imms''.
+
+\begin{enumerate}
+
+\item There are no backdoors which give you imm levels within the game
+when you first log in...just seems like a bad idea since you should
+disable it anyway when you make your first char.
+
+\item Imms are not immortal. The only advantages an ``imm'' has are
+that you have access to all skills if you want, you can go anywhere
+you want if you choose, and you can see all if you choose. You can
+also set your hps to massive amounts (typing sset fred hm 20000000
+followed by restore fred will make you pretty much invulnerable).
+
+\item You can die from permadeath as an imm...so be careful with
+that. Also, there is *NO* slay command, but you can freeze or delete
+players if you need to. Slay is out because of permadeath...so you
+can't screw someone over in a fit of rage. I would recommend slay XOR
+permadeath only.
+
+\end{enumerate}
+
+Now you have your admin character, and you have access to all commands in the game. Feel free to look around and do stuff while you read through this stuff.
+
+
+\section{What is this?}
+
+So, what is this thing? This is a MUD, or Multi-User
+Dungeon/Dimension, Multiuser Undergraduate Destroyer, etc... Think of
+a chat room. Think of message boards. Think of a community where you
+can log on and meet your friends on the internet. Think of a game
+where you can create an alter ego and improve it and collect stuff and
+have fun over a long period of time. A MUD is all of these things. It
+is a type of game/simulation which can be played by many people from
+all over the world at the same time.
+
+When you log on, you create a ``character'' which you will use for a
+long time. This thing that you create will be your identity and a way
+of keeping score, and what you will use to interact with the rest of
+the world and the other players. There are many methods of
+communication, many ways to act toward other people, and many ways for
+other people to interact with you.
+
+
+\section{History} 
+
+So, what about my history? I started MUDding in Jan/Feb of 1991 on
+eris.berkeley.edu 4000. I got so addicted it isn't even funny. I got
+away from MUDs for a few years and then came back around '95/96 as the
+net was growing in popularity as I stupidly decided to try a MUD out
+``just once'' to see if they were still interesting. Needless to say,
+I got hooked again, but the second time around the disease progressed
+past stage 1: Player, into stage 2: builder, on to stage 3: admin, and
+finally stage 4: write your own codebase because your current codebase
+wasn't cutting it. So, I built and adminned and coded on an Emlen
+server (which comes from NiMUD/TheIsles which comes from MERC, which
+comes from Diku).
+
+In the spring of 2000, I finally realized I could not do what I wanted
+to do with the server, so I gave up on it and wrote
+this. (Incidentally tracking and resetting objects on society mobs are
+what finally did it.) (Someone also made this code available on
+kyndig.com apparently under Diku-Merc-NiMUD(TheIsles)-EmlenMUD.)
+The idea is to make something that the players
+will think is similar to the Emlen code, but which has a lot more
+stuff available in it. The builders and coders will realize that it's
+done differently, so if you are used to Dikus, this may take a little
+while to ``get'' the idea behind the code. Once you have the idea, I
+think you will see that there are advantages so the architecture here.
+
+\section{Server Information}
+
+The basic idea behind the code is as follows: There is a piece of network code
+which lets you connect using telnet, a database filled with things to explore
+and interact with, and an autonomous world which is constantly doing things
+even when you aren't there. There are also many commands players can use, and
+there are many many many kinds of things that can be built for the world. One
+thing to realize is this. The code for the network, the data, and all that
+stuff is the \_minimal\_ setup that seemed to work. Technically I should have
+a separate thread for the network code (which now exists), and technically I
+should probably have a general database, but I was more interested in getting
+a basic framework setup that worked, instead of making a tank that could
+withstand anything and be scalable into thousands of users on many servers.
+
+(I have also noticed that MANY people spend so much time working on
+"the perfect programming framework for creating a MUD" that they
+never get to doing anything interesting with the MUD. The framework
+should just be a starting point. You need to use it to do something
+interesting.)
+
+\section{Things}
+
+Things are at the heart of the database for the world. If you are
+familiar with Diku code, then things take the place of rooms, objects,
+mobiles, and areas. They are all the same struct (Note this is written
+in C, not C++), and the way they are differentiated is by certain
+``thing\_flags'' set on them. I figured out that one way to structure
+MUDs was to consider everything in the whole world as part of a giant
+hierachical database and that the differences between things came down
+to how they could be moved around within this database.
+
+For example, you can't go into areas, and can't really interact with
+them. Rooms you can walk into, and they generally can't affect things
+inside of them, and there really isn't an ``outside'' of them. Objects
+generally cannot move other things, or themselves, and they can be
+moved by other things. Finally, mobs can generally move other things,
+but cannot be moved themselves.
+
+These are not hard and fast distinctions, so you can make things like
+boats which are objects that you can enter like rooms. You can make a
+squirrel that works like a mob, but you can pick it up and use it as a
+weapon. There are lots of different things possible.
+
+Using a setup like this means much less repeated code, and generally
+code that ``works'' when you need to extend an idea without you
+needing to add much, if any, new code.
+
+Also, much later after I started this, I began to notice that
+there are many people in the MUD community who get mad when people
+give away code and let "just anyone" start a MUD easily. If you're
+one of those people, enjoy.
+
+\section{Code Format}
+
+A note about the code format. The indentation used is based on the way emacs does things: 
+
+\begin{verbatim}
+
+if (...)
+  {
+    ...
+    ...
+  }
+
+while (...)
+  {
+    ...
+    ...
+  }
+
+\end{verbatim}
+
+instead of 
+
+\begin{verbatim}
+
+if (...) {
+  ... 
+  ...
+  }
+
+while (...) {
+  ...
+  ...
+  }
+
+\end{verbatim}
+
+
+Also, there is no variable name prefixing. I find that it slows me down, and
+so I didn't use it. However, here are some general guidelines for variable naming conventions:
+
+Variables with the words buf or arg someplace in them are generally char arrays.
+
+Variables like found\_something or found or is\_something are generally boolean.
+
+Variables like i,j,k,l,m,n,count\_this, that\_num, etc...are generally ints.
+Single letter loop iterators are only used in places where they will
+only be used in simple loops not taking up more than a page of text.
+
+Variables like r, s, t, u are generally char *'s used for parsing
+strings. I have no idea why I started doing this, but all those for (t
+= buf; *t; t++) things are cuz this is how I like to set up the
+variables.
+
+Variables like th, thn, thg, vict, victim, obj, objn, room, roomn,
+area, arean are generally things. So, when you see ``th$->$'' all over
+the place, that is just a pointer to a thing.
+
+To find the code for a command you noticed in the game, like the
+``foo'' command, type grep do\_foo *.c. That will give you the
+location of the do\_foo function which you can then edit.
+
+I also have pretty standardized functions for dealing with the
+creation and destruction of data. Generally, when something is
+created, it is created by use of a new\_foo(void); function, which
+returns a pointer to the data. Also, note that if malloc fails, we get
+a segfault and call it a day. I don't know how I would free up memory
+on a system shared by lots of other MUDs at the same time, so I figure
+it's safer to do it this way. When you want to destroy a piece of
+data, you call the free\_foo(FOO *); function. No data gets destroyed.
+
+My reason for doing this is that as the game goes on, you get little
+peaks and valleys in terms of how much memory is currently in
+use. Since all things generally keep using the same types of data:
+things, pcs, values, flags etc...these things will be reused
+eventually, so I figured it was better to keep the memory from
+becoming too fragmented. I even try to avoid making/freeing strings as
+the game goes along, (except where it seems necessary), to keep this
+from getting too fragmented. The string allocation could probably
+stand some improvement...maybe by making a giant block of memory set
+aside for string allocation, but I haven't done that yet.
+
+When memory is sent back to be reused, it gets put into a list which
+is headed by foo\_free;, and a count of the number of data chunks of
+that type is kept in the foo\_count variable. The memory command will
+try to give you an idea of how much memory is being used.
+
+Reading and writing to files are generally handled by read\_foo() and
+write\_foo() functions. (I used to use load\_foo() and save\_foo() functions
+but I took those out sometime ago for consistency.)
+
+Also, the amount of documentation and comments in the code is spotty,
+mainly because if the coding was easy I didn't bother with much
+documentation, since I just went through and did the coding in one
+pass without many changes or bug fixes. Places where the documentation
+is thicker represent areas where I either had problems getting things
+to work, or where I was constantly going back refining things. Some
+good examples of this are resets, scripts and societies, each of which took a
+long time to get working.
+
+\section{Altering the Code}
+
+This is a general rundown on how to do a few kinds of things
+to alter the code.
+
+\subsection{Adding Commands}
+
+You will probably want to add commands. If you do this, you
+might want to create a new file, or add the command to an existing
+file. If you make a new file, you will need to copy some of the
+header files to the top of the new file and then start typing
+the function.
+
+For the sake of consistency, try to name the command do\_XXXXX(). 
+You will need to add the command to a header file (probably serv.h)
+unless you're going to use this command in a major module. I tend
+to put commands in serv.h anyway.
+
+You will need to edit int.c and add an "add\_command" line, but
+it's pretty simple to see what to do: The first argument is the
+command name that gets added to the table, the second is the function,
+the third is the min level to use the skill, and the fourth is
+whether or not the command is automatically logged.
+
+Just follow the format for the other commands: Bringing in args and
+stripping off arguments with f\_word() to use to find objects nearby
+and then set poiners to those objects (these vars should be set to
+NULL first so you know if you never got to set it, it's not going to be
+random data).
+
+Then, do the calcations you need on the objects and modify them as
+needed, and then send the outputs.
+
+\subsection{Altering Data Structures}
+
+If you want to alter a data structure of type FOO let's say, or if you
+want to create a data structure of type FOO, there are several steps
+to go through.
+
+\begin{itemize}
+
+\item If this is going to be a fairly big chunk of code, and if it's
+not central to the code (like societies aren't central to the
+code, and they're a big chunk of code), you're probably better
+off making foo.h and foo.c to start with so that you can keep
+things more separate. Assuming that you only update FOO's in a 
+few places in the code, you won't have to \#include "foo.h"
+in too many places.
+
+\item You will either need to have a way to add FOO objects to
+existing data structures, or a way to store them so that
+they can be accessed as needed. This generally consists of a
+static or global variable like foo\_list or foo\_table or a
+FOO *foos; variable in another object that lets you put the
+foos into the world somehow. For example, spells and 
+societies are in lists, and flags, tracks, and values are
+parts of THINGs.
+
+\item You will need a new\_foo() function that returns a pointer
+of type FOO and a "cleared" data structure. You will need to alter
+this function if you alter an existing structure. One thing to do
+is if you're constantly creating/destroying FOO's make a variable
+called FOO *foo\_free that points to a list of FOO's you can use
+without having to reallocate them constantly.
+
+\item You will need a free\_foo() function that takes a pointer
+to a FOO object and then either free's it or (more likely) clears
+the data in the object, and puts it into the foo\_free list.
+
+It is important that if any other objects are pointing to this
+object, you find all of those objects and clear the data on
+them, too. If you don't do this you will run into big problems.
+
+This isn't always feasible, so there are other ways to deal with
+this. The reason free\_thing() is so complicated is that things
+are very tightly knit into the world with the possibility of
+many things having pointers to a thing. Since it isn't easy to
+check all things every time a thing is freed, when a thing
+is freed, it gets done in 2 stages. First, the thing is removed
+from the world and all things interacting with it locally (in
+the same room) stop interacting with it.
+
+There are other things (like tracks in rooms all over the world)
+that are more of a pain to deal with. It wouldn't be fun having
+a thing keep track of all the tracks it's left. It's doable,
+but expensive. Therefore, when a thing is freed, it gets put
+into limbo for a minute until all rooms are updated and during
+the room update, the room removes all tracks of things that are
+not actually in the world. The delay also lets the world saving
+thread finish writing a string in the name of the thing 
+before it attempt to free the string. 
+
+So just be careful with free\_foo() if you have a complex object.
+I hope you will never have an object as complex or as tightly bound
+to the rest of the data as THING's are, so this probably won't
+be such a huge issue.
+
+\item You will need to create read\_foos() and read\_foo() functions
+or alter them if they already exist. I use read\_foos() to represent
+reading the whole file in, and read\_foo() is for an individual
+member.
+
+\item You will need to create write\_foos() and write\_foo() functions
+or alter them if they already exist. They work the same as above.
+
+\item You may need a copy\_foo() function.
+
+\item You may need an update\_foo() function. If the FOO's are in 
+some global list, you may need to make an EVENT to update it
+every once in awhile, or if FOO's are part of something else,
+you will need to update FOO's as a part of that update (but
+you might want to have the FOO's have their own update so you
+can remove it if needed more easily later on.
+
+\item If FOO is part of a larger structure, it might be a good idea
+to have add\_foo() and remove\_foo() or foo\_to() and foo\_from() 
+functions so that the larger structure isn't playing with the
+FOO's directly. 
+
+\item You may need to create an editor for foos. The way I do
+editors is that I have a do\_editfoo() function (roughly speaking)
+that lets you start to edit an object. That sets your editing
+variable in your PC data structure to the pointer to the object
+you want to edit. It also sets your "connected" state to some
+number (See CON\_EDITING and so forth for this.) that strips
+off the input you enter and sends it directly to the editor.
+
+If you do this, you will need to have a way to edit existing
+FOO's either by name or number, and  you will need a way to
+create new FOO's to edit. My preferred way to do this last part is
+to let you either do fooedit create with no argument to create
+the "next" foo like in spells and societies, and possibly to let you
+specify a number like sedit create 134 to create spell 134.
+
+
+The editor can work like the other editors where you strip off
+an argument to tell what part of the FOO you're editing, then
+going into a giant switch or if/else chain to get to get to the
+code where you actually set the data.
+
+\end{itemize}
+
+There's a lot to think about here when adding data structures, 
+but that's because it's complex. However, getting these ideas
+will help you in whatever kind of coding you do, and the
+functions I've mentioned above are the kinds of things you have
+to worry about in general coding situations, so it's good to
+test things out and learn how they work.

@@ -1,0 +1,24 @@
+THING 135000
+Name craftload.are`
+HpMv 0 10 5 2000
+HWT 0 0
+Timer 12
+Short The Craftgen Load Area`
+type Lonath`
+ThFl 1089531
+Flag Area 0 0 28
+END_THING
+
+THING 135001
+HWT 0 0
+Color 7
+Desc This is the area where all of the craftgen items get loaded into the game.
+`
+Short The Craftgen Load Area`
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+END_OF_AREA
+

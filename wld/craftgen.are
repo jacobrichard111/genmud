@@ -1,0 +1,773 @@
+THING 106200
+Name craftgen.are`
+HpMv 0 10 5 800
+HWT 0 0
+Timer 3
+Short The Crafting Generators`
+type Lonath`
+ThFl 1089531
+Flag Area 0 0 28
+END_THING
+
+THING 106201
+HWT 0 0
+Color 7
+Desc This area is filled with various things that can be used for crafting,
+and various processes that can be used for crafting.
+`
+Short The Craftgen Proto Area`
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+THING 106206
+Name fibers`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC names`
+cotton
+`
+EDESC gather`
+inventory container
+room field
+`
+EDESC gen`
+plural base
+`
+END_THING
+
+THING 106207
+Name tree`
+HWT 0 0
+ThFl 101062
+EDESC names`
+oak cedar maple ash poplar
+hickory
+ashwood
+darkwood
+elm
+cherry
+`
+EDESC chop`
+room forest
+hand saw axe
+room forest
+`
+EDESC gen`
+base
+`
+END_THING
+
+THING 106208
+Name boulder`
+HWT 0 0
+ThFl 101062
+EDESC names`
+granite limestone stone marble
+`
+EDESC mine`
+room underground rough
+hand sledgehammer
+`
+EDESC gen`
+base
+`
+END_THING
+
+THING 106209
+Name hide`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC names`
+randmobs
+`
+EDESC skin`
+hand knife
+made corpse
+`
+EDESC gen`
+plural
+base
+`
+END_THING
+
+THING 106210
+Name thread`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC spin`
+made 4 fibers
+here 'spinning wheel'
+`
+EDESC gen`
+plural
+`
+END_THING
+
+THING 106211
+Name cloth`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC weave`
+here loom
+made 3 thread
+`
+EDESC gen`
+plural
+`
+END_THING
+
+THING 106212
+Name clothing`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC sew`
+hold needle
+use thread
+made 3 cloth
+`
+END_THING
+
+THING 106213
+Name leather`
+HWT 0 0
+Desc use hide
+need tanning_liquid
+`
+Wear wield`
+ThFl 100934
+EDESC tan`
+hold tanning_liquid
+made 3 hide
+`
+EDESC gen`
+plural
+noname
+`
+END_THING
+
+THING 106214
+Name block`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC cut`
+hand saw hammer
+made boulder
+`
+END_THING
+
+THING 106215
+Name forge`
+HWT 0 0
+ThFl 101058
+EDESC build`
+use 2 mortar
+made 20 block
+hold trowel
+`
+END_THING
+
+THING 106216
+Name mortar`
+HWT 0 0
+Timer 2
+Wear wield`
+ThFl 100934
+EDESC mix`
+use jar
+use water
+made dust
+`
+EDESC gen`
+plural noname
+`
+END_THING
+
+THING 106217
+Name chunk`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC names`
+brass bronze copper silver iron gold steel platinum
+obsidian mithril adamantium
+`
+EDESC mine`
+hand pick
+room underground
+`
+EDESC gen`
+base
+`
+END_THING
+
+THING 106218
+Name ingot`
+HWT 0 0
+Wear wield`
+ThFl 100934
+Val replaceby 0 0 0 0 0 0 0 0 made`
+EDESC smelt`
+here forge
+hand prod
+use jar
+use 5 charcoal in forge
+made 5 chunk in forge
+`
+END_THING
+
+THING 106219
+Name 'forged item'`
+HWT 0 0
+ThFl 100934
+EDESC forge`
+here forge
+here anvil
+use 50 charcoal
+made 4 ingot
+hand 'forging hammer'
+`
+END_THING
+
+THING 106220
+Name log`
+HWT 0 0
+Wear wield`
+ThFl 101062
+EDESC cut`
+hand axe saw
+make 2 5
+made tree
+`
+END_THING
+
+THING 106221
+Name board`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC saw`
+hand saw
+make 2 5
+made log
+`
+END_THING
+
+THING 106222
+Name sand`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC gather`
+inventory jar
+room desert rough
+`
+EDESC gen`
+base plural
+`
+END_THING
+
+THING 106223
+Name dirt`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC gather`
+use jar
+room field forest rough underground
+`
+EDESC gen`
+plural
+base
+`
+END_THING
+
+THING 106224
+Name mud`
+HWT 0 0
+Timer 5
+Wear wield`
+ThFl 100934
+EDESC mix`
+use water
+made dirt
+`
+EDESC gen`
+plural noname
+`
+END_THING
+
+THING 106225
+Name glass`
+HWT 0 0
+Timer 2
+Wear wield`
+ThFl 100934
+EDESC melt`
+here forge
+hold tongs
+use 10 charcoal
+make 5
+made 4 sand
+`
+EDESC gen`
+plural noname
+`
+END_THING
+
+THING 106226
+Name jar`
+HWT 0 0
+Wear wield`
+ThFl 100930
+Val drink 0 1 0 0 0 0 0 0 `
+EDESC blow`
+here forge
+use 5 charcoal
+hold tongs
+made 2 glass
+`
+END_THING
+
+THING 106227
+Name jug`
+HWT 0 0
+Wear wield`
+ThFl 100930
+Val drink 0 2 0 0 0 0 0 0 `
+EDESC mold`
+here pottery_wheel
+hold knife
+here oven
+made 3 mud
+`
+EDESC gen`
+noname
+`
+END_THING
+
+THING 106228
+Name loom`
+HWT 0 0
+ThFl 101062
+EDESC build`
+hold hammer
+hold saw
+use 40 nail
+made 10 board
+`
+EDESC gen`
+noname
+`
+END_THING
+
+THING 106229
+Name 'spinning wheel'`
+HWT 0 0
+ThFl 101062
+EDESC build`
+use 15 nail
+hold hammer
+hold saw
+made 5 board
+`
+EDESC gen`
+noname
+`
+END_THING
+
+THING 106230
+Name needle`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC forge`
+hand forging_hammer
+here forge
+make 10 20
+made ingot
+use 4 charcoal in forge
+`
+EDESC gen`
+noname
+`
+END_THING
+
+THING 106231
+Name nail`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC forge`
+here forge
+here anvil
+hold forging_hammer
+use 15 charcoal
+make 30 60
+made ingot
+`
+EDESC gen`
+noname
+`
+END_THING
+
+THING 106232
+Name saw`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC make`
+use board
+use 5 charcoal
+here forge
+hold hammer
+hold saw
+here anvil
+made 3 ingot
+`
+EDESC gen`
+noname
+`
+END_THING
+
+THING 106233
+Name hammer`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC forge`
+here forge
+use 5 charcoal
+here anvil
+made 2 ingot
+hold 'forging hammer'
+use handle
+`
+END_THING
+
+THING 106234
+Name 'forging hammer'`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC forge`
+here forge
+use 50 charcoal
+here anvil
+made 6 ingot
+use handle
+hold 'forging hammer'
+`
+END_THING
+
+THING 106235
+Name 'charcoal hut'`
+HWT 0 0
+ThFl 101058
+EDESC build`
+use 20 nail
+hold hammer
+hold saw
+made 10 board
+`
+EDESC gen`
+noname
+`
+END_THING
+
+THING 106236
+Name charcoal`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC smolder`
+here charcoal_hut
+use 15 charcoal
+make 40 100
+made 5 board
+`
+EDESC gen`
+plural noname
+`
+END_THING
+
+THING 106237
+Name 'tanning liquid'`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC brew`
+use 2 charcoal
+use jar
+made 5 blood
+`
+EDESC gen`
+noname
+`
+END_THING
+
+THING 106238
+Name blood`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC gen`
+noname
+`
+EDESC extrude`
+inventory jar
+made corpse
+`
+END_THING
+
+THING 106239
+Name trowel`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC gen`
+noname
+`
+EDESC forge`
+here forge
+use 5 charcoal
+here anvil
+hold 'forging hammer'
+use handle
+made 1 ingot
+`
+END_THING
+
+THING 106240
+Name tongs`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC gen`
+noname
+`
+EDESC forge`
+here forge
+use 5 charcoal
+here anvil
+hold tongs
+hold 'forging hammer'
+use handle
+made 2 ingot
+`
+END_THING
+
+THING 106241
+Name dust`
+HWT 0 0
+ThFl 100934
+EDESC gen`
+noname
+plural
+`
+EDESC crush`
+made boulder
+hold hammer
+`
+END_THING
+
+THING 106242
+Name anvil`
+HWT 0 0
+ThFl 101062
+EDESC gen`
+`
+EDESC forge`
+here forge
+hold 'forging hammer'
+here anvil
+use 50 charcoal in forge
+made 10 ingot in forge
+`
+END_THING
+
+THING 106243
+Name knife`
+HWT 0 0
+ThFl 100934
+EDESC gen`
+noname
+`
+EDESC forge`
+made 1 ingot in forge
+use 5 charcoal in forge
+wield 'forging hammer'
+wield tongs
+here anvil
+here forge
+use handle
+`
+END_THING
+
+THING 106244
+Name prod`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC forge`
+here forge
+use 10 charcoal in forge
+here anvil
+wield hammer
+wield tongs
+made 3 ingot
+use 1 handle
+`
+EDESC gen`
+noname
+`
+END_THING
+
+THING 106245
+Name pick`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC assemble`
+hold hammer
+use 2 nail
+made 'pick head'
+use handle
+`
+EDESC gen`
+noname
+`
+END_THING
+
+THING 106246
+Name handle`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC make`
+made board
+make 4
+hold saw
+hold plane
+`
+EDESC gen`
+noname
+`
+END_THING
+
+THING 106247
+Name plane`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC gen`
+noname
+`
+EDESC assemble`
+use 1 block
+made scraper
+hold hammer
+hold saw
+here file
+`
+END_THING
+
+THING 106248
+Name scraper`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC forge`
+made ingot
+here forge
+here anvil
+hand hammer
+hand tongs
+make 3 5
+`
+END_THING
+
+THING 106249
+Name 'leather strip'`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC cut`
+made leather
+hold knife
+make 6 10
+`
+END_THING
+
+THING 106250
+Name sawblade`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC forge`
+here anvil
+here forge
+hold 'forging hammer'
+hold tongs
+here water in bucket
+here bucket
+made 2 ingot
+wear apron
+`
+END_THING
+
+THING 106251
+Name apron`
+HWT 0 0
+Wear body`
+ThFl 100934
+EDESC make`
+made 5 leather
+hold punch
+use 3 'leather strip'
+`
+END_THING
+
+THING 106252
+Name bucket`
+HWT 0 0
+Wear wield`
+ThFl 100934
+Val drink 0 3 0 0 0 0 0 0 `
+EDESC forge`
+here forge
+here anvil
+wear apron
+hold tongs
+hold 'forging hammer'
+use 5 charcoal in forge
+made 2 ingot
+`
+END_THING
+
+THING 106253
+Name rod`
+HWT 0 0
+Wear wield`
+ThFl 100934
+EDESC forge`
+here forge
+here anvil
+use 10 charcoal
+wield 'forging hammer'
+wield tongs
+use water in bucket
+wear 'leather apron'
+made 4 ingot
+`
+END_THING
+
+END_OF_AREA
+

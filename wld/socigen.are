@@ -1,0 +1,256 @@
+THING 106000
+Name socigen.are`
+HpMv 0 10 5 200
+HWT 0 0
+Cost 100
+Timer 14
+Short Society Generators`
+type Lonath`
+ThFl 1089531
+Flag Area 0 0 28
+END_THING
+
+THING 106001
+HWT 0 0
+Color 7
+Desc See help societygen or help society_gen for help on how to use this area. 
+ 
+`
+Short The Society Generator Area`
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+THING 106010
+Name elf elves elven`
+Level 120
+HWT 0 0
+Align 2
+Short wild high wood`
+Flag Det 0 0 4
+Flag Room 0 0 393216
+END_THING
+
+THING 106011
+Name troll trolls troll`
+Level 140
+HWT 0 0
+Align 1
+Short swamp forest mountain cave`
+Flag Det 0 0 4
+Flag Room 0 0 1249280
+END_THING
+
+THING 106012
+Name goblin goblins goblin`
+Level 90
+HWT 0 0
+Align 1
+Short forest mountain noadj`
+Flag Room 0 0 397312
+Flag Det 0 0 4
+END_THING
+
+THING 106013
+Name dwarf dwarves dwarven`
+Level 120
+HWT 0 0
+Align 2
+Short mountain cave gray iron stone`
+Flag Room 0 0 67833856
+Flag Det 0 0 4
+END_THING
+
+THING 106014
+Name lizardman lizardmen lizardman`
+Level 110
+HWT 0 0
+Align 2
+Short green brown`
+Flag Room 0 0 1441792
+Flag Det 0 0 4
+Flag Aff 0 0 1048576
+END_THING
+
+THING 106015
+Name hobgoblin hobgoblins hobgoblin`
+Level 110
+HWT 0 0
+Align 1
+Timer 2000
+Short cave gray`
+Flag Room 0 0 987136
+Flag Det 0 0 4
+END_THING
+
+THING 106016
+Name kobold kobolds kobold`
+Level 80
+HWT 0 0
+Align 1
+Timer 1500
+Short cave forest`
+Flag Room 0 0 1249280
+Flag Det 0 0 4
+END_THING
+
+THING 106017
+Name gnoll gnolls gnoll`
+Level 100
+HWT 0 0
+Align 1
+Short mountain forest desert`
+Flag Room 0 0 987136
+Flag Det 0 0 4
+END_THING
+
+THING 106018
+Name minotaur minotaurs minotaur`
+Level 130
+HWT 0 0
+Align 2
+Short cave field`
+Flag Room 0 0 462848
+Flag Det 0 0 4
+END_THING
+
+THING 106019
+Name giant giants giant`
+Level 150
+HWT 0 0
+Align 2
+Short storm stone hill frost fire`
+Flag Room 0 0 724992
+Flag Det 0 0 4
+END_THING
+
+THING 106020
+Name orc orcs orcish`
+Level 120
+HWT 0 0
+Align 1
+Short gray black cave`
+Flag Room 0 0 724992
+Flag Det 0 0 4
+END_THING
+
+THING 106021
+Name human humans human`
+Level 100
+HWT 0 0
+Align 2
+Short Noadj`
+Flag Room 0 0 2031616
+Flag Det 0 0 4
+END_THING
+
+THING 106022
+Name barbarian barbarians barbarian`
+Level 110
+HWT 0 0
+Align 2
+Short desert mountain`
+Flag Room 0 0 2031616
+Flag Det 0 0 4
+END_THING
+
+THING 106023
+Name ogre ogres ogre`
+Level 140
+HWT 0 0
+Align 1
+Desc caste healer shaman
+caste wizard 'witch doctor'
+`
+Short black sand cave mountain forest`
+Flag Room 0 0 724992
+Flag Det 0 0 4
+END_THING
+
+THING 106024
+Name bugbear bugbears bugbear`
+Level 110
+HWT 0 0
+Align 1
+Short sand forest cave mountain`
+Flag Room 0 0 724992
+Flag Det 0 0 4
+END_THING
+
+THING 106025
+Name gnome gnomes gnomish`
+Level 90
+HWT 0 0
+Align 2
+Short forest deep`
+Flag Det 0 0 4
+Flag Room 0 0 393216
+END_THING
+
+THING 106026
+Name buckawn buckawns buckawn`
+Level 120
+HWT 0 0
+Align 2
+Flag Room 0 0 393216
+END_THING
+
+THING 106027
+Name hobbit hobbits hobbit`
+Level 80
+HWT 0 0
+Align 2
+Desc caste leader Sheriff
+`
+Flag Room 0 0 393216
+END_THING
+
+THING 106028
+Name halfling halflings halfling`
+Level 80
+HWT 0 0
+Align 2
+Desc caste leader Sheriff
+`
+Flag Room 0 0 393216
+END_THING
+
+THING 106029
+Name brownie brownies brownie`
+Level 100
+HWT 0 0
+Align 2
+Flag Room 0 0 393216
+END_THING
+
+THING 106030
+Name slaad slaad slaad`
+Level 90
+HWT 0 0
+Align 2
+Short red gray black green`
+Flag Room 0 0 1970176
+END_THING
+
+THING 106031
+Name slaan slaan slaan`
+Level 160
+HWT 0 0
+Align 2
+Short red gray black green`
+Flag Room 0 0 1970176
+END_THING
+
+THING 106032
+Name troglodyte troglodytes troglodyte`
+Level 100
+HWT 0 0
+Align 1
+Short gray black green`
+Flag Det 0 0 4
+Flag Room 0 0 593920
+END_THING
+
+END_OF_AREA
+

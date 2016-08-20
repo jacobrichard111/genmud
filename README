@@ -1,0 +1,107 @@
+In this readme, directions are given on regular lines and things
+you type in a UNIX/Linux shell follow the % symbol. Don't actually
+type the %. It means the % is your prompt and you type what comes
+after it.
+
+To get the game up and running type
+
+% cd src
+% make clean
+% make
+% ./scs &
+
+There is no automatic "first character on is an imm" code.
+
+So type telnet localhost 3300
+
+Log in and create any old character. 
+
+Quit out once it's made and type
+
+% cd ../plr
+% pico <playername>
+
+Edit the level to be 110.
+
+Go to the row HpMv 20 20 100 100 
+
+and change it to HpMv 200000000 200000000 10000 10000
+
+(The high hps are needed because there is no "immortal" code in
+the game since it's too hard to get exactly right. Therefore,
+everything is mortal, but some things (like you) can have up to
+2 billion hps and so are basically unkillable.)
+
+Then log in again and you have your "imm" character. 
+
+The docs are in the doc subdirectory.
+
+To create and view them type
+
+% cd ../doc
+% latex main
+% xdvi main %
+
+
+To make the MUD start up automatically on reboot, type the
+following:
+
+crontab -e
+@reboot cd /home/yourusername/bfdmud/src; ./scs &
+(Escape)  
+:wq
+
+where yourusername is the username you have. The path may not
+quite be correct, but if not, then type pwd and see what
+the path is to your home directory.
+
+One more thing: everywhere you see "THING" in the code, it is
+possibly a room, obj, mob, area, mob proto, or obj proto. I don't
+make a distinction between these things so it may take a little
+time to get used to it. Also, I would recommend skimming the docs
+before you jump in, or you can just read this:
+
+Briefly, the code consists of an infinite loop that repeatedly scans
+for input, updates objects, and sends output. Things are not updated
+in big chunks, but instead there are "events" that get queued up
+and fired so that the load gets balanced out. Commands that you
+can enter are in functions of the form do_xxxx and have to be
+added to int.c before they can be accessed.
+
+Also, to use the generation and simulation code do this.
+
+Type
+
+alias z worldgen 17 17
+alias x worldgen generate 700
+alias v worldgen clear yes
+alias zz speedup foozball
+
+Then type z and it should generate a map for you. If it doesn't
+type v and reboot. Then type z.
+
+After you type z a few times and see a map you like, type x.
+
+That will generate the world, although it will take a minute or
+two to do this probably. 
+
+Then type soci list
+Type zz
+
+This will speed up the game dramatically.
+
+Type soci count 
+
+a few times as the game speeds along and look at the increasing
+numbers. Typing soci <number> will let you edit a society.
+
+After a while, if you type rumors, you will see a list of rumors
+or events that societies generate as they do things. This is where
+the players will get information on quests by typing "news". When
+a player types news and a society member is in the room with them,
+they get a chance of hearing about something that the society
+knows or needs help with. 
+
+Enjoy.
+
+

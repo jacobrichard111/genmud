@@ -1,0 +1,205 @@
+THING 107000
+Name castegen.are`
+HpMv 0 10 5 100
+HWT 0 0
+Cost 100
+Timer 15
+Short Caste Tier Names`
+type Lonath`
+ThFl 1089531
+Flag Area 0 0 28
+END_THING
+
+THING 107001
+HWT 0 0
+Color 7
+Desc Put the caste flags into certain rooms and then put a list of
+tiernames into the rooms with those casteflags to set up
+societies automatically. 
+`
+Short Caste Tiernames area`
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+THING 107010
+Name children childrencaste`
+HWT 0 0
+Desc toddler
+child
+boy
+kid
+youngster
+teen
+`
+Flag Caste 0 0 512
+END_THING
+
+THING 107011
+Name leader leadercaste`
+HWT 0 0
+Desc officer
+captain
+chief
+chieftain
+lord
+warlord
+prince
+king
+`
+Flag Caste 0 0 2
+END_THING
+
+THING 107012
+Name worker workercaste`
+HWT 0 0
+Desc worker
+teamster
+driver
+laborer
+foreman
+`
+Flag Caste 0 0 4
+END_THING
+
+THING 107013
+Name builder buildercaste`
+HWT 0 0
+Desc builder
+`
+Flag Caste 0 0 8
+END_THING
+
+THING 107014
+Name healer healercaste`
+HWT 0 0
+Desc novitiate
+neophyte
+acolyte
+vicar
+curate
+devout
+worshipper
+disciple
+preacher
+healer
+'faithful one'
+adept
+friar
+cleric
+reverant
+priest
+seer
+'high priest'
+prelate
+elder
+'enlightened one'
+bishop
+archbishop
+prophet
+`
+Flag Caste 0 0 16
+END_THING
+
+THING 107015
+Name wizard wizardcaste`
+HWT 0 0
+Desc dabbler
+apprentice
+prestidigator
+soothsayer
+magician
+evoker
+enchanter
+channeler
+mage
+mystic
+warlock
+spellweaver
+sorcerer
+magister
+conjurer
+magus
+savant
+wizard
+theurgist
+archmage
+`
+Flag Caste 0 0 32
+END_THING
+
+THING 107016
+Name shopkeeper shopkeepercaste`
+HWT 0 0
+Desc peddler
+shopkeeper
+merchant
+`
+Flag Caste 0 0 64
+END_THING
+
+THING 107017
+Name farmer farmercaste`
+HWT 0 0
+Desc farmer
+`
+Flag Caste 0 0 128
+END_THING
+
+THING 107018
+Name crafter craftercaste`
+HWT 0 0
+Desc apprentice
+journeyman
+crafter
+master
+'master craftsman'
+`
+Flag Caste 0 0 256
+END_THING
+
+THING 107019
+Name warrior warriorcaste`
+HWT 0 0
+Desc novice
+sentry
+defender
+veteran
+explorer
+hunter
+sentinel
+protector
+warrior
+pathfinder
+warden
+watchman
+guard
+guardian
+hero
+myrmidon
+champion
+"elite guard"
+`
+Flag Caste 0 0 1
+END_THING
+
+THING 107020
+Name thief thiefcaste`
+HWT 0 0
+Desc beggar
+footpad
+burglar
+pilferer
+spy
+thief
+'master thief'
+assassin
+nightstalker
+deathbringer
+`
+Flag Caste 0 0 1024
+END_THING
+
+END_OF_AREA
+

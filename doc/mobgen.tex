@@ -1,0 +1,97 @@
+\chapter{Mob Generation}
+
+\section{Random Animals Generation}
+
+There is code to generate random animals so that you don't have
+to create each one by hand. The way it works is that there are animal
+prototypes in the MOBGEN\_PROTO\_AREA\_VNUM area (currently 105200)
+and those get used to generate mobs within the MOBGEN\_LOAD\_AREA\_VNUM
+(currently 101000). 
+
+The way it works is that each thing in the proto area has a long
+desc, a short desc and a name and a level and other information.
+The code cycles through each word in the long desc, the short desc
+and the name generating animals as it goes along. It only generates
+10 animals for each name so that we can have say 5 long desc names and
+8 short desc names, but we don't see every combination. It's to keep
+the numbers under control, and to keep the patterns from being
+quite so obvious. You can see that several kinds of animals are
+grouped together like chipmunks and squirrels, as well as
+groundhogs and badgers so that you don't have to come up with
+different names for each similar kind of animal.
+
+The protos are divided into two parts. Those which are below the
+STRONG\_RANDPOP\_MOB\_LEVEL (currently 70) are declared to be
+normal mobs that repop in any old area. The mobs above that level
+are declared to be special mobs and are things like unicorns and
+gargoyles and other "fantastic" creatures.
+
+The game makes two passes and generates the weak mobs first, and
+then the strong mobs second so that they can be in two tiers. Then,
+once the mobs are set up, the numbers are checked and assuming that
+the number of weak mobs is not much less than the number of strong
+mobs, this will work. If the number of weak mobs is much less, then
+the randpop won't work correctly and many of the strong mobs at
+the end of the strong mobs list will not be loaded. This is due to the
+nature of how the randpop code works. On the other hand, it shouldn't
+be too hard to come up with a lot of simple background animal mobs.
+
+The randpop item with vnum MOB\_RANDPOP\_VNUM (currently 278) is
+altered to reflect the new mobs generated. Then, each area gets
+a reset of this item with a certain number of tries associated
+with it that will populate the area with some background mobs as
+needed. 
+
+The way the weak/strong dividing line comes in is that the chance
+to advance a tier in the randpop (thereby making a strong mob
+instead of a weak mob) is based on the area level, so lowlevel
+areas will almost never have powerful mobs, and high level areas
+will more often have powerful mobs.
+
+These mobs do not load equipment, although some may be used in quests.
+
+
+\section{Person Generation}
+
+
+The person generation works a little bit differently. Each area has
+many mobs made for it and those are set up to be as random as possible.
+
+When a person is generated, she is usually given a name and usually
+given a society name and is given a profession. The professions are
+found in the area with vnum PERSONGEN\_AREA\_VNUM (currently 105000)
+and it looks like a list of professions. 
+
+When a mob is made, it gets set up and it gets the values and 
+flags listed on the thing in the persongen area. VAL\_CAST mobs get 
+their spells randomized.
+
+The level of the mob is determined by the level of the area it's
+being created for and the level of the persongen item. It's a sum of
+the two with some randomization. That way you can find weak warriors
+near homelands and OMFG super powerful warriors far far away in the
+world. 
+
+The persons generated then get some items generated on them that
+sometimes have their names, sometimes have their society names,
+and sometimes don't. These items are based on the level of the mob
+but there's a lot of randomness here. Becauseof this, there will
+be out-of-depth items that are powerful but pop on easy mobs.
+It won't happen that often, but it's intentional since I think the
+players like to have some "low hanging fruit" that they can get
+easily. Too much "balancing" makes the game boring. :)
+
+
+The persons also get some detection spells at higher levels and they
+sometimes get set as area resets, and sometimes as room resets in
+an individual location. They also get some stock resets like 
+armor and weapons and people who can cast spells sometimes load
+gems.
+
+This code is also used sometimes in the areagen code to make other kinds
+of mobs in hidden places.
+
+
+
+
+

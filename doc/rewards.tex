@@ -1,0 +1,82 @@
+\chapter{Rewards}
+
+Because the players can affect the world, and because they do things that help
+their allies and hurt their enemies, it makes sense to reward them for their
+good actions.
+
+There's automatic reward code that gives money, exp and quest points to
+players that do good things.
+
+The idea is that a player performs some action that helps or hurts societies,
+and it gets recorded. There are several kinds of rewards, so the function call
+is society\_add\_reward (THING *th, THING *to, int reward\_type, int amount);
+
+\begin{itemize}
+
+\item th: the player who did the action.
+
+\item to: the thing acted upon. It could be a mob that was healed/killed. It
+  could be a room where a player built or razed, and it could be an object
+  that the player gave to a society member. This is stored on the player so
+  that when the player gets the reward later, this can be referenced (although
+  it may be gone by then...which is ok. It just means that the player gets a
+  generic reward message.
+
+\item reward\_type: What the player is getting rewarded for. These will be
+  explained below.
+
+\item amount: A positive integer from 1-1000 currently. 
+
+\end{itemize}
+
+The player performs a good action and gets the reward recorded, then every
+game hour, the amount of the award goes down by 1, so you have to get to a
+society member fast to get the full or almost full reward given to you. The
+rewards are handed out randomly in the fast\_update() function where you get
+one reward type at a time per reward update. It is unlikely that players will
+have lots of different rewards pending at once, so this should be
+sufficient. I just didn't want to have the rewards being instantaneous.
+
+Any non-child society member can reward a player when they're in the same room.
+
+\section{Reward Types}
+
+There are many kinds of rewards given out for lots of different kinds of
+behavior. 
+
+\begin{itemize}
+
+\item play: Playing with children gives you rewards. This doesn't actually
+  affect game mechanics for now.
+
+\item build: Building a friendly society city gives you rewards. This is
+  useful because cities give combat bonuses to allies.
+
+\item raze: Razing an enemy city. Again, this is useful because cities give
+  combat bonuses.
+
+\item heal: Healing/curing friendly society members gives you a reward for
+  obvious reasons.
+
+\item kill: Killing enemies gives you rewards for obvious reasons.
+
+\item kidnap: Rescuing a kidnap victim gives you big rewards. In fact, it
+  gives rewards to EVERYONE standing in the same room when the reward was
+  given out. Could be useful for plevelling newbies.
+
+\item diplomacy: This skill makes societies hate you less and have a larger
+  affinity toward your alignment. This makes them more likely to stay or
+  switch to your side, and they get cheaper to bribe.
+
+\item inspire: Raises morale for your side which makes them work and fight
+  harder.
+
+\item demoralize: Lowers morale of your enemies making them work and fight
+  worse.
+
+\item package: Delivering a package given by a leader as a response to "news
+  delivery" gives you big rewards because it's a timed mission where enemies
+  will attack you, and if you fail, your side has lost a lot of resources over
+  nothing.
+
+\end{itemize}

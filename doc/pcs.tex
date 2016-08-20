@@ -1,0 +1,329 @@
+\chapter{Player Characters}
+
+
+\section{Introduction}
+
+Players are things but they are different from the other things in the
+game. The main reason for this is that players have a large amount of
+data that only they store, whereas other things fake the data. As an
+example, players have actual attributes/stats, and these stats are
+accessed with the get\_stat() function, that returns a constant for
+nonpcs but a constant for pcs. In a truly object-oriented world, this
+would be achieved with a virtual function in the base class Thing that
+returns a constant value, and then the value would be calculated for
+real in class Player, but this method is close enough.
+
+The thing that distinguishes players in the code is that they have a
+pointer to a non NULL pc struct, and that struct is not fake\_pc. The
+point behind fake\_pc is to give non-players a piece of data that can
+be dereferenced on the off chance that checks aren't made correctly in
+the code. Again, in a truly OO world, this would be taken care of
+automatically, but this is close enough.
+
+\section{The pc\_data struct}
+
+
+The player data structure has the following members:
+
+\begin{itemize}
+	
+
+\item  PCDATA *next;             This is used to keep a free list of
+pc structs for reuse.     
+
+\item  char **curr\_string;            The current string we are
+editing...this is a char ** so we can access the address where the
+reference to the string is stored to fix that. 
+
+\item  void *editing;                This is what the player is
+editing...it could be a THING, a spell, a race, an alignment, or a
+society. These are all in the same struct so the player cannot edit
+more than one thing at once.
+
+\item  NOTE *note;                This is the note that we are
+editing.
+ 
+\item  int curr\_note;            This is the time of the last note we
+read. It's not the note number so that the notes can be deleted. 
+
+\item  short stat[STAT\_MAX];         Only players get actual stat
+  values. The other things get this faked by get\_stat These range
+  from 3 to 32.
+
+\item  short guild[GUILD\_MAX];       These are the tiers a player can
+  advance in guilds. There are 10 guilds approx, and 5 tiers and it
+  costs N guild points to advance to tier N. The players get 6 guild
+  points per remort, so a completed character can have 4 guilds at
+  full tier, or all 10 at 3 tiers or some combination in between.
+
+\item short parts[PARTS\_MAX];       These are the numbers of body parts
+  that players have. This may be added to all things at some future
+  date, but for right now only players have these stats.
+
+ \item  short armor[PARTS\_MAX];      Things have their armor faked too, but
+  players get actual armor numbers when they wear eq. The data is
+  stored here.
+
+\item  short implants[PARTS\_MAX];    Players can also get implants that
+  improve their body parts. In general, head implants make the player
+  better at magical things, arm implants make them hit harder, body
+  implants add armor, and leg implants let them kick harder and move farther.
+
+\item  int aff[AFF\_MAX];         As usual, affects on things get
+  ignored unless they're flags. Affects like kickdam or hitroll have
+  no effect on anything other than players. Those modifiers are added
+  up and stored here, and they get used to speed up some calculations.
+
+\item  char *email;           This is just the email for the player.
+
+\item  char *pwd;                  This is the encrypted password for
+  the player.
+
+\item  char *big\_string;           Big strings get sent to the
+players a page at a time using something like a wimpy version of
+  more. If the player is in the mode to receive one of these strings,
+  this is where the string is stored (and then freed once the player
+  is done with it.)
+
+\item  char *big\_string\_loc;        This is the current location of
+  the big string this player is viewing.
+
+
+\item  char *title;                 This is the title that shows up
+when a player appears on the who list.
+
+
+\item  char *prompt;             This is the prompt the player sees walking
+  around. It is configurable using the same variables as in scripts
+  and score and tset.
+
+\item  int pcflags;             These are some internal flags used
+  when players do special things. For example, PCF\_EDIT\_CODE is a
+  special flag used if the player is editing code instead of a note or
+  description using the little line editor. PCF\_SEARCHING and
+  PCF\_TRACKING are used since when a player enters a new room, they
+  have a chance to track or search after a delay, and these two flags
+  tell whether the player is doing either of these things.
+
+\item  unsigned char race;           This is the race of the character
+  taken from the race list.
+
+
+\item  short remorts;          This is how many remorts this pc
+has. Remorting is expensive. You go back to level 1 and lose all of
+your skills, but you do gain some stats and some new spells and
+skills, and a few extra hps. This builds up over time and is very
+useful in the long run even if it sucks short term.
+
+
+\item  short practices;            Characters must practice skills at
+a trainer to learn them up to a point, then they must use the skills
+to get them perfect. This is the number of practices a character
+has. This is almost never a problem except when a character is really
+stupid.
+
+
+\item  short wait;                  Some things cause lag for
+players. The lag gets put here. Things don't get lagged, and admins
+can turn off lag by typing config holyspeed to turn on holyspeed.
+
+ \item short ticks;        Some commands like casting and backstabbing
+ and investigating corpses have pre-activity lag. This lag gets set
+ here. The way this works is that if the player does a skill with
+ pre-lag, the ticks get set and they get put into a different position
+ to start doing whatever command it is. If they enter a command before
+ the ticks are up (or if their concentration is broken) then the ticks
+ are set to 0 and they stop trying to do the command. If the ticks get
+ down to 0, the players attempt the command.         
+
+ \item short max\_mana;           This is the maximum amount of mana a
+ player can store. It is dynamically generated.
+
+ \item short mana;                   This is the current natural mana
+ the player has.
+ 
+\item	int pagelen; This is how many lines of text the player can see
+ on one screen.
+
+ \item int in\_vnum;                  This is the vnum of the last
+ room the player was in. It's used so that if the game reboots while
+ the player is in a boat or vehicle, they get put back into a
+ ``legit'' room that will exist. It's also used so that if a
+ battleground is going on and the player quits or loses link in the bg
+ or the game dies, the player ends up in the last room they were in
+ before the battleground.
+
+ \item int bank; This is how much money the player has in the bank.
+
+ \item int hostnum;                This is the IP address of the
+ player, used to detect cheating.
+
+
+ \item short cond[COND\_MAX];         These are the conditions a
+ player has. Mainly hunger and thirst are used. Drunkenness may be
+ added at some point, but it doesn't do much now. When a player eats
+ or drinks, his condition in hunger or thirst goes up, and if he
+ doesn't eat or drink it goes down until it gets negative and he takes
+ regular damage.
+
+\item  unsigned char prac[MAX\_SPELL]; These are the percentages that
+ players have learned certain skills. Remember that the max number of
+ skills/spells etc... that a player can learn is based on race,
+ alignment, and remorts. The percentages go from 0 to 100, and a
+ player must have at least 30 pct learned to have it improve through
+ use. The max percentage that a player can practice a spell to is 65,
+ then it must be learned through use.
+
+
+ \item short clan\_num[CLAN\_MAX];    There are many different kinds
+ of clans: clans, sects, schools. A player can belong to one thing of
+ each kind. This is useful if you want several kinds of clans that
+ players can join.
+
+\item  THING *storage[MAX\_STORE];      These are items that get
+ stored in the bank for the character. It costs a percentage of the
+ item value to store and unstore the item, and the most valuable items
+ cannot be stored so that people can't keep their items out of pkill.
+
+
+
+\item  THING *reply;                When the player tells to another
+ thing, this variable gets set to that thing so that the reply command
+ works.
+
+\item  TROPHY *trophy[MAX\_TROPHY]; When a player pkills someone, they
+ get a trophy of that person. Trophies store the level, align,
+ remorts, race and number of times someone is killed. They are sorted
+ with remorts taking priority over levels, so there's no way to remort
+ and die to get trophies of you ``cleared'' anymore.
+
+\item  char *aliasname[MAX\_ALIAS];    Characters can store aliases. These
+  are a list of aliases this player has on his character.
+
+\item  char *aliasexp[MAX\_ALIAS];   These are the alias expansions used by
+  the player. Note that you can have variables of the form @1, @2, @3,
+  up to @5 in aliases so that you can have more general aliases.
+
+ \item int pk[PK\_MAX]; This stores the pk data for the player. There
+ are all kinds of pk data, number of pkills, average level, number of
+ times pkilled...and so forth. These items get used to generate the pk
+ rankings for the pk command.
+
+ \item int exp;              This is the amount of exp the character
+ has. Note that exp to level is from 0 for each level, so that if
+ level N says 1 million exp, you really need to get 1 million exp
+ after level N-1 to move up. You can advance several levels all at
+ once if you manage to kill something buffed at low levels.
+        
+
+ \item int fight\_exp;                This is how much exp the player
+ has gained from fighting since the last mob kill. It's not a really
+ important value...just there to give players an idea of what they're
+ getting for fighting a creature.
+
+
+\item  THING *guarding;              Players using the guard skill on
+ other players have this set so that it's a little faster in combat to
+ look up who's guarding who.
+
+\item  char *ignore[MAX\_IGNORE];      This is a list of names that
+ cannot send channeled messages to this character. It should block ALL
+ channels, since they all go through the same function.
+ 
+\item  char temp[STD\_LEN];          When a character is doing a timed
+ command, the command has to get stored somewhere, so here is the
+ place. When the ticks are up, this command gets executed.
+
+
+\item  VALUE *qf;           These are a list of questflags (values) that
+  the character has to track his progress doing quests. Much nicer
+  than having actual flags.
+
+\item  unsigned short off\_def;       This is a number between 0
+  (defensive) and 100 (offensive) or in the middle 50 (normal) that
+  determines if the character is more focused on offense, defense, or
+  a balance.
+
+ \item int no\_quit;                  This is the number of game hours
+ (minutes roughly) that a character must wait before he can log
+ out. This is to prevent twinks from autofleeing and quitting instantly.
+
+ \item int time;                    This is how many seconds the
+ character has played total.
+
+ \item int login;           This is the time the player last logged in.        
+
+ \item int wimpy;             The character will try to autoflee if he
+ reaches this many hps. This must be at least 1/3 of the character's
+ total hps.
+
+ \item bool channel\_off[MAX\_CHANNEL]; This is a list of channels the
+  character is not listening to. These can be toggled by typing
+  <channelname> off.
+
+ \item int sback\_pos[MAX\_CHANNEL];  This is a list of scrollback
+ positions the character is currently at for channels.
+
+\item  SCROLLBACK *sback[MAX\_CHANNEL][MAX\_SCROLLBACK]; These are recorded
+  channel messages the player can see. They are truncated because of
+  space and memory concerns over spam allocations. They should
+  technically be dynamically allocated buffers.
+
+ \item int pfile\_sent;            This is the time when a copy of the
+ character's pfile was sent to the email address provided. It only
+ works once every couple of days to try to cut down on annoying people.
+
+ \item int quest\_points;             This is how many quest points
+ the character has. This does nothing right now.
+
+\item  bool using\_kde;               This tells whether or not the player
+  is using the kde client to log in. If this is set, the player sees
+  some extra stuff like a map and some data on the client screen.
+
+ \item int kde\_update\_flags;        These are some flags that
+ determine which things get updated on the kde client this tick.
+
+\item  THING *pets;                 These are just used to load pets into
+  the world temporarily when players get logged in and before they
+  actually get put into a room.
+
+ \item int warmth;             This is the warmth the character has
+ from the clothing he is wearing. It doesn't do much now, but it may
+ if weather is ever improved.      
+
+\item  MAPGEN *mapgen;            This is a generated map admins can use to
+  make new zones faster.  
+
+
+ \item int gathered[RAW\_MAX]; Players can only mine/gather etc... a
+ certain number of raw materials at one time. This saves over reboots,
+ so it's a limit on how often the player can gather over time so they
+ must spend time online to gather more raw materials.
+
+  bool battling;                This tells if the player will battle
+  during the next battleground.
+
+
+ \item int last\_saved;        This tells the last time the character
+ was saved so spam saving isn't possible.     
+
+
+
+
+
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

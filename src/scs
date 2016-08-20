@@ -1,0 +1,22 @@
+#!/bin/csh -f
+
+
+set num = 100
+set topnum = 1000
+limit coredumpsize unlimited
+
+# Go past old logfiles
+
+while (1)
+  set logfile = ../log/$num.log
+  if (! -e $logfile) break 
+  @ num++
+end
+
+# loop up to 1000..so spam crashes dont fillup harddrive.
+
+while ($num < $topnum)
+  set logfile = ../log/$num.log
+  ../src/mud >& $logfile
+  @ num++
+end

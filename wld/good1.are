@@ -1,0 +1,571 @@
+THING 1050
+Name good1.are`
+HpMv 0 10 25 50
+HWT 0 0
+Align 2
+Cost 100
+Timer 1
+Short The Good Outpost`
+Long The Good Outpost comes to life again.`
+type Lonath`
+ThFl 1089531
+Flag Area 0 0 12
+END_THING
+
+THING 1051
+HWT 0 0
+Align 2
+Color 8
+Desc The good outpost serves as shelter from the dangers of the world. 
+`
+Short The Good Outpost`
+MIW 1
+Symbol |`
+ThFl 524779
+Val n_exit 1052 0 0 0 0 0 0 0 `
+Flag Room 0 0 769
+Reset 1090 100 1 1
+Reset 1081 10 5 1
+END_THING
+
+THING 1052
+HWT 0 0
+Align 2
+Color 8
+Desc 1051`
+Short The Good Outpost`
+MIW 1
+Symbol |`
+ThFl 524779
+Val n_exit 1053 0 0 0 0 0 0 0 `
+Val s_exit 1051 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Reset 744 100 1 1
+Reset 1081 10 5 1
+END_THING
+
+THING 1053
+HWT 0 0
+Align 2
+Color 8
+Desc 1051`
+Short The Good Outpost`
+MIW 1
+Symbol +`
+ThFl 524779
+Val n_exit 1058 0 0 0 0 0 0 0 `
+Val d_exit 1057 0 0 0 0 0 0 0 `
+Val u_exit 1056 0 0 0 0 0 0 0 `
+Val w_exit 1055 0 0 0 0 0 0 0 `
+Val e_exit 1054 0 0 0 0 0 0 0 `
+Val s_exit 1052 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Reset 1081 10 5 1
+END_THING
+
+THING 1054
+HWT 0 0
+Align 2
+Color 8
+Desc 1051`
+Short The Good Outpost`
+MIW 1
+Symbol -`
+ThFl 524779
+Val w_exit 1053 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Reset 1087 100 1 1
+Reset 1081 10 5 1
+END_THING
+
+THING 1055
+HWT 0 0
+Align 2
+Color 8
+Desc 1051`
+Short The Good Outpost`
+MIW 1
+Symbol -`
+ThFl 524779
+Val e_exit 1053 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Reset 1086 100 1 1
+Reset 1081 10 5 1
+END_THING
+
+THING 1056
+HWT 0 0
+Align 2
+Color 8
+Desc 1051`
+Short The Good Outpost`
+MIW 1
+Symbol -`
+ThFl 524779
+Val d_exit 1053 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Reset 1088 100 1 1
+Reset 1081 10 5 1
+END_THING
+
+THING 1057
+HWT 0 0
+Align 2
+Color 8
+Desc 1051`
+Short The Good Outpost`
+MIW 1
+Symbol -`
+ThFl 524779
+Val d_exit 1069 3 3 50 50 0 0 0 trapdoor`
+Val u_exit 1053 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Reset 1089 100 1 1
+Reset 1081 10 5 1
+END_THING
+
+THING 1058
+HWT 0 0
+Color 8
+Desc 1051`
+Short The Good Outpost`
+MIW 1
+Symbol +`
+ThFl 524779
+Val n_exit 1063 0 0 0 0 0 0 0 `
+Val d_exit 1062 0 0 0 0 0 0 0 `
+Val u_exit 1061 0 0 0 0 0 0 0 `
+Val w_exit 1060 0 0 0 0 0 0 0 `
+Val e_exit 1059 0 0 0 0 0 0 0 `
+Val s_exit 1053 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Reset 1081 10 5 1
+END_THING
+
+THING 1059
+HWT 0 0
+Align 2
+Color 8
+Desc 1051`
+Short The Good Outpost`
+MIW 1
+Symbol -`
+ThFl 524779
+Val w_exit 1058 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Reset 1083 100 1 1
+Reset 1081 10 5 1
+END_THING
+
+THING 1060
+HWT 0 0
+Align 2
+Color 8
+Desc 1051`
+Short The Good Outpost`
+MIW 1
+Symbol -`
+ThFl 524779
+Val e_exit 1058 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Reset 1082 100 1 1
+Reset 1081 10 5 1
+END_THING
+
+THING 1061
+HWT 0 0
+Align 2
+Color 8
+Desc 1051`
+Short The Good Outpost`
+MIW 1
+Symbol -`
+ThFl 524779
+Val d_exit 1058 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Reset 1084 100 1 1
+Reset 1081 10 5 1
+END_THING
+
+THING 1062
+HWT 0 0
+Align 2
+Color 8
+Desc 1051`
+Short The Good Outpost`
+MIW 1
+Symbol -`
+ThFl 524779
+Val u_exit 1058 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Reset 1085 100 1 1
+Reset 1081 10 5 1
+END_THING
+
+THING 1063
+HWT 0 0
+Color 8
+Desc 1051`
+Short The Good Outpost`
+MIW 1
+Symbol +`
+ThFl 524779
+Val n_exit 1068 0 0 0 0 0 0 0 `
+Val d_exit 1067 0 0 0 0 0 0 0 `
+Val u_exit 1066 0 0 0 0 0 0 0 `
+Val w_exit 1065 0 0 0 0 0 0 0 `
+Val e_exit 1064 0 0 0 0 0 0 0 `
+Val s_exit 1058 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Reset 1081 30 10 1
+END_THING
+
+THING 1064
+HWT 0 0
+Align 2
+Color 8
+Desc 1051`
+Short The Good Outpost`
+MIW 1
+Symbol -`
+ThFl 524779
+Val w_exit 1063 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Reset 1081 10 5 1
+END_THING
+
+THING 1065
+HWT 0 0
+Align 2
+Color 8
+Desc 1051`
+Short The Good Outpost`
+MIW 1
+Symbol -`
+ThFl 524779
+Val e_exit 1063 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Flag Det 0 0 1
+Reset 1081 10 5 1
+END_THING
+
+THING 1066
+HWT 0 0
+Align 2
+Color 8
+Desc 1051`
+Short The Good Outpost`
+MIW 1
+Symbol -`
+ThFl 524779
+Val d_exit 1063 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Reset 1081 10 5 1
+END_THING
+
+THING 1067
+HWT 0 0
+Align 2
+Color 8
+Desc 1051`
+Short The Good Outpost`
+MIW 1
+Symbol -`
+ThFl 524779
+Val u_exit 1063 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Reset 1081 10 5 1
+END_THING
+
+THING 1068
+HWT 0 0
+Align 2
+Color 8
+Desc 1051`
+Short The Good Outpost`
+MIW 1
+Symbol |`
+ThFl 524779
+Val n_exit 201022 0 0 0 0 0 0 0 `
+Val s_exit 1063 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+END_THING
+
+THING 1069
+HWT 0 0
+Color 8
+Desc You can learn to fight in relative safety here.
+`
+Short The Training Hall`
+MIW 1
+Symbol }`
+ThFl 524779
+Val e_exit 1072 0 0 0 0 0 0 0 `
+Val n_exit 1074 0 0 0 0 0 0 0 `
+Val s_exit 1070 0 0 0 0 0 0 0 `
+Val u_exit 1057 3 3 50 50 0 0 0 trapdoor`
+Flag Room 0 0 1
+Reset 1091 50 5 1
+Reset 1092 50 5 1
+END_THING
+
+THING 1070
+HWT 0 0
+Color 8
+Desc 1069`
+Short The Training Hall`
+MIW 1
+Symbol \`
+ThFl 524779
+Val e_exit 1071 0 0 0 0 0 0 0 `
+Val n_exit 1069 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Reset 1091 50 5 1
+Reset 1092 50 5 1
+END_THING
+
+THING 1071
+HWT 0 0
+Color 8
+Desc 1069`
+Short The Training Hall`
+MIW 1
+Symbol /`
+ThFl 524779
+Val n_exit 1072 0 0 0 0 0 0 0 `
+Val w_exit 1070 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Reset 1091 50 5 1
+Reset 1092 50 5 1
+END_THING
+
+THING 1072
+HWT 0 0
+Color 8
+Desc 1069`
+Short The Training Hall`
+MIW 1
+Symbol {`
+ThFl 524779
+Val w_exit 1069 0 0 0 0 0 0 0 `
+Val n_exit 1073 0 0 0 0 0 0 0 `
+Val s_exit 1071 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Reset 1091 50 5 1
+Reset 1092 50 5 1
+END_THING
+
+THING 1073
+HWT 0 0
+Color 8
+Desc 1069`
+Short The Training Hall`
+MIW 1
+Symbol \`
+ThFl 524779
+Val w_exit 1074 0 0 0 0 0 0 0 `
+Val s_exit 1072 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Reset 1091 50 5 1
+Reset 1092 50 5 1
+END_THING
+
+THING 1074
+HWT 0 0
+Color 8
+Desc 1069`
+Short The Training Hall`
+MIW 1
+Symbol /`
+ThFl 524779
+Val s_exit 1069 0 0 0 0 0 0 0 `
+Val e_exit 1073 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Reset 1091 50 5 1
+Reset 1092 50 5 1
+END_THING
+
+THING 1081
+Name buffed guard good`
+Level 150
+HpMult 30
+HWT 100 5000
+Align 2
+Short a buffed guard`
+Long A buffed guard watches over the outpost.`
+Sex 2
+ThFl 2209
+Val guard 2 0 0 0 0 0 0 0 s`
+Flag Det 0 0 31
+Flag Act 0 0 272
+END_THING
+
+THING 1082
+Name yoralda shopkeeper`
+Level 100
+HWT 57 1300
+Align 2
+Short Yoralda the shopkeeper`
+Long Yoralda the shopkeeper is here tending her shop.`
+Sex 1
+ThFl 2209
+Val shop 7 21 100 0 0 0 0 0 weapon`
+Flag Det 0 0 4
+Flag Act 0 0 256
+Reset 270 50 10 1
+END_THING
+
+THING 1083
+Name ornicol shopkeeper`
+Level 100
+HWT 57 1300
+Align 2
+Short Ornicol the shopkeeper`
+Long Ornicol the shopkeeper is here tending her shop.`
+Sex 1
+ThFl 2209
+Val shop 7 21 100 0 0 0 0 0 armor`
+Flag Det 0 0 4
+Flag Act 0 0 256
+Reset 271 50 10 1
+END_THING
+
+THING 1084
+Name marasa shopkeeper`
+Level 50
+HpMult 100
+HWT 57 1300
+Align 2
+Short Marasa the shopkeeper`
+Long Marasa the shopkeeper is here tending her shop.`
+Sex 1
+ThFl 2209
+Val shop 7 21 100 0 0 0 0 0 gem magic`
+Flag Det 0 0 4
+Flag Act 0 0 256
+Reset 277 30 5 1
+END_THING
+
+THING 1085
+Name indridi shopkeeper`
+Level 100
+HWT 57 1300
+Align 2
+Short Indridi the shopkeeper`
+Long Indridi the shopkeeper is here tending her shop.`
+Sex 1
+ThFl 2209
+Val shop 7 21 100 0 0 0 0 0 food drink tool light`
+Flag Det 0 0 4
+Flag Act 0 0 264
+Reset 772 20 1 1
+Reset 300 100 5 1
+Reset 741 100 3 1
+Reset 740 100 20 1
+END_THING
+
+THING 1086
+Name ubodath trainer`
+Level 100
+HWT 63 1800
+Align 2
+Short Ubodath the trainer`
+Long Ubodath the trainer is here.`
+Sex 2
+ThFl 2209
+Val teacher 580 577 574 587 553 310 300 0 `
+Flag Det 0 0 4
+Flag Act 0 0 256
+END_THING
+
+THING 1087
+Name hofto trainer`
+Level 100
+HWT 63 1800
+Align 2
+Short Hofto the trainer`
+Long Hofto the trainer is here.`
+Sex 2
+ThFl 2209
+Val teacher 582 579 576 581 552 550 571 0 `
+Val teach2 551 561 573 302 303 0 3 0 `
+Flag Det 0 0 4
+Flag Act 0 0 256
+END_THING
+
+THING 1088
+Name kunko trainer`
+Level 100
+HWT 63 1800
+Align 2
+Short Kunko the trainer`
+Long Kunko the trainer is here.`
+Sex 2
+ThFl 2209
+Val teacher 40 20 41 27 42 21 10 0 `
+Flag Det 0 0 4
+Flag Act 0 0 256
+END_THING
+
+THING 1089
+Name axwa trainer`
+Level 100
+HWT 63 1800
+Align 2
+Short Axwa the trainer`
+Long Axwa the trainer is here.`
+Sex 2
+ThFl 2209
+Val teacher 50 85 51 58 72 7 66 0 `
+Val teach2 591 59 89 65 0 0 0 0 `
+Flag Det 0 0 4
+Flag Act 0 0 256
+END_THING
+
+THING 1090
+Name Bob enforcer`
+Level 200
+HpMult 50
+HWT 100 10000
+Align 2
+Short Bob the Enforcer`
+MIW 1
+Long Bob the Enforcer is here to keep the relics safe.`
+Sex 2
+ThFl 2209
+Val guard 0 709 0 0 0 0 0 0 `
+Flag Aff 0 0 2097152
+Flag Mob 0 0 8
+Flag Det 0 0 47
+Flag Act 0 0 272
+END_THING
+
+THING 1091
+Name small target dummy`
+Level 15
+HpMult 2
+HWT 0 0
+Short a small target dummy`
+Long A small target dummy is here.`
+ThFl 67745
+Val money 100 0 0 0 0 0 0 0 `
+Flag Act 0 0 16640
+Reset 270 20 1 1
+Reset 271 20 3 1
+END_THING
+
+THING 1092
+Name large target dummy`
+Level 30
+HWT 0 0
+Short a large target dummy`
+Long A large target dummy is here.`
+ThFl 67745
+Val money 300 0 0 0 0 0 0 0 `
+Flag Act 0 0 16640
+Reset 270 20 1 1
+Reset 271 20 3 1
+END_THING
+
+END_OF_AREA
+

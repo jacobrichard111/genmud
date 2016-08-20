@@ -1,0 +1,447 @@
+THING 1000
+Name evil1.are`
+HpMv 0 10 25 50
+HWT 0 0
+Align 1
+Cost 100
+Timer 2
+Short The Evil Outpost`
+Long The Evil Outpost comes to life again!`
+type Lonath`
+ThFl 1089531
+Flag Area 0 0 12
+END_THING
+
+THING 1001
+HWT 0 0
+Color 8
+Desc The evil outpost serves as shelter from the dangers of the world.
+`
+Short The Evil Outpost`
+MIW 1
+Symbol |`
+ThFl 524779
+Val n_exit 1002 0 0 0 0 0 0 0 `
+Flag Room 0 0 16777985
+Reset 1040 100 1 1
+Reset 1031 10 5 1
+END_THING
+
+THING 1002
+HWT 0 0
+Align 1
+Color 8
+Desc 1001`
+Short The Evil Outpost`
+MIW 1
+Symbol |`
+ThFl 524779
+Val n_exit 1003 0 0 0 0 0 0 0 `
+Val s_exit 1001 0 0 0 0 0 0 0 `
+Flag Room 0 0 16777217
+Reset 744 100 1 1
+Reset 1031 10 5 1
+END_THING
+
+THING 1003
+HWT 0 0
+Align 1
+Color 8
+Desc 1001`
+Short The Evil Outpost`
+MIW 1
+Symbol +`
+ThFl 524779
+Val n_exit 1008 0 0 0 0 0 0 0 `
+Val d_exit 1007 0 0 0 0 0 0 0 `
+Val u_exit 1006 0 0 0 0 0 0 0 `
+Val e_exit 1005 0 0 0 0 0 0 0 `
+Val w_exit 1004 0 0 0 0 0 0 0 `
+Val s_exit 1002 0 0 0 0 0 0 0 `
+Flag Room 0 0 16777217
+Reset 1031 10 5 1
+END_THING
+
+THING 1004
+HWT 0 0
+Align 1
+Color 8
+Desc 1001`
+Short The Evil Outpost`
+MIW 1
+Symbol -`
+ThFl 524779
+Val e_exit 1003 0 0 0 0 0 0 0 `
+Flag Room 0 0 1
+Flag Det 0 0 16908289
+Reset 1036 100 1 1
+Reset 1031 10 5 1
+END_THING
+
+THING 1005
+HWT 0 0
+Align 1
+Color 8
+Desc 1001`
+Short The Evil Outpost`
+MIW 1
+Symbol -`
+ThFl 524779
+Val w_exit 1003 0 0 0 0 0 0 0 `
+Flag Room 0 0 16777217
+Reset 1037 100 1 1
+Reset 1031 10 5 1
+END_THING
+
+THING 1006
+HWT 0 0
+Align 1
+Color 2
+Desc 1001`
+Short The Evil Outpost`
+MIW 1
+Symbol *`
+ThFl 524779
+Val d_exit 1003 0 0 0 0 0 0 0 `
+Flag Room 0 0 16908289
+Reset 1038 100 1 1
+Reset 1031 10 5 1
+END_THING
+
+THING 1007
+HWT 0 0
+Align 1
+Color 2
+Desc 1001`
+Short The Evil Outpost`
+MIW 1
+Symbol *`
+ThFl 524779
+Val u_exit 1003 0 0 0 0 0 0 0 `
+Flag Room 0 0 16908289
+Reset 1039 100 1 1
+Reset 1031 10 5 1
+END_THING
+
+THING 1008
+HWT 0 0
+Align 1
+Color 8
+Desc 1001`
+Short The Evil Outpost`
+MIW 1
+Symbol +`
+ThFl 524779
+Val n_exit 1013 0 0 0 0 0 0 0 `
+Val d_exit 1012 0 0 0 0 0 0 0 `
+Val u_exit 1011 0 0 0 0 0 0 0 `
+Val w_exit 1010 0 0 0 0 0 0 0 `
+Val e_exit 1009 0 0 0 0 0 0 0 `
+Val s_exit 1003 0 0 0 0 0 0 0 `
+Flag Room 0 0 16777217
+Reset 1031 10 5 1
+END_THING
+
+THING 1009
+HWT 0 0
+Align 1
+Color 8
+Desc 1001`
+Short The Evil Outpost`
+MIW 1
+Symbol -`
+ThFl 524779
+Val w_exit 1008 0 0 0 0 0 0 0 `
+Flag Room 0 0 16777217
+Reset 1033 100 1 1
+Reset 1031 10 5 1
+END_THING
+
+THING 1010
+HWT 0 0
+Align 1
+Color 8
+Desc 1001`
+Short The Evil Outpost`
+MIW 1
+Symbol -`
+ThFl 524779
+Val e_exit 1008 0 0 0 0 0 0 0 `
+Flag Room 0 0 16777217
+Reset 1032 100 1 1
+Reset 1031 10 5 1
+END_THING
+
+THING 1011
+HWT 0 0
+Align 1
+Color 2
+Desc 1001`
+Short The Evil Outpost`
+MIW 1
+Symbol *`
+ThFl 524779
+Val d_exit 1008 0 0 0 0 0 0 0 `
+Flag Room 0 0 16908289
+Reset 1034 100 1 1
+Reset 1031 10 5 1
+END_THING
+
+THING 1012
+HWT 0 0
+Align 1
+Color 2
+Desc 1001`
+Short The Evil Outpost`
+MIW 1
+Symbol *`
+ThFl 524779
+Val u_exit 1008 0 0 0 0 0 0 0 `
+Flag Room 0 0 16908289
+Reset 1035 100 1 1
+Reset 1031 10 5 1
+END_THING
+
+THING 1013
+HWT 0 0
+Align 1
+Color 8
+Desc 1001`
+Short The Evil Outpost`
+MIW 1
+Symbol +`
+ThFl 524779
+Val n_exit 1018 0 0 0 0 0 0 0 `
+Val d_exit 1017 0 0 0 0 0 0 0 `
+Val u_exit 1016 0 0 0 0 0 0 0 `
+Val w_exit 1015 0 0 0 0 0 0 0 `
+Val e_exit 1014 0 0 0 0 0 0 0 `
+Val s_exit 1008 0 0 0 0 0 0 0 `
+Flag Room 0 0 16777217
+Reset 1031 30 10 1
+END_THING
+
+THING 1014
+HWT 0 0
+Align 1
+Color 7
+Desc 1001`
+Short The Evil Outpost`
+MIW 1
+Symbol -`
+ThFl 524779
+Val w_exit 1013 0 0 0 0 0 0 0 `
+Flag Det 0 0 16777217
+Reset 1031 10 5 1
+END_THING
+
+THING 1015
+HWT 0 0
+Align 1
+Color 8
+Desc 1001`
+Short The Evil Outpost`
+MIW 1
+Symbol -`
+ThFl 524779
+Val e_exit 1013 0 0 0 0 0 0 0 `
+Flag Room 0 0 16777217
+Reset 1031 10 5 1
+END_THING
+
+THING 1016
+HWT 0 0
+Align 1
+Color 2
+Desc 1001`
+Short The Evil Outpost`
+MIW 1
+Symbol *`
+ThFl 524779
+Val d_exit 1013 0 0 0 0 0 0 0 `
+Flag Room 0 0 16908289
+Reset 1031 10 5 1
+END_THING
+
+THING 1017
+HWT 0 0
+Align 1
+Color 2
+Desc 1001`
+Short The Evil Outpost`
+MIW 1
+Symbol *`
+ThFl 524779
+Val u_exit 1013 0 0 0 0 0 0 0 `
+Flag Room 0 0 16908289
+Reset 1031 10 5 1
+END_THING
+
+THING 1018
+HWT 0 0
+Color 8
+Desc 1001`
+Short The Evil Outpost`
+MIW 1
+Symbol |`
+ThFl 524779
+Val s_exit 1013 0 0 0 0 0 0 0 `
+Val n_exit 215236 0 0 0 0 0 0 0 `
+Flag Room 0 0 16777217
+END_THING
+
+THING 1031
+Name buffed guard evil`
+Level 150
+HpMult 30
+HWT 100 5000
+Align 1
+Short a buffed guard`
+Long A buffed guard watches over the outpost.`
+Sex 2
+ThFl 2209
+Val guard 2 0 0 0 0 0 0 0 s`
+Flag Det 0 0 31
+Flag Act 0 0 272
+END_THING
+
+THING 1032
+Name lenna shopkeeper`
+Level 100
+HWT 57 1300
+Align 1
+Short Lenna the shopkeeper`
+Long Lenna the shopkeeper is here tending her shop.`
+Sex 1
+ThFl 16779425
+Val shop 7 21 100 0 0 0 0 0 weapon`
+Flag Act 0 0 4
+Flag Det 0 0 256
+Reset 270 50 10 1
+END_THING
+
+THING 1033
+Name helena shopkeeper`
+Level 100
+HWT 57 1300
+Align 1
+Short Helena the shopkeeper`
+Long Helena the shopkeeper is here tending her shop.`
+Sex 1
+ThFl 2209
+Val shop 7 21 100 0 0 0 0 0 armor`
+Flag Det 0 0 4
+Flag Act 0 0 256
+Reset 271 50 10 1
+END_THING
+
+THING 1034
+Name bar'tal shopkeeper`
+Level 50
+HpMult 100
+HWT 57 1300
+Align 1
+Short Bar'Tal the shopkeeper`
+Long Bar'tal the shopkeeper is here tending her shop.`
+Sex 1
+ThFl 2209
+Val shop 7 21 100 0 0 0 0 0 gem magic`
+Flag Det 0 0 4
+Flag Act 0 0 256
+Reset 277 30 5 1
+END_THING
+
+THING 1035
+Name elsashra shopkeeper`
+Level 100
+HWT 57 1300
+Align 1
+Short Elshashra the shopkeeper`
+Long Elsashra the shopkeeper is here tending her shop.`
+Sex 1
+ThFl 2209
+Val shop 7 21 100 10 740 30 0 0 food drink tool light`
+Flag Det 0 0 4
+Flag Act 0 0 264
+Reset 772 20 1 1
+Reset 300 50 6 1
+Reset 741 100 3 1
+Reset 740 100 20 1
+END_THING
+
+THING 1036
+Name luqwus trainer`
+Level 100
+HWT 63 1800
+Align 1
+Short Luqwus the trainer`
+Long Luqwus the trainer is here.`
+Sex 2
+ThFl 2209
+Val teacher 580 577 574 587 553 300 310 0 `
+Flag Det 0 0 4
+Flag Act 0 0 256
+END_THING
+
+THING 1037
+Name gofem trainer`
+Level 100
+HWT 63 1800
+Align 1
+Short Gofem the trainer`
+Long Gofem the trainer is here.`
+Sex 2
+ThFl 2209
+Val teach2 551 561 573 302 303 0 3 0 `
+Val teacher 582 579 576 581 552 550 571 0 `
+Flag Det 0 0 4
+Flag Act 0 0 256
+END_THING
+
+THING 1038
+Name em-gi trainer`
+Level 100
+HWT 63 1800
+Align 1
+Short Em-gi the trainer`
+Long Em-gi the trainer is here.`
+Sex 2
+ThFl 2209
+Val teacher 40 20 41 27 42 21 10 0 `
+Flag Det 0 0 4
+Flag Act 0 0 256
+END_THING
+
+THING 1039
+Name isbehxu trainer`
+Level 100
+HWT 63 1800
+Align 1
+Short Isbehxu the trainer`
+Long Isbehxu the trainer is here.`
+Sex 2
+ThFl 2209
+Val teach2 66 591 59 65 0 0 0 0 `
+Val teacher 50 89 85 51 58 72 7 0 `
+Flag Det 0 0 4
+Flag Act 0 0 256
+END_THING
+
+THING 1040
+Name fred enforcer`
+Level 200
+HpMult 50
+HWT 0 0
+Align 1
+Short Fred the Enforcer`
+Long Fred the Enforcer is here to make sure the relics are safe.`
+ThFl 2209
+Val guard 0 709 0 0 0 0 0 0 `
+Flag Mob 0 0 8
+Flag Aff 0 0 2097152
+Flag Act 0 0 272
+Flag Det 0 0 47
+END_THING
+
+END_OF_AREA
+

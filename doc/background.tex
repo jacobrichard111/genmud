@@ -1,0 +1,611 @@
+\chapter{Background Information}
+
+This chapter will present some of the background material for how the
+game works. It also includes some of the internal editing information
+you can use. ``Things'' will be discussed in more depth in the next
+chapter.
+
+\section{Network}
+
+The core of the MUD is the network code. On bootup, the database is
+read in using the function load\_server(), and a listening socket is
+set up. For a good good book on this, get W. Richard Stevens'
+{\it{Unix Network Programming Vol 1., Sockets and XTI}} This code is
+contained in init\_socket(). This is a standard sequence of commands,
+socket(), setting SO\_REUSEADDR, bind (), setting NONBLOCK, listen
+(). Usually people have these commands all separated and have an error
+message for each (look at apache or quake or something), but I figured
+since bind() is the thing that doesn't work if something fails, just
+make it one thing.
+
+Once the listening socket is set up, the game enters an infinite
+loop. Ten times a second, the following things happen.
+
+\begin{enumerate}
+
+\item  We get the current time of day.
+
+\item The FD\_SET input\_set has all of its bits zeroed. Note that I
+only use one FD\_SET. It isn't strictly necessary to use some
+output\_set and some exception\_set, but you can. My code is just not
+very robust, since it started out as a simple chat room. Set the
+listen\_socket number (usually 0) to listen for inputs (new
+connections).
+
+\item Then we go down the list of file\_descriptors (connections), and
+we set the bits corresponding to what fd's the data chunks are hooked
+up to in the input\_set. (i.e. we tell select () that there might be
+input coming in through these connections). At the same time, check
+for idling.
+
+\item Then run select() which polls all of the descriptors for input.
+
+\item We then add a new connection if needed. 
+
+\item Then we go down the list of all file descriptors and read input
+from each (if necessary). The inputs are then immediately parsed for
+aliases and multiple commands. The alias code takes place in
+read\_in\_command () and will be discussed below.
+
+\item Then, we do whatever command was read in during
+read\_in\_command (if any).
+
+\item Then, every pulse, events get updated. Each thing has a few
+events on it that repeatedly get updated at different intervals to
+give the illusion of action and a dynamic world. These things are
+explained more in the chapter on events.
+
+\item Then, we go down the event list (for scripts) and execute any of
+those that are pending.
+
+\item Then, finally we flush the output buffers for each connection
+and find the time at the end of the cycle, and then put the process to
+sleep until it is needed again. Note that select (NULL, NULL, NULL,
+\&waiting\_time); is essentially the same as usleep().
+
+\end{enumerate} 
+
+\section{Data}
+
+The database has many components. The most important components are clearly the things. However, there are other types of data which must be read in. These can essentially be found in the ../wld directory in the .dat files.
+
+A quick note about how the data is set up. I use a simple 
+
+Keyword Data
+
+format so that the text files are easily read and easy to change by hand, or
+ by some shell program if necessary.
+
+\begin{enumerate}
+
+\item Alignments: This the data on the various alignments within the
+game. There is OLC for this (align edit $<$number/name$>$, and this is
+automatically saved).
+
+\item Areas: This is a list of the ``area'' files which will be read
+in. You really need start.are or something like that...the area with
+vnum 1, so that the core things needed for the world can be read in.
+
+\item Channels: This reads in all the information about channels like
+chat, say, tell, yell etc... There are several flags in serv.h:
+CHAN\_XXXXX, but the editing for this is only done in the channels.dat
+file. You can use those as a template for making other different
+channels if needed.
+
+\item Clans: There is interesting clan code here. There are several
+types of clans like clans, sects, schools, academies or whatever you
+want. It is set up so each person can be a member of one of each type
+of clan. It is also set up to make it easy to add new types of clans,
+although you do have to do coding. This file saves the data on each
+clan that actually exists, from rosters to items stored.
+
+\item Code/Triggers: Scripts have three main components, code that is
+executed, triggers which are attached to a thing and on a certain
+action cause code to be executed, and events which are created when a
+trigger is triggered. These files store the interpreted code and the
+triggers which cause the scripts to happen. There will be much more on
+scripts later.
+
+\item Damage: dam.dat just holds a list of all the damage
+messages. Note how it uses only one message per damage level. This is
+due to the really good markup function act() which is something I
+always hated about my old code because of all the awful void* pointers
+in it.
+
+\item Helpfiles: help.dat contains the helpfiles accessable within the
+game. It hashes the keywords and has several keywords pointing to the
+same helpfile text. This should work if you help reload\_helps...and
+it loads more helps in. The helpfiles are in a standard format: The
+helpfiles start with the keyword HELP followed by a number or word.
+The words are MORT BLD MAX. MORT sets the helpfile to level 0,
+BLD sets the helpfile to BLD\_LEVEL, and MAX sets the helpfile
+to MAX\_LEVEL. Helpfiles have a list of keywords that can be used
+to access the helpfile, then admin text that only MAX\_LEVEL people
+can see (so you can have a single helpfile and have player info
+and the special admin info in it), regular text that anyone can
+see, and a list of See Also words that appear at the bottom of
+the helpfile. 
+
+\item Notes: The notes just get read in as a big long list. Note that
+admins can append responses to notes if they choose.
+
+\item Playerbase: A small piece of the player's data from level, to
+last login to email is stored online so people can use the finger
+command. Admin fingering gives more information.
+
+\item Pkdata: pkdata.dat stores the global pk info top lists. This is
+used for the pkdata command so that people can brag and make fun of
+each other.
+
+\item Races: The races are stored in races.dat and are essentially the
+same as alignments.
+
+\item Score: The score file is an interpretted file which is read in
+from here. It uses the string parsing and variable replacement used
+for scripts and prompts. Those things will be discussed later.
+
+\item Sitebans: This is a list of all sites that have been banned.  I
+think it works, but I haven't checked it in forever and I forget.
+
+\item Socials: These are dippy little commands you can type in that
+just let you send a message to everyone in the room. There are only 2
+strings along with the social name, because the act() function does
+all the work.
+
+\item Societies: These are collections of mobs that work together to
+achieve common goals like building cities and raiding other societies
+and gathering resources.
+
+\item Raids: These are used to keep track of societies that are
+attacking other societies.
+
+\item Rumors: When societies do things, their actions are recorded as
+rumors that can then be accessed by players by typing news at a
+mob. When they type news, they may hear about recent events, or find
+out what ally society needs help either in terms of combat assistance,
+or raw materials needed. Admins can access all current rumors by
+typing rumor.
+
+\item Spells: Spells are stored in a database. The actual
+spells/poisons/traps actually use the spell data to be
+``cast''. Skills are generally hardcoded, but the skill level and
+guilds needed etc...are stored here. There will be more on this later.
+
+\item Worldinfo: This is a snapshot of the current game database. That
+way, when the game crashes or reboots, the status hasn't really
+changed...mobs even keep special flags and are in the same locations,
+and they even remember who attacked them last.
+
+\item Weather/Time Info: Current weather and game time.
+
+\item Things: These are read in from area files and will be dealt with later.
+
+\end{enumerate}
+
+        
+\section{File I/O}
+
+The way files are used is pretty simple. Basically, I use the old
+Keyword Data method, so the loops that read stuff in from files search
+for keywords, then if they find the keyword, they read in the data
+after it. The functions which read/write stuff from/to files can be
+found in fileio.c The read functions basically eat up whitespace, then
+follow with an appropriate fscanf. {\i{This is now a series of
+getc()'s since fscanf was kind of slow when I tried loading up a
+million things from worldinfo.dat.}}    
+
+\section{Arguments}
+
+When you type in commands within the game, many times you need to use
+several arguments. The code lets you enter multiple words as a single
+argument by enclosing them in single quotes. So, for example, c 'magic
+missile' whitie would cast a magic missile spell at a whitie.
+
+\section{Multiple Commands At Once}
+
+There is a special character used within the text data files to
+represent the end of a string. If you are familiar with Diku, you know
+that the tilde $\tilde{}$ is this character. I don't use the tilde
+because someday I might make my script engine suck less, and if I do,
+I will need \&, $\vert$, $\tilde{}$ for bitwise operators. So, for
+that reason, I use the backwards quote...accent? Which is `. On my
+keyboard it is the character below the tilde $\tilde{}$.
+
+Now, how does this let you enter multiple commands at once? Since we
+can't allow you to enter a ` into a text stream, we need to do
+something with it. What happens is that in your input buffer, if it
+reaches a `, it assumes that is a $\backslash$n$\backslash$r. That
+means you can enter a string of commands all in a row like n`n`e`e`s
+and then the game will execute n n e e s as soon as possible (one
+command per pulse). This can be useful if you are trying to run past a
+dangerous part of a dungeon, or trying to execute a series of commands
+quickly for pkill and you don't feel like making an alias...like you
+know the enemy is n e from here so you type in n`e`kick enemy and you
+would be able to attack them quickly.
+
+\section{Helpfiles}
+
+The helpfiles within the game are accessable by using the ``help
+$<$keyword$>$'' command...and note that $<$keyword$>$ can have several
+words surrounded by single quotes. Most of the skills and spells have
+helpfiles within the game, and many of the other features have
+helpfiles which are appropriate for players. This document will have
+some more in-depth information.
+
+\section{Aliases}
+
+There are aliases within the game. They have several nice
+features. First, you can have arguments which get replaced when the
+aliases are typed in (3 arguments only but it's easy to up that if you
+choose.) Also, you can make aliases with multiple commands in a single
+alias, which is helpful also.
+
+To have variable arguments put into an alias, use the strings @1 @2 @3
+to represent inserting arguments 1, 2 and 3. Don't worry if you have
+an alias with arguments and you don't enter enough arguments...the
+game will just leave them blank. This is useful as I will show you
+with a couple of examples below.
+
+If you want to have multiple commands within a single alias, you can
+do this, too. The way to do this is to delimit the ends of commands
+with a *. So, if you wanted an alias that made you go n n e e s, and
+you wanted it to be triggered when you type in zz, you type
+
+alias zz n*n*e*e*s
+
+There are limits on the length of aliases, and on how long the strings
+can be once they are replaced, but I am not sure if I caught all the
+cases with this, so possibly there could be alias expansions which end
+up too long. Dunno tho. 
+
+Now, getting back to arguments in aliases, I have several building
+aliases I use a lot. The directions in the game are n, s, e, w, u,
+d. There are commands where you can type $<$dir$>$ dig
+$<$blank/num$>$, and that will link/create rooms in that
+direction. Using east as an example, I have aliases in all directions
+which are like this ee, dd, ss, nn, uu, ww, where ee is set up by
+
+alias ee e dig @1
+
+What this means is the following. If I am in a room, and I type ee,
+the game finds the next available room in the area and creates it and
+links the rooms. If I use an argument, then if the room associated
+with that number exists (and is in the same area), it links the room
+you are in to that room. If the room doesn't exist, but it could exist
+in the same area, it creates the other room and links the rooms.
+
+Also, I have aliases like the following, for all of the dirs n, s, e,
+w...I have aliases set up to make simple doors. I have aliases called
+nd, sd, ed, wd where ed is defined to be
+
+alias ed v e v1 3*v e v2 3*v e word door
+
+This is used to put data into the east\_door ``value'' in the thing I
+am editing. The alias sets up door and closed door flags and resets
+them, and gives the exit the name ``door''.  There will be more on
+values later, but they are things that can be exits, money, weapons,
+teachers, and just about any other piece of info you can imagine. They
+make the code a lot easier to deal with. I suggest you use them
+instead of adding new data or pointers onto things (except for pc's
+where I ended up doing everyhing by hand for some reason.. :P).
+
+\section{String Editing}
+
+Since the game is played in telnet line mode, we don't have a
+character editor. We do have a string editor, however, and it lets you
+some of the simple things you would expect.
+
+If you are editing something which I decided was a long string and might
+require a longer string than just a single line, you get put into the
+string editing mode. Generally when you enter text, it just gets
+appended to the string. There are several places where the string
+editor is used. Thing descriptions, notes, writing script code are
+just a few. There are also several editing/formatting commands
+available in the string editor. They all have the form .$<$letter$>$,
+and must be typed at the very start of a line.
+
+\begin{enumerate}
+
+\item .d This ends your string editing.
+
+\item .c Without an argument, this clears the entire string. With an
+argument, it clears a single line number. So, .c 10 would clear the
+line after the number 10 on the left.
+
+\item .r $<$old$>$ $<$new$>$ substitutes text. This also accepts
+arguments with several words in them if you encase them in single
+quotes. This is useful say if you need to change a single instance of
+the: ...going to the new place..., and you wanted ``the'' changed to
+``some'', you could type
+
+.r 'g to the ne' 'g to some ne'
+
+and that will only change that one instance of the. It isn't as pretty as a query/replace or anything, but it works. 
+
+\item .i $<$line/blank$>$ $<$string$>$ inserts a line at line
+$<$line$>$. If the first word after the .i is not a number, it assumes
+you want to put the string at the very start of the whole string, and
+it moves everything else down. If you replace line 10, for instance,
+then the current line 10 gets moved to line 11, and your current input
+line gets put in as line 10.
+
+\item .f This formats the text. Note that this kills off any
+paragraphs, extra spacing you might have in the string. You cannot
+format ``code'' for the scripts, because that relies on newlines to
+determine where the end of a command line is. This also makes it so
+any color codes in the text are ignored when we format, so putting a
+multicolored word in there doesn't make that line only have 10 letters
+in it, while a line without any colors would have around 75-80.
+
+
+\end{enumerate}
+
+\section{Hexadecimal numbers}
+
+Hexadecimal numbers or hex numbers for short are a valuable tool for
+representing single bits as numbers. Computers are systems that work
+on binary arithmetic: arithmetic in terms of 0's and 1's. It isn't
+always convenient to look at a string of numbers in terms of 0's and
+1's, so an extension of the regular decimal number system was developed.
+Basically, the decimal numbering system has 10 symbols: 0,1,2,3,4,5,6,7,8,9.
+If you want to represent something larger than 9, you use two or more
+symbols instead of just one. Hexadecimal numbers work the same way,
+except you now have 16 symbols: 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F.
+The symbols 0-9 are the same as before, but A represents ``10'',
+B represents ``11'', C represents ``12'', D represents ``13'', 
+E represents ``14'', and F represents ``15''. Just as the 
+``base 10'' numbering system has symbols for all numbers up to
+1 below 10, the hexadecimal numbering system has symbols for all
+numbers up to 1 below its base. So, since there are symbols for
+all values up to 15, the hexadecimal system is a ``base 16''
+numbering system.
+
+This is important because as  I said before, computers the binary
+numbering system consisting of 0's and 1's. Hexadecimal numbers give
+us a bridge between our well-understood decimal numbering system and
+the hard-to-use binary numbering system. 
+
+The relationship between hexadecimal numbers and binary numbers is
+quite simple. Imagine a binary number with 4 symbols. Each symbol is
+either 0 or 1. An example of such a number is 0101. Note that this
+number has 4 spaces for symbols, and there are two choices for
+each symbol. The total number of 4 digit binary numbers is
+therefore $2\times 2\times 2\times 2$ because for each of the
+four slots there are two choices, so to get the total number of
+choices for all four slots at once, we multiply the number of
+choices we have at each step. There's that number 16 again. 
+
+Basically what hexadecimal numbers do is represent binary numbers
+where each hexadecimal digit represents a block of 4 binary digits (or bits).
+When counting in decimal numbers, you know that 
+
+$$51274 = 5\times 10^{4} + 1\times 10^{3} + 2\times 10^{2} + 7\times 10^{1} + 4\times 10^{0}.$$
+
+Binary numbers work in the same way. When you write a string of binary
+digits out to represent a larger number, the digits represent a sum
+of coefficients times a power of 2, instead of 10. So, the binary number
+
+
+$$11010 = 1 \times 2^{4} + 1 \times 2^{3} + 0 \times 2^{2} + 1\times 2^{1} + 0\times 2^{0} = 26. \hbox{ base 10}$$
+
+So, given any block of 4 bits, the smallest number is 0000, which is
+equal to 0 base 10. The largest number is 1111 which is equal to 8 + 4
++ 2 + 1 = 15 base 10. And, given any other possible combination of a
+string of four 0's and 1's, this string can be converted into a
+(unique) decimal number with a value between 0 and 15. That's how the
+map works. The string of 4 bits has a decimal value between 0 and 15,
+and the hexadecimal digits represent all numbers from 0 to 15, so you
+convert the string of bits with a certain value to the hexadecimal
+digit with that same value.
+
+
+This map goes the other way, too. So, the hex number B is equal to 11,
+which is equal to $8 + 2+ 1$ which is equal to 1011.
+
+If you have longer strings of bits, you just break them up into groups
+of 4 bits and then apply the same relationship shown above to each of
+those sets of four bits.
+
+For example, the number 010110101010110 in binary can be split into
+groups of four bits (STARTING FROM THE RIGHT!) like this: 010 1101
+0101 0110. The leftmost set of bits only has 3 numbers, so just assume
+that the top digit is 0. The decimal values for each of these
+sets of bits are 2 13 5 6, and so the conversion of these decimal
+values to hexadecimal values becomes 2 D 5 6 or 2D56. 
+
+Also, note that if you ever use a hex editor to look for numbers in a
+binary file on a computer, the bits of the numbers are 
+stored out of order because of how the numbers are processed
+inside the computer.
+
+
+These hex numbers are used a lot in serv.h to represent bit for
+flags. There are several ways to represent a binary number with all
+0's and a single 1 at one point. Inside the machines I currently use,
+int's are 32 bits. So, it takes 32/4 = 8 hexadecimal digits to 
+represent that number, since each hexadecimal digit represents 4
+bits.
+
+Hexadecmial numbers that the compiler will read in from source
+files start with the symbol 0x followed by several hexadecimal
+digits. There can be very few digits, such as a number like
+0x4A or many like 0xFA49C13B. 
+
+Numbers with single nonzero bits can be represented in several ways.
+One way is to use the left shift operator $<<$, by writing things like
+ $BIT\_0 = (1 << 0)$, or $BIT\_14 = (1 << 14)$. These shifts work up
+to and including the left shift by 31 places (which is a single 1 in the
+leftmost spot of a string of 32 bits). When people make up their lists
+of flags, they sometimes use the BIT\_XX notation or the $1<<X$ notation,
+but I prefer to use the hex notation like the following.
+
+If a hexadecimal number has all 0's in it except one digit is a 1, 2,
+4 or 8, then that hexadecimal number represents a binary number with a
+single nonzero digit. You can see this by remembering that each digit
+of the hex number represents a string of four bits. All of the strings
+of bits represented by the 0's are all strings of four 0's. The one
+nonzero hexadecimal number is an exact power of 2, and so therefore
+represents a single bit: (1 = 0001, 2 = 0010, 4 = 0100, 8 = 1000).
+
+
+So, in serv,h, there are lists of flags and these long numbers after them like:
+
+\begin{verbatim}
+#define OBJ_GLOW         0x00000001  /* Hit ghost */
+#define OBJ_BLESSED      0x00000002  /* Hit demons */
+#define OBJ_HUM          0x00000004  /* Hit undead */
+#define OBJ_POWER        0x00000008  /* Hit dragons */
+#define OBJ_CURSED       0x00000010  /* Hit angels */
+#define OBJ_WATER        0x00000020  /* Can hit fire mobs */
+#define OBJ_FIRE         0x00000040  /* Can hit water mobs */
+#define OBJ_AIR          0x00000080  /* Can hit earth mobs */
+#define OBJ_EARTH        0x00000100  /* Can hit air mobs */
+...
+\end{verbatim}
+
+Notice how the hex numbers are set up? For each hex digit, there are
+four flags used, the 1, 2, 4, and 8 bits. Then, once those 4 bits represented
+by that hex digit are used up, the next digit is used up by using 
+numbers to represent each of the bits being set. This can continue
+until we reach the top number 0x80000000, but after that you will
+need to make a new type of flag if you need more flags. This is not 
+as versatile as using a real bitvector, but it works pretty will
+since it's easy to add new kinds of flags.
+
+\section{Octal Numbers}
+
+Just for the sake of completeness, octal numbers are base 8 numbers using
+the digits 0-7 to represent strings of 3 bits with a single
+symbol. I didn't use them in here much if at all, but they are out
+there if you need them.
+
+\section{Colors}
+
+The color code in the game is unified. It works in the following
+way. Since ANSI colors come in the form $\backslash$x1b[(0 or 1);3(0
+to 7)m I decided to be lazy and since there are only 16 colors I use
+(since I don't want to have flashing/inverse since they are annoying),
+I decided to use the hexidecimal digits to represent colors. So, a
+color code looks like \$ followed by a hexidecimal digit. Within the
+color code, we have $\backslash$x1b[N;3Mm, where N is 0 or 1
+(regular/bright), and M is 0 to 7: black, red, green, yellow, blue,
+purple, cyan, white. (And incidentally there is even more of a pattern
+here using rgb and bright/not bright but I won't get into it. So, we
+use the hexidecimal letters 0-F to represent the 16 different colors
+possible. Convert the hexidecimal digit to a number num, and then we
+add the following string to our text: $\backslash$x1b[(num/8);3(num
+\%8)m. So this is a list of the colors and their corresponding codes:
+
+\begin{enumerate}
+
+\item \$0 black
+
+\item \$1 dark red
+
+\item \$2 dark green
+
+\item \$3 dark yellow/brown
+
+\item \$4 dark blue
+
+\item \$5 dark purple
+
+\item \$6 dark cyan
+
+\item \$7 gray (dark white)
+
+\item \$8 dark gray (bright black)
+
+\item \$9 bright red
+
+\item \$A bright green
+
+\item \$B (bright) yellow
+
+\item \$C bright blue
+
+\item \$D bright purple (magenta)
+
+\item \$E bright cyan (sky blue)
+
+\item \$F white (bright gray)
+
+\end{enumerate}
+
+So, afaik you can add these colors to any strings you want, names,
+short descs, long descs, descs, notes, spell messages, act() strings,
+etc.. Be warned, though, sometimes the strings in question really
+shouldn't have colors so in a few cases I think it's disabled... like
+with thing names and stuff like that. Also, be warned if you do put
+those into something like thing names, you won't be able to find those
+things because their names will be all screwed up.
+
+\section{Messages}
+
+There are a few ways in which messages can be sent to characters
+within the games. The most basic is the void stt (char *txt, THING*
+target); function (send\_to\_thing :P), which basically checks if the
+thing has a network connection, and if so, it appends the string to
+the file descriptor's buffer.
+
+
+You can send a broadcast message to everyone by using the function echo (char *message);
+
+There is a nice simple idea for a markup language I got from the old
+codebase. If you have ever seen act() in Diku, you know it sends a
+message to some or all people in a room, and replaces certain text
+keys with names of things. This is the same idea, but it's written the
+way it should have been done IMO. No awful void* pointers and junk
+like that. Btw, this function was one of my biggest pet peeves about
+how the old code worked.
+
+The prototype is as follows:
+
+void act (char *msg, THING *th, THING *use, THING *vict, char *txt, int type);
+
+The message is the string that gets parsed and sent to some or all of the things in a room.
+
+th is the thing which is doing the acting and all other messages are relative to it.
+
+use and vict are other things being mentioned in the string. 
+
+Type tells what kind of a message you send, is it TO\_CHAR (only to
+th), or TO\_VICT (only to vict), TO\_USE (only to the use), TO\_ROOM
+(to all except th), TO\_NOTVICT ( all except th and vict), or TO\_ALL
+(to all in room). This last one is the most fun, since it means you
+don't need three stupid messages for every act(). To see how this
+might be useful, look at socials. It lets me be lazier and not have to
+type so much junk because the code does more work for me.
+
+You can see from the code the kinds of places this is used. Generally,
+@$<$digit$>$$<$letter$>$ is used to represent a name or a pronoun
+associated with a thing. The $<$digit$>$ can be 1, 2, or 3,
+representing th, use, or vict respectively. The $<$letter$>$ can be n
+(name (short desc)), p (possessive name), h (he/she/it), etc...there
+is more help on this in the helpfiles.
+
+The char *txt gets put into the text anywhere there is a @t. 
+
+There is another interesting feature and is why you can use one
+message for everyone. There is a replacement @s which is essentially
+used for verb conjugation relative to who is acting, and who is seeing
+the act. For example. Lets say the name of th is Bob, and the name of
+vict is Fred.
+
+act(``@1n @t@s @3n very hard., th, NULL, vict, ``slash'', TO\_ALL);
+
+If we wanted to see what the code does to this string, let's look at it.
+
+We send the message to everyone, so if we are sending it to th,
+
+Bob sees You slash Fred very hard.
+
+
+Fred sees Bob slashes you very hard.
+
+Everyone else sees Bob slashes Fred very hard.
+
+It does not work with all the funky English verbs out there, but it
+seems to do ok for the cases I have thrown at it.
+
+

@@ -1,0 +1,2129 @@
+THING 100000
+Name forgedeq.are`
+HpMv 0 10 5 1000
+HWT 0 0
+Timer 10
+Short The Forged Eq Area`
+type Lonath`
+ThFl 1048576
+END_THING
+
+THING 100010
+Name chunk brass`
+Level 10
+HWT 0 4
+Cost 28
+Short a $Bbrass$7 chunk`
+Wear wield`
+Long A $Bbrass$7 chunk is here.`
+ThFl 100934
+Val raw 1 0 0 0 0 0 0 0 `
+END_THING
+
+THING 100011
+Name chunk copper`
+Level 20
+HWT 0 6
+Cost 114
+Short a $9copper$7 chunk`
+Wear wield`
+Long A $9copper$7 chunk is here.`
+ThFl 100934
+Val raw 1 1 0 0 0 0 0 0 `
+END_THING
+
+THING 100012
+Name chunk iron`
+Level 30
+HWT 0 8
+Cost 257
+Short an $8iron$7 chunk`
+Wear wield`
+Long An $8iron$7 chunk is here.`
+ThFl 100934
+Val raw 1 2 0 0 0 0 0 0 `
+END_THING
+
+THING 100013
+Name chunk steel`
+Level 40
+HWT 0 10
+Cost 457
+Short a $Fsteel$7 chunk`
+Wear wield`
+Long A $Fsteel$7 chunk is here.`
+ThFl 100934
+Val raw 1 3 0 0 0 0 0 0 `
+END_THING
+
+THING 100014
+Name chunk silver`
+Level 50
+HWT 0 12
+Cost 714
+Short a $Fsilver$7 chunk`
+Wear wield`
+Long A $Fsilver$7 chunk is here.`
+ThFl 100934
+Val raw 1 4 0 0 0 0 0 0 `
+END_THING
+
+THING 100015
+Name chunk gold`
+Level 60
+HWT 0 14
+Cost 1028
+Short a $Bgold$7 chunk`
+Wear wield`
+Long A $Bgold$7 chunk is here.`
+ThFl 100934
+Val raw 1 5 0 0 0 0 0 0 `
+END_THING
+
+THING 100016
+Name chunk platinum`
+Level 70
+HWT 0 16
+Cost 1400
+Short a $Fplatinum$7 chunk`
+Wear wield`
+Long A $Fplatinum$7 chunk is here.`
+ThFl 100934
+Val raw 1 6 0 0 0 0 0 0 `
+END_THING
+
+THING 100017
+Name chunk obsidian`
+Level 80
+HWT 0 16
+Cost 1828
+Short an $8obsidian$7 chunk`
+Wear wield`
+Long An $8obsidian$7 chunk is here.`
+ThFl 100934
+Val raw 1 7 0 0 0 0 0 0 `
+END_THING
+
+THING 100018
+Name chunk mithril`
+Level 90
+HWT 0 14
+Cost 2314
+Short a $Emithril$7 chunk`
+Wear wield`
+Long A $Emithril$7 chunk is here.`
+ThFl 100934
+Val raw 1 8 0 0 0 0 0 0 `
+END_THING
+
+THING 100019
+Name chunk adamantium`
+Level 100
+HWT 0 12
+Cost 2857
+Short an $Dadamantium$7 chunk`
+Wear wield`
+Long An $Dadamantium$7 chunk is here.`
+ThFl 100934
+Val raw 1 9 0 0 0 0 0 0 `
+END_THING
+
+THING 100040
+Name anvil brass`
+Level 10
+HWT 0 30
+Cost 1428
+Short a $Bbrass$7 anvil`
+Wear wield`
+Long A $Bbrass$7 anvil is here.`
+ThFl 100934
+Val tool 2 0 0 0 0 0 0 0 `
+END_THING
+
+THING 100041
+Name anvil copper`
+Level 20
+HWT 0 45
+Cost 5714
+Short a $9copper$7 anvil`
+Wear wield`
+Long A $9copper$7 anvil is here.`
+ThFl 100934
+Val tool 2 1 0 0 0 0 0 0 `
+END_THING
+
+THING 100042
+Name anvil iron`
+Level 30
+HWT 0 60
+Cost 12857
+Short an $8iron$7 anvil`
+Wear wield`
+Long An $8iron$7 anvil is here.`
+ThFl 100934
+Val tool 2 2 0 0 0 0 0 0 `
+END_THING
+
+THING 100043
+Name anvil steel`
+Level 40
+HWT 0 75
+Cost 22857
+Short a $Fsteel$7 anvil`
+Wear wield`
+Long A $Fsteel$7 anvil is here.`
+ThFl 100934
+Val tool 2 3 0 0 0 0 0 0 `
+END_THING
+
+THING 100044
+Name anvil silver`
+Level 50
+HWT 0 90
+Cost 35714
+Short a $Fsilver$7 anvil`
+Wear wield`
+Long A $Fsilver$7 anvil is here.`
+ThFl 100934
+Val tool 2 4 0 0 0 0 0 0 `
+END_THING
+
+THING 100045
+Name anvil gold`
+Level 60
+HWT 0 105
+Cost 51428
+Short a $Bgold$7 anvil`
+Wear wield`
+Long A $Bgold$7 anvil is here.`
+ThFl 100934
+Val tool 2 5 0 0 0 0 0 0 `
+END_THING
+
+THING 100046
+Name anvil platinum`
+Level 70
+HWT 0 120
+Cost 70000
+Short a $Fplatinum$7 anvil`
+Wear wield`
+Long A $Fplatinum$7 anvil is here.`
+ThFl 100934
+Val tool 2 6 0 0 0 0 0 0 `
+END_THING
+
+THING 100047
+Name anvil obsidian`
+Level 80
+HWT 0 120
+Cost 91428
+Short an $8obsidian$7 anvil`
+Wear wield`
+Long An $8obsidian$7 anvil is here.`
+ThFl 100934
+Val tool 2 7 0 0 0 0 0 0 `
+END_THING
+
+THING 100048
+Name anvil mithril`
+Level 90
+HWT 0 105
+Cost 115714
+Short a $Emithril$7 anvil`
+Wear wield`
+Long A $Emithril$7 anvil is here.`
+ThFl 100934
+Val tool 2 8 0 0 0 0 0 0 `
+END_THING
+
+THING 100049
+Name anvil adamantium`
+Level 100
+HWT 0 90
+Cost 142857
+Short an $Dadamantium$7 anvil`
+Wear wield`
+Long An $Dadamantium$7 anvil is here.`
+ThFl 100934
+Val tool 2 9 0 0 0 0 0 0 `
+END_THING
+
+THING 100070
+Name hammer brass`
+Level 10
+HWT 0 8
+Cost 714
+Short a $Bbrass$7 hammer`
+Wear wield`
+Long A $Bbrass$7 hammer is here.`
+ThFl 100934
+Val tool 3 0 0 0 0 0 0 0 `
+END_THING
+
+THING 100071
+Name hammer copper`
+Level 20
+HWT 0 12
+Cost 2857
+Short a $9copper$7 hammer`
+Wear wield`
+Long A $9copper$7 hammer is here.`
+ThFl 100934
+Val tool 3 1 0 0 0 0 0 0 `
+END_THING
+
+THING 100072
+Name hammer iron`
+Level 30
+HWT 0 16
+Cost 6428
+Short an $8iron$7 hammer`
+Wear wield`
+Long An $8iron$7 hammer is here.`
+ThFl 100934
+Val tool 3 2 0 0 0 0 0 0 `
+END_THING
+
+THING 100073
+Name hammer steel`
+Level 40
+HWT 0 20
+Cost 11428
+Short a $Fsteel$7 hammer`
+Wear wield`
+Long A $Fsteel$7 hammer is here.`
+ThFl 100934
+Val tool 3 3 0 0 0 0 0 0 `
+END_THING
+
+THING 100074
+Name hammer silver`
+Level 50
+HWT 0 24
+Cost 17857
+Short a $Fsilver$7 hammer`
+Wear wield`
+Long A $Fsilver$7 hammer is here.`
+ThFl 100934
+Val tool 3 4 0 0 0 0 0 0 `
+END_THING
+
+THING 100075
+Name hammer gold`
+Level 60
+HWT 0 28
+Cost 25714
+Short a $Bgold$7 hammer`
+Wear wield`
+Long A $Bgold$7 hammer is here.`
+ThFl 100934
+Val tool 3 5 0 0 0 0 0 0 `
+END_THING
+
+THING 100076
+Name hammer platinum`
+Level 70
+HWT 0 32
+Cost 35000
+Short a $Fplatinum$7 hammer`
+Wear wield`
+Long A $Fplatinum$7 hammer is here.`
+ThFl 100934
+Val tool 3 6 0 0 0 0 0 0 `
+END_THING
+
+THING 100077
+Name hammer obsidian`
+Level 80
+HWT 0 32
+Cost 45714
+Short an $8obsidian$7 hammer`
+Wear wield`
+Long An $8obsidian$7 hammer is here.`
+ThFl 100934
+Val tool 3 7 0 0 0 0 0 0 `
+END_THING
+
+THING 100078
+Name hammer mithril`
+Level 90
+HWT 0 28
+Cost 57857
+Short a $Emithril$7 hammer`
+Wear wield`
+Long A $Emithril$7 hammer is here.`
+ThFl 100934
+Val tool 3 8 0 0 0 0 0 0 `
+END_THING
+
+THING 100079
+Name hammer adamantium`
+Level 100
+HWT 0 24
+Cost 71428
+Short an $Dadamantium$7 hammer`
+Wear wield`
+Long An $Dadamantium$7 hammer is here.`
+ThFl 100934
+Val tool 3 9 0 0 0 0 0 0 `
+END_THING
+
+THING 100100
+Name helmet brass`
+Level 10
+HWT 0 8
+Cost 428
+Short some $Bbrass$7 helmet`
+Wear head`
+Long Some $Bbrass$7 helmet are here.`
+ThFl 100934
+Val armor 2 0 0 0 0 0 0 0 `
+END_THING
+
+THING 100101
+Name helmet copper`
+Level 20
+HWT 0 12
+Cost 1714
+Short a $9copper$7 helmet`
+Wear head`
+Long A $9copper$7 helmet is here.`
+ThFl 100934
+Val armor 2 0 0 0 0 0 0 0 `
+Flag hp 0 0 1
+END_THING
+
+THING 100102
+Name helmet iron`
+Level 30
+HWT 0 16
+Cost 3857
+Short an $8iron$7 helmet`
+Wear head`
+Long An $8iron$7 helmet is here.`
+ThFl 100934
+Val armor 3 0 0 0 0 0 0 0 `
+Flag mv 0 0 1
+Flag hp 0 0 2
+END_THING
+
+THING 100103
+Name helmet steel`
+Level 40
+HWT 0 20
+Cost 6857
+Short a $Fsteel$7 helmet`
+Wear head`
+Long A $Fsteel$7 helmet is here.`
+ThFl 100934
+Val armor 4 0 0 0 0 0 0 0 `
+Flag sp_heal 0 0 1
+Flag mv 0 0 2
+Flag hp 0 0 3
+END_THING
+
+THING 100104
+Name helmet silver`
+Level 50
+HWT 0 24
+Cost 10714
+Short a $Fsilver$7 helmet`
+Wear head`
+Long A $Fsilver$7 helmet is here.`
+ThFl 100934
+Val armor 4 0 0 0 0 0 0 0 `
+Flag sp_heal 0 0 1
+Flag hit 0 0 1
+Flag mv 0 0 2
+Flag hp 0 0 4
+END_THING
+
+THING 100105
+Name helmet gold`
+Level 60
+HWT 0 28
+Cost 15428
+Short a $Bgold$7 helmet`
+Wear head`
+Long A $Bgold$7 helmet is here.`
+ThFl 100934
+Val armor 5 0 0 0 0 0 0 0 `
+Flag sp_heal 0 0 1
+Flag hit 0 0 1
+Flag mv 0 0 3
+Flag hp 0 0 5
+END_THING
+
+THING 100106
+Name helmet platinum`
+Level 70
+HWT 0 32
+Cost 21000
+Short a $Fplatinum$7 helmet`
+Wear head`
+Long A $Fplatinum$7 helmet is here.`
+ThFl 100934
+Val armor 6 0 0 0 0 0 0 0 `
+Flag sp_heal 0 0 2
+Flag hit 0 0 1
+Flag mv 0 0 4
+Flag hp 0 0 6
+END_THING
+
+THING 100107
+Name helmet obsidian`
+Level 80
+HWT 0 32
+Cost 27428
+Short an $8obsidian$7 helmet`
+Wear head`
+Long An $8obsidian$7 helmet is here.`
+ThFl 100934
+Val armor 6 0 0 0 0 0 0 0 `
+Flag sp_heal 0 0 2
+Flag hit 0 0 1
+Flag mv 0 0 4
+Flag hp 0 0 7
+END_THING
+
+THING 100108
+Name helmet mithril`
+Level 90
+HWT 0 28
+Cost 34714
+Short a $Emithril$7 helmet`
+Wear head`
+Long A $Emithril$7 helmet is here.`
+ThFl 100934
+Val armor 7 0 0 0 0 0 0 0 `
+Flag sp_heal 0 0 2
+Flag hit 0 0 2
+Flag mv 0 0 5
+Flag hp 0 0 8
+END_THING
+
+THING 100109
+Name helmet adamantium`
+Level 100
+HWT 0 24
+Cost 42857
+Short an $Dadamantium$7 helmet`
+Wear head`
+Long An $Dadamantium$7 helmet is here.`
+ThFl 100934
+Val armor 8 0 0 0 0 0 0 0 `
+Flag sp_heal 0 0 3
+Flag hit 0 0 2
+Flag wis 0 0 1
+Flag mv 0 0 6
+Flag hp 0 0 9
+END_THING
+
+THING 100130
+Name mask brass`
+Level 10
+HWT 0 4
+Cost 357
+Short some $Bbrass$7 mask`
+Wear face`
+Long Some $Bbrass$7 mask are here.`
+ThFl 100934
+Val armor 2 0 0 0 0 0 0 0 `
+END_THING
+
+THING 100131
+Name mask copper`
+Level 20
+HWT 0 6
+Cost 1428
+Short a $9copper$7 mask`
+Wear face`
+Long A $9copper$7 mask is here.`
+ThFl 100934
+Val armor 2 0 0 0 0 0 0 0 `
+Flag hp 0 0 1
+END_THING
+
+THING 100132
+Name mask iron`
+Level 30
+HWT 0 8
+Cost 3214
+Short an $8iron$7 mask`
+Wear face`
+Long An $8iron$7 mask is here.`
+ThFl 100934
+Val armor 3 0 0 0 0 0 0 0 `
+Flag mv 0 0 1
+Flag hp 0 0 2
+END_THING
+
+THING 100133
+Name mask steel`
+Level 40
+HWT 0 10
+Cost 5714
+Short a $Fsteel$7 mask`
+Wear face`
+Long A $Fsteel$7 mask is here.`
+ThFl 100934
+Val armor 4 0 0 0 0 0 0 0 `
+Flag sp_attack 0 0 1
+Flag mv 0 0 2
+Flag hp 0 0 3
+END_THING
+
+THING 100134
+Name mask silver`
+Level 50
+HWT 0 12
+Cost 8928
+Short a $Fsilver$7 mask`
+Wear face`
+Long A $Fsilver$7 mask is here.`
+ThFl 100934
+Val armor 4 0 0 0 0 0 0 0 `
+Flag sp_attack 0 0 1
+Flag hit 0 0 1
+Flag mv 0 0 2
+Flag hp 0 0 4
+END_THING
+
+THING 100135
+Name mask gold`
+Level 60
+HWT 0 14
+Cost 12857
+Short a $Bgold$7 mask`
+Wear face`
+Long A $Bgold$7 mask is here.`
+ThFl 100934
+Val armor 5 0 0 0 0 0 0 0 `
+Flag sp_attack 0 0 1
+Flag hit 0 0 1
+Flag mv 0 0 3
+Flag hp 0 0 5
+END_THING
+
+THING 100136
+Name mask platinum`
+Level 70
+HWT 0 16
+Cost 17500
+Short a $Fplatinum$7 mask`
+Wear face`
+Long A $Fplatinum$7 mask is here.`
+ThFl 100934
+Val armor 6 0 0 0 0 0 0 0 `
+Flag sp_attack 0 0 2
+Flag hit 0 0 1
+Flag mv 0 0 4
+Flag hp 0 0 6
+END_THING
+
+THING 100137
+Name mask obsidian`
+Level 80
+HWT 0 16
+Cost 22857
+Short an $8obsidian$7 mask`
+Wear face`
+Long An $8obsidian$7 mask is here.`
+ThFl 100934
+Val armor 6 0 0 0 0 0 0 0 `
+Flag sp_attack 0 0 2
+Flag hit 0 0 1
+Flag mv 0 0 4
+Flag hp 0 0 7
+END_THING
+
+THING 100138
+Name mask mithril`
+Level 90
+HWT 0 14
+Cost 28928
+Short a $Emithril$7 mask`
+Wear face`
+Long A $Emithril$7 mask is here.`
+ThFl 100934
+Val armor 7 0 0 0 0 0 0 0 `
+Flag sp_attack 0 0 2
+Flag hit 0 0 2
+Flag mv 0 0 5
+Flag hp 0 0 8
+END_THING
+
+THING 100139
+Name mask adamantium`
+Level 100
+HWT 0 12
+Cost 35714
+Short an $Dadamantium$7 mask`
+Wear face`
+Long An $Dadamantium$7 mask is here.`
+ThFl 100934
+Val armor 8 0 0 0 0 0 0 0 `
+Flag sp_attack 0 0 3
+Flag hit 0 0 2
+Flag int 0 0 1
+Flag mv 0 0 6
+Flag hp 0 0 9
+END_THING
+
+THING 100160
+Name plate brass`
+Level 10
+HWT 0 14
+Cost 500
+Short some $Bbrass$7 plate`
+Wear body`
+Long Some $Bbrass$7 plate are here.`
+ThFl 100934
+Val armor 0 2 0 0 0 0 0 0 `
+END_THING
+
+THING 100161
+Name plate copper`
+Level 20
+HWT 0 21
+Cost 2000
+Short a $9copper$7 plate`
+Wear body`
+Long A $9copper$7 plate is here.`
+ThFl 100934
+Val armor 0 2 0 0 0 0 0 0 `
+Flag hp 0 0 1
+END_THING
+
+THING 100162
+Name plate iron`
+Level 30
+HWT 0 28
+Cost 4500
+Short an $8iron$7 plate`
+Wear body`
+Long An $8iron$7 plate is here.`
+ThFl 100934
+Val armor 0 3 0 0 0 0 0 0 `
+Flag mv 0 0 1
+Flag hp 0 0 2
+END_THING
+
+THING 100163
+Name plate steel`
+Level 40
+HWT 0 35
+Cost 8000
+Short a $Fsteel$7 plate`
+Wear body`
+Long A $Fsteel$7 plate is here.`
+ThFl 100934
+Val armor 0 4 0 0 0 0 0 0 `
+Flag dam_resist 0 0 1
+Flag mv 0 0 2
+Flag hp 0 0 3
+END_THING
+
+THING 100164
+Name plate silver`
+Level 50
+HWT 0 42
+Cost 12500
+Short a $Fsilver$7 plate`
+Wear body`
+Long A $Fsilver$7 plate is here.`
+ThFl 100934
+Val armor 0 4 0 0 0 0 0 0 `
+Flag dam_resist 0 0 1
+Flag hit 0 0 1
+Flag mv 0 0 2
+Flag hp 0 0 4
+END_THING
+
+THING 100165
+Name plate gold`
+Level 60
+HWT 0 49
+Cost 18000
+Short a $Bgold$7 plate`
+Wear body`
+Long A $Bgold$7 plate is here.`
+ThFl 100934
+Val armor 0 5 0 0 0 0 0 0 `
+Flag dam_resist 0 0 1
+Flag hit 0 0 1
+Flag mv 0 0 3
+Flag hp 0 0 5
+END_THING
+
+THING 100166
+Name plate platinum`
+Level 70
+HWT 0 56
+Cost 24500
+Short a $Fplatinum$7 plate`
+Wear body`
+Long A $Fplatinum$7 plate is here.`
+ThFl 100934
+Val armor 0 6 0 0 0 0 0 0 `
+Flag dam_resist 0 0 2
+Flag hit 0 0 1
+Flag mv 0 0 4
+Flag hp 0 0 6
+END_THING
+
+THING 100167
+Name plate obsidian`
+Level 80
+HWT 0 56
+Cost 32000
+Short an $8obsidian$7 plate`
+Wear body`
+Long An $8obsidian$7 plate is here.`
+ThFl 100934
+Val armor 0 6 0 0 0 0 0 0 `
+Flag dam_resist 0 0 2
+Flag hit 0 0 1
+Flag mv 0 0 4
+Flag hp 0 0 7
+END_THING
+
+THING 100168
+Name plate mithril`
+Level 90
+HWT 0 49
+Cost 40500
+Short a $Emithril$7 plate`
+Wear body`
+Long A $Emithril$7 plate is here.`
+ThFl 100934
+Val armor 0 7 0 0 0 0 0 0 `
+Flag dam_resist 0 0 2
+Flag hit 0 0 2
+Flag mv 0 0 5
+Flag hp 0 0 8
+END_THING
+
+THING 100169
+Name plate adamantium`
+Level 100
+HWT 0 42
+Cost 50000
+Short an $Dadamantium$7 plate`
+Wear body`
+Long An $Dadamantium$7 plate is here.`
+ThFl 100934
+Val armor 0 8 0 0 0 0 0 0 `
+Flag dam_resist 0 0 3
+Flag hit 0 0 2
+Flag str 0 0 1
+Flag mv 0 0 6
+Flag hp 0 0 9
+END_THING
+
+THING 100190
+Name vambraces brass`
+Level 10
+HWT 0 10
+Cost 571
+Short some $Bbrass$7 vambraces`
+Wear arms`
+Long Some $Bbrass$7 vambraces are here.`
+ThFl 100934
+Val armor 0 0 2 0 0 0 0 0 `
+END_THING
+
+THING 100191
+Name vambraces copper`
+Level 20
+HWT 0 15
+Cost 2285
+Short a $9copper$7 vambraces`
+Wear arms`
+Long A $9copper$7 vambraces is here.`
+ThFl 100934
+Val armor 0 0 2 0 0 0 0 0 `
+Flag hp 0 0 1
+END_THING
+
+THING 100192
+Name vambraces iron`
+Level 30
+HWT 0 20
+Cost 5142
+Short an $8iron$7 vambraces`
+Wear arms`
+Long An $8iron$7 vambraces is here.`
+ThFl 100934
+Val armor 0 0 3 0 0 0 0 0 `
+Flag mv 0 0 1
+Flag hp 0 0 2
+END_THING
+
+THING 100193
+Name vambraces steel`
+Level 40
+HWT 0 25
+Cost 9142
+Short a $Fsteel$7 vambraces`
+Wear arms`
+Long A $Fsteel$7 vambraces is here.`
+ThFl 100934
+Val armor 0 0 4 0 0 0 0 0 `
+Flag defense 0 0 1
+Flag mv 0 0 2
+Flag hp 0 0 3
+END_THING
+
+THING 100194
+Name vambraces silver`
+Level 50
+HWT 0 30
+Cost 14285
+Short a $Fsilver$7 vambraces`
+Wear arms`
+Long A $Fsilver$7 vambraces is here.`
+ThFl 100934
+Val armor 0 0 4 0 0 0 0 0 `
+Flag defense 0 0 1
+Flag hit 0 0 1
+Flag mv 0 0 2
+Flag hp 0 0 4
+END_THING
+
+THING 100195
+Name vambraces gold`
+Level 60
+HWT 0 35
+Cost 20571
+Short a $Bgold$7 vambraces`
+Wear arms`
+Long A $Bgold$7 vambraces is here.`
+ThFl 100934
+Val armor 0 0 5 0 0 0 0 0 `
+Flag defense 0 0 1
+Flag hit 0 0 1
+Flag mv 0 0 3
+Flag hp 0 0 5
+END_THING
+
+THING 100196
+Name vambraces platinum`
+Level 70
+HWT 0 40
+Cost 28000
+Short a $Fplatinum$7 vambraces`
+Wear arms`
+Long A $Fplatinum$7 vambraces is here.`
+ThFl 100934
+Val armor 0 0 6 0 0 0 0 0 `
+Flag defense 0 0 2
+Flag hit 0 0 1
+Flag mv 0 0 4
+Flag hp 0 0 6
+END_THING
+
+THING 100197
+Name vambraces obsidian`
+Level 80
+HWT 0 40
+Cost 36571
+Short an $8obsidian$7 vambraces`
+Wear arms`
+Long An $8obsidian$7 vambraces is here.`
+ThFl 100934
+Val armor 0 0 6 0 0 0 0 0 `
+Flag defense 0 0 2
+Flag hit 0 0 1
+Flag mv 0 0 4
+Flag hp 0 0 7
+END_THING
+
+THING 100198
+Name vambraces mithril`
+Level 90
+HWT 0 35
+Cost 46285
+Short a $Emithril$7 vambraces`
+Wear arms`
+Long A $Emithril$7 vambraces is here.`
+ThFl 100934
+Val armor 0 0 7 0 0 0 0 0 `
+Flag defense 0 0 2
+Flag hit 0 0 2
+Flag mv 0 0 5
+Flag hp 0 0 8
+END_THING
+
+THING 100199
+Name vambraces adamantium`
+Level 100
+HWT 0 30
+Cost 57142
+Short an $Dadamantium$7 vambraces`
+Wear arms`
+Long An $Dadamantium$7 vambraces is here.`
+ThFl 100934
+Val armor 0 0 8 0 0 0 0 0 `
+Flag defense 0 0 3
+Flag hit 0 0 2
+Flag str 0 0 1
+Flag mv 0 0 6
+Flag hp 0 0 9
+END_THING
+
+THING 100220
+Name gauntlets brass`
+Level 10
+HWT 0 4
+Cost 500
+Short some $Bbrass$7 gauntlets`
+Wear hands`
+Long Some $Bbrass$7 gauntlets are here.`
+ThFl 100934
+Val armor 0 0 2 0 0 0 0 0 `
+END_THING
+
+THING 100221
+Name gauntlets copper`
+Level 20
+HWT 0 6
+Cost 2000
+Short a $9copper$7 gauntlets`
+Wear hands`
+Long A $9copper$7 gauntlets is here.`
+ThFl 100934
+Val armor 0 0 2 0 0 0 0 0 `
+Flag hp 0 0 1
+END_THING
+
+THING 100222
+Name gauntlets iron`
+Level 30
+HWT 0 8
+Cost 4500
+Short an $8iron$7 gauntlets`
+Wear hands`
+Long An $8iron$7 gauntlets is here.`
+ThFl 100934
+Val armor 0 0 3 0 0 0 0 0 `
+Flag mv 0 0 1
+Flag hp 0 0 2
+END_THING
+
+THING 100223
+Name gauntlets steel`
+Level 40
+HWT 0 10
+Cost 8000
+Short a $Fsteel$7 gauntlets`
+Wear hands`
+Long A $Fsteel$7 gauntlets is here.`
+ThFl 100934
+Val armor 0 0 4 0 0 0 0 0 `
+Flag th_attack 0 0 1
+Flag mv 0 0 2
+Flag hp 0 0 3
+END_THING
+
+THING 100224
+Name gauntlets silver`
+Level 50
+HWT 0 12
+Cost 12500
+Short a $Fsilver$7 gauntlets`
+Wear hands`
+Long A $Fsilver$7 gauntlets is here.`
+ThFl 100934
+Val armor 0 0 4 0 0 0 0 0 `
+Flag th_attack 0 0 1
+Flag hit 0 0 1
+Flag mv 0 0 2
+Flag hp 0 0 4
+END_THING
+
+THING 100225
+Name gauntlets gold`
+Level 60
+HWT 0 14
+Cost 18000
+Short a $Bgold$7 gauntlets`
+Wear hands`
+Long A $Bgold$7 gauntlets is here.`
+ThFl 100934
+Val armor 0 0 5 0 0 0 0 0 `
+Flag th_attack 0 0 1
+Flag hit 0 0 1
+Flag mv 0 0 3
+Flag hp 0 0 5
+END_THING
+
+THING 100226
+Name gauntlets platinum`
+Level 70
+HWT 0 16
+Cost 24500
+Short a $Fplatinum$7 gauntlets`
+Wear hands`
+Long A $Fplatinum$7 gauntlets is here.`
+ThFl 100934
+Val armor 0 0 6 0 0 0 0 0 `
+Flag th_attack 0 0 2
+Flag hit 0 0 1
+Flag mv 0 0 4
+Flag hp 0 0 6
+END_THING
+
+THING 100227
+Name gauntlets obsidian`
+Level 80
+HWT 0 16
+Cost 32000
+Short an $8obsidian$7 gauntlets`
+Wear hands`
+Long An $8obsidian$7 gauntlets is here.`
+ThFl 100934
+Val armor 0 0 6 0 0 0 0 0 `
+Flag th_attack 0 0 2
+Flag hit 0 0 1
+Flag mv 0 0 4
+Flag hp 0 0 7
+END_THING
+
+THING 100228
+Name gauntlets mithril`
+Level 90
+HWT 0 14
+Cost 40500
+Short a $Emithril$7 gauntlets`
+Wear hands`
+Long A $Emithril$7 gauntlets is here.`
+ThFl 100934
+Val armor 0 0 7 0 0 0 0 0 `
+Flag th_attack 0 0 2
+Flag hit 0 0 2
+Flag mv 0 0 5
+Flag hp 0 0 8
+END_THING
+
+THING 100229
+Name gauntlets adamantium`
+Level 100
+HWT 0 12
+Cost 50000
+Short an $Dadamantium$7 gauntlets`
+Wear hands`
+Long An $Dadamantium$7 gauntlets is here.`
+ThFl 100934
+Val armor 0 0 8 0 0 0 0 0 `
+Flag th_attack 0 0 3
+Flag hit 0 0 2
+Flag dex 0 0 1
+Flag mv 0 0 6
+Flag hp 0 0 9
+END_THING
+
+THING 100250
+Name shield brass`
+Level 10
+HWT 0 10
+Cost 428
+Short some $Bbrass$7 shield`
+Wear shield`
+Long Some $Bbrass$7 shield are here.`
+ThFl 100934
+Val armor 1 1 1 1 0 0 0 0 `
+END_THING
+
+THING 100251
+Name shield copper`
+Level 20
+HWT 0 15
+Cost 1714
+Short a $9copper$7 shield`
+Wear shield`
+Long A $9copper$7 shield is here.`
+ThFl 100934
+Val armor 1 1 1 1 0 0 0 0 `
+Flag hp 0 0 1
+END_THING
+
+THING 100252
+Name shield iron`
+Level 30
+HWT 0 20
+Cost 3857
+Short an $8iron$7 shield`
+Wear shield`
+Long An $8iron$7 shield is here.`
+ThFl 100934
+Val armor 2 2 2 2 0 0 0 0 `
+Flag mv 0 0 1
+Flag hp 0 0 2
+END_THING
+
+THING 100253
+Name shield steel`
+Level 40
+HWT 0 25
+Cost 6857
+Short a $Fsteel$7 shield`
+Wear shield`
+Long A $Fsteel$7 shield is here.`
+ThFl 100934
+Val armor 2 2 2 2 0 0 0 0 `
+Flag defense 0 0 1
+Flag mv 0 0 2
+Flag hp 0 0 3
+END_THING
+
+THING 100254
+Name shield silver`
+Level 50
+HWT 0 30
+Cost 10714
+Short a $Fsilver$7 shield`
+Wear shield`
+Long A $Fsilver$7 shield is here.`
+ThFl 100934
+Val armor 3 3 3 3 0 0 0 0 `
+Flag defense 0 0 1
+Flag hit 0 0 1
+Flag mv 0 0 2
+Flag hp 0 0 4
+END_THING
+
+THING 100255
+Name shield gold`
+Level 60
+HWT 0 35
+Cost 15428
+Short a $Bgold$7 shield`
+Wear shield`
+Long A $Bgold$7 shield is here.`
+ThFl 100934
+Val armor 3 3 3 3 0 0 0 0 `
+Flag defense 0 0 1
+Flag hit 0 0 1
+Flag mv 0 0 3
+Flag hp 0 0 5
+END_THING
+
+THING 100256
+Name shield platinum`
+Level 70
+HWT 0 40
+Cost 21000
+Short a $Fplatinum$7 shield`
+Wear shield`
+Long A $Fplatinum$7 shield is here.`
+ThFl 100934
+Val armor 4 4 4 4 0 0 0 0 `
+Flag defense 0 0 2
+Flag hit 0 0 1
+Flag mv 0 0 4
+Flag hp 0 0 6
+END_THING
+
+THING 100257
+Name shield obsidian`
+Level 80
+HWT 0 40
+Cost 27428
+Short an $8obsidian$7 shield`
+Wear shield`
+Long An $8obsidian$7 shield is here.`
+ThFl 100934
+Val armor 4 4 4 4 0 0 0 0 `
+Flag defense 0 0 2
+Flag hit 0 0 1
+Flag mv 0 0 4
+Flag hp 0 0 7
+END_THING
+
+THING 100258
+Name shield mithril`
+Level 90
+HWT 0 35
+Cost 34714
+Short a $Emithril$7 shield`
+Wear shield`
+Long A $Emithril$7 shield is here.`
+ThFl 100934
+Val armor 5 5 5 5 0 0 0 0 `
+Flag defense 0 0 2
+Flag hit 0 0 2
+Flag mv 0 0 5
+Flag hp 0 0 8
+END_THING
+
+THING 100259
+Name shield adamantium`
+Level 100
+HWT 0 30
+Cost 42857
+Short an $Dadamantium$7 shield`
+Wear shield`
+Long An $Dadamantium$7 shield is here.`
+ThFl 100934
+Val armor 5 5 5 5 0 0 0 0 `
+Flag defense 0 0 3
+Flag hit 0 0 2
+Flag dex 0 0 1
+Flag mv 0 0 6
+Flag hp 0 0 9
+END_THING
+
+THING 100280
+Name sword brass`
+Level 10
+HWT 0 12
+Cost 428
+Short a $Bbrass$7 sword`
+Wear wield`
+Long A $Bbrass$7 sword is here.`
+ThFl 100934
+Val weapon 2 6 0 0 0 0 0 0 `
+END_THING
+
+THING 100281
+Name sword copper`
+Level 20
+HWT 0 18
+Cost 1714
+Short a $9copper$7 sword`
+Wear wield`
+Long A $9copper$7 sword is here.`
+ThFl 100934
+Val weapon 3 7 0 0 0 0 0 0 `
+END_THING
+
+THING 100282
+Name sword iron`
+Level 30
+HWT 0 24
+Cost 3857
+Short an $8iron$7 sword`
+Wear wield`
+Long An $8iron$7 sword is here.`
+ThFl 100934
+Val weapon 4 8 0 0 0 0 0 0 `
+END_THING
+
+THING 100283
+Name sword steel`
+Level 40
+HWT 0 30
+Cost 6857
+Short a $Fsteel$7 sword`
+Wear wield`
+Long A $Fsteel$7 sword is here.`
+ThFl 100934
+Val weapon 5 9 0 0 0 0 0 0 `
+Flag hit 0 0 1
+END_THING
+
+THING 100284
+Name sword silver`
+Level 50
+HWT 0 36
+Cost 10714
+Short a $Fsilver$7 sword`
+Wear wield`
+Long A $Fsilver$7 sword is here.`
+ThFl 100934
+Val weapon 6 11 0 0 0 0 0 0 `
+Flag hit 0 0 1
+END_THING
+
+THING 100285
+Name sword gold`
+Level 60
+HWT 0 42
+Cost 15428
+Short a $Bgold$7 sword`
+Wear wield`
+Long A $Bgold$7 sword is here.`
+ThFl 100934
+Val weapon 7 12 0 0 0 0 0 0 `
+Flag dam 0 0 1
+Flag hit 0 0 1
+END_THING
+
+THING 100286
+Name sword platinum`
+Level 70
+HWT 0 48
+Cost 21000
+Short a $Fplatinum$7 sword`
+Wear wield`
+Long A $Fplatinum$7 sword is here.`
+ThFl 100934
+Val weapon 8 13 0 0 0 0 0 0 `
+Flag dam 0 0 1
+Flag hit 0 0 2
+END_THING
+
+THING 100287
+Name sword obsidian`
+Level 80
+HWT 0 48
+Cost 27428
+Short an $8obsidian$7 sword`
+Wear wield`
+Long An $8obsidian$7 sword is here.`
+ThFl 100934
+Val weapon 9 14 0 0 0 0 0 0 `
+Flag dam 0 0 1
+Flag hit 0 0 2
+END_THING
+
+THING 100288
+Name sword mithril`
+Level 90
+HWT 0 42
+Cost 34714
+Short a $Emithril$7 sword`
+Wear wield`
+Long A $Emithril$7 sword is here.`
+ThFl 100934
+Val weapon 10 16 0 0 0 0 0 0 `
+Flag dam 0 0 1
+Flag hit 0 0 2
+END_THING
+
+THING 100289
+Name sword adamantium`
+Level 100
+HWT 0 36
+Cost 42857
+Short an $Dadamantium$7 sword`
+Wear wield`
+Long An $Dadamantium$7 sword is here.`
+ThFl 100934
+Val weapon 11 17 0 0 0 0 0 0 `
+Flag dam 0 0 1
+Flag hit 0 0 3
+END_THING
+
+THING 100310
+Name mace brass`
+Level 10
+HWT 0 10
+Cost 571
+Short a $Bbrass$7 mace`
+Wear wield`
+Long A $Bbrass$7 mace is here.`
+ThFl 100934
+Val weapon 3 7 2 0 0 0 0 0 `
+END_THING
+
+THING 100311
+Name mace copper`
+Level 20
+HWT 0 15
+Cost 2285
+Short a $9copper$7 mace`
+Wear wield`
+Long A $9copper$7 mace is here.`
+ThFl 100934
+Val weapon 4 8 2 0 0 0 0 0 `
+END_THING
+
+THING 100312
+Name mace iron`
+Level 30
+HWT 0 20
+Cost 5142
+Short an $8iron$7 mace`
+Wear wield`
+Long An $8iron$7 mace is here.`
+ThFl 100934
+Val weapon 5 9 2 0 0 0 0 0 `
+END_THING
+
+THING 100313
+Name mace steel`
+Level 40
+HWT 0 25
+Cost 9142
+Short a $Fsteel$7 mace`
+Wear wield`
+Long A $Fsteel$7 mace is here.`
+ThFl 100934
+Val weapon 6 10 2 0 0 0 0 0 `
+Flag hit 0 0 1
+END_THING
+
+THING 100314
+Name mace silver`
+Level 50
+HWT 0 30
+Cost 14285
+Short a $Fsilver$7 mace`
+Wear wield`
+Long A $Fsilver$7 mace is here.`
+ThFl 100934
+Val weapon 7 12 2 0 0 0 0 0 `
+Flag hit 0 0 1
+END_THING
+
+THING 100315
+Name mace gold`
+Level 60
+HWT 0 35
+Cost 20571
+Short a $Bgold$7 mace`
+Wear wield`
+Long A $Bgold$7 mace is here.`
+ThFl 100934
+Val weapon 8 13 2 0 0 0 0 0 `
+Flag dam 0 0 1
+Flag hit 0 0 1
+END_THING
+
+THING 100316
+Name mace platinum`
+Level 70
+HWT 0 40
+Cost 28000
+Short a $Fplatinum$7 mace`
+Wear wield`
+Long A $Fplatinum$7 mace is here.`
+ThFl 100934
+Val weapon 9 14 2 0 0 0 0 0 `
+Flag dam 0 0 1
+Flag hit 0 0 2
+END_THING
+
+THING 100317
+Name mace obsidian`
+Level 80
+HWT 0 40
+Cost 36571
+Short an $8obsidian$7 mace`
+Wear wield`
+Long An $8obsidian$7 mace is here.`
+ThFl 100934
+Val weapon 10 15 2 0 0 0 0 0 `
+Flag dam 0 0 1
+Flag hit 0 0 2
+END_THING
+
+THING 100318
+Name mace mithril`
+Level 90
+HWT 0 35
+Cost 46285
+Short a $Emithril$7 mace`
+Wear wield`
+Long A $Emithril$7 mace is here.`
+ThFl 100934
+Val weapon 11 17 2 0 0 0 0 0 `
+Flag dam 0 0 1
+Flag hit 0 0 2
+END_THING
+
+THING 100319
+Name mace adamantium`
+Level 100
+HWT 0 30
+Cost 57142
+Short an $Dadamantium$7 mace`
+Wear wield`
+Long An $Dadamantium$7 mace is here.`
+ThFl 100934
+Val weapon 12 18 2 0 0 0 0 0 `
+Flag wis 0 0 1
+Flag dam 0 0 1
+Flag hit 0 0 3
+END_THING
+
+THING 100340
+Name dagger brass`
+Level 10
+HWT 0 4
+Cost 857
+Short a $Bbrass$7 dagger`
+Wear wield`
+Long A $Bbrass$7 dagger is here.`
+ThFl 100934
+Val weapon 1 5 1 0 0 0 0 0 `
+END_THING
+
+THING 100341
+Name dagger copper`
+Level 20
+HWT 0 6
+Cost 3428
+Short a $9copper$7 dagger`
+Wear wield`
+Long A $9copper$7 dagger is here.`
+ThFl 100934
+Val weapon 2 6 1 0 0 0 0 0 `
+END_THING
+
+THING 100342
+Name dagger iron`
+Level 30
+HWT 0 8
+Cost 7714
+Short an $8iron$7 dagger`
+Wear wield`
+Long An $8iron$7 dagger is here.`
+ThFl 100934
+Val weapon 3 7 1 0 0 0 0 0 `
+END_THING
+
+THING 100343
+Name dagger steel`
+Level 40
+HWT 0 10
+Cost 13714
+Short a $Fsteel$7 dagger`
+Wear wield`
+Long A $Fsteel$7 dagger is here.`
+ThFl 100934
+Val weapon 4 8 1 0 0 0 0 0 `
+Flag hit 0 0 1
+END_THING
+
+THING 100344
+Name dagger silver`
+Level 50
+HWT 0 12
+Cost 21428
+Short a $Fsilver$7 dagger`
+Wear wield`
+Long A $Fsilver$7 dagger is here.`
+ThFl 100934
+Val weapon 5 10 1 0 0 0 0 0 `
+Flag hit 0 0 1
+END_THING
+
+THING 100345
+Name dagger gold`
+Level 60
+HWT 0 14
+Cost 30857
+Short a $Bgold$7 dagger`
+Wear wield`
+Long A $Bgold$7 dagger is here.`
+ThFl 100934
+Val weapon 6 11 1 0 0 0 0 0 `
+Flag dam 0 0 1
+Flag hit 0 0 1
+END_THING
+
+THING 100346
+Name dagger platinum`
+Level 70
+HWT 0 16
+Cost 42000
+Short a $Fplatinum$7 dagger`
+Wear wield`
+Long A $Fplatinum$7 dagger is here.`
+ThFl 100934
+Val weapon 7 12 1 0 0 0 0 0 `
+Flag dam 0 0 1
+Flag hit 0 0 2
+END_THING
+
+THING 100347
+Name dagger obsidian`
+Level 80
+HWT 0 16
+Cost 54857
+Short an $8obsidian$7 dagger`
+Wear wield`
+Long An $8obsidian$7 dagger is here.`
+ThFl 100934
+Val weapon 8 13 1 0 0 0 0 0 `
+Flag dam 0 0 1
+Flag hit 0 0 2
+END_THING
+
+THING 100348
+Name dagger mithril`
+Level 90
+HWT 0 14
+Cost 69428
+Short a $Emithril$7 dagger`
+Wear wield`
+Long A $Emithril$7 dagger is here.`
+ThFl 100934
+Val weapon 9 15 1 0 0 0 0 0 `
+Flag dam 0 0 1
+Flag hit 0 0 2
+END_THING
+
+THING 100349
+Name dagger adamantium`
+Level 100
+HWT 0 12
+Cost 85714
+Short an $Dadamantium$7 dagger`
+Wear wield`
+Long An $Dadamantium$7 dagger is here.`
+ThFl 100934
+Val weapon 10 16 1 1 0 0 0 0 `
+Flag dex 0 0 1
+Flag dam 0 0 1
+Flag hit 0 0 3
+END_THING
+
+THING 100370
+Name belt brass`
+Level 10
+HWT 0 4
+Cost 857
+Short some $Bbrass$7 belt`
+Wear waist`
+Long Some $Bbrass$7 belt are here.`
+ThFl 100934
+Val armor 0 2 0 0 0 0 0 0 `
+END_THING
+
+THING 100371
+Name belt copper`
+Level 20
+HWT 0 6
+Cost 3428
+Short a $9copper$7 belt`
+Wear waist`
+Long A $9copper$7 belt is here.`
+ThFl 100934
+Val armor 0 2 0 0 0 0 0 0 `
+Flag hp 0 0 1
+END_THING
+
+THING 100372
+Name belt iron`
+Level 30
+HWT 0 8
+Cost 7714
+Short an $8iron$7 belt`
+Wear waist`
+Long An $8iron$7 belt is here.`
+ThFl 100934
+Val armor 0 3 0 0 0 0 0 0 `
+Flag mv 0 0 1
+Flag hp 0 0 2
+END_THING
+
+THING 100373
+Name belt steel`
+Level 40
+HWT 0 10
+Cost 13714
+Short a $Fsteel$7 belt`
+Wear waist`
+Long A $Fsteel$7 belt is here.`
+ThFl 100934
+Val armor 0 4 0 0 0 0 0 0 `
+Flag dam_resist 0 0 1
+Flag mv 0 0 2
+Flag hp 0 0 3
+END_THING
+
+THING 100374
+Name belt silver`
+Level 50
+HWT 0 12
+Cost 21428
+Short a $Fsilver$7 belt`
+Wear waist`
+Long A $Fsilver$7 belt is here.`
+ThFl 100934
+Val armor 0 4 0 0 0 0 0 0 `
+Flag dam_resist 0 0 1
+Flag hit 0 0 1
+Flag mv 0 0 2
+Flag hp 0 0 4
+END_THING
+
+THING 100375
+Name belt gold`
+Level 60
+HWT 0 14
+Cost 30857
+Short a $Bgold$7 belt`
+Wear waist`
+Long A $Bgold$7 belt is here.`
+ThFl 100934
+Val armor 0 5 0 0 0 0 0 0 `
+Flag dam_resist 0 0 1
+Flag hit 0 0 1
+Flag mv 0 0 3
+Flag hp 0 0 5
+END_THING
+
+THING 100376
+Name belt platinum`
+Level 70
+HWT 0 16
+Cost 42000
+Short a $Fplatinum$7 belt`
+Wear waist`
+Long A $Fplatinum$7 belt is here.`
+ThFl 100934
+Val armor 0 6 0 0 0 0 0 0 `
+Flag dam_resist 0 0 2
+Flag hit 0 0 1
+Flag mv 0 0 4
+Flag hp 0 0 6
+END_THING
+
+THING 100377
+Name belt obsidian`
+Level 80
+HWT 0 16
+Cost 54857
+Short an $8obsidian$7 belt`
+Wear waist`
+Long An $8obsidian$7 belt is here.`
+ThFl 100934
+Val armor 0 6 0 0 0 0 0 0 `
+Flag dam_resist 0 0 2
+Flag hit 0 0 1
+Flag mv 0 0 4
+Flag hp 0 0 7
+END_THING
+
+THING 100378
+Name belt mithril`
+Level 90
+HWT 0 14
+Cost 69428
+Short a $Emithril$7 belt`
+Wear waist`
+Long A $Emithril$7 belt is here.`
+ThFl 100934
+Val armor 0 7 0 0 0 0 0 0 `
+Flag dam_resist 0 0 2
+Flag hit 0 0 2
+Flag mv 0 0 5
+Flag hp 0 0 8
+END_THING
+
+THING 100379
+Name belt adamantium`
+Level 100
+HWT 0 12
+Cost 85714
+Short an $Dadamantium$7 belt`
+Wear waist`
+Long An $Dadamantium$7 belt is here.`
+ThFl 100934
+Val armor 0 8 0 0 0 0 0 0 `
+Flag dam_resist 0 0 3
+Flag hit 0 0 2
+Flag str 0 0 1
+Flag mv 0 0 6
+Flag hp 0 0 9
+END_THING
+
+THING 100400
+Name greaves brass`
+Level 10
+HWT 0 10
+Cost 571
+Short some $Bbrass$7 greaves`
+Wear legs`
+Long Some $Bbrass$7 greaves are here.`
+ThFl 100934
+Val armor 0 0 0 2 0 0 0 0 `
+END_THING
+
+THING 100401
+Name greaves copper`
+Level 20
+HWT 0 15
+Cost 2285
+Short a $9copper$7 greaves`
+Wear legs`
+Long A $9copper$7 greaves is here.`
+ThFl 100934
+Val armor 0 0 0 2 0 0 0 0 `
+Flag hp 0 0 1
+END_THING
+
+THING 100402
+Name greaves iron`
+Level 30
+HWT 0 20
+Cost 5142
+Short an $8iron$7 greaves`
+Wear legs`
+Long An $8iron$7 greaves is here.`
+ThFl 100934
+Val armor 0 0 0 3 0 0 0 0 `
+Flag kickdam 0 0 1
+Flag mv 0 0 1
+Flag hp 0 0 2
+END_THING
+
+THING 100403
+Name greaves steel`
+Level 40
+HWT 0 25
+Cost 9142
+Short a $Fsteel$7 greaves`
+Wear legs`
+Long A $Fsteel$7 greaves is here.`
+ThFl 100934
+Val armor 0 0 0 4 0 0 0 0 `
+Flag kickdam 0 0 1
+Flag mv 0 0 2
+Flag hp 0 0 3
+END_THING
+
+THING 100404
+Name greaves silver`
+Level 50
+HWT 0 30
+Cost 14285
+Short a $Fsilver$7 greaves`
+Wear legs`
+Long A $Fsilver$7 greaves is here.`
+ThFl 100934
+Val armor 0 0 0 4 0 0 0 0 `
+Flag kickdam 0 0 2
+Flag hit 0 0 1
+Flag mv 0 0 2
+Flag hp 0 0 4
+END_THING
+
+THING 100405
+Name greaves gold`
+Level 60
+HWT 0 35
+Cost 20571
+Short a $Bgold$7 greaves`
+Wear legs`
+Long A $Bgold$7 greaves is here.`
+ThFl 100934
+Val armor 0 0 0 5 0 0 0 0 `
+Flag kickdam 0 0 2
+Flag hit 0 0 1
+Flag mv 0 0 3
+Flag hp 0 0 5
+END_THING
+
+THING 100406
+Name greaves platinum`
+Level 70
+HWT 0 40
+Cost 28000
+Short a $Fplatinum$7 greaves`
+Wear legs`
+Long A $Fplatinum$7 greaves is here.`
+ThFl 100934
+Val armor 0 0 0 6 0 0 0 0 `
+Flag kickdam 0 0 3
+Flag hit 0 0 1
+Flag mv 0 0 4
+Flag hp 0 0 6
+END_THING
+
+THING 100407
+Name greaves obsidian`
+Level 80
+HWT 0 40
+Cost 36571
+Short an $8obsidian$7 greaves`
+Wear legs`
+Long An $8obsidian$7 greaves is here.`
+ThFl 100934
+Val armor 0 0 0 6 0 0 0 0 `
+Flag kickdam 0 0 3
+Flag hit 0 0 1
+Flag mv 0 0 4
+Flag hp 0 0 7
+END_THING
+
+THING 100408
+Name greaves mithril`
+Level 90
+HWT 0 35
+Cost 46285
+Short a $Emithril$7 greaves`
+Wear legs`
+Long A $Emithril$7 greaves is here.`
+ThFl 100934
+Val armor 0 0 0 7 0 0 0 0 `
+Flag kickdam 0 0 4
+Flag hit 0 0 2
+Flag mv 0 0 5
+Flag hp 0 0 8
+END_THING
+
+THING 100409
+Name greaves adamantium`
+Level 100
+HWT 0 30
+Cost 57142
+Short an $Dadamantium$7 greaves`
+Wear legs`
+Long An $Dadamantium$7 greaves is here.`
+ThFl 100934
+Val armor 0 0 0 8 0 0 0 0 `
+Flag kickdam 0 0 4
+Flag hit 0 0 2
+Flag mv 0 0 6
+Flag hp 0 0 9
+END_THING
+
+THING 100430
+Name boots brass`
+Level 10
+HWT 0 8
+Cost 714
+Short some $Bbrass$7 boots`
+Wear feet`
+Long Some $Bbrass$7 boots are here.`
+ThFl 100934
+Val armor 0 0 0 2 0 0 0 0 `
+END_THING
+
+THING 100431
+Name boots copper`
+Level 20
+HWT 0 12
+Cost 2857
+Short a $9copper$7 boots`
+Wear feet`
+Long A $9copper$7 boots is here.`
+ThFl 100934
+Val armor 0 0 0 2 0 0 0 0 `
+Flag hp 0 0 1
+END_THING
+
+THING 100432
+Name boots iron`
+Level 30
+HWT 0 16
+Cost 6428
+Short an $8iron$7 boots`
+Wear feet`
+Long An $8iron$7 boots is here.`
+ThFl 100934
+Val armor 0 0 0 3 0 0 0 0 `
+Flag kickdam 0 0 1
+Flag mv 0 0 1
+Flag hp 0 0 2
+END_THING
+
+THING 100433
+Name boots steel`
+Level 40
+HWT 0 20
+Cost 11428
+Short a $Fsteel$7 boots`
+Wear feet`
+Long A $Fsteel$7 boots is here.`
+ThFl 100934
+Val armor 0 0 0 4 0 0 0 0 `
+Flag kickdam 0 0 1
+Flag mv 0 0 2
+Flag hp 0 0 3
+END_THING
+
+THING 100434
+Name boots silver`
+Level 50
+HWT 0 24
+Cost 17857
+Short a $Fsilver$7 boots`
+Wear feet`
+Long A $Fsilver$7 boots is here.`
+ThFl 100934
+Val armor 0 0 0 4 0 0 0 0 `
+Flag kickdam 0 0 2
+Flag hit 0 0 1
+Flag mv 0 0 2
+Flag hp 0 0 4
+END_THING
+
+THING 100435
+Name boots gold`
+Level 60
+HWT 0 28
+Cost 25714
+Short a $Bgold$7 boots`
+Wear feet`
+Long A $Bgold$7 boots is here.`
+ThFl 100934
+Val armor 0 0 0 5 0 0 0 0 `
+Flag kickdam 0 0 2
+Flag hit 0 0 1
+Flag mv 0 0 3
+Flag hp 0 0 5
+END_THING
+
+THING 100436
+Name boots platinum`
+Level 70
+HWT 0 32
+Cost 35000
+Short a $Fplatinum$7 boots`
+Wear feet`
+Long A $Fplatinum$7 boots is here.`
+ThFl 100934
+Val armor 0 0 0 6 0 0 0 0 `
+Flag kickdam 0 0 3
+Flag hit 0 0 1
+Flag mv 0 0 4
+Flag hp 0 0 6
+END_THING
+
+THING 100437
+Name boots obsidian`
+Level 80
+HWT 0 32
+Cost 45714
+Short an $8obsidian$7 boots`
+Wear feet`
+Long An $8obsidian$7 boots is here.`
+ThFl 100934
+Val armor 0 0 0 6 0 0 0 0 `
+Flag kickdam 0 0 3
+Flag hit 0 0 1
+Flag mv 0 0 4
+Flag hp 0 0 7
+END_THING
+
+THING 100438
+Name boots mithril`
+Level 90
+HWT 0 28
+Cost 57857
+Short a $Emithril$7 boots`
+Wear feet`
+Long A $Emithril$7 boots is here.`
+ThFl 100934
+Val armor 0 0 0 7 0 0 0 0 `
+Flag kickdam 0 0 4
+Flag hit 0 0 2
+Flag mv 0 0 5
+Flag hp 0 0 8
+END_THING
+
+THING 100439
+Name boots adamantium`
+Level 100
+HWT 0 24
+Cost 71428
+Short an $Dadamantium$7 boots`
+Wear feet`
+Long An $Dadamantium$7 boots is here.`
+ThFl 100934
+Val armor 0 0 0 8 0 0 0 0 `
+Flag kickdam 0 0 4
+Flag hit 0 0 2
+Flag mv 0 0 6
+Flag hp 0 0 9
+END_THING
+
+END_OF_AREA
+

@@ -1,0 +1,382 @@
+\chapter{Values}
+
+\section{HOWTO}
+
+If you want to add a value, first find the list of values in 
+serv.h Look for the string ``VAL\_MAX'', and add your new value
+to the list using the VAL\_MAX number as the new value number.
+Increment VAL\_MAX. If you remove a value, leave a placeholder
+or you will mess up all of the numbers that come after that
+number. 
+
+The next step is to look in const.c for value\_list. Add a new
+row of information for your value down at the end of the list,
+just before the final entry for VAL\_MAX. Don't mess up the order
+of the values or bad things will happen. This setup is intentionally
+delicate for the sake of efficiency.
+
+For completeness, you should really add an entry to the helpfiles
+and this chapter for the sake of the documentation. I forget to
+do this sometimes, but I know that I really should do it.
+
+\section{Why?}
+
+Ok, you might be wondering why I made these little data chunks that I
+use for everything. Ok, I admit it. It comes down to laziness. Look,
+data comes in number form or string form. I didn't feel like having to
+code a little dorky piece of data for every little thing I wanted to
+make. I didn't want to have to store files as binary in order to save
+me trouble. I didn't want to have to deal with allocating and
+destroying random bits of data 10000 times a second just because
+everything has its own special little data ``needs''. I also didn't
+want to make a general database/scriptengine that would force me to do
+all my coding in some crappy language I would have to make up, and which
+wouldn't work a tenth as good as the standard tools.
+
+So, instead of going to the various extremes of having pointers to
+``mob data'' or ``room data'' or ``obj data'', or having a void
+*pointer and using some kind of fake (or real) inheritance to try to
+keep track of it all, or having some sort of totally general database
+where I still have to keep track of tons of things, I decided on this.
+
+\section{What is it}
+
+Every thing shares some common types of data. Other than that, they
+all have their own quirks and data types. So, I decided to make an
+interchangeable data chunk that I could just plop in and out of
+everything. I suppose there are other ways of doing this like byte by
+byte data, or special databases or void * pointers to chunks of
+different sizes, but I don't care if this is slick. I want it to be
+simple and easy to work with and to not cause me too much misery.
+
+Each value consists of a tag or type, a pointer to a value, 6 ints and
+a char *. Values represent lots of different things, but here are a
+few examples: exits, weapons, money, guarding, casting.
+
+If you want to add values to the game, you can do this by first making
+a new VAL\_SOMETHING constant in serv.h. Then, goto const.c and add a
+row to the values\_data table so that you can access the value within
+the editor. Then, add code to access that value. You use the
+find\_next\_value function, or the FNV macro o access a value within
+the game.
+
+If you ever want to remove a value, don't just remove it from the list
+in const.c Keep a ``blank'' value in there someplace so you don't
+screw up the list. I think it's set up so that the place in the array
+determines the value number set on an item, so you have to be sure to
+keep the blanks filled in.
+
+
+\section{Editing}
+
+Values are edited in two main ways. First, in the editor, you can type
+any or all of the word value, like v, va, val etc..., a value type
+(explained below), and then v0-v5 or word, and then a piece of data.
+The reason things stop at v5 is that NUM\_VALS = 6. That means the 
+array index goes from 0 to 5.
+
+For example, typing val weapon v0 5 would set the 0th value of a
+weapon value on the item you are editing to 5. It would also create
+the value if needed. It is also possible to delete values by typing
+val weapon delete, for example. Each item can only have one of each
+type of value. I considered allowing more, but it seemed like too much
+of a hassle, and this has worked well enough so far.
+
+For exits, there are also other things you can do to edit
+values. Since the main place values are used is for exits, it would be
+too much of a hassle to constantly type val eexit v0 4344 and stuff
+like that, so there are shortcuts which are explained
+here. Essentially, there is a shortcut called dig you can use when
+editng rooms. You should be inside of the room you are editing in
+order to use dig.
+
+The way this works is that you type $<$direction$>$ dig $<$blank/number$>$.
+
+The direction can be a single letter like e, or the whole word like
+east. If you dig and don't specify a number, the dig command will look
+in the area you are editing for the next available room thing that
+hasn't been created. It will then create that room thing, and it will
+make a value of the proper type with the v0 set to the new room
+number. You will then be transported to the new room you just created,
+and an exit in the new room will be placed which heads back to the
+original room you were in.
+
+If you type a specific number, then the game will automatically make
+the link to the room, it will make a link from the room back to your
+current room, but it will not move you. This difference in sometimes
+moving vs not moving is just because this is how it's easiest for
+me. If I want to make an NxK block of rooms, I can make a row of N
+rooms, and then another row parallel to the first, and when it comes
+time to link them up in the opposite direction, it just seemed easier
+to keep you in the original room.
+
+
+Now, here's a list of the values and what each of the numbers in each
+represent. This is all hardcoded, and each value can only hold a
+limited amount of data, so be careful when you want to expand
+this. Btw, if you ever need more numbers per value, my suggestion is
+to do things in 2 steps: load up the game using the old number of ints
+per value, and resave every area where the new ints needed are all
+0's. This is safer than trying to muck around with getting errors in
+each value when they are loaded in. So, for example if you need to go
+from 6 to 7 ints per value, or you do something else, then make the
+write\_value() function use the new number, and the read\_value()
+function still use the old amount, then once the data is saved, change
+read\_value to the new amount. This is a safer way of changing the
+savefiles than trying to do it all at once, although it should work
+unless you have a number for a word...then you are in deep doodoo.
+
+I will let v0-v6 represent val->val[0] to val->val[6] for shorthand notation.
+
+\bul eexit wexit sexit nexit uexit dexit -- These are all exit
+values. In each case, v0 = the room number you go to, v1 = current
+door flags, v2 = reset door flags, v3 = strength. This part is odd and
+a hack. :P The formula for this number is the number is equal to
+1000*max\_strength + curr\_strength. That means all the 50050 things
+around the game mean the doors have 50 max str, and 50 current str. v4
+is a trap number (based on trap spell number), and v5 is the key
+number that opens the door. The reason I do this is so that you can
+have several doors in one room each having different keys to open
+them. You can also have one key opening several doors. There are
+probably better or different ways to handle keys, but this works for
+now.
+
+\bul iexit -- This is a portal. v0 tells what room the portal goes
+to. You use portals by typing enter itemname. If an item doesn't have
+a portal in it, and you enter it, you end up inside of that object
+(like a boat). I haven't decided if I want to make portals do nasty
+things to people like damaging them or stripping them of their eq. One
+neat little tidbit is that you can look into a portal and see the room
+where it leads. This is useful for portalwhores who don't want to keep
+going out to see if enemies have left their hometown.
+
+\bul oexit -- This is a lid on a chest or container. My analogies were
+breaking down at this point, but essentially it works in the same way
+that doors do where you may need a key to open it, and it can be
+closed and locked and whatnot.
+
+\bul nouter, e, w, s, u , d, i , oouter. These are all clmbable
+objects. v0 = the room number it leads to. v1-v2 = flags. That means
+that one item can be climbed in several directions. There might also
+be flags someday which do things to people when they climb in that
+direction, but I haven't done anything with it yet.
+
+\bul weapon -- These are weapons. The damage range is from v0 to v1
+points. NOT DICE!!!! v2 is the type of weapon: 0 = slashing, 1 =
+piercing, 2 = concussion, 3 = whipping. So far, only piercing really
+does anything (for backstabs). You can also set weapons to have
+different numbers of attacks, like high damage weapons might be slow
+(- attacks), and light weapons might have more attacks. Be very
+careful of changing this. v4 and v5 deal with poisons. You will be
+able to coat weapons with poisons, and what happens essentially is
+that you get v4 shots of poison number v5. You can set up weapons to
+have poisons from the time they are created, but it isn't advised.
+
+\bul powershield -- These are devices that absorb damage and
+regenerate quickly. v1 = current power, v2 = max power.
+
+\bul gem -- These things store magical power so you can cast more spells.
+The detailed description will come in the spells section, but for
+right now, v0 = mana types, 1 = air, 2 = earth, 4 = fire, 8 = water,
+16 = spirit. v1 = current mana, v2 = max mana, v3 = level (added to
+your natural level, NOT the new level you can use to cast!!! Be
+careful about this!)
+
+\bul armor -- This is protective equipment. v0 = head armor, v1 = body
+armor, v2 = arms armor, v3 = legs armor. Each armor point deducts
+roughly half a damage point every time the wearer is hit in that
+location.
+
+\bul food -- You eat this. v0 = amt of hours of ``fullness'' the food
+gives, v2 = flags...maybe later. v3-v5 = spells cast on eater. Pills
+== food here.
+
+\bul drink -- You drink this. v0 = curr\_drinks, v1 = max\_drinks (0 =
+unlimited drinks), v3-v5 = spells it casts on the drinker (potions =
+drinks here, so potions should generally have one drink in them!).
+
+\bul magic\_item This doesn't really do anything yet, but the idea
+will be to make scrolls, rods, staves, wands, etc... using this
+thing. v0 = flags (Area...etc), v1 = curr\_charges, v2 = max\_charges,
+v3-v5 = spells cast.
+
+\bul tool -- Don't know what this will do, but v0 will be the type. Eg.. 
+pickaxe, lockpicks?  For now, v2 = 1 is mountain boots.
+
+\bul raw -- These are raw materials for building things. Probably
+won't use these as much as I had planned, since mining turns out to be
+pretty cheater. v0 = type..mineral, wood etc..., v1 = rank, v2 = number maybe??
+
+\bul ammo -- these are things that get shot from ranged weapons. v0-v1
+= min-maxdam, like weapons. v2 = curr\_shots, v3 =
+max\_shots..possibly for reloading clips...not really used atm,
+though. v4 = ammo\_type (must match ranged weapon v4).
+
+\bul ranged -- these are weapons that fire ammo at people. v0 = speed
+(how long you have to aim this. v1 = range, how far away you can
+shoot, v2 = number of shots fired at once, so you can make machine
+guns. :P v3 = multiplier, like in angband...the bows and stuff
+multiply the damage done. So, you might have to choose between more
+shots, or more powerful shots. v4 = ammo type (must match the v4 of
+the ammo loaded into it).
+
+\bul shop -- These are things that let mobs run shops. The v0 and v1
+are the opening and closing hours respectively. If they are the same,
+the shop is open 26 hours a day. If the first is after the second,
+then the shop stays open from the first hour overnight to the second,
+otherwise the shop stays open from hour v0 to hour v1. The v2 is the
+shop profit percent, basically how much it pays relative to the
+``true'' cost of an item. A 100 here is normal. Shops can also make
+things...like baking bread or something. If the hour is a multiple of
+v3, it will make an item number v4. It stops when it has 10 in the
+inventory I think. If you try to sell too many of an item at the shop,
+it will pay less for something the more of it it has. The v5 tells how
+many items the shop must have before it starts paying less for a
+certain item. The word for the value is a list of item types the shop
+works with. Basically, if you want a weapon shop, type word weapon, if
+you want something that sells food and drink, type word food
+drink. Then, the shop will sell items like that. Shops repair
+everything they sell so there's no need to make special repair flags
+or anything like that.
+
+\bul teacher teacher1 teacher2 -- v0-v5 are the spell numbers that
+things teach. This is one of the places where I hadn't made values a
+fixed length since I needed to make several teacher values to get
+around the problem. If this value is in a room, you can have a
+teaching room without a teacher. If it's on a mob, you can have a mob
+teacher. If it's on an item, it acts like a book in the sense of
+setting you to the minimal amount to improve on your own, and then the
+book disappears.
+
+\bul money Money is a value. It's easier than having 5-6 ints on each
+thing. Starting with v0, the amounts are copper, silver, gold,
+platinum, obsidian, adamantium. Each subsequent amount is the previous
+value times 10. If this is set on a thing that gets reset, the amount
+is randomized a little for each instance.
+
+\bul guard -- This is a thing that guards a direction or a thing. If a
+room guards, it blocks things moving out of it. A mob or object can
+block something in the room it's in. V0 = flags, 1 = guard\_door, 2 =
+guard\_door\_align, 4 = guard\_door\_pc, 8 = guard\_door\_npc, 16 =
+guard\_doc\_society, 32 = guard\_door\_vs\_above (used for guarding vs
+levels. v1-v3 = things it guards. If the thing being guarded is an
+object, if the object is picked up, the picker-upper gets attacked. If
+the thing is a mob, the guarder attacks anyone attacking the
+guarder. v4-v5 = clan/sect guards...guard vs all except those in the
+correct clan/sect. word = string of direction letters from newsud
+telling what directions it guards.
+
+But this gets more complicated. There are up to 10 kinds of clans or
+sects. If v4 is from 0 to CLAN\_MAX, this means we are guarding for a
+certain kind of clan.. 0 = clan, 1 = sect for now. v5 is the number
+we're guarding for. So, if you re clan[v4] != v5, you cannot pass the
+guard.
+
+On the other hand, if v4 > CLAN\_MAX, then v4 tells what we guard
+against in terms of player stats or levels. What happens is this. if
+type == 10, we guard vs level, 11 = guard vs remorts, 12 = guard vs
+mana, 13 = guard vs max\_mana, 14 = guard vs hps, 15 = guard vs max
+hps, 16 = guard vs bank, 40 to 40 + stat\_max - 1 = guard vs certain
+stats, 60 to 60 + guild\_max = guard vs guild levels. In each case,
+you cannot pass if your stat is too low. v4 sets the minimum amount
+you need to pass. I.e. you could set v4 = 41 (intelligence) and v5 =
+20 and you would need at least a 20 int to pass. There is a flag
+GUARD\_VS\_ABOVE which is useful if you want to say make a newbie
+area. You can make a blocker that blocks vs level 25+, and another
+blocks which blocks vs 1 or more remorts.
+
+\bul cast -- these are things that cast spells at intervals. If a room
+casts, it casts on things in it. These are room traps, and rooms that
+cast helpful spells. This sort of casting CAN be based on alignment if
+you want. If the room align is 0, it treats all other aligns the same,
+and if the align is nonzero, it helps its own align and hurts
+others. Mobs can cast on people with helpful spells if they are of the
+proper align, and harmful spells against people they fight. Objects
+will cast spells on behalf of their owner..i.e. they will heal the
+owner periodically if they cast that, and they will cast spells on
+their owner's enemy.
+
+
+\bul map -- This is a map item. It uses the mapping code to draw an ascii map of the area surrounding the location specified by v0 if the player looks at it.
+I may add something someday where maps can only be used a few times
+before they go poof, but it isn't in yet.
+
+\bul guild -- these are for guildmasters. v0 = guild type (shifted by
+1 so v0 = 0 is nothing). v1 = min tier, v2 = max tier. This means you
+can have lowlevel guildmasters out and about and make the higher tier
+ones really hard to get to.
+
+\bul feed -- This is used for some kind of ecology I started working
+on. The idea is the mobs have a list of things they like to eat. Every
+few minutes, they scan out a certain number of rooms and if they find
+something they like to eat, they go and hunt it down and try to kill
+it. If not, they stay hungry and they can eventually get weak and
+die. v0 = range they will hunt, v1 = internal, number of times they
+failed to find anything, v2-v5 = vnums of things they like to eat.
+
+\bul shop2 -- these are for player run shops. v0 = cost to take over
+v1 = percent you can skim off the top at any time, word = the name of
+the owner. This code isn't so great right now since if a player-run
+shop mob is killed, it dosen't come back.
+
+\bul light -- v0 = hours left, v1 = max\_hours, v2 = flags (is it
+lit). Used to light up rooms and stuff.
+
+\bul randpop -- these are used to set up random resets. They will be explained in the section on resets.
+
+\bul pet -- These are pets, ``charmed'' creatures and also things you summon
+        that follow you. They can either be set to be timed, or are permanent.
+So, that's all the values for now. If you find you need new data to add to things, and it won't work if it's a flag...make a new value. They are here to make your life easier, and don't worry about using a little extra memory...IMO it's more important to have an easier time expanding the code, since most things will only have 1-2 values at the most anyway.
+
+\bul society -- These creatures are in a society. v0 = society number. v1 =
+caste number. v2 = caste flags. v3 = caste activity or characterization. For
+example, it's the kind of raw material a worker looks for, and it's the kind
+of warrior something in the warrior caste is. v5 = the society that captures
+this one (society members can take each other prisoner when they raid and
+then players can free the prisoners as quests...) v6 = the room where this
+thing goes to sleep at night. Society creatures go to sleep and wake up
+in a cycle that can be set to be daytime sleeping if the society has
+a SOCIETY\_NOCTURNAL flag or no sleeping at all if the society has a 
+SOCIETY\_NOSLEEP flag.
+
+
+\bul build -- These chunks of data represent how built up a room owned
+by a society is. It makes the room look different like A Hobgoblin Village
+instead of A Grassy Field. These values also give defenders a combat
+bonus. v0 = society number v1 = build tier v2 = build rank (within a tier
+so that builders have to "build" several times to improve the city tier)
+v3 = what caste building is here (each type of CASTE\_FLAG has a certain
+building type that goes along with it (Eg. Pavilion goes with leaders,
+academy goes with mages...). v4 = how burnt the room is v6 = how many hours 
+of "decay" this room has had. When societies die, their city rooms fall
+into disrepair and eventually get overgrown and vanish. This keeps track
+of how long the city has spent at each level of disrepair.
+
+\bul popul -- These are used in the wilderness. The wilderness map is
+divided up into sectors that contain populations based on societies
+that fight and expand over time. When you walk through the
+wilderness, your encounters are not totally random. They can be groups
+of animals, or you may encounter members of a population that live
+in that sector. The only part of this that's used is v0 = the society
+number that this mob is based upon. This will be explained more later on.
+See WILDERNESS\_README.DAT in the /wld directory to see how to set up
+the wilderness. It should only consist if $\#$defining something and
+altering the makefile slightly.
+
+\bul madeof -- This is used for making items in terms of other items.
+v0 = process needed to make this item. v1-v6 = items needed to make this
+item. For example, to make bread, you may need to bake water, flour and
+sugar. This isn't implemented yet.
+
+\bul replaceby -- This is used so that if a timed object has this
+value, it gets replaced by something else instead of just disappearing.
+The syntax is the same as for VAL\_RANDPOP so you can have very complex
+replacement schemes.
+
+
+
+
+
+
+
+

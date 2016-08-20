@@ -1,0 +1,1065 @@
+THING 107100
+Name areagen.are`
+HpMv 0 10 5 400
+HWT 0 0
+Timer 2
+Short The Areagen Area`
+type Lonath`
+ThFl 1089531
+Flag Area 0 0 28
+END_THING
+
+THING 107101
+HWT 0 0
+Color 7
+Desc This is where the data chunks for the areagen code goes. The
+general format for sector names and sector prefixes is to have
+items that have names like field_names or forest_prefixes and
+then you just add the list of names to the description like
+normal. 
+ 
+If you want a prefix to have a chance of being blank, just
+add lines with two quotes right in a row and there will
+be a chance of no prefix.
+`
+Short The Areagen Area`
+MIW 1
+Symbol -`
+ThFl 524779
+END_THING
+
+THING 107106
+Name rough_names`
+HWT 0 0
+Desc Hills
+Hills
+Highlands
+Mountains
+Heights
+Canyon
+Lands
+Grounds
+Range
+Pass
+Passes
+Spine
+Reaches
+Region
+Spires
+Peaks
+Mount
+Cliffs
+'Mountain Range'
+Mountains
+Reaches
+Outlands
+Wastes
+Mountainside
+`
+END_THING
+
+THING 107107
+Name bridge_names`
+HWT 0 0
+Desc Bridge
+Walkway
+Catwalk
+Overpass
+Causeway
+Span
+'Raised Highway'
+'Raised Walkway'
+'Raised Roadway'
+Bridge
+Bridge
+`
+END_THING
+
+THING 107108
+Name bridge_prefixes`
+HWT 0 0
+Desc Rickety
+Sturdy
+Wooden
+Rotten
+Old
+Well-Maintained
+Squat
+Tall
+Creaky
+Swaying
+Rope
+Plank
+Planked
+Tree-Trunk
+Carved
+Ancient
+Stone
+Arched
+Neglected
+Covered
+Battered
+Weathered
+Cobblestone
+Well-Used
+Worn
+''
+''
+''
+''
+''
+Decaying
+Vine
+'Vine-Covered'
+Neglected
+`
+END_THING
+
+THING 107109
+Name bridge_locations`
+HWT 0 0
+Desc ''
+''
+''
+''
+''
+Over
+By
+On
+Across
+Crossing
+Spanning
+Above
+`
+END_THING
+
+THING 107110
+Name rough_patchnames`
+HWT 0 0
+Desc Hill
+Hill
+Hillock
+Mound
+Escarpment
+Overview
+Crevice
+Gully
+Crack
+Abuttment
+Canyon
+Washout
+'Dry Creekbed'
+Promontory
+Peak
+Hilltop
+Grounds
+Canyon
+Reach
+Cliff
+Pass
+Mountainside
+Mountain
+`
+END_THING
+
+THING 107111
+Name forest_names`
+HWT 0 0
+Desc Forest Woods Forest Woods Thicket Woodlands Bocage Copse Lands Dale Glen
+Grove Grounds Shire Marches Timberland Forest Woods Forest Woods 
+Reaches
+Outlands
+`
+END_THING
+
+THING 107112
+Name forest_patchnames`
+HWT 0 0
+Desc Copse
+Stand
+'Group of Trees'
+Woodland
+'Woodland Patch'
+'Forested Area'
+'Forested Patch'
+'Forested Area'
+'Wooded Area'
+'Woodland Area'
+'Wooded Patch'
+'Patch of Trees'
+'Cluster of Trees'
+'Stand of Trees'
+Grove
+Grounds
+`
+END_THING
+
+THING 107113
+Name field_names`
+HWT 0 0
+Desc Fields
+Plains
+Grasslands
+Savannah
+Expanses
+Valley
+Vale
+Steppes
+Glen
+Lands
+Dale
+Grounds
+Glens
+Valleys
+Savannahs
+Dales
+Shire
+Reaches
+Outlands
+`
+END_THING
+
+THING 107114
+Name field_prefixes`
+HWT 0 0
+Desc ''
+''
+''
+''
+Open
+Overgrown
+Clear
+Dry
+Lush
+Rocky
+Dusty
+Green
+Amber
+Barren
+Vibrant
+`
+END_THING
+
+THING 107115
+Name field_patchnames`
+HWT 0 0
+Desc Field
+Field
+Glen
+Clearing
+Area
+Meadow
+Dale
+Meadow
+Grounds
+`
+END_THING
+
+THING 107116
+Name desert_names`
+HWT 0 0
+Desc Desert
+Desert
+Wasteland
+Mesa
+Plateau
+Lands
+Canyon
+Plateaus
+Canyons
+Crag
+Mesa
+Badland
+Crag
+Mesas
+Desert
+Reaches
+Outlands
+Wastes
+`
+END_THING
+
+THING 107117
+Name desert_patchnames`
+HWT 0 0
+Desc Dune
+'Patch of Dry Ground'
+'Patch of Cracked Earth'
+'Patch of Sand'
+'Patch of Sandy Soil'
+Canyon
+Mesa
+Crag
+Cliff
+Plateau
+Arroyo
+`
+END_THING
+
+THING 107118
+Name swamp_names`
+HWT 0 0
+Desc Swamp
+Swamp
+Marsh
+Quagmire
+Morass
+Fen
+Bog
+Lands
+Jungle
+Rainforest
+Swamplands
+Swamps
+Marshes
+Jungles
+Bogs
+Quagmires
+Marshlands
+Moor
+Moors
+Marches
+`
+END_THING
+
+THING 107119
+Name swamp_patchnames`
+HWT 0 0
+Desc Swamp
+Swamp
+Fen
+Marsh
+Bog
+Quagmire
+'Ooze Pit'
+'Slime Pit'
+`
+END_THING
+
+THING 107120
+Name snow_names`
+HWT 0 0
+Desc Tundra 
+Taiga
+Earth
+Ground
+Lands
+Wastelands
+Fields
+Grounds
+Mountains
+Hills
+Heights
+Forests
+Glaciers
+Glacier
+`
+END_THING
+
+THING 107121
+Name snow_prefixes`
+HWT 0 0
+Desc Cold
+Icy
+Frozen
+Freezing
+Snowy
+Ice-Covered
+Snow-Covered
+Wintery
+Frigid
+Chilly
+`
+END_THING
+
+THING 107122
+Name snow_patchnames`
+HWT 0 0
+Desc 'Patch of Ground'
+'Piece of Ground'
+'Patch of Earth'
+'Piece of Earth'
+Patch
+Mountainside
+Trail
+Hills
+`
+END_THING
+
+THING 107123
+Name underground_names`
+HWT 0 0
+Desc Caves
+Caverns
+Tunnels
+Labyrinthe
+Mines
+Warrens
+Catacombs
+Halls
+Passages
+Grottos
+Grotto
+Caves
+Caves
+Ways
+Tombs
+`
+END_THING
+
+THING 107124
+Name underground_prefixes`
+HWT 0 0
+Desc ''
+''
+''
+Ancient
+Dusty
+Moldy
+Abandoned
+Lost
+Carved
+Rough
+Damp
+Rocky
+Rubble-Strewn
+Melted
+Volcanic
+Old
+Jagged
+Mazelike
+Labyrinthine
+Winding
+Twisting
+Twisty
+Twisted
+Writhing
+Jagged
+Jagged
+Rocky
+Damp
+Cold
+Rubble-Filled
+Rock-Filled
+Dank
+Musty
+Dark
+Lightless
+`
+END_THING
+
+THING 107125
+Name underground_patchnames`
+HWT 0 0
+Desc Cave
+Tunnel
+Cavern
+Shaft
+Passage
+Hole
+Passageway
+Borehole
+Cave
+Alcove
+Niche
+Way
+Warren
+Catacomb
+Gallery
+Chamber
+Grotto
+`
+END_THING
+
+THING 107126
+Name road_turns`
+HWT 0 0
+Desc Turn
+Bend
+Curve
+Shift
+Corner
+`
+END_THING
+
+THING 107127
+Name road_turn_prefixes`
+HWT 0 0
+Desc Gentle
+Sharp
+Slight
+Tight
+Wide
+Small
+Narrow
+''
+''
+''
+`
+END_THING
+
+THING 107128
+Name road_prefixes`
+HWT 0 0
+Desc ''
+''
+''
+''
+Treacherous
+Ancient
+Old
+Winding
+Twisty
+Wide
+Faint
+Narrow
+Well-Used
+Unused
+Broken
+Abandoned
+Cobblestone
+Stone
+Log
+Bumpy
+Smooth
+Cracked
+Stony
+Rough
+Rocky
+Paved
+Curvy
+`
+END_THING
+
+THING 107129
+Name road_names`
+HWT 0 0
+Desc Road
+Road
+Path
+Path
+Trail
+Trail
+Highway
+Lane
+Pathway
+Track
+Causeway
+Way
+`
+END_THING
+
+THING 107130
+Name watery_names`
+HWT 0 0
+Desc Inlet
+Lake
+Lagoon
+Fjord
+Gulf
+Estuary
+Bay
+Pond
+Deep
+Lake
+Lake
+Lake
+Inlet
+Bay
+Estuary
+`
+END_THING
+
+THING 107131
+Name stream_names`
+HWT 0 0
+Desc Stream
+Brook
+Stream
+Creek
+River
+Flow
+Washout
+Rivulet
+Streamlet
+Brooklet
+Branch
+Reach
+Runnel
+`
+END_THING
+
+THING 107132
+Name watery_prefixes`
+HWT 0 0
+Desc ''
+''
+''
+''
+''
+''
+Flowing
+Bubbling
+Moving
+Stagnant
+Meandering
+Running
+Smelly
+Clean
+Dirty
+Unclean
+Rolling
+Trickling
+Defiled
+Splashing
+Murmuring
+Gurgling
+Oozing
+Dribbling
+Percolating
+Babbling
+Small
+Tiny
+Large
+Giant
+Dirty
+Twisted
+Stony
+Stoney
+Rocky
+`
+END_THING
+
+THING 107133
+Name lake_names`
+HWT 0 0
+Desc Lake
+Lake
+Pond
+Whirlpool
+Well
+Pool
+Pond
+Pond
+Deep
+`
+END_THING
+
+THING 107134
+Name patch_prefixes`
+HWT 0 0
+Desc ''
+''
+''
+''
+Open
+Dense
+Barren
+Thick
+Thin
+Dark
+Light
+Small
+Large
+Giant
+Tiny
+Medium
+Overgrown
+`
+END_THING
+
+THING 107135
+Name tree_names`
+HWT 0 0
+Desc Oak
+Poplar
+Maple
+Pine
+Ash
+Dogwood
+Redwood
+Ironwood
+Cedar
+Hickory
+Alder
+Yew
+Mahogany
+Willow
+Elm
+`
+END_THING
+
+THING 107136
+Name tree_prefixes`
+HWT 0 0
+Desc Tall
+Short
+Squat
+Sturdy
+Rotten
+Diseased
+Healthy
+Tall
+'Very Tall'
+Giant
+Monstrous
+Steady
+Old
+Ancient
+Creaky
+Broad
+Wide
+Narrow
+Leaning
+Straight
+Arching
+`
+END_THING
+
+THING 107137
+Name below_tree_name`
+HWT 0 0
+Desc Below
+Beneath
+Under
+Underneath
+By
+Near
+'The Base of'
+'Near the Base of'
+'By the Base of'
+'At the Base of'
+At
+`
+END_THING
+
+THING 107138
+Name oasis_names`
+HWT 0 0
+Desc Oasis
+Oasis
+Well
+Pool
+`
+END_THING
+
+THING 107139
+Name underground_placenames`
+HWT 0 0
+Desc Underground
+Subterranean
+`
+END_THING
+
+THING 107140
+Name underground_forest_field_prefixes`
+HWT 0 0
+Desc Mushroom
+Fungus
+`
+END_THING
+
+THING 107141
+Name catwalk_names`
+HWT 0 0
+Desc Catwalk
+Overpass
+Bridge
+Walkway
+`
+END_THING
+
+THING 107142
+Name secret_door_prefixes`
+HWT 0 0
+Desc Hidden
+Obscured
+Secret
+Loose
+''
+''
+''
+Hidden
+Secret
+Sliding
+Forgotten
+Lost
+Moldy
+Mossy
+Leafy
+Creaky
+Creaking
+Turning
+Banded
+''
+''
+`
+END_THING
+
+THING 107143
+Name secret_door_names`
+HWT 0 0
+Desc Door
+Gate
+Rock
+Stone
+Boulder
+Slab
+Door
+Portal
+Grate
+Trapdoor
+Arch
+Rubble
+Board
+Plank
+Root
+Branch
+Trunk
+Wood
+Plate
+Door
+Archway
+Doorway
+Opening
+`
+END_THING
+
+THING 107144
+Name sector_suffixes`
+HWT 0 0
+Desc Dreams
+Doom
+Despair
+'the North'
+'the East'
+'the South'
+Evil
+Light
+Darkness
+Goodness
+Illusions
+Enchantment
+Sorrow
+Desolation
+Echoes
+Death
+Pain
+'the West'
+Forgetfulness
+'the Forgotten'
+'the Forsaken'
+'the Doomed'
+Mystery
+Mist
+Blood
+Gloom
+Sorcery
+Magic
+Peril
+Dread
+Fear
+Awe
+`
+END_THING
+
+THING 107145
+Name sector_prefixes`
+HWT 0 0
+Desc Forbidden
+Lost
+Forsaken
+Doomed
+Blighted
+Dead
+Desolate
+Unknown
+Dangerous
+Enchanted
+Magical
+Evil
+Barren
+Ancient
+Old
+Mystical
+Unholy
+Cursed
+Mysterious
+Shattered
+Holy
+Misty
+Whispering
+Emerald
+Golden
+Gloomy
+Scarred
+Sinister
+Pale
+Perilous
+Dread
+Rocky
+`
+END_THING
+
+THING 107146
+Name desert_prefixes`
+HWT 0 0
+Desc Hot
+Dry
+Blistering
+Scorched
+''
+''
+Barren
+Arid
+Craggy
+`
+END_THING
+
+THING 107147
+Name swamp_prefixes`
+HWT 0 0
+Desc Murky
+Dank
+Wet
+Cold
+Warm
+Misty
+''
+''
+Dense
+Thick
+Entangling
+Dark
+Enshrouded
+Murky
+Sulfurous
+Stinking
+Smelly
+Gagging
+Gaseous
+`
+END_THING
+
+THING 107148
+Name rough_prefixes`
+HWT 0 0
+Desc Jagged
+Rough
+Steep
+Cracked
+Crumbling
+Weathered
+Ancient
+Barren
+Gray
+Granite
+'Snow-Capped'
+Grey
+Black
+Dark
+Tall
+Giant
+Crooked
+Rocky
+Stony
+Stone
+Craggu
+`
+END_THING
+
+THING 107149
+Name forest_prefixes`
+HWT 0 0
+Desc Sylvan
+Green
+Emerald
+Vibrant
+Thriving
+Flourishing
+Growing
+Thick
+Thin
+Barren
+Decaying
+Dead
+Light
+Dark
+Ancient
+Overgrown
+Sparse
+Dense
+Packed
+Open
+Colorful
+Bright
+Dangerous
+Verdant
+`
+END_THING
+
+THING 107150
+Name close_by`
+HWT 0 0
+Desc near
+'near by'
+by
+along
+'close to'
+'close by'
+at
+alongside
+'next to'
+beside
+''
+''
+''
+''
+atop
+over
+on
+overlooking
+`
+END_THING
+
+THING 107151
+Name shoreline`
+HWT 0 0
+Desc 'the banks of'
+'the shore of'
+''
+''
+''
+''
+'the banks of'
+''
+''
+''
+'the side of'
+'the edge of'
+'bank of'
+'banks of'
+'the shore of'
+'the shoreline by'
+`
+END_THING
+
+THING 107152
+Name area_name_suffix`
+HWT 0 0
+Desc ia
+eth
+ith
+oth
+ath
+idol
+idor
+idon
+iden
+ar
+arn
+`
+END_THING
+
+END_OF_AREA
+
